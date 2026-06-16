@@ -38,3 +38,21 @@
     { passive: true }
   );
 })();
+
+// Dropdown sitemap toggle (click support for touch/mobile)
+(() => {
+  const dropdown = document.querySelector(".nav-dropdown");
+  if (!dropdown) return;
+
+  dropdown.querySelector(".site-title").addEventListener("click", (e) => {
+    // Only intercept if not navigating (i.e. treat as toggle on same page)
+    e.preventDefault();
+    dropdown.classList.toggle("is-open");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("is-open");
+    }
+  });
+})();
