@@ -1,0 +1,357 @@
+:root {
+  --paper: #fff;
+  --ink: #1d1d1f;
+  --muted: #66666c;
+  --rule: #d9d9dc;
+  --header: rgba(241, 241, 242, 0.96);
+  --accent: #4b2378;
+  --content-width: 760px;
+  --landing-width: 880px;
+  --header-height: 58px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.56;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Shared header ---------------------------------------------------------- */
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 1000;
+  height: var(--header-height);
+  background: var(--header);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.035);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 240ms ease, box-shadow 240ms ease;
+  will-change: transform;
+}
+
+.site-header.is-hidden {
+  transform: translateY(calc(-1 * var(--header-height) - 2px));
+}
+
+.site-header.is-scrolled {
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+}
+
+.header-inner {
+  width: min(100% - 34px, 1320px);
+  height: 100%;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.site-title {
+  color: #2a2a2d;
+  font-family: system-ui, "Segoe UI", sans-serif;
+  font-size: clamp(15px, 2vw, 22px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: #101011;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+  text-decoration: none;
+}
+
+/* Landing page ----------------------------------------------------------- */
+.landing {
+  width: min(100% - 36px, var(--landing-width));
+  margin: 0 auto;
+  padding: 94px 0 70px;
+}
+
+.hero {
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0 0 16px;
+  font-size: clamp(34px, 6vw, 56px);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+}
+
+.hero-image {
+  width: min(100%, 680px);
+  aspect-ratio: 16 / 9;
+  margin: 0 auto 24px;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+}
+
+.hero-copy {
+  width: min(100%, 680px);
+  margin: 0 auto 34px;
+}
+
+.hero-copy p {
+  margin: 0.35rem 0;
+}
+
+.project-grid {
+  width: min(100%, 680px);
+  margin: 0 auto;
+  display: grid;
+  gap: 16px;
+}
+
+.project-card {
+  display: block;
+  padding: 21px 24px;
+  border: 1px solid #bdbdc2;
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  border-color: #7e7e84;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.project-card h2 {
+  margin: 0;
+  color: var(--accent);
+  font-size: clamp(22px, 4vw, 29px);
+  line-height: 1.15;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.13em;
+}
+
+.project-card p {
+  margin: 5px 0 0;
+  font-style: italic;
+}
+
+.project-card .domain {
+  margin-top: 0;
+  font-size: 0.95em;
+  font-style: normal;
+}
+
+.home-footer {
+  margin-top: 46px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.site-footer {
+  text-align: center;
+  padding: 28px 0 36px;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+}
+
+.footer-logo {
+  margin: 0;
+  font-family: system-ui, "Segoe UI", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+/* Article pages ---------------------------------------------------------- */
+.article-shell {
+  width: min(100% - 36px, var(--content-width));
+  margin: 0 auto;
+  padding: 132px 0 110px;
+}
+
+.article-header {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.article-header h1 {
+  margin: 0;
+  font-size: clamp(37px, 6vw, 52px);
+  line-height: 1.14;
+  letter-spacing: 0.005em;
+}
+
+.article-header .subtitle {
+  margin: 16px auto 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.article-content h2,
+.article-content h3 {
+  line-height: 1.25;
+}
+
+.article-content h2 {
+  margin: 2.1em 0 0.7em;
+  font-size: 1.55em;
+}
+
+.article-content h3 {
+  margin: 1.75em 0 0.6em;
+  font-size: 1.2em;
+}
+
+.article-content p {
+  margin: 1.15em 0;
+}
+
+.article-content blockquote {
+  margin: 1.6em 0;
+  padding-left: 1.2em;
+  border-left: 3px solid var(--rule);
+  color: #444449;
+}
+
+.article-content .lead {
+  font-size: 1.08em;
+}
+
+.callout {
+  margin: 1.7em auto;
+  padding: 0.55em 0.8em;
+  border: 1px solid #7f7f84;
+  text-align: center;
+}
+
+.math-note {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.article-nav {
+  margin-top: 70px;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.88rem;
+}
+
+/* MathJax keeps equations readable on narrow screens. */
+.math-display,
+.mjx-container[display="true"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.35em 0;
+}
+
+/* Utility --------------------------------------------------------------- */
+.center {
+  text-align: center;
+}
+
+.small {
+  font-size: 0.9em;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 17px;
+  }
+
+  .header-inner {
+    width: min(100% - 22px, 1320px);
+  }
+
+  .site-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .landing {
+    padding-top: 86px;
+  }
+
+  .article-shell {
+    padding-top: 112px;
+  }
+
+  .article-header {
+    margin-bottom: 42px;
+  }
+
+  .project-card {
+    padding: 18px 16px;
+  }
+
+  .article-nav {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Replace this placeholder with your photograph</title>
+  <desc id="desc">Minimal abstract mountain landscape placeholder.</desc>
+  <rect width="1280" height="720" fill="#e9edf1"/>
+  <circle cx="1000" cy="160" r="72" fill="#c7cfd7"/>
+  <path d="M0 570 275 285 460 475 660 220 920 510 1090 365 1280 545V720H0Z" fill="#aeb9c3"/>
+  <path d="M0 625 260 430 430 555 640 355 845 565 1060 455 1280 600V720H0Z" fill="#7e8d99"/>
+  <text x="640" y="650" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#f8f8f8">replace assets/portrait-placeholder.svg with your image</text>
+</svg>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An example mathematics article about polynomial roots.">
+  <title>Polynomials and Their Roots</title>
+  <link rel="stylesheet" href="../styles.css">
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [["\\(", "\\)"]],
+        displayMath: [["\\[", "\\]"]],
+        processEscapes: true
+      },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="../script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-title" href="../index.html">
+        爪尺　卄乇丨丂乇
+      </a>
+      <a class="site-mark" href="../index.html" aria-label="Home">
+        <img src="../assets/monogram.svg" alt="" width="34" height="34">
+      </a>
+    </div>
+  </header>
+
+  <main class="article-shell">
+    <article>
+      <header class="article-header">
+        <h1>Polynomials, Their Derivatives, and Their Roots</h1>
+        <p class="subtitle">A sample proof-style page</p>
+      </header>
+
+      <div class="article-content">
+        <p>
+          Suppose a degree-\(m\) polynomial has distinct roots
+          \(r_1,\dots,r_m\). Then we may write
+        </p>
+
+        <div class="math-display">
+          \[
+            p(x)=\prod_{k=1}^{m}(x-r_k).
+          \]
+        </div>
+
+        <p>Differentiating a product of many factors gives</p>
+
+        <div class="math-display">
+          \[
+            p'(x)
+            =\sum_{j=1}^{m}
+              \prod_{\substack{k=1\\k\ne j}}^{m}(x-r_k).
+          \]
+        </div>
+
+        <div class="callout">
+          If \(p\) has \(m\) distinct zeros, then \(p\) and \(p'\) have no zeros in common.
+        </div>
+
+        <p>
+          Evaluate the derivative at one of the roots, say \(x=r_j\). Every
+          summand except one contains the factor \(r_j-r_j=0\). The surviving
+          term is
+        </p>
+
+        <div class="math-display">
+          \[
+            p'(r_j)
+            =\prod_{\substack{k=1\\k\ne j}}^{m}(r_j-r_k).
+          \]
+        </div>
+
+        <p>
+          Since the roots are distinct, each factor is nonzero. Therefore
+          \(p'(r_j)\ne0\), so no root of \(p\) is also a root of \(p'\).
+        </p>
+      </div>
+
+      <nav class="article-nav" aria-label="Article navigation">
+        <a href="infinite-series.html">← Previous article</a>
+        <a href="../index.html">Home →</a>
+      </nav>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <p class="footer-logo">爪尺　卄乇丨丂乇</p>
+  </footer>
+</body>
+</html>

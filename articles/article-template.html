@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Describe this article in one sentence.">
+  <title>Your Article Title</title>
+  <link rel="stylesheet" href="../styles.css">
+
+  <!-- MathJax renders LaTeX-style math inside ordinary HTML. -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [["\\(", "\\)"]],
+        displayMath: [["\\[", "\\]"]],
+        processEscapes: true
+      },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="../script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-title" href="../index.html">
+        爪尺　卄乇丨丂乇
+      </a>
+      <a class="site-mark" href="../index.html" aria-label="Home">
+        <img src="../assets/monogram.svg" alt="" width="34" height="34">
+      </a>
+    </div>
+  </header>
+
+  <main class="article-shell">
+    <article>
+      <header class="article-header">
+        <h1>Your Article Title</h1>
+        <p class="subtitle">Optional subtitle</p>
+      </header>
+
+      <div class="article-content">
+        <p class="lead">
+          Replace this paragraph with your opening.
+        </p>
+
+        <p>
+          Inline math example: \(e^{i\pi}+1=0\).
+        </p>
+
+        <div class="math-display">
+          \[
+            \int_{-\infty}^{\infty}e^{-x^2}\,dx=\sqrt{\pi}.
+          \]
+        </div>
+
+        <h2>A section heading</h2>
+
+        <p>
+          Continue writing here. Duplicate this file, rename it, and add a card
+          linking to it from <code>index.html</code>.
+        </p>
+      </div>
+
+      <nav class="article-nav" aria-label="Article navigation">
+        <a href="../index.html">← Home</a>
+      </nav>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <p class="footer-logo">爪尺　卄乇丨丂乇</p>
+  </footer>
+</body>
+</html>

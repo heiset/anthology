@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An example mathematics article about infinite series.">
+  <title>The Mysteries of the Infinite</title>
+  <link rel="stylesheet" href="../styles.css">
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [["\\(", "\\)"]],
+        displayMath: [["\\[", "\\]"]],
+        processEscapes: true
+      },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="../script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-title" href="../index.html">
+        爪尺　卄乇丨丂乇
+      </a>
+      <a class="site-mark" href="../index.html" aria-label="Home">
+        <img src="../assets/monogram.svg" alt="" width="34" height="34">
+      </a>
+    </div>
+  </header>
+
+  <main class="article-shell">
+    <article>
+      <header class="article-header">
+        <h1>The Mysteries of the Infinite</h1>
+        <p class="subtitle">A sample page showing prose and mathematics</p>
+      </header>
+
+      <div class="article-content">
+        <p class="lead">
+          This is an example article page. Write ordinary prose in HTML and place
+          LaTeX-style mathematics between MathJax delimiters.
+        </p>
+
+        <p>
+          Inline mathematics sits inside a sentence like this:
+          \(a_n = 1/n\). A displayed equation gets its own centered line:
+        </p>
+
+        <div class="math-display">
+          \[
+            1 + \frac12 + \frac13 + \frac14 + \cdots
+          \]
+        </div>
+
+        <p>Compare that series with a geometric series:</p>
+
+        <div class="math-display">
+          \[
+            1 + \frac12 + \frac14 + \frac18 + \cdots
+            = \sum_{k=0}^{\infty}\left(\frac12\right)^k
+            = 2.
+          \]
+        </div>
+
+        <h2>A small argument</h2>
+
+        <p>
+          The partial sum of the first \(n+1\) terms is
+        </p>
+
+        <div class="math-display">
+          \[
+            S_n = \sum_{k=0}^{n} r^k
+                = \frac{1-r^{n+1}}{1-r},
+            \qquad r \ne 1.
+          \]
+        </div>
+
+        <p>
+          When \(|r|&lt;1\), the power \(r^{n+1}\) tends to zero, leaving
+          \(S_n \to 1/(1-r)\).
+        </p>
+
+        <blockquote>
+          Keep the HTML plain. Let typography, spacing, and mathematics do most
+          of the visual work.
+        </blockquote>
+
+        <div class="callout">
+          \(\text{infinitely many terms}\;\not\Rightarrow\;\text{an infinite sum}\)
+        </div>
+      </div>
+
+      <nav class="article-nav" aria-label="Article navigation">
+        <a href="../index.html">← Home</a>
+        <a href="polynomial-roots.html">Next article →</a>
+      </nav>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <p class="footer-logo">爪尺　卄乇丨丂乇</p>
+  </footer>
+</body>
+</html>
