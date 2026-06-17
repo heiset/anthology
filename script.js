@@ -39,20 +39,12 @@
   );
 })();
 
-// Dropdown sitemap toggle (click support for touch/mobile)
+// Dropdown: hover to open, click anywhere to close
 (() => {
   const dropdown = document.querySelector(".nav-dropdown");
   if (!dropdown) return;
 
-  dropdown.querySelector(".site-title").addEventListener("click", (e) => {
-    // Only intercept if not navigating (i.e. treat as toggle on same page)
-    e.preventDefault();
-    dropdown.classList.toggle("is-open");
-  });
-
-  document.addEventListener("click", (e) => {
-    if (!dropdown.contains(e.target)) {
-      dropdown.classList.remove("is-open");
-    }
-  });
+  dropdown.addEventListener("mouseenter", () => dropdown.classList.add("is-open"));
+  dropdown.addEventListener("mouseleave", () => dropdown.classList.remove("is-open"));
+  document.addEventListener("click", () => dropdown.classList.remove("is-open"));
 })();

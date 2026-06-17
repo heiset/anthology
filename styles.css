@@ -85,9 +85,10 @@ a:hover {
 
 .nav-dropdown-menu {
   position: absolute;
-  top: calc(100% + 6px);
+  top: 100%;
   left: 0;
   min-width: 220px;
+  padding-top: 8px;
   display: none;
   flex-direction: column;
   gap: 4px;
@@ -200,6 +201,13 @@ a:hover {
   text-align: center;
   font-size: 0.9rem;
   color: var(--muted);
+}
+
+.contact-photo {
+  width: min(100%, 260px);
+  margin: 0 auto 20px;
+  border-radius: 3px;
+  display: block;
 }
 
 .site-footer {
