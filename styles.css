@@ -204,16 +204,24 @@ a:hover {
 }
 
 .contact-photo {
-  width: min(100%, 260px);
-  margin: 0 auto 20px;
+  width: min(100%, 160px);
+  margin: 0 0 20px;
   border-radius: 3px;
   display: block;
+}
+
+.contact-shell {
+  padding-top: 94px;
+  padding-bottom: 40px;
+}
+
+.contact-shell .article-content p {
+  margin: 0.2rem 0;
 }
 
 .site-footer {
   text-align: center;
   padding: 28px 0 36px;
-  border-top: 1px solid var(--rule);
   color: var(--muted);
 }
 
