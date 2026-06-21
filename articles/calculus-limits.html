@@ -6,14 +6,9 @@
   <meta name="description" content="The formal epsilon-delta definition of a limit.">
   <title>The Formal Definition of a Limit — Calculus</title>
   <link rel="stylesheet" href="../styles.css">
-
   <script>
     window.MathJax = {
-      tex: {
-        inlineMath: [["\\(", "\\)"]],
-        displayMath: [["\\[", "\\]"]],
-        processEscapes: true
-      },
+      tex: { inlineMath: [["\\(","\\)"]], displayMath: [["\\[","\\]"]], processEscapes: true },
       svg: { fontCache: "global" }
     };
   </script>
@@ -22,23 +17,23 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
-    <nav class="site-nav" aria-label="Site map">
-      <a href="../index.html">Home</a>
-      <a href="infinite-series.html" class="active">Calculus</a>
-      <a href="polynomial-roots.html">Exploring Math with Computers</a>
-      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
-      <a href="contact.html">Contact</a>
-      <!-- <a href="photography.html">Photography</a> -->
-    </nav>
-    <nav class="section-nav" aria-label="Calculus pages">
-      <span class="section-nav-label">Calculus</span>
-      <a href="infinite-series.html">The Mysteries of the Infinite</a>
-      <span class="section-nav-current">The Formal Definition of a Limit</span>
-    </nav>
-    <a class="site-mark" href="../index.html" aria-label="Home">
-      <img src="../glyph.png" alt="EOStarWarrior glyph" height="36">
-    </a>
+    <div class="header-inner">
+      <div class="nav-dropdown">
+        <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+        <span class="nav-hint">menu</span>
+        <nav class="nav-dropdown-menu" aria-label="Site map">
+          <a href="../index.html">Home</a>
+          <a href="infinite-series.html" class="active">Calculus</a>
+          <a href="polynomial-roots.html">Exploring Math with Computers</a>
+          <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+          <a href="contact.html">Contact</a>
+          <!-- <a href="photography.html">Photography</a> -->
+        </nav>
+      </div>
+      <a class="site-mark" href="../index.html" aria-label="Home">
+        <img src="../glyph.png" alt="" height="36">
+      </a>
+    </div>
   </header>
 
   <main class="article-shell">
@@ -47,6 +42,12 @@
         <h1>The Formal Definition of a Limit</h1>
         <p class="subtitle">epsilon, delta, and the language of precision</p>
       </header>
+
+      <nav class="section-nav" aria-label="Calculus pages">
+        <span class="section-nav-label">Calculus</span>
+        <a href="infinite-series.html">The Mysteries of the Infinite</a>
+        <span class="section-nav-current">The Formal Definition of a Limit</span>
+      </nav>
 
       <div class="article-content">
         <p class="lead">
@@ -60,11 +61,7 @@
         </p>
 
         <div class="math-display">
-          \[
-            0 < |x - a| < \delta
-            \implies
-            |f(x) - L| < \varepsilon.
-          \]
+          \[ 0 < |x - a| < \delta \implies |f(x) - L| < \varepsilon. \]
         </div>
 
         <p>
@@ -76,36 +73,26 @@
 
         <h2>A worked example</h2>
 
-        <p>
-          Claim: \(\displaystyle\lim_{x \to 3}(2x - 1) = 5\).
-        </p>
+        <p>Claim: \(\displaystyle\lim_{x \to 3}(2x - 1) = 5\).</p>
 
         <p>
-          We need \(|f(x) - 5| = |2x - 1 - 5| = |2x - 6| = 2|x - 3| < \varepsilon\).
-          So it suffices to choose \(\delta = \varepsilon / 2\):
+          We need \(|f(x) - 5| = |2x - 6| = 2|x - 3| < \varepsilon\).
+          Choose \(\delta = \varepsilon / 2\):
         </p>
 
         <div class="math-display">
           \[
             0 < |x - 3| < \frac{\varepsilon}{2}
-            \implies
-            |2x - 1 - 5| = 2|x-3| < \varepsilon.
+            \implies |2x - 1 - 5| = 2|x-3| < \varepsilon.
           \]
         </div>
-
-        <p>
-          The choice of \(\delta\) was guided by algebra — we unwound
-          \(|f(x) - L|\) until we saw \(|x - a|\) and could read off how small
-          \(\delta\) must be.
-        </p>
 
         <h2>Why this matters for series</h2>
 
         <p>
           Infinite series are defined in terms of limits: the sum
-          \(\sum_{k=0}^{\infty} a_k\) is by definition
-          \(\lim_{n \to \infty} S_n\) where \(S_n = \sum_{k=0}^{n} a_k\).
-          The epsilon-delta framework, transplanted to sequences, becomes
+          \(\sum_{k=0}^{\infty} a_k\) is \(\lim_{n \to \infty} S_n\) where
+          \(S_n = \sum_{k=0}^{n} a_k\). The epsilon-delta framework becomes
           the foundation for every convergence theorem.
         </p>
 

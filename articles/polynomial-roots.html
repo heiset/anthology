@@ -6,14 +6,9 @@
   <meta name="description" content="An example mathematics article about polynomial roots.">
   <title>Polynomials and Their Roots — Exploring Math with Computers</title>
   <link rel="stylesheet" href="../styles.css">
-
   <script>
     window.MathJax = {
-      tex: {
-        inlineMath: [["\\(", "\\)"]],
-        displayMath: [["\\[", "\\]"]],
-        processEscapes: true
-      },
+      tex: { inlineMath: [["\\(","\\)"]], displayMath: [["\\[","\\]"]], processEscapes: true },
       svg: { fontCache: "global" }
     };
   </script>
@@ -22,22 +17,23 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
-    <nav class="site-nav" aria-label="Site map">
-      <a href="../index.html">Home</a>
-      <a href="infinite-series.html">Calculus</a>
-      <a href="polynomial-roots.html" class="active">Exploring Math with Computers</a>
-      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
-      <a href="contact.html">Contact</a>
-      <!-- <a href="photography.html">Photography</a> -->
-    </nav>
-    <nav class="section-nav" aria-label="Exploring Math with Computers pages">
-      <span class="section-nav-label">Exploring Math with Computers</span>
-      <span class="section-nav-current">Polynomials and Their Roots</span>
-    </nav>
-    <a class="site-mark" href="../index.html" aria-label="Home">
-      <img src="../glyph.png" alt="EOStarWarrior glyph" height="36">
-    </a>
+    <div class="header-inner">
+      <div class="nav-dropdown">
+        <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+        <span class="nav-hint">menu</span>
+        <nav class="nav-dropdown-menu" aria-label="Site map">
+          <a href="../index.html">Home</a>
+          <a href="infinite-series.html">Calculus</a>
+          <a href="polynomial-roots.html" class="active">Exploring Math with Computers</a>
+          <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+          <a href="contact.html">Contact</a>
+          <!-- <a href="photography.html">Photography</a> -->
+        </nav>
+      </div>
+      <a class="site-mark" href="../index.html" aria-label="Home">
+        <img src="../glyph.png" alt="" height="36">
+      </a>
+    </div>
   </header>
 
   <main class="article-shell">
@@ -47,25 +43,25 @@
         <p class="subtitle">A sample proof-style page</p>
       </header>
 
+      <nav class="section-nav" aria-label="Exploring Math with Computers pages">
+        <span class="section-nav-label">Exploring Math with Computers</span>
+        <span class="section-nav-current">Polynomials and Their Roots</span>
+      </nav>
+
       <div class="article-content">
         <p>
-          Suppose a degree-\(m\) polynomial has distinct roots
-          \(r_1,\dots,r_m\). Then we may write
+          Suppose a degree-\(m\) polynomial has distinct roots \(r_1,\dots,r_m\). Then
         </p>
 
         <div class="math-display">
-          \[
-            p(x)=\prod_{k=1}^{m}(x-r_k).
-          \]
+          \[ p(x)=\prod_{k=1}^{m}(x-r_k). \]
         </div>
 
         <p>Differentiating a product of many factors gives</p>
 
         <div class="math-display">
           \[
-            p'(x)
-            =\sum_{j=1}^{m}
-              \prod_{\substack{k=1\\k\ne j}}^{m}(x-r_k).
+            p'(x) = \sum_{j=1}^{m} \prod_{\substack{k=1\\k\ne j}}^{m}(x-r_k).
           \]
         </div>
 
@@ -74,16 +70,12 @@
         </div>
 
         <p>
-          Evaluate the derivative at one of the roots, say \(x=r_j\). Every
-          summand except one contains the factor \(r_j-r_j=0\). The surviving
-          term is
+          Evaluate the derivative at one of the roots, say \(x=r_j\). Every summand
+          except one contains the factor \(r_j-r_j=0\). The surviving term is
         </p>
 
         <div class="math-display">
-          \[
-            p'(r_j)
-            =\prod_{\substack{k=1\\k\ne j}}^{m}(r_j-r_k).
-          \]
+          \[ p'(r_j) = \prod_{\substack{k=1\\k\ne j}}^{m}(r_j-r_k). \]
         </div>
 
         <p>
@@ -93,8 +85,7 @@
       </div>
 
       <nav class="article-nav" aria-label="Article navigation">
-        <a href="infinite-series.html">← Previous article</a>
-        <a href="../index.html">Home →</a>
+        <a href="../index.html">← Home</a>
       </nav>
     </article>
   </main>

@@ -6,15 +6,9 @@
   <meta name="description" content="Describe this article in one sentence.">
   <title>Your Article Title</title>
   <link rel="stylesheet" href="../styles.css">
-
-  <!-- MathJax renders LaTeX-style math inside ordinary HTML. -->
   <script>
     window.MathJax = {
-      tex: {
-        inlineMath: [["\\(", "\\)"]],
-        displayMath: [["\\[", "\\]"]],
-        processEscapes: true
-      },
+      tex: { inlineMath: [["\\(","\\)"]], displayMath: [["\\[","\\]"]], processEscapes: true },
       svg: { fontCache: "global" }
     };
   </script>
@@ -23,18 +17,23 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
-    <nav class="site-nav" aria-label="Site map">
-      <a href="../index.html">Home</a>
-      <a href="infinite-series.html">Calculus</a>
-      <a href="polynomial-roots.html">Exploring Math with Computers</a>
-      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
-      <a href="contact.html">Contact</a>
-      <!-- <a href="photography.html">Photography</a> -->
-    </nav>
-    <a class="site-mark" href="../index.html" aria-label="Home">
-      <img src="../glyph.png" alt="EOStarWarrior glyph" height="36">
-    </a>
+    <div class="header-inner">
+      <div class="nav-dropdown">
+        <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+        <span class="nav-hint">menu</span>
+        <nav class="nav-dropdown-menu" aria-label="Site map">
+          <a href="../index.html">Home</a>
+          <a href="infinite-series.html">Calculus</a>
+          <a href="polynomial-roots.html">Exploring Math with Computers</a>
+          <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+          <a href="contact.html">Contact</a>
+          <!-- <a href="photography.html">Photography</a> -->
+        </nav>
+      </div>
+      <a class="site-mark" href="../index.html" aria-label="Home">
+        <img src="../glyph.png" alt="" height="36">
+      </a>
+    </div>
   </header>
 
   <main class="article-shell">
@@ -44,37 +43,26 @@
         <p class="subtitle">Optional subtitle</p>
       </header>
 
-      <!-- Section nav: list all pages in this project here.
-           Current page = <span class="section-nav-current">, siblings = <a href="..."> -->
+      <!-- Section nav: current page = span.section-nav-current, siblings = <a> -->
       <nav class="section-nav" aria-label="Project pages">
         <span class="section-nav-label">Project Name</span>
         <span class="section-nav-current">This Page Title</span>
       </nav>
 
       <div class="article-content">
-        <p class="lead">
-          Replace this paragraph with your opening.
-        </p>
+        <p class="lead">Replace this with your opening paragraph.</p>
 
-        <p>
-          Inline math example: \(e^{i\pi}+1=0\).
-        </p>
+        <p>Inline math: \(e^{i\pi}+1=0\).</p>
 
         <div class="math-display">
-          \[
-            \int_{-\infty}^{\infty}e^{-x^2}\,dx=\sqrt{\pi}.
-          \]
+          \[ \int_{-\infty}^{\infty}e^{-x^2}\,dx=\sqrt{\pi}. \]
         </div>
 
         <h2>A section heading</h2>
-
-        <p>
-          Continue writing here. Duplicate this file, rename it, and add a card
-          linking to it from <code>index.html</code>.
-        </p>
+        <p>Continue writing here.</p>
       </div>
 
-      <nav class="article-nav" aria-label="Article navigation">
+      <nav class="article-nav">
         <a href="../index.html">← Home</a>
       </nav>
     </article>
