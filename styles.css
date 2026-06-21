@@ -178,6 +178,7 @@ a:hover {
 .home-bio-section {
   max-width: 600px;
   margin: 0 auto 56px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .home-bio-section p {
@@ -207,10 +208,11 @@ a:hover {
 }
 
 .project-list-heading {
-  font-size: 1.15em;
+  font-size: clamp(26px, 5vw, 36px);
   font-weight: 700;
   margin: 0 0 0.4em;
   padding-bottom: 5px;
+  text-align: center;
 }
 
 .project-item {
@@ -403,10 +405,10 @@ a:hover {
 body.page-home .menu-label {
   display: block;
   font-family: "Times New Roman", Times, serif;
-  font-size: 0.69rem;
-  letter-spacing: 0.04em;
+  font-size: 0.54rem;
+  letter-spacing: 0.15em;
   color: var(--muted);
-  line-height: 1.35;
+  line-height: 1;
 }
 
 body.page-home .sidebar-nav {
@@ -423,48 +425,55 @@ body.page-home.menu-open .menu-label {
 
 body.page-home .site-title {
   cursor: pointer;
+  margin-bottom: 3px;
 }
 
-/* Project pages: show only current section nav ------------------------- */
-body:not(.page-home) .sidebar-nav > a:not(.active):not(.sidebar-main-toggle) {
+/* Mobile title (shown only via media query) ---------------------------- */
+.mobile-title {
   display: none;
-}
-
-body:not(.page-home) .sidebar-group:not(:has(.active)) {
-  display: none;
-}
-
-.sidebar-main-toggle {
-  display: none;
-  margin-top: 8px;
-  font-size: 0.61rem;
-  font-family: "Times New Roman", Times, serif;
-  color: var(--muted);
-  text-decoration: none;
-  padding: 2px 0;
-  line-height: 1.3;
-}
-
-.sidebar-main-toggle:hover {
-  text-decoration: underline;
-  color: var(--green);
-}
-
-body:not(.page-home) .sidebar-main-toggle {
-  display: block;
-}
-
-body:not(.page-home).show-main-menu .sidebar-nav > a {
-  display: block;
-}
-
-body:not(.page-home).show-main-menu .sidebar-group {
-  display: flex;
 }
 
 @media (max-width: 700px) {
   body { font-size: 17px; margin-left: 0; }
-  .site-sidebar { display: none; }
+
+  .site-sidebar {
+    width: 50vw;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+  }
+
+  body.sidebar-open .site-sidebar {
+    transform: translateX(0);
+  }
+
+  body.sidebar-open::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 990;
+  }
+
+  body.sidebar-open .sidebar-nav {
+    display: flex;
+  }
+
+  .mobile-title {
+    display: block;
+    position: fixed;
+    top: 16px;
+    left: 18px;
+    color: #2a2a2d;
+    font-family: system-ui, "Segoe UI", sans-serif;
+    font-size: clamp(13px, 3vw, 17px);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    line-height: 1.1;
+    z-index: 1002;
+    cursor: pointer;
+  }
+
   .article-nav { flex-direction: column; }
 }
 
