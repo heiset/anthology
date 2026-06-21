@@ -428,6 +428,61 @@ body.page-home .site-title {
   margin-bottom: 3px;
 }
 
+/* Project pages: show only current section nav ------------------------- */
+body:not(.page-home) .sidebar-nav > a:not(.active):not(.sidebar-main-toggle) {
+  display: none;
+}
+
+body:not(.page-home) .sidebar-group:not(:has(.active)) {
+  display: none;
+}
+
+.sidebar-main-toggle {
+  display: none;
+  margin-top: 10px;
+  font-size: 0.54rem;
+  font-family: "Times New Roman", Times, serif;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 2px 0;
+  line-height: 1;
+  letter-spacing: 0.08em;
+}
+
+.sidebar-main-toggle:hover {
+  text-decoration: underline;
+  color: var(--green);
+}
+
+body:not(.page-home) .sidebar-main-toggle {
+  display: block;
+}
+
+/* Same specificity (0,0,4,2) as hiding rule → cascade order wins */
+body:not(.page-home).show-main-menu .sidebar-nav > a:not(.sidebar-main-toggle) {
+  display: block;
+}
+
+body:not(.page-home).show-main-menu .sidebar-group {
+  display: flex;
+}
+
+/* Library page ---------------------------------------------------------  */
+.book-list {
+  margin: 0.4em 0 1.8em 1.4em;
+  padding: 0;
+}
+
+.book-list li {
+  margin: 0.2em 0;
+  line-height: 1.5;
+}
+
+.book-note {
+  color: var(--muted);
+  font-size: 0.82em;
+}
+
 /* Mobile title (shown only via media query) ---------------------------- */
 .mobile-title {
   display: none;
@@ -438,6 +493,9 @@ body.page-home .site-title {
 
   .site-sidebar {
     width: 50vw;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     transform: translateX(-100%);
     transition: transform 0.25s ease;
   }
@@ -446,16 +504,21 @@ body.page-home .site-title {
     transform: translateX(0);
   }
 
+  /* Transparent overlay — captures outside-clicks to close drawer */
   body.sidebar-open::before {
     content: '';
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.25);
     z-index: 990;
   }
 
   body.sidebar-open .sidebar-nav {
     display: flex;
+  }
+
+  /* Hide mobile-title when sidebar is open (site-title inside sidebar shows instead) */
+  body.sidebar-open .mobile-title {
+    display: none;
   }
 
   .mobile-title {
@@ -472,6 +535,19 @@ body.page-home .site-title {
     line-height: 1.1;
     z-index: 1002;
     cursor: pointer;
+  }
+
+  /* Scroll-hide fixed header elements — reappear on scroll up */
+  .sidebar-mark,
+  .mobile-title {
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  body.scrolled-down .sidebar-mark,
+  body.scrolled-down .mobile-title {
+    transform: translateY(-64px);
+    opacity: 0;
+    pointer-events: none;
   }
 
   .article-nav { flex-direction: column; }
