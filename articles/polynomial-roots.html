@@ -16,23 +16,31 @@
   <script defer src="../script.js"></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="site-title" href="../index.html">卄乇丨丂乇</a>
-      <a class="site-mark" href="../index.html" aria-label="Home">
-        <img src="../glyph.png" alt="" height="36">
-        <span class="site-mark-hint">home</span>
-      </a>
-    </div>
-  </header>
-
-  <nav class="article-sidenav" aria-label="Site map">
-    <a href="../index.html">Home</a>
-    <a href="infinite-series.html">Calculus</a>
-    <a href="polynomial-roots.html" class="active">Exploring Math with Computers</a>
-    <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <aside class="site-sidebar">
+    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+    <nav class="sidebar-nav" aria-label="Site map">
+      <a href="../index.html">Home</a>
+      <div class="sidebar-group">
+        <a href="infinite-series.html">Calculus</a>
+        <div class="sidebar-sub">
+          <a href="infinite-series.html">Infinite Series</a>
+          <a href="calculus-limits.html">Limits</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="polynomial-roots.html" class="active">Math &amp; Computers</a>
+        <div class="sidebar-sub">
+          <a href="polynomial-roots.html" class="active">Polynomials</a>
+        </div>
+      </div>
+      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a class="sidebar-mark" href="../index.html" aria-label="Home">
+      <img src="../glyph.png" alt="" height="26">
+      <span class="sidebar-mark-hint">home</span>
+    </a>
+  </aside>
 
   <main class="article-shell">
     <article>
@@ -41,12 +49,7 @@
         <p class="subtitle">A sample proof-style page</p>
       </header>
 
-      <nav class="section-nav" aria-label="Exploring Math with Computers pages">
-        <span class="section-nav-label">Exploring Math with Computers</span>
-        <span class="section-nav-current">Polynomials and Their Roots</span>
-      </nav>
-
-      <div class="article-content">
+<div class="article-content">
         <p>
           Suppose a degree-\(m\) polynomial has distinct roots \(r_1,\dots,r_m\). Then
         </p>

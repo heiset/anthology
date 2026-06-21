@@ -8,22 +8,31 @@
   <script defer src="script.js"></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="site-title" href="index.html">卄乇丨丂乇</a>
-      <a class="site-mark" href="index.html" aria-label="Home">
-        <img src="glyph.png" alt="" height="36">
-        <span class="site-mark-hint">home</span>
-      </a>
-    </div>
-  </header>
-  <nav class="article-sidenav" aria-label="Site map">
-    <a href="index.html">Home</a>
-    <a href="articles/infinite-series.html">Calculus</a>
-    <a href="articles/polynomial-roots.html">Exploring Math with Computers</a>
-    <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
-    <a href="articles/contact.html">Contact</a>
-  </nav>
+  <aside class="site-sidebar">
+    <a class="site-title" href="index.html">卄乇丨丂乇</a>
+    <nav class="sidebar-nav" aria-label="Site map">
+      <a href="index.html">Home</a>
+      <div class="sidebar-group">
+        <a href="articles/infinite-series.html">Calculus</a>
+        <div class="sidebar-sub">
+          <a href="articles/infinite-series.html">Infinite Series</a>
+          <a href="articles/calculus-limits.html">Limits</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="articles/polynomial-roots.html">Math &amp; Computers</a>
+        <div class="sidebar-sub">
+          <a href="articles/polynomial-roots.html">Polynomials</a>
+        </div>
+      </div>
+      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+      <a href="articles/contact.html">Contact</a>
+    </nav>
+    <a class="sidebar-mark" href="index.html" aria-label="Home">
+      <img src="glyph.png" alt="" height="26">
+      <span class="sidebar-mark-hint">home</span>
+    </a>
+  </aside>
 
   <main class="article-shell center">
     <header class="article-header">

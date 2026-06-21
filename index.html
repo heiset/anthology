@@ -6,48 +6,72 @@
   <meta name="description" content="卄乇丨丂乇">
   <title>卄乇丨丂乇</title>
   <link rel="stylesheet" href="styles.css">
-  <script defer src="script.js"></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="nav-dropdown">
-        <a class="site-title" href="index.html" aria-label="Home">卄乇丨丂乇</a>
-        <span class="nav-hint">menu</span>
-        <nav class="nav-dropdown-menu" aria-label="Site map">
-          <a href="index.html">Home</a>
-          <a href="articles/infinite-series.html">Calculus</a>
-          <a href="articles/polynomial-roots.html">Exploring Math with Computers</a>
-          <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
-          <a href="articles/contact.html">Contact</a>
-          <!-- <a href="articles/photography.html">Photography</a> -->
-        </nav>
+  <aside class="site-sidebar">
+    <a class="site-title" href="index.html">卄乇丨丂乇</a>
+    <nav class="sidebar-nav" aria-label="Site map">
+      <a href="index.html" class="active">Home</a>
+      <div class="sidebar-group">
+        <a href="articles/infinite-series.html">Calculus</a>
+        <div class="sidebar-sub">
+          <a href="articles/infinite-series.html">Infinite Series</a>
+          <a href="articles/calculus-limits.html">Limits</a>
+        </div>
       </div>
-      <a class="site-mark" href="index.html" aria-label="Home">
-        <img src="glyph.png" alt="" height="36">
-        <span class="site-mark-hint">home</span>
-      </a>
-    </div>
-  </header>
+      <div class="sidebar-group">
+        <a href="articles/polynomial-roots.html">Math &amp; Computers</a>
+        <div class="sidebar-sub">
+          <a href="articles/polynomial-roots.html">Polynomials</a>
+        </div>
+      </div>
+      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+      <a href="articles/contact.html">Contact</a>
+    </nav>
+    <a class="sidebar-mark" href="index.html" aria-label="Home">
+      <img src="glyph.png" alt="" height="26">
+      <span class="sidebar-mark-hint">home</span>
+    </a>
+  </aside>
 
   <main class="home-shell">
     <div class="home-inner">
       <img class="home-portrait" src="tree.png" alt="">
       <h1 class="home-name">Trevor Heise</h1>
-      <p class="home-bio">I study mathematics, Latin, and code. This site collects notes and projects.</p>
+
+      <div class="home-bio-section">
+        <p class="home-lead">I study mathematics, classical languages, and computation. Other interests include running, drawing, and long books.</p>
+
+        <p>I've been working through calculus from the ground up — epsilon-delta foundations, infinite series, the slow accumulation of precision. Alongside that, I built a self-study Latin curriculum organized around reading classical texts as early as possible. I also use Python as a thinking tool: visualizing polynomial behavior, checking proofs numerically, making abstract objects concrete.</p>
+
+        <p>I live in Park City, UT.</p>
+
+        <p>I have a penchant for long runs, fountain pens, and drawing trees.</p>
+
+        <h2 class="home-section-heading">Contact</h2>
+
+        <p>I'm always glad to hear from people thinking carefully about math, language, or code. You can reach me by:</p>
+
+        <p><a class="home-contact-link" href="mailto:trevor.heise@me.com">Email →</a></p>
+      </div>
+
+      <p class="project-list-heading">Projects</p>
 
       <nav class="project-list" aria-label="Projects">
         <a class="project-item" href="articles/infinite-series.html">
           <h2>Calculus</h2>
           <p>infinite series, limits, and the mathematics of the continuous</p>
+          <p class="project-desc">An ongoing collection of notes on calculus — from the epsilon-delta foundations of limits to the strangeness of infinite series. Why does the geometric series converge while the harmonic series does not? These pages work through the ideas carefully, with full proofs and geometric intuition alongside the formulas.</p>
         </a>
         <a class="project-item" href="articles/polynomial-roots.html">
           <h2>Exploring Math with Computers</h2>
           <p>polynomials, roots, and computational approaches</p>
+          <p class="project-desc">Mathematics done with code as a thinking tool. Topics include numerical root-finding, visualizing polynomial behavior, and using Python to check — and sometimes discover — theorems. The goal is not to replace pen-and-paper proof but to make abstract objects visible and to catch errors before they become habits.</p>
         </a>
         <a class="project-item" href="https://heiset.github.io/teloslatin" target="_blank">
           <h2>Latin</h2>
           <p>Telos Latin project</p>
+          <p class="project-desc">The Telos Latin project is a structured self-study curriculum built around reading classical texts as early as possible. Notes, vocabulary lists, and grammar commentary accumulate lesson by lesson, organized so a motivated beginner can follow the same path from the alphabet to Caesar without a classroom.</p>
         </a>
         <a class="project-item" href="articles/contact.html">
           <h2>Contact</h2>
