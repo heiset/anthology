@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Polynomial vocabulary, adding and subtracting, FOIL, special products, zero product property, and factoring techniques.">
+  <title>Polynomials and Factoring — Algebra</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+  <link rel="icon" href="/tree.png" type="image/png">
+  <link rel="apple-touch-icon" href="/tree.png">
+  <meta property="og:image" content="/tree.png">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["\\(","\\)"]], displayMath: [["\\[","\\]"]], processEscapes: true },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+  <script defer src="../script.js"></script>
+</head>
+<body>
+  <aside class="site-sidebar">
+    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+    <nav class="sidebar-nav" aria-label="Site map">
+      <a href="../index.html">Home</a>
+      <div class="sidebar-group">
+        <a href="infinite-series.html">Calculus</a>
+        <div class="sidebar-sub">
+          <a href="infinite-series.html">Infinite Series</a>
+          <a href="calculus-limits.html">Limits</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="polynomial-roots.html">Math &amp; Computers</a>
+        <div class="sidebar-sub">
+          <a href="polynomial-roots.html">Polynomials</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="algebra-functions.html" class="active">Algebra</a>
+        <div class="sidebar-sub">
+          <a href="algebra-functions.html">Functions and Lines</a>
+          <a href="algebra-writing-lines.html">Writing Line Equations</a>
+          <a href="algebra-systems.html">Linear Systems and Inequalities</a>
+          <a href="algebra-exponents.html">Exponents and Sequences</a>
+          <a href="algebra-polynomials.html" class="active">Polynomials and Factoring</a>
+          <a href="algebra-quadratics.html">Quadratics</a>
+        </div>
+      </div>
+      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+      <a href="library.html">Library</a>
+      <a href="gps-tracks.html">GPS Tracks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </aside>
+  <a class="sidebar-mark" href="../index.html" aria-label="Home">
+    <img src="../glyph.png" alt="" height="26">
+    <span class="sidebar-mark-hint">home</span>
+  </a>
+
+  <main class="article-shell">
+    <article>
+      <header class="article-header">
+        <h1>Polynomials and Factoring</h1>
+        <p class="subtitle">vocabulary, arithmetic, FOIL, special products, and factoring techniques</p>
+      </header>
+
+      <div class="article-content">
+
+        <div class="callout">
+          \[
+          \begin{aligned}
+            (a+b)(c+d) &= ac + ad + bc + bd && \text{distributive (FOIL)} \\[4pt]
+            a^2 - b^2 &= (a-b)(a+b) && \text{difference of squares} \\[4pt]
+            a^2 + 2ab + b^2 &= (a+b)^2 && \text{perfect square} \\[4pt]
+            a^2 - 2ab + b^2 &= (a-b)^2 && \text{perfect square}
+          \end{aligned}
+          \]
+        </div>
+
+        <h2>Adding and Subtracting Polynomials</h2>
+
+        <p class="lead">A polynomial is a sum of terms of the form \(cx^n\). Its <em>degree</em> is the highest exponent after all like terms are combined. By number of terms: one term is a <em>monomial</em>, two a <em>binomial</em>, three a <em>trinomial</em>, and four or more just a <em>polynomial</em>.</p>
+
+        <p>To add or subtract, combine like terms — terms with the same variable and exponent.</p>
+
+        <p><strong>Add \((-2t^2-7t+5)+(-8t^2+4t-3)\).</strong></p>
+
+        \[
+        \begin{aligned}
+          &(-2t^2-8t^2) + (-7t+4t) + (5-3) \\
+          &= -10t^2 - 3t + 2
+        \end{aligned}
+        \]
+
+        Degree: 2 — Trinomial.
+
+        <p><strong>Add \((3k-5k^3+9)+(8k^3-4k+8)\).</strong></p>
+
+        \[
+        \begin{aligned}
+          &(-5k^3+8k^3) + (3k-4k) + (9+8) \\
+          &= 3k^3 - k + 17
+        \end{aligned}
+        \]
+
+        Degree: 3 — Trinomial.
+
+        <p><strong>Subtract \((t^3-5t^2-7)-(t-11)\).</strong></p>
+
+        <p>Distribute the minus sign across the second polynomial:</p>
+
+        \[
+        t^3 - 5t^2 - 7 - t + 11 = t^3 - 5t^2 - t + 4
+        \]
+
+        Degree: 3 — Polynomial (4 terms).
+
+        <p><strong>Subtract \((x^4-x^2+9)-(13-6x^2+8x)\).</strong></p>
+
+        \[
+        x^4 - x^2 + 9 - 13 + 6x^2 - 8x = x^4 + 5x^2 - 8x - 4
+        \]
+
+        Degree: 4 — Polynomial (4 terms).
+
+        <h2>Multiplying Polynomials (FOIL)</h2>
+
+        <p class="lead">FOIL is just the distributive property applied twice. Each term in the first factor multiplies each term in the second:</p>
+
+        \[(a+b)(c+d) = a(c+d) + b(c+d) = ac + ad + bc + bd\]
+
+        <p><strong>\((p-5)(p-8)\)</strong></p>
+
+        \[
+        \begin{aligned}
+          (p-5)(p-8) &= p(p-8) - 5(p-8) \\
+          &= p^2 - 8p - 5p + 40 \\
+          &= p^2 - 13p + 40
+        \end{aligned}
+        \]
+
+        <p><strong>\((5t+1)(t-2)\)</strong></p>
+
+        \[
+        \begin{aligned}
+          (5t+1)(t-2) &= 5t(t-2) + 1(t-2) \\
+          &= 5t^2 - 10t + t - 2 \\
+          &= 5t^2 - 9t - 2
+        \end{aligned}
+        \]
+
+        <p><strong>\(\bigl(m - \tfrac{2}{5}\bigr)\bigl(m + \tfrac{4}{5}\bigr)\)</strong></p>
+
+        \[
+        \begin{aligned}
+          \Bigl(m - \tfrac{2}{5}\Bigr)\Bigl(m + \tfrac{4}{5}\Bigr)
+          &= m^2 + \tfrac{4}{5}m - \tfrac{2}{5}m - \tfrac{8}{25} \\
+          &= m^2 + \tfrac{2}{5}m - \tfrac{8}{25}
+        \end{aligned}
+        \]
+
+        <p><strong>\((9-6g)(2g+3)\)</strong></p>
+
+        \[
+        \begin{aligned}
+          (9-6g)(2g+3) &= 18g + 27 - 12g^2 - 18g \\
+          &= -12g^2 + 27
+        \end{aligned}
+        \]
+
+        <p>Notice: the \(g\) terms cancel, leaving just a monomial and constant. This is the difference of squares pattern in disguise: \(9-6g = 3(3-2g)\) and \(2g+3 = 2g+3\)… actually just a happy cancellation here.</p>
+
+        <h2>Special Products</h2>
+
+        <p class="lead">Three products come up so often they're worth memorizing as patterns:</p>
+
+        \[
+        \begin{aligned}
+          (a+b)^2 &= a^2 + 2ab + b^2 \\[4pt]
+          (a-b)^2 &= a^2 - 2ab + b^2 \\[4pt]
+          (a+b)(a-b) &= a^2 - b^2
+        \end{aligned}
+        \]
+
+        <p>These also give a fast mental-math trick for squaring numbers near round values. For \(27^2\), write \(27 = 30 - 3\):</p>
+
+        \[
+        27^2 = (30-3)^2 = 30^2 - 2(30)(3) + 3^2 = 900 - 180 + 9 = 729
+        \]
+
+        <h2>The Zero Product Property</h2>
+
+        <p class="lead">If a product of factors equals zero, at least one of the factors must be zero:</p>
+
+        \[ab = 0 \;\Rightarrow\; a = 0 \text{ or } b = 0\]
+
+        <p>This lets us solve polynomial equations that are already factored — just set each factor equal to zero and solve. The solutions are the zeros of the polynomial, the \(x\)-values where the graph crosses the \(x\)-axis.</p>
+
+        <p><strong>Solve \(-3y(y-4)=0\).</strong></p>
+
+        \[
+        -3y = 0 \;\Rightarrow\; y = 0 \qquad \text{or} \qquad y - 4 = 0 \;\Rightarrow\; y = 4
+        \]
+
+        <p><strong>Solve \((d-6)(d+1)=0\).</strong></p>
+
+        \[
+        d - 6 = 0 \;\Rightarrow\; d = 6 \qquad \text{or} \qquad d + 1 = 0 \;\Rightarrow\; d = -1
+        \]
+
+        <p><strong>Solve \(16h^2 - 8h = 0\).</strong></p>
+
+        <p>Factor out the GCF first:</p>
+
+        \[
+        8h(2h-1) = 0 \;\Rightarrow\; h = 0 \text{ or } h = \tfrac{1}{2}
+        \]
+
+        <div id="zero-product-graph" class="jxgbox" style="width:100%;max-width:440px;height:240px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('zero-product-graph', {
+            boundingbox: [-1.5, 12, 5.5, -4],
+            axis: true, grid: false,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('functiongraph', [function(x){ return -3*x*(x-4); }, -1.5, 5.5], {
+            strokeColor: '#333', strokeWidth: 2.5, name: ''
+          });
+          b.create('point', [0, 0], {
+            name: 'x = 0', size: 3, fillColor: '#2e7d3e', strokeColor: '#2e7d3e',
+            label: { offset: [-40, 10], fontSize: 11 }
+          });
+          b.create('point', [4, 0], {
+            name: 'x = 4', size: 3, fillColor: '#2e7d3e', strokeColor: '#2e7d3e',
+            label: { offset: [8, 10], fontSize: 11 }
+          });
+          b.create('point', [2, 12], {
+            name: 'peak', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [8, -14], fontSize: 11 }
+          });
+          b.create('text', [2.5, 10, 'y = −3x(x − 4)'], { fixed: true, fontSize: 12 });
+        })();
+        </script>
+
+        <p>The zeros are the \(x\)-intercepts of the graph. Setting each factor to zero finds exactly those crossing points.</p>
+
+        <h2>Factoring Simple Trinomials</h2>
+
+        <p class="lead">Factoring is multiplication run in reverse. Since \((x+a)(x+b) = x^2 + (a+b)x + ab\), to factor \(x^2 + bx + c\) we need two numbers \(a\) and \(b\) such that:</p>
+
+        \[a + b = \text{middle coefficient} \qquad ab = \text{constant term}\]
+
+        <p>List factor pairs of the constant, then check which pair sums to the middle coefficient.</p>
+
+        <p><strong>Factor \(x^2 + 5x + 4\).</strong></p>
+
+        <p>Factor pairs of 4: \((1,4)\) and \((2,2)\). We need sum = 5: \(1 + 4 = 5\) ✓</p>
+
+        \[x^2 + 5x + 4 = (x+1)(x+4)\]
+
+        <p><strong>Factor \(x^2 - 14x + 45\).</strong></p>
+
+        <p>We need two numbers with product 45 and sum \(-14\). Since the product is positive and sum is negative, both must be negative. Factor pairs of 45: \((-1,-45),(-3,-15),(-5,-9)\). Check: \(-5 + (-9) = -14\) ✓</p>
+
+        \[x^2 - 14x + 45 = (x-5)(x-9)\]
+
+        <h2>Factoring by Grouping</h2>
+
+        <p class="lead">When the leading coefficient isn't 1, use the AC method: multiply \(a \cdot c\) (the first and last coefficients), find two numbers that multiply to \(ac\) and add to \(b\) (the middle coefficient), then split the middle term and factor by grouping.</p>
+
+        <p><strong>Factor \(5x^2 - 5x - 30\).</strong></p>
+
+        <p>All three terms share a factor of 5 — pull it out first:</p>
+
+        \[5x^2 - 5x - 30 = 5(x^2 - x - 6)\]
+
+        <p>Now factor \(x^2 - x - 6\): need two numbers with product \(-6\) and sum \(-1\): that's \(-3\) and \(2\).</p>
+
+        \[= 5(x-3)(x+2)\]
+
+        <p><strong>Factor \(12j^2 - 32j + 5\).</strong></p>
+
+        <p>\(ac = 12 \cdot 5 = 60\). Find factors of 60 that sum to \(-32\): \(-30 + (-2) = -32\) and \(-30 \cdot (-2) = 60\) ✓. Split:</p>
+
+        \[
+        \begin{aligned}
+          12j^2 - 32j + 5 &= 12j^2 - 30j - 2j + 5 \\
+          &= 6j(2j-5) - 1(2j-5) \\
+          &= (6j-1)(2j-5)
+        \end{aligned}
+        \]
+
+        <p><strong>Factor \(12p^2 - 7p - 10\).</strong></p>
+
+        <p>\(ac = 12 \cdot (-10) = -120\). Find factors of \(-120\) that sum to \(-7\): \(-15 + 8 = -7\) and \(-15 \cdot 8 = -120\) ✓. Split:</p>
+
+        \[
+        \begin{aligned}
+          12p^2 - 7p - 10 &= 12p^2 - 15p + 8p - 10 \\
+          &= 3p(4p-5) + 2(4p-5) \\
+          &= (3p+2)(4p-5)
+        \end{aligned}
+        \]
+
+        <p><strong>Factor \(-9v^2 - 22v - 8\).</strong></p>
+
+        <p>Pull out \(-1\) first to make the leading coefficient positive:</p>
+
+        \[-9v^2 - 22v - 8 = -(9v^2 + 22v + 8)\]
+
+        <p>\(ac = 9 \cdot 8 = 72\). Factors of 72 that sum to 22: \(18 + 4 = 22\) ✓. Split:</p>
+
+        \[
+        \begin{aligned}
+          -(9v^2 + 22v + 8) &= -(9v^2 + 18v + 4v + 8) \\
+          &= -(9v(v+2) + 4(v+2)) \\
+          &= -(9v+4)(v+2)
+        \end{aligned}
+        \]
+
+        <h2>Special Factoring Patterns</h2>
+
+        <p class="lead">The three special product formulas run in reverse become the most powerful factoring shortcuts:</p>
+
+        \[
+        \begin{aligned}
+          a^2 - b^2 &= (a-b)(a+b) && \text{difference of squares} \\[4pt]
+          a^2 + 2ab + b^2 &= (a+b)^2 && \text{perfect square trinomial} \\[4pt]
+          a^2 - 2ab + b^2 &= (a-b)^2 && \text{perfect square trinomial}
+        \end{aligned}
+        \]
+
+        <p><strong>Factor \(100 - 49x^2\).</strong></p>
+
+        \[100 - 49x^2 = 10^2 - (7x)^2 = (10-7x)(10+7x)\]
+
+        <p><strong>Evaluate \(86^2 - 84^2\) without a calculator.</strong></p>
+
+        \[86^2 - 84^2 = (86-84)(86+84) = 2 \cdot 170 = 340\]
+
+        <p>Recognizing the difference-of-squares pattern turns a hard computation into a trivial one.</p>
+
+        <p><strong>Factor \(z^2 + 26z + 169\).</strong></p>
+
+        \[z^2 + 26z + 169 = z^2 + 2(13)z + 13^2 = (z+13)^2\]
+
+        <h2>Putting It Together</h2>
+
+        <p>When factoring, always ask in order: (1) Is there a common factor to pull out? (2) Is it a difference of squares or perfect square? (3) Can I factor by grouping? (4) Does the AC method apply?</p>
+
+        <p><strong>Factor \(c^3 + 8c^2 + 3c + 24\).</strong></p>
+
+        \[
+        \begin{aligned}
+          c^3 + 8c^2 + 3c + 24 &= (c^3 + 8c^2) + (3c + 24) \\
+          &= c^2(c + 8) + 3(c + 8) \\
+          &= (c^2 + 3)(c + 8)
+        \end{aligned}
+        \]
+
+        <p><strong>Factor \(a^2 - 3a + ab - 3b\).</strong></p>
+
+        \[
+        \begin{aligned}
+          a^2 - 3a + ab - 3b &= (a^2 - 3a) + (ab - 3b) \\
+          &= a(a - 3) + b(a - 3) \\
+          &= (a + b)(a - 3)
+        \end{aligned}
+        \]
+
+        <p><strong>Factor \(t^2 - 4t + tv - 4v\).</strong></p>
+
+        \[
+        \begin{aligned}
+          t^2 - 4t + tv - 4v &= t(t - 4) + v(t - 4) \\
+          &= (t + v)(t - 4)
+        \end{aligned}
+        \]
+
+        <p><strong>Factor \(45y^4 - 20y^2\).</strong></p>
+
+        <p>GCF is \(5y^2\), then difference of squares:</p>
+
+        \[
+        \begin{aligned}
+          45y^4 - 20y^2 &= 5y^2(9y^2 - 4) \\
+          &= 5y^2\bigl((3y)^2 - 2^2\bigr) \\
+          &= 5y^2(3y - 2)(3y + 2)
+        \end{aligned}
+        \]
+
+        <p><strong>Factor \(8w^5 - 48w^4 + 72w^3\).</strong></p>
+
+        <p>GCF is \(8w^3\), then perfect square trinomial:</p>
+
+        \[
+        \begin{aligned}
+          8w^5 - 48w^4 + 72w^3 &= 8w^3(w^2 - 6w + 9) \\
+          &= 8w^3(w - 3)^2
+        \end{aligned}
+        \]
+
+      </div>
+
+      <nav class="article-nav" aria-label="Article navigation">
+        <a href="../index.html">← Home</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
