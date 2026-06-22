@@ -467,14 +467,33 @@ body:not(.page-home).show-main-menu .sidebar-group {
 }
 
 /* Library page ---------------------------------------------------------  */
+.library-books {
+  counter-reset: books;
+}
+
 .book-list {
-  margin: 0.4em 0 1.8em 1.4em;
+  margin: 0.4em 0 1.8em 0;
   padding: 0;
+  list-style: none;
+  columns: 2;
+  column-gap: 2.5em;
 }
 
 .book-list li {
-  margin: 0.2em 0;
-  line-height: 1.5;
+  margin: 0.15em 0;
+  line-height: 1.45;
+  counter-increment: books;
+  break-inside: avoid;
+  padding-left: 2.2em;
+  text-indent: -2.2em;
+}
+
+.book-list li::before {
+  content: counter(books) ". ";
+  display: inline-block;
+  min-width: 2em;
+  color: var(--muted);
+  font-size: 0.85em;
 }
 
 .book-note {
