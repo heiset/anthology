@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Functions, domain and range, zeros, linear functions, slope.">
+  <title>Functions and Lines — Algebra</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+  <link rel="icon" href="/tree.png" type="image/png">
+  <link rel="apple-touch-icon" href="/tree.png">
+  <meta property="og:image" content="/tree.png">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["\\(","\\)"]], displayMath: [["\\[","\\]"]], processEscapes: true },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+  <script defer src="../script.js"></script>
+</head>
+<body>
+  <aside class="site-sidebar">
+    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+    <nav class="sidebar-nav" aria-label="Site map">
+      <a href="../index.html">Home</a>
+      <div class="sidebar-group">
+        <a href="infinite-series.html">Calculus</a>
+        <div class="sidebar-sub">
+          <a href="infinite-series.html">Infinite Series</a>
+          <a href="calculus-limits.html">Limits</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="polynomial-roots.html">Math &amp; Computers</a>
+        <div class="sidebar-sub">
+          <a href="polynomial-roots.html">Polynomials</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="algebra-quadratics.html" class="active">Algebra</a>
+        <div class="sidebar-sub">
+          <a href="algebra-functions.html" class="active">Functions and Lines</a>
+          <a href="algebra-quadratics.html">Quadratics</a>
+        </div>
+      </div>
+      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+      <a href="library.html">Library</a>
+      <a href="gps-tracks.html">GPS Tracks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </aside>
+  <a class="sidebar-mark" href="../index.html" aria-label="Home">
+    <img src="../glyph.png" alt="" height="26">
+    <span class="sidebar-mark-hint">home</span>
+  </a>
+
+  <main class="article-shell">
+    <article>
+      <header class="article-header">
+        <h1>Functions and Lines</h1>
+        <p class="subtitle">the building blocks of algebra</p>
+      </header>
+
+      <div class="article-content">
+
+        <h2>Functions, Domain, and Range</h2>
+
+        <p class="lead">A <em>function</em> is a rule that takes an input and produces exactly one output — each input has only one result. The easiest way to check: if the same input ever gives two different outputs, it's not a function.</p>
+
+        <p>Given the ordered pairs \((-4,2),\ (2,-4),\ (6,6),\ (12,18),\ (18,12)\), each input (\(x\)-value) appears exactly once, so this is a function.</p>
+
+        <p>For a graph, use the <em>vertical line test</em>: if any vertical line crosses the graph more than once, the relation is not a function — one \(x\)-value would produce two different \(y\)-values.</p>
+
+        <p>The <em>domain</em> is all the \(x\)-values the function accepts. The <em>range</em> is all the \(y\)-values it can produce. Read domain by scanning left to right, range bottom to top.</p>
+
+        \[\text{Domain: } [-1,\,3] \qquad \text{Range: } [-8,\,8]\]
+
+        <p>When a graph has gaps — pieces that skip over certain values — domain and range must be listed piece by piece:</p>
+
+        \[
+        \begin{aligned}
+          \text{Domain:} &\quad 1 \le x < 2,\quad 2 < x < 4,\quad 4 < x \le 6 \\[4pt]
+          \text{Range:}  &\quad 1 \le y < 3,\quad 3 < y < 5,\quad 5 < y \le 6
+        \end{aligned}
+        \]
+
+        <h2>Zeros and Intercepts</h2>
+
+        <p>The <em>zeros</em> (or <em>intercepts</em>) of a function are the \(x\)-values where it crosses the \(x\)-axis — the places where \(y = 0\). They're called zeros because the output is literally zero there.</p>
+
+        \[\text{Example intercepts: }\bigl(-\tfrac{5}{2},0\bigr),\;(0,0),\;(1,0)\]
+
+        <p>Two more useful ideas when reading a graph:</p>
+        <ul>
+          <li>A function is <em>positive</em> where it lives above the \(x\)-axis, and <em>negative</em> where it dips below.</li>
+          <li>A function is <em>increasing</em> (\(\nearrow\)) when larger \(x\) produces larger \(y\); <em>decreasing</em> (\(\searrow\)) when larger \(x\) produces smaller \(y\).</li>
+        </ul>
+
+        \[
+        \begin{aligned}
+          \textbf{Positive:}   &\quad 1 < x < 3 \\[2pt]
+          \textbf{Negative:}   &\quad x < 1 \text{ and } x > 3 \\[2pt]
+          \textbf{Increasing:} &\quad -\infty < x < 2 \\[2pt]
+          \textbf{Decreasing:} &\quad 2 < x < \infty
+        \end{aligned}
+        \]
+
+        <h2>Linear Functions</h2>
+
+        <p>A <em>linear function</em> has only plain \(x\) and \(y\) — no exponents, no square roots, no \(y^2\). Multiply by fractions or negatives all you want; just keep the variables simple.</p>
+
+        <p>Consider the table:</p>
+
+        <table style="border-collapse:collapse;margin:1.2em 0;font-size:0.93em">
+          <tr>
+            <th style="border:1px solid var(--rule);padding:5px 14px">\(x\)</th>
+            <td style="border:1px solid var(--rule);padding:5px 14px">0</td>
+            <td style="border:1px solid var(--rule);padding:5px 14px">2</td>
+            <td style="border:1px solid var(--rule);padding:5px 14px">4</td>
+            <td style="border:1px solid var(--rule);padding:5px 14px">6</td>
+          </tr>
+          <tr>
+            <th style="border:1px solid var(--rule);padding:5px 14px">\(y\)</th>
+            <td style="border:1px solid var(--rule);padding:5px 14px">3</td>
+            <td style="border:1px solid var(--rule);padding:5px 14px">9</td>
+            <td style="border:1px solid var(--rule);padding:5px 14px">27</td>
+            <td style="border:1px solid var(--rule);padding:5px 14px">81</td>
+          </tr>
+        </table>
+
+        <p>The \(x\)-values increase by 2 each step. But the \(y\)-values go \(3 \to 9 \to 27 \to 81\) — each multiplied by 3, not increased by a fixed amount. That's <em>exponential growth</em>, not linear.</p>
+
+        <p>Compare \(y - \frac{1}{3}x = 4x - 7\): rearranging gives \(y = \frac{13}{3}x - 7\) — plain \(x\) and \(y\), so this is linear. But \((y+2)(y-4) = 3x\) expands to \(y^2 - 2y - 8 = 3x\), and that \(y^2\) makes it non-linear.</p>
+
+        <h2>Evaluating and Solving</h2>
+
+        <p>To <em>evaluate</em> a function, substitute a specific number in for \(x\). For \(f(x) = 1.5x + 1\):</p>
+
+        \[
+        \begin{aligned}
+          f(-2) &= 1.5(-2)+1 = -3+1 = -2 \\[2pt]
+          f(0)  &= 1.5(0)+1  = 1 \\[2pt]
+          f(5)  &= 1.5(5)+1  = 8.5
+        \end{aligned}
+        \]
+
+        <p>To <em>solve</em>, you're given the output and asked to find the input. For \(f(x) = 8x - 7\), find \(x\) when \(f(x) = 17\):</p>
+
+        \[
+        \begin{aligned}
+          17 &= 8x - 7 \\[2pt]
+          24 &= 8x \\[2pt]
+          x  &= 3
+        \end{aligned}
+        \]
+
+        <h2>Graphing with Intercepts</h2>
+
+        <p>The fastest way to graph a line is to find its two intercepts and connect them.</p>
+
+        <p>\(y = 1\) is a horizontal line — every point has \(y = 1\) regardless of \(x\). If it were \(x = 1\), the line would be vertical.</p>
+
+        <p>For \(-5x + 7y = -35\), find both intercepts by setting the other variable to zero:</p>
+
+        <p><strong>\(x\)-intercept</strong> (set \(y = 0\)):</p>
+
+        \[-5x = -35 \implies x = 7 \quad\Longrightarrow\quad (7,\,0)\]
+
+        <p><strong>\(y\)-intercept</strong> (set \(x = 0\)):</p>
+
+        \[7y = -35 \implies y = -5 \quad\Longrightarrow\quad (0,\,-5)\]
+
+        <h2>Slope</h2>
+
+        <p>Slope measures how steeply a line rises or falls: \(m = \dfrac{\Delta y}{\Delta x}\), rise over run. A <em>vertical</em> line has undefined slope (zero run); a <em>horizontal</em> line has slope zero.</p>
+
+        <p>When a table shows the same \(x\)-value for every row, the points form a vertical line — no slope, and the equation is just \(x = c\). For example:</p>
+
+        <table style="border-collapse:collapse;margin:1.2em 0;font-size:0.93em">
+          <tr>
+            <th style="border:1px solid var(--rule);padding:5px 14px">\(x\)</th>
+            <td style="border:1px solid var(--rule);padding:5px 14px">3</td>
+            <td style="border:1px solid var(--rule);padding:5px 14px">1</td>
+            <td style="border:1px solid var(--rule);padding:5px 14px">−1</td>
+            <td style="border:1px solid var(--rule);padding:5px 14px">−3</td>
+          </tr>
+          <tr>
+            <th style="border:1px solid var(--rule);padding:5px 14px">\(y\)</th>
+            <td style="border:1px solid var(--rule);padding:5px 14px">−4</td>
+            <td style="border:1px solid var(--rule);padding:5px 14px">1</td>
+            <td style="border:1px solid var(--rule);padding:5px 14px">6</td>
+            <td style="border:1px solid var(--rule);padding:5px 14px">11</td>
+          </tr>
+        </table>
+
+        <p>Pick any two points — say \((3,-4)\) and \((1,1)\):</p>
+
+        \[m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{1-(-4)}{1-3} = \frac{5}{-2} = -\frac{5}{2}\]
+
+        <p>To find slope from a standard-form equation, rewrite in <em>slope-intercept form</em> \(y = mx + b\). For \(-4x = 9 - 2y\):</p>
+
+        \[2y = 4x + 9 \implies y = 2x + \frac{9}{2}\]
+
+        <p>slope \(m = 2\), \(y\)-intercept \(b = \frac{9}{2}\).</p>
+
+        <p><strong>Full example — \(-3x + y = 7\).</strong> Find the intercepts, slope, and graph.</p>
+
+        \[
+        \begin{aligned}
+          x\text{-intercept:} &\quad y=0 \implies -3x = 7 \implies x = -\tfrac{7}{3} \\[4pt]
+          y\text{-intercept:} &\quad x=0 \implies y = 7
+        \end{aligned}
+        \]
+
+        <p>Rewriting as \(y = 3x + 7\) gives slope \(m = 3\): every step right moves the line up 3.</p>
+
+        <div id="slope-graph" class="jxgbox" style="width:100%;max-width:480px;height:360px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('slope-graph', {
+            boundingbox: [-7.5, 9, 7.5, -7.5],
+            axis: true,
+            grid: true,
+            showNavigation: false,
+            pan: { enabled: false },
+            zoom: { wheel: false }
+          });
+          b.create('functiongraph', [function(x){ return 3*x + 7; }, -5.5, 0.7], {
+            strokeColor: '#2e7d3e', strokeWidth: 2.5, name: ''
+          });
+          b.create('point', [-7/3, 0], {
+            name: '(−⁷⁄₃, 0)', size: 3,
+            fillColor: '#2e7d3e', strokeColor: '#2e7d3e',
+            label: { offset: [8, 10], fontSize: 11 }
+          });
+          b.create('point', [0, 7], {
+            name: '(0, 7)', size: 3,
+            fillColor: '#2e7d3e', strokeColor: '#2e7d3e',
+            label: { offset: [8, -14], fontSize: 11 }
+          });
+          b.create('text', [1.2, 8.3, '<span style="color:#2e7d3e">y = 3x + 7</span>'], { fixed: true, fontSize: 12 });
+        })();
+        </script>
+
+      </div>
+
+      <nav class="article-nav" aria-label="Article navigation">
+        <a href="../index.html">← Home</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
