@@ -42,6 +42,8 @@
         <a href="algebra-quadratics.html" class="active">Algebra</a>
         <div class="sidebar-sub">
           <a href="algebra-functions.html" class="active">Functions and Lines</a>
+          <a href="algebra-writing-lines.html">Writing Line Equations</a>
+          <a href="algebra-systems.html">Linear Systems and Inequalities</a>
           <a href="algebra-quadratics.html">Quadratics</a>
         </div>
       </div>
@@ -73,11 +75,13 @@
 
         <p>For a graph, use the <em>vertical line test</em>: if any vertical line crosses the graph more than once, the relation is not a function — one \(x\)-value would produce two different \(y\)-values.</p>
 
-        <p>The <em>domain</em> is all the \(x\)-values the function accepts. The <em>range</em> is all the \(y\)-values it can produce. Read domain by scanning left to right, range bottom to top.</p>
+        <p>The <em>domain</em> is all the \(x\)-values the function accepts. The <em>range</em> is all the \(y\)-values it can produce. Read domain by scanning left to right, range bottom to top. Take \(f(x) = 4x - 4\) defined on \([-1, 3]\): the leftmost output is \(f(-1) = -8\) and the rightmost is \(f(3) = 8\):</p>
 
         \[\text{Domain: } [-1,\,3] \qquad \text{Range: } [-8,\,8]\]
 
-        <p>When a graph has gaps — pieces that skip over certain values — domain and range must be listed piece by piece:</p>
+        <p>When a graph has gaps — pieces that skip over certain values — domain and range must be listed piece by piece. Consider a function with breaks at \(x = 2\) and \(x = 4\):</p>
+
+        \[f(x) = \begin{cases} 2x-1, & 1 \le x < 2 \\ x+1, & 2 < x < 4 \\ \tfrac{1}{2}x+3, & 4 < x \le 6 \end{cases}\]
 
         \[
         \begin{aligned}
@@ -88,15 +92,44 @@
 
         <h2>Zeros and Intercepts</h2>
 
-        <p>The <em>zeros</em> (or <em>intercepts</em>) of a function are the \(x\)-values where it crosses the \(x\)-axis — the places where \(y = 0\). They're called zeros because the output is literally zero there.</p>
+        <p>The <em>zeros</em> (or <em>intercepts</em>) of a function are the \(x\)-values where it crosses the \(x\)-axis — the places where \(y = 0\). They're called zeros because the output is literally zero there. For \(f(x) = x(x-1)(2x+5)\), each factor gives a zero: \(x=0\), \(x=1\), and \(2x+5=0 \Rightarrow x = -\tfrac{5}{2}\):</p>
 
-        \[\text{Example intercepts: }\bigl(-\tfrac{5}{2},0\bigr),\;(0,0),\;(1,0)\]
+        \[\text{Intercepts: }\bigl(-\tfrac{5}{2},0\bigr),\;(0,0),\;(1,0)\]
 
         <p>Two more useful ideas when reading a graph:</p>
         <ul>
           <li>A function is <em>positive</em> where it lives above the \(x\)-axis, and <em>negative</em> where it dips below.</li>
           <li>A function is <em>increasing</em> (\(\nearrow\)) when larger \(x\) produces larger \(y\); <em>decreasing</em> (\(\searrow\)) when larger \(x\) produces smaller \(y\).</li>
         </ul>
+
+        <p>For \(g(x) = -(x-1)(x-3)\) — an inverted parabola with roots at \(1\) and \(3\), peak at \(x=2\):</p>
+
+        <div id="pos-neg-graph" class="jxgbox" style="width:100%;max-width:440px;height:260px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('pos-neg-graph', {
+            boundingbox: [-1.5, 1.6, 4.5, -1.4],
+            axis: true, grid: false,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('functiongraph', [function(x){ return -(x-1)*(x-3); }, -1.2, 4.2], {
+            strokeColor: '#333', strokeWidth: 2.5, name: ''
+          });
+          b.create('point', [1, 0], {
+            name: 'x=1', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [-6, 12], fontSize: 11 }
+          });
+          b.create('point', [2, 1], {
+            name: 'peak (2, 1)', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [8, -14], fontSize: 11 }
+          });
+          b.create('point', [3, 0], {
+            name: 'x=3', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [4, 12], fontSize: 11 }
+          });
+        })();
+        </script>
 
         \[
         \begin{aligned}
@@ -176,7 +209,9 @@
 
         <p>Slope measures how steeply a line rises or falls: \(m = \dfrac{\Delta y}{\Delta x}\), rise over run. A <em>vertical</em> line has undefined slope (zero run); a <em>horizontal</em> line has slope zero.</p>
 
-        <p>When a table shows the same \(x\)-value for every row, the points form a vertical line — no slope, and the equation is just \(x = c\). For example:</p>
+        <p>The points \((3, 1)\) and \((3, -1)\) share the same \(x\)-value — no matter how many points you add, they all live at \(x = 3\), making this a vertical line with equation \(x = 3\) and no slope.</p>
+
+        <p>When points <em>do</em> have different \(x\)-values, pick any two from the table and apply the slope formula:</p>
 
         <table style="border-collapse:collapse;margin:1.2em 0;font-size:0.93em">
           <tr>

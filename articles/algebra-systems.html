@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Solving linear systems by graphing, substitution, and elimination. Graphing linear inequalities and systems of inequalities.">
+  <title>Linear Systems and Inequalities — Algebra</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+  <link rel="icon" href="/tree.png" type="image/png">
+  <link rel="apple-touch-icon" href="/tree.png">
+  <meta property="og:image" content="/tree.png">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["\\(","\\)"]], displayMath: [["\\[","\\]"]], processEscapes: true },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+  <script defer src="../script.js"></script>
+</head>
+<body>
+  <aside class="site-sidebar">
+    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+    <nav class="sidebar-nav" aria-label="Site map">
+      <a href="../index.html">Home</a>
+      <div class="sidebar-group">
+        <a href="infinite-series.html">Calculus</a>
+        <div class="sidebar-sub">
+          <a href="infinite-series.html">Infinite Series</a>
+          <a href="calculus-limits.html">Limits</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="polynomial-roots.html">Math &amp; Computers</a>
+        <div class="sidebar-sub">
+          <a href="polynomial-roots.html">Polynomials</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="algebra-functions.html" class="active">Algebra</a>
+        <div class="sidebar-sub">
+          <a href="algebra-functions.html">Functions and Lines</a>
+          <a href="algebra-writing-lines.html">Writing Line Equations</a>
+          <a href="algebra-systems.html" class="active">Linear Systems and Inequalities</a>
+          <a href="algebra-quadratics.html">Quadratics</a>
+        </div>
+      </div>
+      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+      <a href="library.html">Library</a>
+      <a href="gps-tracks.html">GPS Tracks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </aside>
+  <a class="sidebar-mark" href="../index.html" aria-label="Home">
+    <img src="../glyph.png" alt="" height="26">
+    <span class="sidebar-mark-hint">home</span>
+  </a>
+
+  <main class="article-shell">
+    <article>
+      <header class="article-header">
+        <h1>Linear Systems and Inequalities</h1>
+        <p class="subtitle">graphing, substitution, elimination, and regions</p>
+      </header>
+
+      <div class="article-content">
+
+        <h2>Solving Systems by Graphing</h2>
+
+        <p class="lead">A <em>system</em> of linear equations is two or more equations that must all be true at the same time. The <em>solution</em> is the point \((x, y)\) that satisfies every equation — geometrically, the intersection of the lines. To check a candidate solution, substitute it into each equation and verify.</p>
+
+        <p><strong>Checking a point.</strong> Is \((0, -4)\) a solution of the system \(-y - x = 4\) and \(y - 5 = -4\)?</p>
+
+        \[
+        \begin{aligned}
+          -y - x &= 4 && \Rightarrow\; -(-4) - 0 = 4 \;\checkmark \\[4pt]
+          y - 5  &= -4 && \Rightarrow\; -4 - 5 = -9 \neq -4 \;\times
+        \end{aligned}
+        \]
+
+        <p>The first equation holds but the second does not — \((0,-4)\) is <em>not</em> a solution.</p>
+
+        <p><strong>Finding the intersection graphically.</strong> Solve the system \(5x - 4y = 8\) and \(-x + 2y = -4\).</p>
+
+        <p>Rewrite both in slope-intercept form: \(y = \tfrac{5}{4}x - 2\) and \(y = \tfrac{1}{2}x - 2\). Both pass through \((0, -2)\) — that's the intersection.</p>
+
+        <div id="sys-graph-1" class="jxgbox" style="width:100%;max-width:480px;height:340px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('sys-graph-1', {
+            boundingbox: [-4, 6, 6, -4],
+            axis: true, grid: true,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('functiongraph', [function(x){ return 1.25*x - 2; }, -4, 6], {
+            strokeColor: '#2e7d3e', strokeWidth: 2.5, name: ''
+          });
+          b.create('functiongraph', [function(x){ return 0.5*x - 2; }, -4, 6], {
+            strokeColor: '#cc7700', strokeWidth: 2.5, name: ''
+          });
+          b.create('point', [0, -2], {
+            name: '(0, −2)', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [8, -14], fontSize: 11 }
+          });
+          b.create('text', [2, 3, '<span style="color:#2e7d3e">5x − 4y = 8</span>'], { fixed: true, fontSize: 11 });
+          b.create('text', [2, 1.5, '<span style="color:#cc7700">−x + 2y = −4</span>'], { fixed: true, fontSize: 11 });
+        })();
+        </script>
+
+        \[
+        \begin{aligned}
+          5(0) - 4(-2) &= 8 \;\checkmark \\
+          -(0) + 2(-2) &= -4 \;\checkmark
+        \end{aligned}
+        \qquad \boxed{(0,\,-2)}
+        \]
+
+        <p><strong>System with a horizontal line.</strong> Solve \(3x - 5y = 2\) and \(y = 2\).</p>
+
+        <p>Rewrite the first equation: \(y = \tfrac{3}{5}x - \tfrac{2}{5}\). Graph this alongside \(y = 2\), then substitute \(y = 2\) into the first equation to find \(x\):</p>
+
+        \[3x - 5(2) = 2 \;\Rightarrow\; 3x = 12 \;\Rightarrow\; x = 4\]
+
+        <div id="sys-graph-2" class="jxgbox" style="width:100%;max-width:480px;height:300px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('sys-graph-2', {
+            boundingbox: [-2, 5, 8, -2],
+            axis: true, grid: true,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('functiongraph', [function(x){ return 0.6*x - 0.4; }, -2, 8], {
+            strokeColor: '#2e7d3e', strokeWidth: 2.5, name: ''
+          });
+          b.create('functiongraph', [function(x){ return 2; }, -2, 8], {
+            strokeColor: '#cc7700', strokeWidth: 2.5, name: ''
+          });
+          b.create('point', [4, 2], {
+            name: '(4, 2)', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [8, 6], fontSize: 11 }
+          });
+          b.create('text', [5, 0.5, '<span style="color:#2e7d3e">3x − 5y = 2</span>'], { fixed: true, fontSize: 11 });
+          b.create('text', [5, 2.6, '<span style="color:#cc7700">y = 2</span>'], { fixed: true, fontSize: 11 });
+        })();
+        </script>
+
+        \[\boxed{(4,\,2)}\]
+
+        <h2>Solving Systems by Substitution</h2>
+
+        <p class="lead">When one equation already has a variable isolated — or is easy to isolate — substitute that expression into the other equation. This collapses the system into a single equation with one unknown.</p>
+
+        <p><strong>Solve:</strong> \(\;\begin{cases} y = 3x - 10 \\ 5x + 2y = -9 \end{cases}\)</p>
+
+        <p>Substitute \(y = 3x - 10\) into the second equation:</p>
+
+        \[
+        \begin{aligned}
+          5x + 2(3x - 10) &= -9 \\
+          5x + 6x - 20 &= -9 \\
+          11x &= 11 \\
+          x &= 1
+        \end{aligned}
+        \]
+
+        <p>Back-substitute \(x = 1\) into \(y = 3x - 10\):</p>
+
+        \[y = 3(1) - 10 = -7 \qquad \boxed{(1,\,-7)}\]
+
+        <p><strong>Solve:</strong> \(\;\begin{cases} 2x + 2y = 4 \\ y = 12 - 3x \end{cases}\)</p>
+
+        \[
+        \begin{aligned}
+          2x + 2(12 - 3x) &= 4 \\
+          2x + 24 - 6x &= 4 \\
+          -4x &= -20 \\
+          x &= 5
+        \end{aligned}
+        \]
+
+        \[y = 12 - 3(5) = -3 \qquad \boxed{(5,\,-3)}\]
+
+        <p><strong>Solve:</strong> \(\;\begin{cases} 4x + 3y = -1 \\ 3x + y = -7 \end{cases}\)</p>
+
+        <p>Neither equation has a variable isolated, but the second is easy to rearrange. Solve for \(y\):</p>
+
+        \[y = -7 - 3x\]
+
+        <p>Substitute into the first equation:</p>
+
+        \[
+        \begin{aligned}
+          4x + 3(-7 - 3x) &= -1 \\
+          4x - 21 - 9x &= -1 \\
+          -5x &= 20 \\
+          x &= -4
+        \end{aligned}
+        \]
+
+        \[y = -7 - 3(-4) = -7 + 12 = 5 \qquad \boxed{(-4,\,5)}\]
+
+        <h2>Solving Systems by Elimination</h2>
+
+        <p class="lead">Elimination adds (or subtracts) the two equations to cancel one variable entirely. If the variable doesn't cancel naturally, multiply one or both equations first to create equal and opposite coefficients.</p>
+
+        <p><strong>Solve:</strong> \(\;\begin{cases} 2x + y = 10 \\ 5x - y = 11 \end{cases}\)</p>
+
+        <p>The \(y\)-terms already have opposite signs — add the equations directly:</p>
+
+        \[
+        \begin{aligned}
+          (2x + y) + (5x - y) &= 10 + 11 \\
+          7x &= 21 \\
+          x &= 3
+        \end{aligned}
+        \]
+
+        \[2(3) + y = 10 \;\Rightarrow\; y = 4 \qquad \boxed{(3,\,4)}\]
+
+        <p><strong>Solve:</strong> \(\;\begin{cases} 10x + 3y = 11 \\ 10x + 5y = 5 \end{cases}\)</p>
+
+        <p>The \(x\)-coefficients are equal, so multiply the first equation by \(-1\) to make them cancel:</p>
+
+        \[
+        \begin{aligned}
+          (-10x - 3y) + (10x + 5y) &= -11 + 5 \\
+          2y &= -6 \\
+          y &= -3
+        \end{aligned}
+        \]
+
+        \[10x + 5(-3) = 5 \;\Rightarrow\; 10x = 20 \;\Rightarrow\; x = 2 \qquad \boxed{(2,\,-3)}\]
+
+        <p><strong>Solve:</strong> \(\;\begin{cases} 3x - 4y = 19 \\ 6x + 9y = 21 \end{cases}\)</p>
+
+        <p>Multiply the first equation by \(-2\) so the \(x\)-terms cancel:</p>
+
+        \[
+        \begin{aligned}
+          (-6x + 8y) + (6x + 9y) &= -38 + 21 \\
+          17y &= -17 \\
+          y &= -1
+        \end{aligned}
+        \]
+
+        \[3x - 4(-1) = 19 \;\Rightarrow\; 3x + 4 = 19 \;\Rightarrow\; x = 5 \qquad \boxed{(5,\,-1)}\]
+
+        <h2>Graphing Linear Inequalities</h2>
+
+        <p class="lead">A linear inequality like \(y < 2x + 2\) describes a <em>region</em> of the plane rather than a single line. The boundary line divides the plane in two; you then shade the half that makes the inequality true. Use a <em>solid</em> boundary for \(\le\) or \(\ge\) (the boundary is included) and a <em>dashed</em> boundary for \(<\) or \(>\) (it's not).</p>
+
+        <p>To check whether a point satisfies an inequality, substitute its coordinates and see if the statement holds.</p>
+
+        <p><strong>Check \((-1, 2)\) in \(5x + 7y \le 10\).</strong></p>
+
+        \[5(-1) + 7(2) = -5 + 14 = 9 \le 10 \;\checkmark \qquad \text{is a solution}\]
+
+        <p><strong>Check \((3, -3)\) in \(-3x - 2y \ge 0\).</strong></p>
+
+        \[-3(3) - 2(-3) = -9 + 6 = -3 \ge 0? \quad \text{False} \qquad \text{not a solution}\]
+
+        <p><strong>Graph \(x \ge 4\).</strong></p>
+
+        <p>The boundary is the vertical line \(x = 4\). Test \((0,0)\): \(0 \ge 4\) is false, so the origin is outside. Test \((5,0)\): \(5 \ge 4\) is true, so the region to the right is shaded.</p>
+
+        <div id="ineq-graph-1" class="jxgbox" style="width:100%;max-width:440px;height:300px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('ineq-graph-1', {
+            boundingbox: [0, 5, 8, -5],
+            axis: true, grid: true,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('curve', [[4,8,8,4,4],[-5,-5,5,5,-5]], {
+            fillColor: 'rgba(46,125,62,0.15)', strokeColor: 'none'
+          });
+          b.create('line', [[4,-5],[4,5]], {
+            strokeColor: '#333', strokeWidth: 2,
+            straightFirst: false, straightLast: false, fixed: true
+          });
+          b.create('point', [0, 0], {
+            name: '(0,0) — outside', size: 3, fillColor: '#bb2222', strokeColor: '#bb2222',
+            label: { offset: [8, 8], fontSize: 10 }
+          });
+          b.create('point', [5, 0], {
+            name: '(5,0) — inside', size: 3, fillColor: '#2e7d3e', strokeColor: '#2e7d3e',
+            label: { offset: [8, -14], fontSize: 10 }
+          });
+          b.create('text', [5.5, 4, 'x ≥ 4'], { fixed: true, fontSize: 12 });
+        })();
+        </script>
+
+        <p><strong>Graph \(y < 2x + 2\).</strong></p>
+
+        <p>Boundary \(y = 2x+2\) is dashed (strict inequality). Test \((0,0)\): \(0 < 2\) is true, so the region below the line is shaded. Test \((0,4)\): \(4 < 2\) is false.</p>
+
+        <div id="ineq-graph-2" class="jxgbox" style="width:100%;max-width:440px;height:340px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('ineq-graph-2', {
+            boundingbox: [-4, 8, 4, -4],
+            axis: true, grid: true,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('curve', [[-3,4,4,3,-3],[-4,-4,8,8,-4]], {
+            fillColor: 'rgba(46,125,62,0.15)', strokeColor: 'none'
+          });
+          b.create('functiongraph', [function(x){ return 2*x+2; }, -4, 4], {
+            strokeColor: '#333', strokeWidth: 2, dash: 2, name: ''
+          });
+          b.create('point', [0, 0], {
+            name: '(0,0) — inside', size: 3, fillColor: '#2e7d3e', strokeColor: '#2e7d3e',
+            label: { offset: [8, -14], fontSize: 10 }
+          });
+          b.create('point', [0, 4], {
+            name: '(0,4) — outside', size: 3, fillColor: '#bb2222', strokeColor: '#bb2222',
+            label: { offset: [8, 6], fontSize: 10 }
+          });
+          b.create('text', [-3.5, 7, 'y < 2x + 2'], { fixed: true, fontSize: 12 });
+        })();
+        </script>
+
+        <h2>Systems of Linear Inequalities</h2>
+
+        <p class="lead">When you have two inequalities at once, the solution region is where <em>both</em> are satisfied — the overlap of the two shaded half-planes. Graph each inequality and shade; the solution is the area covered by both shadings.</p>
+
+        <p><strong>Check \((2, 0)\) in the system \(y > x - 5\) and \(y \le 2x + 1\).</strong></p>
+
+        \[
+        \begin{aligned}
+          0 &> 2 - 5 = -3 &&\checkmark \\
+          0 &\le 2(2) + 1 = 5 &&\checkmark
+        \end{aligned}
+        \]
+
+        <p>Both hold — \((2,0)\) is a solution of the system.</p>
+
+        <p><strong>Graph the system \(x + y \le 2\) and \(y \le 1\).</strong></p>
+
+        <p>Test \((0,0)\): \(0+0 \le 2\) ✓ and \(0 \le 1\) ✓ — inside. Test \((3,1)\): \(3+1 \le 2\) ✗ — outside. The boundaries intersect at \((1, 1)\); shade the region below both lines.</p>
+
+        <div id="sys-ineq-1" class="jxgbox" style="width:100%;max-width:480px;height:340px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('sys-ineq-1', {
+            boundingbox: [-3, 5, 5, -3],
+            axis: true, grid: true,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('curve', [[-3,1,5,-3,-3],[1,1,-3,-3,1]], {
+            fillColor: 'rgba(46,125,62,0.2)', strokeColor: 'none'
+          });
+          b.create('functiongraph', [function(x){ return -x+2; }, -3, 5], {
+            strokeColor: '#2e7d3e', strokeWidth: 2.5, name: ''
+          });
+          b.create('functiongraph', [function(x){ return 1; }, -3, 5], {
+            strokeColor: '#cc7700', strokeWidth: 2.5, name: ''
+          });
+          b.create('point', [1, 1], {
+            name: '(1, 1)', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [8, 6], fontSize: 11 }
+          });
+          b.create('point', [0, 0], {
+            name: '(0,0)', size: 3, fillColor: '#2e7d3e', strokeColor: '#2e7d3e',
+            label: { offset: [8, -14], fontSize: 10 }
+          });
+          b.create('point', [3, 1], {
+            name: '(3,1)', size: 3, fillColor: '#bb2222', strokeColor: '#bb2222',
+            label: { offset: [8, 6], fontSize: 10 }
+          });
+          b.create('text', [-2.5, 4, '<span style="color:#2e7d3e">x + y ≤ 2</span>'], { fixed: true, fontSize: 11 });
+          b.create('text', [-2.5, 3.2, '<span style="color:#cc7700">y ≤ 1</span>'], { fixed: true, fontSize: 11 });
+        })();
+        </script>
+
+        <p><strong>Graph the system \(y \le \tfrac{1}{3}x + 2\) and \(y > -\tfrac{1}{2}x + 5\).</strong></p>
+
+        <p>The solid line \(y = \tfrac{1}{3}x + 2\) (included) and dashed line \(y = -\tfrac{1}{2}x + 5\) (excluded) cross at \(\bigl(\tfrac{18}{5}, \tfrac{16}{5}\bigr)\). The solution region is the narrow wedge between the lines to the right of that crossing. Test \((6,3)\): \(3 \le 4\) ✓ and \(3 > 2\) ✓ — inside.</p>
+
+        <div id="sys-ineq-2" class="jxgbox" style="width:100%;max-width:480px;height:340px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('sys-ineq-2', {
+            boundingbox: [-3, 7, 7, -1],
+            axis: true, grid: true,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('curve', [[18/5, 7, 7, 18/5],[16/5, 13/3, 1.5, 16/5]], {
+            fillColor: 'rgba(46,125,62,0.2)', strokeColor: 'none'
+          });
+          b.create('functiongraph', [function(x){ return x/3 + 2; }, -3, 7], {
+            strokeColor: '#2e7d3e', strokeWidth: 2.5, name: ''
+          });
+          b.create('functiongraph', [function(x){ return -0.5*x + 5; }, -3, 7], {
+            strokeColor: '#cc7700', strokeWidth: 2.5, dash: 2, name: ''
+          });
+          b.create('point', [18/5, 16/5], {
+            name: '(³⁄₅, ¹⁶⁄₅)', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [-70, -14], fontSize: 10 }
+          });
+          b.create('point', [6, 3], {
+            name: '(6,3) — inside', size: 3, fillColor: '#2e7d3e', strokeColor: '#2e7d3e',
+            label: { offset: [-70, 6], fontSize: 10 }
+          });
+          b.create('point', [0, 0], {
+            name: '(0,0) — outside', size: 3, fillColor: '#bb2222', strokeColor: '#bb2222',
+            label: { offset: [8, -14], fontSize: 10 }
+          });
+          b.create('text', [-2.5, 6, '<span style="color:#2e7d3e">y ≤ ⅓x + 2</span>'], { fixed: true, fontSize: 11 });
+          b.create('text', [-2.5, 5, '<span style="color:#cc7700">y > −½x + 5 (dashed)</span>'], { fixed: true, fontSize: 11 });
+        })();
+        </script>
+
+        <p><strong>Writing a system from a graph.</strong> The graph below shows two dashed boundary lines with a shaded region between them.</p>
+
+        <div id="sys-ineq-3" class="jxgbox" style="width:100%;max-width:480px;height:360px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('sys-ineq-3', {
+            boundingbox: [-1, 7, 6, -3],
+            axis: true, grid: true,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('curve', [[0, 6, 6, 3, 0],[3, 4.5, -3, -3, 3]], {
+            fillColor: 'rgba(46,125,62,0.2)', strokeColor: 'none'
+          });
+          b.create('functiongraph', [function(x){ return -2*x + 3; }, -1, 3.1], {
+            strokeColor: '#cc7700', strokeWidth: 2.5, dash: 2, name: ''
+          });
+          b.create('functiongraph', [function(x){ return 0.25*x + 3; }, -1, 6], {
+            strokeColor: '#2255cc', strokeWidth: 2.5, dash: 2, name: ''
+          });
+          b.create('point', [0, 3], {
+            name: '(0, 3)', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [-48, -14], fontSize: 11 }
+          });
+          b.create('point', [4, 0], {
+            name: '(4, 0) — test point', size: 3, fillColor: '#2e7d3e', strokeColor: '#2e7d3e',
+            label: { offset: [8, 6], fontSize: 10 }
+          });
+          b.create('text', [3.5, 6.5, '<span style="color:#2255cc">y = ¼x + 3</span>'], { fixed: true, fontSize: 11 });
+          b.create('text', [0.2, 6, '<span style="color:#cc7700">y = −2x + 3</span>'], { fixed: true, fontSize: 11 });
+        })();
+        </script>
+
+        <p>To find the equations, identify two points on each line. Both lines pass through \((0, 3)\):</p>
+        <ul>
+          <li>The steeper line also passes through \((1, 1)\): slope \(= \tfrac{1-3}{1-0} = -2\), so \(y = -2x + 3\).</li>
+          <li>The shallower line also passes through \((4, 4)\): slope \(= \tfrac{4-3}{4-0} = \tfrac{1}{4}\), so \(y = \tfrac{1}{4}x + 3\).</li>
+        </ul>
+
+        <p>Now test the point \((4, 0)\) which appears to be in the shaded region:</p>
+
+        \[
+        \begin{aligned}
+          \text{For } y = -2x+3: & \quad 0 \; ? \; -2(4)+3 = -5 && \Rightarrow\; 0 > -5 && \text{shaded side: } y > -2x+3 \\[4pt]
+          \text{For } y = \tfrac{1}{4}x+3: & \quad 0 \; ? \; \tfrac{1}{4}(4)+3 = 4 && \Rightarrow\; 0 < 4 && \text{shaded side: } y < \tfrac{1}{4}x+3
+        \end{aligned}
+        \]
+
+        \[\boxed{\begin{cases} y > -2x + 3 \\[4pt] y < \tfrac{1}{4}x + 3 \end{cases}}\]
+
+      </div>
+
+      <nav class="article-nav" aria-label="Article navigation">
+        <a href="../index.html">← Home</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
