@@ -6,6 +6,7 @@
   <meta name="description" content="Quadratics: roots, axis of symmetry, three forms, and the quadratic formula.">
   <title>Quadratics — Algebra</title>
   <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
   <link rel="icon" href="/tree.png" type="image/png">
   <link rel="apple-touch-icon" href="/tree.png">
   <meta property="og:image" content="/tree.png">
@@ -16,6 +17,7 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
   <script defer src="../script.js"></script>
 </head>
 <body>
@@ -65,105 +67,64 @@
 
         \[y = x^2 \qquad\qquad y = (x+3)^2 - 1\]
 
-        <!-- Figure 1: comparison of two parabolas -->
-        <svg viewBox="0 0 500 445" xmlns="http://www.w3.org/2000/svg"
-             style="width:100%;max-width:500px;display:block;margin:1.6em auto"
-             font-family="Times New Roman, serif" font-size="11">
+        <!-- Graph 1: comparison of y=x² (blue) and y=(x+3)²−1 (red) -->
+        <div id="graph1" class="jxgbox" style="width:100%;max-width:520px;height:320px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('graph1', {
+            boundingbox: [-5.8, 8, 3.8, -2.8],
+            axis: true,
+            grid: true,
+            showNavigation: false,
+            pan: { enabled: false },
+            zoom: { factorX: 1, factorY: 1, wheel: false }
+          });
 
-          <!-- coordinate system: origin at SVG (225, 325), scale 45px per unit -->
-          <!-- math range: x ∈ [−5, 3], y ∈ [−2, 7.2] -->
+          b.create('functiongraph', [function(x){ return x*x; }, -2.7, 2.7], {
+            strokeColor: '#2255cc', strokeWidth: 2.5, name: ''
+          });
+          b.create('functiongraph', [function(x){ return (x+3)*(x+3)-1; }, -5.2, -0.8], {
+            strokeColor: '#bb2222', strokeWidth: 2.5, name: ''
+          });
 
-          <!-- light grid lines -->
-          <!-- vertical (x = −5…3) -->
-          <line x1="0"   y1="0" x2="0"   y2="440" stroke="#e8e8e8" stroke-width="0.8"/>
-          <line x1="45"  y1="0" x2="45"  y2="440" stroke="#e8e8e8" stroke-width="0.8"/>
-          <line x1="90"  y1="0" x2="90"  y2="440" stroke="#e8e8e8" stroke-width="0.8"/>
-          <line x1="135" y1="0" x2="135" y2="440" stroke="#e8e8e8" stroke-width="0.8"/>
-          <line x1="180" y1="0" x2="180" y2="440" stroke="#e8e8e8" stroke-width="0.8"/>
-          <line x1="270" y1="0" x2="270" y2="440" stroke="#e8e8e8" stroke-width="0.8"/>
-          <line x1="315" y1="0" x2="315" y2="440" stroke="#e8e8e8" stroke-width="0.8"/>
-          <line x1="360" y1="0" x2="360" y2="440" stroke="#e8e8e8" stroke-width="0.8"/>
-          <!-- horizontal (y = −2…7) -->
-          <line x1="0" y1="415" x2="490" y2="415" stroke="#e8e8e8" stroke-width="0.8"/>
-          <line x1="0" y1="370" x2="490" y2="370" stroke="#e8e8e8" stroke-width="0.8"/>
-          <line x1="0" y1="280" x2="490" y2="280" stroke="#e8e8e8" stroke-width="0.8"/>
-          <line x1="0" y1="235" x2="490" y2="235" stroke="#e8e8e8" stroke-width="0.8"/>
-          <line x1="0" y1="190" x2="490" y2="190" stroke="#e8e8e8" stroke-width="0.8"/>
-          <line x1="0" y1="145" x2="490" y2="145" stroke="#e8e8e8" stroke-width="0.8"/>
-          <line x1="0" y1="100" x2="490" y2="100" stroke="#e8e8e8" stroke-width="0.8"/>
-          <line x1="0" y1="55"  x2="490" y2="55"  stroke="#e8e8e8" stroke-width="0.8"/>
-          <line x1="0" y1="10"  x2="490" y2="10"  stroke="#e8e8e8" stroke-width="0.8"/>
+          b.create('segment', [[0, -2.8], [0, 8]], {
+            strokeColor: '#2255cc', dash: 2, strokeWidth: 1, fixed: true
+          });
+          b.create('segment', [[-3, -2.8], [-3, 8]], {
+            strokeColor: '#bb2222', dash: 2, strokeWidth: 1, fixed: true
+          });
 
-          <!-- axes -->
-          <line x1="0" y1="325" x2="490" y2="325" stroke="#333" stroke-width="1.5"/>
-          <line x1="225" y1="440" x2="225" y2="5"  stroke="#333" stroke-width="1.5"/>
-          <!-- arrowheads -->
-          <polygon points="490,325 483,321 483,329" fill="#333"/>
-          <polygon points="225,5 221,12 229,12" fill="#333"/>
-          <text x="486" y="321" font-size="13">x</text>
-          <text x="229" y="14"  font-size="13">y</text>
+          b.create('point', [0, 0], {
+            name: 'vertex/root (0, 0)', size: 3,
+            fillColor: '#2255cc', strokeColor: '#2255cc',
+            label: { offset: [8, -14], strokeColor: '#2255cc', fontSize: 11 }
+          });
+          b.create('point', [-3, -1], {
+            name: 'vertex (−3, −1)', size: 3,
+            fillColor: '#bb2222', strokeColor: '#bb2222',
+            label: { offset: [8, -14], strokeColor: '#bb2222', fontSize: 11 }
+          });
+          b.create('point', [-4, 0], {
+            name: '(−4, 0)', size: 3,
+            fillColor: '#bb2222', strokeColor: '#bb2222',
+            label: { offset: [-10, 10], strokeColor: '#bb2222', fontSize: 11 }
+          });
+          b.create('point', [-2, 0], {
+            name: '(−2, 0)', size: 3,
+            fillColor: '#bb2222', strokeColor: '#bb2222',
+            label: { offset: [4, 10], strokeColor: '#bb2222', fontSize: 11 }
+          });
 
-          <!-- tick labels x-axis -->
-          <text x="-3"  y="339" text-anchor="middle" font-size="10">−5</text>
-          <text x="42"  y="339" text-anchor="middle" font-size="10">−4</text>
-          <text x="87"  y="339" text-anchor="middle" font-size="10">−3</text>
-          <text x="132" y="339" text-anchor="middle" font-size="10">−2</text>
-          <text x="177" y="339" text-anchor="middle" font-size="10">−1</text>
-          <text x="267" y="339" text-anchor="middle" font-size="10">1</text>
-          <text x="312" y="339" text-anchor="middle" font-size="10">2</text>
-          <text x="357" y="339" text-anchor="middle" font-size="10">3</text>
-          <!-- tick labels y-axis -->
-          <text x="213" y="369" text-anchor="end" font-size="10">−2</text>
-          <text x="218" y="324" text-anchor="end" font-size="10">−1</text>
-          <text x="218" y="279" text-anchor="end" font-size="10">1</text>
-          <text x="218" y="234" text-anchor="end" font-size="10">2</text>
-          <text x="218" y="189" text-anchor="end" font-size="10">3</text>
-          <text x="218" y="144" text-anchor="end" font-size="10">4</text>
-          <text x="218" y="99"  text-anchor="end" font-size="10">5</text>
-          <text x="218" y="54"  text-anchor="end" font-size="10">6</text>
-          <text x="218" y="14"  text-anchor="end" font-size="10">7</text>
-
-          <!-- Blue: y = x²  (vertex 0,0) from x=−2.6 to x=2.6 -->
-          <!-- SVG: P0=(108,22) vertex=(225,325) P2=(342,22), control=(225,628) -->
-          <path d="M 108,22 Q 225,628 342,22"
-                fill="none" stroke="#2255cc" stroke-width="2"/>
-          <!-- dashed AOS x=0: SVG x=225 (coincides with y-axis, drawn slightly offset) -->
-          <line x1="225" y1="10" x2="225" y2="325"
-                stroke="#2255cc" stroke-width="1.2" stroke-dasharray="5,3"/>
-          <text x="228" y="28" fill="#2255cc" font-size="10">AOS: x = 0</text>
-          <!-- vertex/root dot -->
-          <circle cx="225" cy="325" r="4" fill="#2255cc"/>
-          <text x="230" y="320" fill="#2255cc" font-size="10">vertex/root (0, 0)</text>
-
-          <!-- Red: y = (x+3)²−1  (vertex −3,−1) from x=−5 to x=−1 -->
-          <!-- SVG: P0=(0,190) vertex=(90,370) P2=(180,190), control=(90,550) -->
-          <path d="M 0,190 Q 90,550 180,190"
-                fill="none" stroke="#bb2222" stroke-width="2"/>
-          <!-- dashed AOS x=−3: SVG x=90 -->
-          <line x1="90" y1="10" x2="90" y2="370"
-                stroke="#bb2222" stroke-width="1.2" stroke-dasharray="5,3"/>
-          <text x="93" y="28" fill="#bb2222" font-size="10">AOS: x = −3</text>
-          <!-- vertex -->
-          <circle cx="90" cy="370" r="4" fill="#bb2222"/>
-          <text x="4" y="390" fill="#bb2222" font-size="10">vertex (−3, −1)</text>
-          <!-- roots: x=−4 → SVG(45,325), x=−2 → SVG(135,325) -->
-          <circle cx="45"  cy="325" r="4" fill="#bb2222"/>
-          <text x="4"   y="318" fill="#bb2222" font-size="10">root (−4, 0)</text>
-          <circle cx="135" cy="325" r="4" fill="#bb2222"/>
-          <text x="138" y="318" fill="#bb2222" font-size="10">root (−2, 0)</text>
-
-          <!-- legend -->
-          <line x1="240" y1="400" x2="265" y2="400" stroke="#2255cc" stroke-width="2"/>
-          <text x="268" y="404" font-size="11" fill="#2255cc">y = x²</text>
-          <line x1="240" y1="420" x2="265" y2="420" stroke="#bb2222" stroke-width="2"/>
-          <text x="268" y="424" font-size="11" fill="#bb2222">y = (x+3)² − 1</text>
-        </svg>
+          b.create('text', [0.4, 7, '<span style="color:#2255cc">y = x²</span>'], { fixed: true, fontSize: 12 });
+          b.create('text', [0.4, 6, '<span style="color:#bb2222">y = (x+3)² − 1</span>'], { fixed: true, fontSize: 12 });
+        })();
+        </script>
 
         <h2>Three forms of a quadratic</h2>
 
         <p>Every quadratic can be written in three equivalent ways. Each form makes different features easy to read off.</p>
 
-        <div style="display:flex;flex-direction:column;align-items:center;gap:0.3em;margin:1.5em 0">
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:0.3em;margin:1.5em 0">
           <div class="callout" style="text-align:left;max-width:420px;width:100%">
             <p style="margin:0 0 0.4em"><strong>1. Factored Form</strong></p>
             \[ y = a(x - r)(x - s) \]
@@ -173,7 +134,7 @@
               <li>Vertex: plug \(x = \dfrac{r+s}{2}\) into the formula</li>
             </ul>
           </div>
-          <p style="margin:0;color:var(--muted);font-size:0.88em">
+          <p style="margin:0;color:var(--muted);font-size:0.88em;padding-left:0.5em">
             ↓ multiply &nbsp;|&nbsp; ↑ factor, or quadratic formula
           </p>
           <div class="callout" style="text-align:left;max-width:420px;width:100%">
@@ -185,7 +146,7 @@
               <li>Roots: factor, graph, or use the quadratic formula</li>
             </ul>
           </div>
-          <p style="margin:0;color:var(--muted);font-size:0.88em">
+          <p style="margin:0;color:var(--muted);font-size:0.88em;padding-left:0.5em">
             ↓ complete the square &nbsp;|&nbsp; ↑ multiply
           </p>
           <div class="callout" style="text-align:left;max-width:420px;width:100%">
@@ -205,37 +166,47 @@
 
         \[ ax^2 + bx + c \;\longrightarrow\; x^2 + b'x + c' \]
 
-        <p>Any quadratic has two roots \(r\) and \(s\) with a midpoint \(m\) halfway between them, each at distance \(d\) from the middle:</p>
+        <p>Any quadratic has two roots \(r\) and \(s\) with a midpoint \(m\) halfway between them, each at distance \(d\) from the middle. Below, \(y = (x-1)(x-3)\) illustrates this with roots at 1 and 3 and midpoint at 2:</p>
 
-        <!-- Figure 2: generic r, m, s diagram -->
-        <svg viewBox="0 0 360 120" xmlns="http://www.w3.org/2000/svg"
-             style="width:100%;max-width:360px;display:block;margin:1.4em auto"
-             font-family="Times New Roman, serif" font-size="12">
-          <!-- x-axis -->
-          <line x1="10" y1="70" x2="350" y2="70" stroke="#333" stroke-width="1.5"/>
-          <polygon points="350,70 343,66 343,74" fill="#333"/>
-          <!-- parabola from x=40 to x=310, vertex at (180,100) -->
-          <!-- bezier: P0=(40,30) P1=(180,130) P2=(320,30) -->
-          <path d="M 40,30 Q 180,130 320,30" fill="none" stroke="#333" stroke-width="2"/>
-          <!-- root and midpoint dots -->
-          <circle cx="80"  cy="70" r="4" fill="#333"/>
-          <circle cx="180" cy="70" r="4" fill="#333"/>
-          <circle cx="280" cy="70" r="4" fill="#333"/>
-          <!-- labels below -->
-          <text x="80"  y="90" text-anchor="middle">r</text>
-          <text x="180" y="90" text-anchor="middle">m</text>
-          <text x="280" y="90" text-anchor="middle">s</text>
-          <!-- d arrows -->
-          <line x1="80" y1="48" x2="180" y2="48" stroke="#333" stroke-width="1.2" marker-start="url(#arr)" marker-end="url(#arr)"/>
-          <line x1="180" y1="48" x2="280" y2="48" stroke="#333" stroke-width="1.2" marker-start="url(#arr)" marker-end="url(#arr)"/>
-          <text x="130" y="44" text-anchor="middle" font-size="11">d</text>
-          <text x="230" y="44" text-anchor="middle" font-size="11">d</text>
-          <defs>
-            <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
-              <path d="M 0,0 L 6,3 L 0,6 z" fill="#333"/>
-            </marker>
-          </defs>
-        </svg>
+        <!-- Graph 2: generic r, m, s diagram using y=(x−1)(x−3) -->
+        <div id="graph2" class="jxgbox" style="width:100%;max-width:380px;height:220px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('graph2', {
+            boundingbox: [-0.3, 2.2, 4.3, -1.4],
+            axis: true,
+            grid: false,
+            showNavigation: false,
+            pan: { enabled: false },
+            zoom: { wheel: false }
+          });
+
+          b.create('functiongraph', [function(x){ return (x-1)*(x-3); }], {
+            strokeColor: '#333', strokeWidth: 2.5, name: ''
+          });
+
+          b.create('point', [1, 0], {
+            name: 'r', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [-6, 12], fontSize: 13 }
+          });
+          b.create('point', [2, 0], {
+            name: 'm', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [-6, 12], fontSize: 13 }
+          });
+          b.create('point', [3, 0], {
+            name: 's', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [-6, 12], fontSize: 13 }
+          });
+
+          b.create('segment', [[1, -0.8], [2, -0.8]], { strokeColor: '#555', strokeWidth: 1 });
+          b.create('segment', [[2, -0.8], [3, -0.8]], { strokeColor: '#555', strokeWidth: 1 });
+          b.create('segment', [[1, -0.7], [1, -0.9]], { strokeColor: '#555', strokeWidth: 1 });
+          b.create('segment', [[2, -0.7], [2, -0.9]], { strokeColor: '#555', strokeWidth: 1 });
+          b.create('segment', [[3, -0.7], [3, -0.9]], { strokeColor: '#555', strokeWidth: 1 });
+          b.create('text', [1.5, -1.1, 'd'], { fixed: true, fontSize: 13 });
+          b.create('text', [2.5, -1.1, 'd'], { fixed: true, fontSize: 13 });
+        })();
+        </script>
 
         <p>In factored form this quadratic is \((x - r)(x - s) = x^2 - (r+s)x + rs\). So:</p>
 
@@ -260,74 +231,93 @@
 
         <p><strong>Example 1.</strong> &nbsp; Find the roots of \(x^2 - 7x + 12\).</p>
 
-        <!-- Figure 3: x²−7x+12 -->
-        <svg viewBox="0 0 280 130" xmlns="http://www.w3.org/2000/svg"
-             style="width:100%;max-width:280px;display:block;margin:1.4em auto"
-             font-family="Times New Roman, serif" font-size="11">
-          <!-- axis -->
-          <line x1="10" y1="72" x2="270" y2="72" stroke="#333" stroke-width="1.5"/>
-          <polygon points="270,72 263,68 263,76" fill="#333"/>
-          <!-- parabola: roots at 3 and 4, vertex at (3.5, −0.25)  -->
-          <!-- scale: 80px per unit, origin-x at svg x=−100 → roots at svg x=140 and 220 -->
-          <!-- parabola from x=2.6→svg(108) to x=4.4→svg(252), vertex svg(180,90) -->
-          <!-- P0=(108,26) P1=(180,97) P2=(252,26)  control derived to pass through vertex -->
-          <path d="M 108,26 Q 180,118 252,26" fill="none" stroke="#333" stroke-width="2"/>
-          <!-- roots at x=3 (svg 140) and x=4 (svg 220); midpoint x=3.5 (svg 180) -->
-          <circle cx="140" cy="72" r="4" fill="#333"/>
-          <circle cx="180" cy="72" r="4" fill="#333"/>
-          <circle cx="220" cy="72" r="4" fill="#333"/>
-          <text x="140" y="95" text-anchor="middle">r₁ = 3</text>
-          <text x="180" y="95" text-anchor="middle">m = 3½</text>
-          <text x="220" y="95" text-anchor="middle">r₂ = 4</text>
-          <!-- d arrows -->
-          <line x1="140" y1="50" x2="180" y2="50" stroke="#333" stroke-width="1.2" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
-          <line x1="180" y1="50" x2="220" y2="50" stroke="#333" stroke-width="1.2" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
-          <text x="160" y="46" text-anchor="middle" font-size="10">d</text>
-          <text x="200" y="46" text-anchor="middle" font-size="10">d</text>
-          <defs>
-            <marker id="arr2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
-              <path d="M 0,0 L 6,3 L 0,6 z" fill="#333"/>
-            </marker>
-          </defs>
-        </svg>
+        <!-- Graph 3: y = x²−7x+12, roots at 3 and 4 -->
+        <div id="graph3" class="jxgbox" style="width:100%;max-width:340px;height:220px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('graph3', {
+            boundingbox: [1.8, 1.4, 5.2, -0.5],
+            axis: true,
+            grid: false,
+            showNavigation: false,
+            pan: { enabled: false },
+            zoom: { wheel: false }
+          });
+
+          b.create('functiongraph', [function(x){ return x*x - 7*x + 12; }, 2.1, 5], {
+            strokeColor: '#333', strokeWidth: 2.5, name: ''
+          });
+
+          b.create('point', [3, 0], {
+            name: 'r₁ = 3', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [-36, 12], fontSize: 11 }
+          });
+          b.create('point', [3.5, 0], {
+            name: 'm = 3½', size: 3, fillColor: '#555', strokeColor: '#555',
+            label: { offset: [-32, 12], fontSize: 11 }
+          });
+          b.create('point', [4, 0], {
+            name: 'r₂ = 4', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [4, 12], fontSize: 11 }
+          });
+
+          b.create('segment', [[3, -0.3], [3.5, -0.3]], { strokeColor: '#555', strokeWidth: 1 });
+          b.create('segment', [[3.5, -0.3], [4, -0.3]], { strokeColor: '#555', strokeWidth: 1 });
+          b.create('segment', [[3, -0.22], [3, -0.38]], { strokeColor: '#555', strokeWidth: 1 });
+          b.create('segment', [[3.5, -0.22], [3.5, -0.38]], { strokeColor: '#555', strokeWidth: 1 });
+          b.create('segment', [[4, -0.22], [4, -0.38]], { strokeColor: '#555', strokeWidth: 1 });
+          b.create('text', [3.18, -0.45, 'd = ½'], { fixed: true, fontSize: 11 });
+          b.create('text', [3.68, -0.45, 'd = ½'], { fixed: true, fontSize: 11 });
+        })();
+        </script>
 
         <p>The midpoint is \(m = -b'/2 = 7/2 = 3\tfrac{1}{2}\). The distance is \(d = \sqrt{m^2 - c'} = \sqrt{12.25 - 12} = \tfrac{1}{2}\). So the roots are \(r_1 = 3\) and \(r_2 = 4\), and the quadratic factors as \((x-3)(x-4)\). Check: \((x-3)(x-4) = x^2 - 7x + 12\). ✓</p>
 
         <p><strong>Example 2.</strong> &nbsp; Find the roots of \(x^2 + 6x + 7 = 0\).</p>
 
-        <!-- Figure 4: x²+6x+7 -->
-        <svg viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg"
-             style="width:100%;max-width:300px;display:block;margin:1.4em auto"
-             font-family="Times New Roman, serif" font-size="11">
-          <!-- axis -->
-          <line x1="10" y1="72" x2="290" y2="72" stroke="#333" stroke-width="1.5"/>
-          <polygon points="290,72 283,68 283,76" fill="#333"/>
-          <!-- parabola: roots at −3±√2≈−4.41 and −1.59, vertex at (−3,−2) -->
-          <!-- scale 55px/unit, origin at svg x=310 (math x=0) -->
-          <!-- root1 math −4.414 → svg 310−4.414×55=67.2 ≈ 67 -->
-          <!-- root2 math −1.586 → svg 310−1.586×55=222.8 ≈ 223 -->
-          <!-- vertex math −3 → svg 310−3×55=145, math y=−2 → svg 72+2×55=182 -->
-          <!-- from math −5→svg 35 to math −1→svg 255 -->
-          <!-- P0=(35,30) control=(145,194) P2=(255,30) -->
-          <path d="M 35,30 Q 145,194 255,30" fill="none" stroke="#333" stroke-width="2"/>
-          <!-- roots and midpoint -->
-          <circle cx="67"  cy="72" r="4" fill="#333"/>
-          <circle cx="145" cy="72" r="4" fill="#333"/>
-          <circle cx="223" cy="72" r="4" fill="#333"/>
-          <text x="67"  y="100" text-anchor="middle" font-size="10">r₁ = −3 − √2</text>
-          <text x="145" y="118" text-anchor="middle">m = −3</text>
-          <text x="223" y="100" text-anchor="middle" font-size="10">r₂ = −3 + √2</text>
-          <!-- d arrows -->
-          <line x1="67" y1="50" x2="145" y2="50" stroke="#333" stroke-width="1.2" marker-start="url(#arr3)" marker-end="url(#arr3)"/>
-          <line x1="145" y1="50" x2="223" y2="50" stroke="#333" stroke-width="1.2" marker-start="url(#arr3)" marker-end="url(#arr3)"/>
-          <text x="106" y="46" text-anchor="middle" font-size="10">d</text>
-          <text x="184" y="46" text-anchor="middle" font-size="10">d</text>
-          <defs>
-            <marker id="arr3" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
-              <path d="M 0,0 L 6,3 L 0,6 z" fill="#333"/>
-            </marker>
-          </defs>
-        </svg>
+        <!-- Graph 4: y = x²+6x+7, roots at −3±√2 -->
+        <div id="graph4" class="jxgbox" style="width:100%;max-width:380px;height:240px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('graph4', {
+            boundingbox: [-5.5, 2.2, -0.5, -2.4],
+            axis: true,
+            grid: false,
+            showNavigation: false,
+            pan: { enabled: false },
+            zoom: { wheel: false }
+          });
+
+          b.create('functiongraph', [function(x){ return x*x + 6*x + 7; }, -5.2, -0.8], {
+            strokeColor: '#333', strokeWidth: 2.5, name: ''
+          });
+
+          var r1 = -3 - Math.sqrt(2);
+          var r2 = -3 + Math.sqrt(2);
+
+          b.create('point', [r1, 0], {
+            name: '−3 − √2', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [-52, 12], fontSize: 11 }
+          });
+          b.create('point', [-3, 0], {
+            name: 'm = −3', size: 3, fillColor: '#555', strokeColor: '#555',
+            label: { offset: [-32, 12], fontSize: 11 }
+          });
+          b.create('point', [r2, 0], {
+            name: '−3 + √2', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [4, 12], fontSize: 11 }
+          });
+          b.create('point', [-3, -2], {
+            name: 'vertex (−3, −2)', size: 3, fillColor: '#555', strokeColor: '#555',
+            label: { offset: [8, -14], fontSize: 11 }
+          });
+
+          b.create('segment', [[r1, -1.5], [-3, -1.5]], { strokeColor: '#555', strokeWidth: 1 });
+          b.create('segment', [[-3, -1.5], [r2, -1.5]], { strokeColor: '#555', strokeWidth: 1 });
+          b.create('text', [-3.8, -1.9, 'd = √2'], { fixed: true, fontSize: 11 });
+          b.create('text', [-2.75, -1.9, 'd = √2'], { fixed: true, fontSize: 11 });
+        })();
+        </script>
 
         <p>The midpoint is \(m = -6/2 = -3\). The distance is \(d = \sqrt{(-3)^2 - 7} = \sqrt{9 - 7} = \sqrt{2}\). So the roots are \(-3 - \sqrt{2}\) and \(-3 + \sqrt{2}\).</p>
 
