@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Graphing parabolas by transformations, completing the square for vertex form, and graphing from factored form.">
+  <title>Graphing Quadratics — Algebra</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+  <link rel="icon" href="/tree.png" type="image/png">
+  <link rel="apple-touch-icon" href="/tree.png">
+  <meta property="og:image" content="/tree.png">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["\\(","\\)"]], displayMath: [["\\[","\\]"]], processEscapes: true },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+  <script defer src="../script.js"></script>
+</head>
+<body>
+  <aside class="site-sidebar">
+    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+    <nav class="sidebar-nav" aria-label="Site map">
+      <a href="../index.html">Home</a>
+      <div class="sidebar-group">
+        <a href="infinite-series.html">Calculus</a>
+        <div class="sidebar-sub">
+          <a href="infinite-series.html">Infinite Series</a>
+          <a href="calculus-limits.html">Limits</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="polynomial-roots.html">Math &amp; Computers</a>
+        <div class="sidebar-sub">
+          <a href="polynomial-roots.html">Polynomials</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="algebra-functions.html" class="active">Algebra</a>
+        <div class="sidebar-sub">
+          <a href="algebra-functions.html">Functions and Lines</a>
+          <a href="algebra-writing-lines.html">Writing Line Equations</a>
+          <a href="algebra-systems.html">Linear Systems and Inequalities</a>
+          <a href="algebra-exponents.html">Exponents and Sequences</a>
+          <a href="algebra-polynomials.html">Polynomials and Factoring</a>
+          <a href="algebra-graphing-quadratics.html" class="active">Graphing Quadratics</a>
+          <a href="algebra-quadratics.html">Quadratics</a>
+        </div>
+      </div>
+      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+      <a href="library.html">Library</a>
+      <a href="gps-tracks.html">GPS Tracks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </aside>
+  <a class="sidebar-mark" href="../index.html" aria-label="Home">
+    <img src="../glyph.png" alt="" height="26">
+    <span class="sidebar-mark-hint">home</span>
+  </a>
+
+  <main class="article-shell">
+    <article>
+      <header class="article-header">
+        <h1>Graphing Quadratics</h1>
+        <p class="subtitle">transformations, vertex form, completing the square, and factored form</p>
+      </header>
+
+      <div class="article-content">
+
+        <div class="callout">
+          \[y = a(x-h)^2 + k\]
+          <p style="margin:0.6em 0 0; font-size:0.95em">
+            Vertex \((h,k)\) · axis \(x = h\) · opens up if \(a > 0\), down if \(a < 0\) · narrower than \(y=x^2\) if \(|a|>1\), wider if \(|a|<1\)
+          </p>
+        </div>
+
+        <h2>Transformations of \(y = x^2\)</h2>
+
+        <p class="lead">Every parabola is a transformed version of the parent graph \(y = x^2\). Adding or subtracting a constant shifts it; changing the coefficient stretches or compresses it; negating it flips it upside down. You can read all of this directly from vertex form.</p>
+
+        <table style="border-collapse:collapse;margin:1.2em 0;font-size:0.93em;width:100%;max-width:520px">
+          <thead>
+            <tr>
+              <th style="border:1px solid var(--rule);padding:6px 12px;text-align:left">Change to \(y=x^2\)</th>
+              <th style="border:1px solid var(--rule);padding:6px 12px;text-align:left">Effect on graph</th>
+              <th style="border:1px solid var(--rule);padding:6px 12px;text-align:left">Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="border:1px solid var(--rule);padding:5px 12px">\(+k\)</td><td style="border:1px solid var(--rule);padding:5px 12px">shift up \(k\)</td><td style="border:1px solid var(--rule);padding:5px 12px">\(x^2+3\)</td></tr>
+            <tr><td style="border:1px solid var(--rule);padding:5px 12px">\(-k\)</td><td style="border:1px solid var(--rule);padding:5px 12px">shift down \(k\)</td><td style="border:1px solid var(--rule);padding:5px 12px">\(x^2-5\)</td></tr>
+            <tr><td style="border:1px solid var(--rule);padding:5px 12px">\((x-h)^2\)</td><td style="border:1px solid var(--rule);padding:5px 12px">shift right \(h\)</td><td style="border:1px solid var(--rule);padding:5px 12px">\((x-2)^2\)</td></tr>
+            <tr><td style="border:1px solid var(--rule);padding:5px 12px">\((x+h)^2\)</td><td style="border:1px solid var(--rule);padding:5px 12px">shift left \(h\)</td><td style="border:1px solid var(--rule);padding:5px 12px">\((x+4)^2\)</td></tr>
+            <tr><td style="border:1px solid var(--rule);padding:5px 12px">\(a > 1\)</td><td style="border:1px solid var(--rule);padding:5px 12px">narrower</td><td style="border:1px solid var(--rule);padding:5px 12px">\(3x^2\)</td></tr>
+            <tr><td style="border:1px solid var(--rule);padding:5px 12px">\(0 < a < 1\)</td><td style="border:1px solid var(--rule);padding:5px 12px">wider</td><td style="border:1px solid var(--rule);padding:5px 12px">\(\tfrac14 x^2\)</td></tr>
+            <tr><td style="border:1px solid var(--rule);padding:5px 12px">\(a < 0\)</td><td style="border:1px solid var(--rule);padding:5px 12px">reflect over \(x\)-axis</td><td style="border:1px solid var(--rule);padding:5px 12px">\(-x^2\)</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>Graph \(h(x) = x^2 + 10\).</strong></p>
+
+        <p>Start with \(y = x^2\), then shift every point up 10 units. The vertex moves from \((0,0)\) to \((0,10)\); the shape and width are unchanged.</p>
+
+        <div id="trans-graph-1" class="jxgbox" style="width:100%;max-width:440px;height:300px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('trans-graph-1', {
+            boundingbox: [-5, 17, 5, -2],
+            axis: true, grid: true,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('functiongraph', [function(x){ return x*x; }, -5, 5], {
+            strokeColor: '#aaa', strokeWidth: 1.5, dash: 2, name: ''
+          });
+          b.create('functiongraph', [function(x){ return x*x + 10; }, -5, 5], {
+            strokeColor: '#2255cc', strokeWidth: 2.5, name: ''
+          });
+          b.create('point', [0, 10], {
+            name: 'vertex (0, 10)', size: 3, fillColor: '#2255cc', strokeColor: '#2255cc',
+            label: { offset: [8, 6], fontSize: 11 }
+          });
+          b.create('text', [1.5, 15, '<span style="color:#2255cc">y = x² + 10</span>'], { fixed: true, fontSize: 12 });
+          b.create('text', [1.5, 5, '<span style="color:#aaa">y = x²</span>'], { fixed: true, fontSize: 12 });
+        })();
+        </script>
+
+        <p><strong>Graph \(h(x) = -\tfrac{1}{4}x^2 - 1\).</strong></p>
+
+        <p>Apply transformations step by step:</p>
+
+        \[
+        \begin{aligned}
+          y &= x^2 && \text{parent} \\
+          y &= \tfrac{1}{4}x^2 && \text{vertically compress (wider)} \\
+          y &= -\tfrac{1}{4}x^2 && \text{reflect over } x\text{-axis} \\
+          y &= -\tfrac{1}{4}x^2 - 1 && \text{shift down 1}
+        \end{aligned}
+        \]
+
+        Vertex: \((0,-1)\). Opens downward. Wider than \(y = x^2\).
+
+        <div id="trans-graph-2" class="jxgbox" style="width:100%;max-width:440px;height:300px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('trans-graph-2', {
+            boundingbox: [-7, 4, 7, -9],
+            axis: true, grid: true,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('functiongraph', [function(x){ return x*x; }, -4, 4], {
+            strokeColor: '#aaa', strokeWidth: 1.5, dash: 2, name: ''
+          });
+          b.create('functiongraph', [function(x){ return -x*x/4 - 1; }, -7, 7], {
+            strokeColor: '#bb2222', strokeWidth: 2.5, name: ''
+          });
+          b.create('point', [0, -1], {
+            name: 'vertex (0, −1)', size: 3, fillColor: '#bb2222', strokeColor: '#bb2222',
+            label: { offset: [8, -14], fontSize: 11 }
+          });
+          b.create('text', [3.5, 3, '<span style="color:#aaa">y = x²</span>'], { fixed: true, fontSize: 12 });
+          b.create('text', [3, -5, '<span style="color:#bb2222">y = −¼x² − 1</span>'], { fixed: true, fontSize: 12 });
+        })();
+        </script>
+
+        <h2>Completing the Square</h2>
+
+        <p class="lead">Any quadratic can be rewritten in vertex form \(y = a(x-h)^2+k\) by completing the square. Once there, the vertex, axis, direction, and width all read off immediately — and graphing by hand becomes straightforward.</p>
+
+        <p><strong>Rewrite \(y = -5x^2 - 20x + 4\) in vertex form and graph.</strong></p>
+
+        <p>Factor \(-5\) out of the quadratic and linear terms only:</p>
+
+        \[y = -5(x^2 + 4x) + 4\]
+
+        <p>Complete the square inside the parentheses. Half of 4 is 2, and \(2^2 = 4\):</p>
+
+        \[x^2 + 4x = (x+2)^2 - 4\]
+
+        <p>Substitute back:</p>
+
+        \[
+        \begin{aligned}
+          y &= -5\bigl((x+2)^2 - 4\bigr) + 4 \\
+          &= -5(x+2)^2 + 20 + 4 \\
+          &= -5(x+2)^2 + 24
+        \end{aligned}
+        \]
+
+        <p>Now read off everything:</p>
+        <ul>
+          <li><strong>Vertex:</strong> \((-2, 24)\)</li>
+          <li><strong>Axis of symmetry:</strong> \(x = -2\)</li>
+          <li>Since \(a = -5 < 0\), opens <strong>downward</strong></li>
+          <li>Since \(|a| = 5 > 1\), <strong>narrower</strong> than \(y = x^2\)</li>
+        </ul>
+
+        <p>To get easy plotting points, move 1 unit left and right from the vertex. Since \(a = -5\), the graph drops by 5:</p>
+
+        \[(-1,\,19),\quad (-3,\,19)\]
+
+        <p>The \(y\)-intercept at \(x = 0\): \(y = -5(0)^2 - 20(0) + 4 = 4\). By symmetry, \((-4, 4)\) is also on the graph.</p>
+
+        <div id="vertex-form-graph" class="jxgbox" style="width:100%;max-width:480px;height:360px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('vertex-form-graph', {
+            boundingbox: [-7, 28, 3, -6],
+            axis: true, grid: true,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('functiongraph', [function(x){ return -5*(x+2)*(x+2)+24; }, -7, 3], {
+            strokeColor: '#2e7d3e', strokeWidth: 2.5, name: ''
+          });
+          b.create('line', [[-2,-6],[-2,28]], {
+            strokeColor: '#aaa', strokeWidth: 1, dash: 2,
+            straightFirst: false, straightLast: false
+          });
+          b.create('point', [-2, 24], {
+            name: '(−2, 24)', size: 3, fillColor: '#2e7d3e', strokeColor: '#2e7d3e',
+            label: { offset: [8, 6], fontSize: 11 }
+          });
+          b.create('point', [-1, 19], {
+            name: '(−1, 19)', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [8, 6], fontSize: 10 }
+          });
+          b.create('point', [-3, 19], {
+            name: '(−3, 19)', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [-68, 6], fontSize: 10 }
+          });
+          b.create('point', [0, 4], {
+            name: '(0, 4)', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [8, 6], fontSize: 10 }
+          });
+          b.create('point', [-4, 4], {
+            name: '(−4, 4)', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [-58, 6], fontSize: 10 }
+          });
+          b.create('text', [-6.5, 26, '<span style="color:#2e7d3e">y = −5(x+2)² + 24</span>'], { fixed: true, fontSize: 11 });
+        })();
+        </script>
+
+        <h2>Graphing from Factored Form</h2>
+
+        <p class="lead">When a quadratic is already in factored form, the zeros come directly from the zero product property, the axis of symmetry is the average of the zeros, and substituting the axis value gives the vertex.</p>
+
+        <p><strong>Find the vertex of \(f(x) = -\tfrac{1}{3}x(x+5)\).</strong></p>
+
+        <p>Zeros: set each factor to zero — \(x = 0\) or \(x = -5\).</p>
+
+        \[\text{Axis of symmetry: } x = \frac{0 + (-5)}{2} = -\frac{5}{2}\]
+
+        \[f\!\left(-\tfrac{5}{2}\right) = -\tfrac{1}{3}\left(-\tfrac{5}{2}\right)\!\left(-\tfrac{5}{2}+5\right) = -\tfrac{1}{3}\cdot\left(-\tfrac{5}{2}\right)\cdot\tfrac{5}{2} = -\tfrac{1}{3}\cdot\left(-\tfrac{25}{4}\right) = \frac{25}{12}\]
+
+        \[\text{Vertex: }\left(-\tfrac{5}{2},\;\frac{25}{12}\right)\]
+
+        <p>Note the sign: \(-\tfrac{1}{3} \cdot (-\tfrac{25}{4})\) is positive, so the vertex is a <em>maximum</em> — which makes sense since \(a = -\tfrac{1}{3} < 0\) means the parabola opens downward.</p>
+
+        <p><strong>Graph \(f(x) = 4(x+3)(x+2)\).</strong></p>
+
+        <p>Zeros: \(x = -3\) and \(x = -2\). Axis: \(x = \tfrac{-3+(-2)}{2} = -\tfrac{5}{2}\).</p>
+
+        \[f\!\left(-\tfrac{5}{2}\right) = 4\left(-\tfrac{5}{2}+3\right)\!\left(-\tfrac{5}{2}+2\right) = 4\cdot\tfrac{1}{2}\cdot\left(-\tfrac{1}{2}\right) = -1\]
+
+        Key points: \((-3,0),\;(-2,0),\;\bigl(-\tfrac{5}{2},-1\bigr)\).
+
+        <div id="factored-graph-1" class="jxgbox" style="width:100%;max-width:440px;height:280px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('factored-graph-1', {
+            boundingbox: [-5, 5, 1, -2],
+            axis: true, grid: true,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('functiongraph', [function(x){ return 4*(x+3)*(x+2); }, -5, 1], {
+            strokeColor: '#2255cc', strokeWidth: 2.5, name: ''
+          });
+          b.create('point', [-3, 0], {
+            name: '(−3, 0)', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [-58, 10], fontSize: 10 }
+          });
+          b.create('point', [-2, 0], {
+            name: '(−2, 0)', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [8, 10], fontSize: 10 }
+          });
+          b.create('point', [-2.5, -1], {
+            name: '(−⁵⁄₂, −1)', size: 3, fillColor: '#2255cc', strokeColor: '#2255cc',
+            label: { offset: [8, -14], fontSize: 10 }
+          });
+        })();
+        </script>
+
+        <p><strong>Find the zeros of \(f(x) = \tfrac{2}{3}(x+8)(x-5)\).</strong></p>
+
+        \[\tfrac{2}{3}(x+8)(x-5) = 0 \;\Rightarrow\; x = -8 \text{ or } x = 5\]
+
+        <p><strong>Graph \(f(x) = -2(x-5)(x-3)\).</strong></p>
+
+        <p>Zeros: \(x = 3\) and \(x = 5\). Axis: \(x = \tfrac{3+5}{2} = 4\).</p>
+
+        \[f(4) = -2(4-5)(4-3) = -2(-1)(1) = 2\]
+
+        Key points: \((3,0),\;(5,0),\;(4,2)\). The parabola opens downward since \(a = -2 < 0\).
+
+        <div id="factored-graph-2" class="jxgbox" style="width:100%;max-width:440px;height:280px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('factored-graph-2', {
+            boundingbox: [1, 4, 7, -3],
+            axis: true, grid: true,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('functiongraph', [function(x){ return -2*(x-5)*(x-3); }, 1, 7], {
+            strokeColor: '#bb2222', strokeWidth: 2.5, name: ''
+          });
+          b.create('point', [3, 0], {
+            name: '(3, 0)', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [-48, 10], fontSize: 10 }
+          });
+          b.create('point', [5, 0], {
+            name: '(5, 0)', size: 3, fillColor: '#333', strokeColor: '#333',
+            label: { offset: [8, 10], fontSize: 10 }
+          });
+          b.create('point', [4, 2], {
+            name: '(4, 2)', size: 3, fillColor: '#bb2222', strokeColor: '#bb2222',
+            label: { offset: [8, 6], fontSize: 10 }
+          });
+        })();
+        </script>
+
+        <h2>Even and Odd Functions</h2>
+
+        <p class="lead">Functions can have algebraic symmetry that matches visual symmetry on the graph.</p>
+
+        <p>A function is <strong>even</strong> if \(f(-x) = f(x)\) for all \(x\) — substituting \(-x\) gives the same value as \(x\). Graphically, even functions are symmetric about the \(y\)-axis. Example: \(f(x) = x^2\), since \((-x)^2 = x^2\).</p>
+
+        <p>A function is <strong>odd</strong> if \(f(-x) = -f(x)\) — substituting \(-x\) negates the output. Graphically, odd functions have 180° rotational symmetry about the origin. Example: \(f(x) = x^3\), since \((-x)^3 = -x^3\).</p>
+
+        <p>A quadratic \(f(x) = ax^2 + bx + c\) is even only when \(b = 0\) — that is, when there's no horizontal shift and the axis of symmetry is the \(y\)-axis. The moment you shift the parabola left or right, the \(y\)-axis symmetry is lost and the function is neither even nor odd.</p>
+
+      </div>
+
+      <nav class="article-nav" aria-label="Article navigation">
+        <a href="../index.html">← Home</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
