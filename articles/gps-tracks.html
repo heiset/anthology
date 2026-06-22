@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="GPS tracks from running and skiing in the Wasatch.">
+  <meta name="description" content="GPS tracks from runs in the Wasatch.">
   <title>GPS Tracks — 卄乇丨丂乇</title>
   <link rel="stylesheet" href="../styles.css">
   <link rel="icon" href="/tree.png" type="image/png">
@@ -15,29 +15,22 @@
       list-style: none;
       margin: 0.3em 0 1.6em 0;
       padding: 0;
+      columns: 2;
+      column-gap: 2em;
     }
     .track-list li {
-      padding: 4px 0;
+      padding: 3px 0;
       border-bottom: 1px solid var(--rule);
-      display: flex;
-      align-items: baseline;
-      gap: 0.6em;
       font-size: 0.93em;
+      break-inside: avoid;
     }
     .track-list li:last-child { border-bottom: none; }
     .track-list a {
-      flex: 1;
+      display: block;
       color: var(--ink);
       text-decoration: none;
     }
     .track-list a:hover { color: var(--accent); text-decoration: underline; }
-    .track-tag {
-      font-size: 0.72em;
-      color: var(--muted);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
     .track-section-heading {
       margin: 2em 0 0.5em;
       font-size: 1.1em;
@@ -86,7 +79,7 @@
     <article>
       <header class="article-header">
         <h1>GPS Tracks</h1>
-        <p class="subtitle">Wasatch running and skiing routes — download .gpx for Caltopo, Gaia, Garmin</p>
+        <p class="subtitle">Runs I've done with a .gpx link — not all of these files are mine</p>
       </header>
 
       <div class="article-content">
@@ -95,7 +88,7 @@
         <ul class="track-list">
           <li><a href="../gpx/parleys-ridge.gpx" download>Parley's Ridge</a></li>
           <li><a href="../gpx/foothill-ultimate-ridge-linkup.gpx" download>Foothill Ultimate Ridge Linkup (FURL)</a></li>
-          <li><a href="../gpx/wasatch-steeplechase-course.gpx" download>Wasatch Steeplechase Course</a> <span class="track-tag">race</span></li>
+          <li><a href="../gpx/wasatch-steeplechase-course.gpx" download>Wasatch Steeplechase Course</a></li>
         </ul>
 
         <h2 class="track-section-heading">Neff's Canyon &amp; Mount Olympus</h2>
@@ -109,12 +102,12 @@
         <h2 class="track-section-heading">Mill Creek Canyon</h2>
         <ul class="track-list">
           <li><a href="../gpx/grandeur-via-millcreek-loop.gpx" download>Grandeur Peak via Mill Creek</a></li>
-          <li><a href="../gpx/grandeur-peak-challenge-loop.gpx" download>Grandeur Peak Challenge Loop</a></li>
+          <li><a href="../gpx/grandeur-peak-challenge-loop.gpx" download>Grandeur Peak Loop</a></li>
           <li><a href="../gpx/millcreek-canyon-loop.gpx" download>Mill Creek Canyon Loop</a></li>
           <li><a href="../gpx/millcreek-lambs-trail-loop.gpx" download>Mill Creek Lamb's Trail Loop</a></li>
           <li><a href="../gpx/millcreek-to-gobblers-knob.gpx" download>Mill Creek to Gobbler's Knob</a></li>
           <li><a href="../gpx/pipeline-big-water-crest-loop.gpx" download>Pipeline–Big Water–Crest Loop</a></li>
-          <li><a href="../gpx/wasatch-to-whiskey-50k-course.gpx" download>Wasatch to Whiskey 50K Course</a> <span class="track-tag">race</span></li>
+          <li><a href="../gpx/wasatch-to-whiskey-50k-course.gpx" download>SLC to PC</a></li>
         </ul>
 
         <h2 class="track-section-heading">Twin Peaks, Broads Fork &amp; Ferguson Canyon</h2>
@@ -123,17 +116,17 @@
           <li><a href="../gpx/broads-fork-to-twin-peaks.gpx" download>Broads Fork to Twin Peaks</a></li>
           <li><a href="../gpx/broads-fork-to-twin-peaks-variant.gpx" download>Broads Fork to Twin Peaks (variant)</a></li>
           <li><a href="../gpx/broads-fork-twin-peaks-loop.gpx" download>Broads Fork Twin Peaks Loop</a></li>
-          <li><a href="../gpx/broads-fork-area-run.gpx" download>Broads Fork Area Run</a></li>
+          <li><a href="../gpx/broads-fork-area-run.gpx" download>Broads Fork Run</a></li>
           <li><a href="../gpx/wurl-wasatch-ultimate-ridge-linkup.gpx" download>WURL — Wasatch Ultimate Ridge Linkup</a></li>
           <li><a href="../gpx/storm-mountain-north-ridge-ferguson-canyon.gpx" download>Storm Mountain North Ridge via Ferguson Canyon</a></li>
           <li><a href="../gpx/mineral-slab.gpx" download>Mineral Slab</a></li>
           <li><a href="../gpx/lake-blanche-sundial-peak.gpx" download>Lake Blanche and Sundial Peak</a></li>
-          <li><a href="../gpx/sundial-peak-lake-blanche.gpx" download>Sundial Peak via Lake Blanche (variant)</a></li>
+          <li><a href="../gpx/sundial-peak-lake-blanche.gpx" download>Sundial Peak via Lake Blanche</a></li>
         </ul>
 
         <h2 class="track-section-heading">Big Cottonwood Canyon</h2>
         <ul class="track-list">
-          <li><a href="../gpx/big-cottonwood-traverse.gpx" download>Big Cottonwood Canyon Traverse</a> <span class="track-tag">FKT</span></li>
+          <li><a href="../gpx/big-cottonwood-traverse.gpx" download>Big Cottonwood Canyon Traverse</a></li>
           <li><a href="../gpx/big-cottonwood-traverse-alt-route.gpx" download>Big Cottonwood Traverse — Alt Route</a></li>
           <li><a href="../gpx/desolation-lake-loop.gpx" download>Desolation Lake Loop</a></li>
           <li><a href="../gpx/gobblers-knob-via-butler-fork.gpx" download>Gobbler's Knob via Butler Fork</a></li>
@@ -153,10 +146,10 @@
           <li><a href="../gpx/catherines-pass.gpx" download>Catherine's Pass</a></li>
           <li><a href="../gpx/cardiff-fork-loop-from-alta.gpx" download>Cardiff Fork Loop from Alta</a></li>
           <li><a href="../gpx/south-ridge-of-superior.gpx" download>South Ridge of Superior</a></li>
-          <li><a href="../gpx/speedgoat-50k-course.gpx" download>Speedgoat 50K Course</a> <span class="track-tag">race</span></li>
+          <li><a href="../gpx/speedgoat-50k-course.gpx" download>Speedgoat 50K Course</a></li>
           <li><a href="../gpx/sugarloaf-peak-cecret-lake.gpx" download>Sugarloaf Peak and Cecret Lake</a></li>
           <li><a href="../gpx/little-cottonwood-canyon-direct-ascent.gpx" download>Little Cottonwood Canyon Direct Ascent</a></li>
-          <li><a href="../gpx/pfeifferhorn.gpx" download>Pfeifferhorn</a> <span class="track-tag">FKT</span></li>
+          <li><a href="../gpx/pfeifferhorn.gpx" download>Pfeifferhorn</a></li>
           <li><a href="../gpx/white-baldy.gpx" download>White Baldy</a></li>
           <li><a href="../gpx/twin-peaks-via-lisa-falls.gpx" download>Twin Peaks via Lisa Falls</a></li>
           <li><a href="../gpx/the-pawn-approach.gpx" download>The Pawn Approach</a></li>
@@ -166,7 +159,7 @@
         <ul class="track-list">
           <li><a href="../gpx/lone-peak.gpx" download>Lone Peak</a></li>
           <li><a href="../gpx/lone-peak-via-jacobs-ladder.gpx" download>Lone Peak via Jacob's Ladder</a></li>
-          <li><a href="../gpx/box-elder-peak.gpx" download>Box Elder Peak</a> <span class="track-tag">FKT</span></li>
+          <li><a href="../gpx/box-elder-peak.gpx" download>Box Elder Peak</a></li>
           <li><a href="../gpx/elder-and-silver-peak-loop.gpx" download>Elder and Silver Peak Loop</a></li>
           <li><a href="../gpx/silver-lake.gpx" download>Silver Lake</a></li>
           <li><a href="../gpx/silver-lake-american-fork.gpx" download>Silver Lake (alternate)</a></li>
@@ -179,7 +172,7 @@
         <h2 class="track-section-heading">Timpanogos &amp; Utah Valley</h2>
         <ul class="track-list">
           <li><a href="../gpx/timpanogos-traverse.gpx" download>Timpanogos Traverse</a></li>
-          <li><a href="../gpx/timpanogos-time-trial.gpx" download>Timpanogos Time Trial</a></li>
+          <li><a href="../gpx/timpanogos-time-trial.gpx" download>Timpanogos</a></li>
           <li><a href="../gpx/timpanogos-alternate-route.gpx" download>Timpanogos Alternate Route</a></li>
           <li><a href="../gpx/rock-canyon-access-trail-provo.gpx" download>Rock Canyon Access Trail (Provo)</a></li>
         </ul>
@@ -188,7 +181,7 @@
         <ul class="track-list">
           <li><a href="../gpx/park-city-skyline-trail-traverse.gpx" download>Park City Skyline Trail Traverse</a></li>
           <li><a href="../gpx/bobs-trail-to-park-city-skyline.gpx" download>Bob's Trail to Park City Skyline</a></li>
-          <li><a href="../gpx/park-city-to-gobblers-knob.gpx" download>Park City to Gobbler's Knob</a> <span class="track-tag">FKT</span></li>
+          <li><a href="../gpx/park-city-to-gobblers-knob.gpx" download>Park City to Gobbler's Knob</a></li>
           <li><a href="../gpx/quarry-mountain.gpx" download>Quarry Mountain</a></li>
           <li><a href="../gpx/rail-trail-park-city.gpx" download>Rail Trail</a></li>
           <li><a href="../gpx/silver-creek-loop.gpx" download>Silver Creek Loop</a></li>
@@ -202,7 +195,7 @@
         <h2 class="track-section-heading">Uintas</h2>
         <ul class="track-list">
           <li><a href="../gpx/kings-peak.gpx" download>Kings Peak via Henry's Fork</a></li>
-          <li><a href="../gpx/kings-peak-henry-fork-variant.gpx" download>Kings Peak (variant)</a></li>
+          <li><a href="../gpx/kings-peak-henry-fork-variant.gpx" download>King's Peak (Krupicka route)</a></li>
         </ul>
 
       </div>
