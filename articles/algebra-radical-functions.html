@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Square root and cube root functions, domain and range, transformations, solving radical equations, and inverse functions.">
+  <title>Radical Functions and Inverses — Algebra</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+  <link rel="icon" href="/tree.png" type="image/png">
+  <link rel="apple-touch-icon" href="/tree.png">
+  <meta property="og:image" content="/tree.png">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["\\(","\\)"]], displayMath: [["\\[","\\]"]], processEscapes: true },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+  <script defer src="../script.js"></script>
+</head>
+<body>
+  <aside class="site-sidebar">
+    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+    <nav class="sidebar-nav" aria-label="Site map">
+      <a href="../index.html">Home</a>
+      <div class="sidebar-group">
+        <a href="infinite-series.html">Calculus</a>
+        <div class="sidebar-sub">
+          <a href="infinite-series.html">Infinite Series</a>
+          <a href="calculus-limits.html">Limits</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="polynomial-roots.html">Math &amp; Computers</a>
+        <div class="sidebar-sub">
+          <a href="polynomial-roots.html">Polynomials</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="algebra-functions.html" class="active">Algebra</a>
+        <div class="sidebar-sub">
+          <a href="algebra-functions.html">Functions and Lines</a>
+          <a href="algebra-writing-lines.html">Writing Line Equations</a>
+          <a href="algebra-systems.html">Linear Systems and Inequalities</a>
+          <a href="algebra-exponents.html">Exponents and Sequences</a>
+          <a href="algebra-polynomials.html">Polynomials and Factoring</a>
+          <a href="algebra-graphing-quadratics.html">Graphing Quadratics</a>
+          <a href="algebra-solving-quadratics.html">Solving Quadratics</a>
+          <a href="algebra-radical-functions.html" class="active">Radical Functions and Inverses</a>
+          <a href="algebra-quadratics.html">Quadratics</a>
+        </div>
+      </div>
+      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+      <a href="library.html">Library</a>
+      <a href="gps-tracks.html">GPS Tracks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </aside>
+  <a class="sidebar-mark" href="../index.html" aria-label="Home">
+    <img src="../glyph.png" alt="" height="26">
+    <span class="sidebar-mark-hint">home</span>
+  </a>
+
+  <main class="article-shell">
+    <article>
+      <header class="article-header">
+        <h1>Radical Functions and Inverses</h1>
+        <p class="subtitle">square roots, cube roots, solving radical equations, and inverse functions</p>
+      </header>
+
+      <div class="article-content">
+
+        <div class="callout">
+          <p style="margin:0">Square root: radicand \(\ge 0\) · range \([0,\infty)\). Cube root: all reals · range \((-\infty,\infty)\).</p>
+          <p style="margin:0.5em 0 0">To solve a radical equation: isolate the radical, raise both sides to the appropriate power, then <em>check for extraneous solutions</em>.</p>
+        </div>
+
+        <h2>Square Root Functions</h2>
+
+        <p class="lead">For \(y = \sqrt{\text{radicand}}\), the radicand must be nonnegative. Set it \(\ge 0\) and solve to find the domain. The output of a square root is always nonnegative, so the range starts at 0.</p>
+
+        <p><strong>Domain of \(y = \sqrt{7x}\).</strong></p>
+
+        \[7x \ge 0 \;\Rightarrow\; x \ge 0 \qquad \text{Domain: } [0,\infty)\]
+
+        <p><strong>Domain of \(y = \sqrt{-x+5}\).</strong></p>
+
+        \[-x + 5 \ge 0 \;\Rightarrow\; -x \ge -5\]
+
+        <p>Dividing (or multiplying) by a negative flips the inequality sign:</p>
+
+        \[x \le 5 \qquad \text{Domain: } (-\infty, 5]\]
+
+        <p><strong>Domain and range of \(y = 3\sqrt{-x}\).</strong></p>
+
+        \[
+        -x \ge 0 \;\Rightarrow\; x \le 0 \qquad \text{Domain: } (-\infty, 0]
+        \]
+
+        \[
+        \sqrt{-x} \ge 0 \;\Rightarrow\; 3\sqrt{-x} \ge 0 \qquad \text{Range: } [0,\infty)
+        \]
+
+        <p><strong>Graph \(g(x) = \sqrt{\tfrac{x}{3}}\) alongside \(f(x) = \sqrt{x}\).</strong></p>
+
+        <p>Replacing \(x\) with \(\tfrac{x}{3}\) stretches the graph horizontally by a factor of 3. You need to go three times as far along the \(x\)-axis to get the same output.</p>
+
+        <div id="sqrt-stretch" class="jxgbox" style="width:100%;max-width:440px;height:260px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('sqrt-stretch', {
+            boundingbox: [-1, 4.5, 13, -0.5],
+            axis: true, grid: true,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('functiongraph', [function(x){ return Math.sqrt(x); }, 0, 13], {
+            strokeColor: '#aaa', strokeWidth: 1.8, dash: 2, name: ''
+          });
+          b.create('functiongraph', [function(x){ return Math.sqrt(x/3); }, 0, 13], {
+            strokeColor: '#2e7d3e', strokeWidth: 2.5, name: ''
+          });
+          b.create('point', [0, 0], { name: '', size: 3, fillColor: '#2e7d3e', strokeColor: '#2e7d3e' });
+          b.create('point', [3, 1], { name: '', size: 3, fillColor: '#2e7d3e', strokeColor: '#2e7d3e' });
+          b.create('point', [12, 2], { name: '', size: 3, fillColor: '#2e7d3e', strokeColor: '#2e7d3e' });
+          b.create('text', [5, 4, '<span style="color:#aaa">f(x) = √x</span>'], { fixed: true, fontSize: 11 });
+          b.create('text', [5, 3.3, '<span style="color:#2e7d3e">g(x) = √(x/3)</span>'], { fixed: true, fontSize: 11 });
+        })();
+        </script>
+
+        \[\text{Domain: } [0,\infty) \qquad \text{Range: } [0,\infty)\]
+
+        <p><strong>Graph \(g(x) = -\sqrt{x} + 2\) alongside \(f(x) = \sqrt{x}\).</strong></p>
+
+        <p>The negative reflects the graph across the \(x\)-axis; the \(+2\) shifts it up. The function decreases from \((0,2)\) downward.</p>
+
+        <div id="sqrt-reflect" class="jxgbox" style="width:100%;max-width:440px;height:280px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('sqrt-reflect', {
+            boundingbox: [-0.5, 4.5, 10, -2],
+            axis: true, grid: true,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('functiongraph', [function(x){ return Math.sqrt(x); }, 0, 10], {
+            strokeColor: '#aaa', strokeWidth: 1.8, dash: 2, name: ''
+          });
+          b.create('functiongraph', [function(x){ return -Math.sqrt(x)+2; }, 0, 10], {
+            strokeColor: '#2255cc', strokeWidth: 2.5, name: ''
+          });
+          b.create('point', [0, 2], { name: '(0, 2)', size: 3, fillColor: '#2255cc', strokeColor: '#2255cc',
+            label: { offset: [8, 6], fontSize: 10 }
+          });
+          b.create('point', [1, 1], { name: '', size: 3, fillColor: '#2255cc', strokeColor: '#2255cc' });
+          b.create('point', [4, 0], { name: '(4, 0)', size: 3, fillColor: '#2255cc', strokeColor: '#2255cc',
+            label: { offset: [8, 6], fontSize: 10 }
+          });
+          b.create('point', [9, -1], { name: '', size: 3, fillColor: '#2255cc', strokeColor: '#2255cc' });
+          b.create('text', [5, 4, '<span style="color:#aaa">f(x) = √x</span>'], { fixed: true, fontSize: 11 });
+          b.create('text', [5, 3.3, '<span style="color:#2255cc">g(x) = −√x + 2</span>'], { fixed: true, fontSize: 11 });
+        })();
+        </script>
+
+        \[\text{Domain: } [0,\infty) \qquad \text{Range: } (-\infty, 2]\]
+
+        <h2>Cube Root Functions</h2>
+
+        <p class="lead">Cube roots don't require a nonnegative radicand — you can cube-root any real number. So cube root functions have domain and range \((-\infty,\infty)\), and their graphs pass through the origin and extend in both directions.</p>
+
+        <p><strong>Graph \(g(x) = \sqrt[3]{x+4}\) alongside \(f(x) = \sqrt[3]{x}\).</strong></p>
+
+        <p>Replacing \(x\) with \(x+4\) shifts the graph left 4. The center of the S-curve moves from \((0,0)\) to \((-4,0)\).</p>
+
+        <div id="cbrt-shift-left" class="jxgbox" style="width:100%;max-width:480px;height:280px"></div>
+        <script>
+        (function() {
+          function cbrt(x) { return Math.sign(x) * Math.pow(Math.abs(x), 1/3); }
+          var b = JXG.JSXGraph.initBoard('cbrt-shift-left', {
+            boundingbox: [-10, 4.5, 6, -4.5],
+            axis: true, grid: true,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('functiongraph', [function(x){ return cbrt(x); }, -10, 6], {
+            strokeColor: '#aaa', strokeWidth: 1.8, dash: 2, name: ''
+          });
+          b.create('functiongraph', [function(x){ return cbrt(x+4); }, -10, 6], {
+            strokeColor: '#2e7d3e', strokeWidth: 2.5, name: ''
+          });
+          b.create('point', [-5, -1], { name: '', size: 3, fillColor: '#2e7d3e', strokeColor: '#2e7d3e' });
+          b.create('point', [-4, 0], { name: '(−4, 0)', size: 3, fillColor: '#2e7d3e', strokeColor: '#2e7d3e',
+            label: { offset: [-70, -16], fontSize: 10 }
+          });
+          b.create('point', [-3, 1], { name: '', size: 3, fillColor: '#2e7d3e', strokeColor: '#2e7d3e' });
+          b.create('text', [0, 4, '<span style="color:#aaa">f(x) = ∛x</span>'], { fixed: true, fontSize: 11 });
+          b.create('text', [0, 3.2, '<span style="color:#2e7d3e">g(x) = ∛(x+4)</span>'], { fixed: true, fontSize: 11 });
+        })();
+        </script>
+
+        \[\text{Domain: } (-\infty,\infty) \qquad \text{Range: } (-\infty,\infty)\]
+
+        <p><strong>Graph \(g(x) = -\sqrt[3]{x-3}\) alongside \(f(x) = \sqrt[3]{x}\).</strong></p>
+
+        <p>The \(x-3\) inside shifts the graph right 3. The leading negative reflects it across the \(x\)-axis — the curve that was rising from left to right now falls.</p>
+
+        <div id="cbrt-reflect" class="jxgbox" style="width:100%;max-width:480px;height:280px"></div>
+        <script>
+        (function() {
+          function cbrt(x) { return Math.sign(x) * Math.pow(Math.abs(x), 1/3); }
+          var b = JXG.JSXGraph.initBoard('cbrt-reflect', {
+            boundingbox: [-6, 4.5, 10, -4.5],
+            axis: true, grid: true,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('functiongraph', [function(x){ return cbrt(x); }, -6, 10], {
+            strokeColor: '#aaa', strokeWidth: 1.8, dash: 2, name: ''
+          });
+          b.create('functiongraph', [function(x){ return -cbrt(x-3); }, -6, 10], {
+            strokeColor: '#2255cc', strokeWidth: 2.5, name: ''
+          });
+          b.create('point', [2, 1], { name: '', size: 3, fillColor: '#2255cc', strokeColor: '#2255cc' });
+          b.create('point', [3, 0], { name: '(3, 0)', size: 3, fillColor: '#2255cc', strokeColor: '#2255cc',
+            label: { offset: [8, 8], fontSize: 10 }
+          });
+          b.create('point', [4, -1], { name: '', size: 3, fillColor: '#2255cc', strokeColor: '#2255cc' });
+          b.create('text', [-5, 4, '<span style="color:#aaa">f(x) = ∛x</span>'], { fixed: true, fontSize: 11 });
+          b.create('text', [-5, 3.2, '<span style="color:#2255cc">g(x) = −∛(x−3)</span>'], { fixed: true, fontSize: 11 });
+        })();
+        </script>
+
+        \[\text{Domain: } (-\infty,\infty) \qquad \text{Range: } (-\infty,\infty)\]
+
+        <h2>Solving Radical Equations</h2>
+
+        <p class="lead">Isolate the radical, then undo it by squaring (for square roots) or cubing (for cube roots). Squaring can create fake solutions — always check your answers in the original equation.</p>
+
+        <p><strong>Solve \(\sqrt{x} = 13\).</strong></p>
+
+        \[(\sqrt{x})^2 = 13^2 \;\Rightarrow\; x = 169\]
+
+        <p><strong>Solve \(-16 = 4 - \sqrt{y}\).</strong></p>
+
+        \[
+        \begin{aligned}
+          -20 &= -\sqrt{y} \\
+          20 &= \sqrt{y} \\
+          400 &= y
+        \end{aligned}
+        \]
+
+        <p><strong>Solve \(\sqrt{q-4} - 10 = -7\).</strong></p>
+
+        \[
+        \begin{aligned}
+          \sqrt{q-4} &= 3 \\
+          q-4 &= 9 \\
+          q &= 13
+        \end{aligned}
+        \]
+
+        <p><strong>Solve \(3 = \sqrt{2x+2} - 9\).</strong></p>
+
+        \[
+        \begin{aligned}
+          12 &= \sqrt{2x+2} \\
+          144 &= 2x+2 \\
+          x &= 71
+        \end{aligned}
+        \]
+
+        <p><strong>Solve \(\sqrt{3x} = \sqrt{4x-6}\).</strong></p>
+
+        <p>Square both sides directly:</p>
+
+        \[3x = 4x - 6 \;\Rightarrow\; x = 6\]
+
+        <p><strong>Solve \(\sqrt[3]{x-9} = 2\).</strong></p>
+
+        <p>Cube both sides (no extraneous solutions with cube roots):</p>
+
+        \[x - 9 = 8 \;\Rightarrow\; x = 17\]
+
+        <p><strong>Solve \(\sqrt{4t+24} = -2t\).</strong></p>
+
+        \[
+        \begin{aligned}
+          4t + 24 &= 4t^2 \\
+          0 &= 4t^2 - 4t - 24 \\
+          0 &= t^2 - t - 6 \\
+          0 &= (t-3)(t+2) \\
+          t &= 3 \text{ or } t = -2
+        \end{aligned}
+        \]
+
+        <p>Check both — this is where squaring can create trouble:</p>
+
+        \[t = 3: \quad \sqrt{36} = 6 \;\ne\; -6 \qquad \text{extraneous}\]
+        \[t = -2: \quad \sqrt{16} = 4 = -2(-2) = 4 \qquad \checkmark\]
+
+        \[\boxed{t = -2}\]
+
+        <h2>Inverse Functions</h2>
+
+        <p class="lead">An inverse relation swaps inputs and outputs. To find an inverse <em>function</em>, write \(y = f(x)\), swap \(x\) and \(y\), then solve for \(y\). The graphs of \(f\) and \(f^{-1}\) are reflections of each other across the line \(y = x\).</p>
+
+        <p><strong>Find the inverse of the relation.</strong></p>
+
+        <div style="overflow-x:auto">
+        <table style="border-collapse:collapse;margin:0.8em 0">
+          <tr>
+            <td style="padding:4px 10px;border:1px solid #ccc;font-weight:600">Input</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">−10</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">−5</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">0</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">5</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">10</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">15</td>
+          </tr>
+          <tr>
+            <td style="padding:4px 10px;border:1px solid #ccc;font-weight:600">Output</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">1</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">2</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">1</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">2</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">1</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">2</td>
+          </tr>
+        </table>
+        </div>
+
+        <p>Switch every input and output:</p>
+
+        <div style="overflow-x:auto">
+        <table style="border-collapse:collapse;margin:0.8em 0">
+          <tr>
+            <td style="padding:4px 10px;border:1px solid #ccc;font-weight:600">Input</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">1</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">2</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">1</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">2</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">1</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">2</td>
+          </tr>
+          <tr>
+            <td style="padding:4px 10px;border:1px solid #ccc;font-weight:600">Output</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">−10</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">−5</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">0</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">5</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">10</td>
+            <td style="padding:4px 10px;border:1px solid #ccc">15</td>
+          </tr>
+        </table>
+        </div>
+
+        <p>Notice the inverse is <em>not</em> a function — input 1 maps to three different outputs. The original relation failed the horizontal line test.</p>
+
+        <p><strong>Find the inverse of \(f(x) = 4x + 5\). What input gives output 2?</strong></p>
+
+        <p>To find the inverse relation, start from \(y = 4x+5\) and solve for \(x\) in terms of \(y\):</p>
+
+        \[y - 5 = 4x \;\Rightarrow\; x = \frac{y-5}{4}\]
+
+        <p>So if the output is 2:</p>
+
+        \[x = \frac{2-5}{4} = -\frac{3}{4}\]
+
+        <p><strong>Find \(f^{-1}(x)\) for \(f(x) = 3x - 4\).</strong></p>
+
+        \[
+        \begin{aligned}
+          y &= 3x - 4 \\
+          x &= 3y - 4 && \text{swap } x \text{ and } y \\
+          x + 4 &= 3y \\
+          \frac{x+4}{3} &= y
+        \end{aligned}
+        \]
+
+        \[f^{-1}(x) = \frac{x+4}{3}\]
+
+        <p>The graph shows \(f\) and \(f^{-1}\) as mirror images across the line \(y = x\).</p>
+
+        <div id="inverse-graph" class="jxgbox" style="width:100%;max-width:420px;height:340px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('inverse-graph', {
+            boundingbox: [-6, 8, 8, -6],
+            axis: true, grid: true,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('functiongraph', [function(x){ return x; }, -6, 8], {
+            strokeColor: '#ccc', strokeWidth: 1.2, dash: 1, name: ''
+          });
+          b.create('functiongraph', [function(x){ return 3*x-4; }, -1.5, 4], {
+            strokeColor: '#2e7d3e', strokeWidth: 2.5, name: ''
+          });
+          b.create('functiongraph', [function(x){ return (x+4)/3; }, -6, 8], {
+            strokeColor: '#2255cc', strokeWidth: 2.5, dash: 2, name: ''
+          });
+          b.create('text', [2.5, 7, '<span style="color:#2e7d3e">f(x) = 3x − 4</span>'], { fixed: true, fontSize: 11 });
+          b.create('text', [2.5, 6.2, '<span style="color:#2255cc">f⁻¹(x) = (x+4)/3</span>'], { fixed: true, fontSize: 11 });
+          b.create('text', [5.5, 4.8, '<span style="color:#ccc">y = x</span>'], { fixed: true, fontSize: 11 });
+        })();
+        </script>
+
+        <h3>The Horizontal Line Test</h3>
+
+        <p>A function has an inverse that is <em>also a function</em> if and only if every horizontal line crosses the original graph at most once.</p>
+
+        <p><strong>Does \(f(x) = \sqrt{x+2} + 3\) pass the Horizontal Line Test?</strong></p>
+
+        <p>This is a square root function shifted left 2 and up 3. It always increases (moving right, the output grows), so each horizontal level is reached at most once.</p>
+
+        \[\text{Passes the Horizontal Line Test} \;\Rightarrow\; f^{-1} \text{ is a function.}\]
+
+      </div>
+
+      <nav class="article-nav" aria-label="Article navigation">
+        <a href="../index.html">← Home</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
