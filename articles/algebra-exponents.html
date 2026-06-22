@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Exponent rules, roots and radicals, exponential functions and growth, geometric sequences, and recursive rules.">
+  <title>Exponents, Exponentials, and Sequences — Algebra</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+  <link rel="icon" href="/tree.png" type="image/png">
+  <link rel="apple-touch-icon" href="/tree.png">
+  <meta property="og:image" content="/tree.png">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["\\(","\\)"]], displayMath: [["\\[","\\]"]], processEscapes: true },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+  <script defer src="../script.js"></script>
+</head>
+<body>
+  <aside class="site-sidebar">
+    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+    <nav class="sidebar-nav" aria-label="Site map">
+      <a href="../index.html">Home</a>
+      <div class="sidebar-group">
+        <a href="infinite-series.html">Calculus</a>
+        <div class="sidebar-sub">
+          <a href="infinite-series.html">Infinite Series</a>
+          <a href="calculus-limits.html">Limits</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="polynomial-roots.html">Math &amp; Computers</a>
+        <div class="sidebar-sub">
+          <a href="polynomial-roots.html">Polynomials</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="algebra-functions.html" class="active">Algebra</a>
+        <div class="sidebar-sub">
+          <a href="algebra-functions.html">Functions and Lines</a>
+          <a href="algebra-writing-lines.html">Writing Line Equations</a>
+          <a href="algebra-systems.html">Linear Systems and Inequalities</a>
+          <a href="algebra-exponents.html" class="active">Exponents and Sequences</a>
+          <a href="algebra-quadratics.html">Quadratics</a>
+        </div>
+      </div>
+      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+      <a href="library.html">Library</a>
+      <a href="gps-tracks.html">GPS Tracks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </aside>
+  <a class="sidebar-mark" href="../index.html" aria-label="Home">
+    <img src="../glyph.png" alt="" height="26">
+    <span class="sidebar-mark-hint">home</span>
+  </a>
+
+  <main class="article-shell">
+    <article>
+      <header class="article-header">
+        <h1>Exponents, Exponentials, and Sequences</h1>
+        <p class="subtitle">exponent rules, roots, exponential growth, and geometric sequences</p>
+      </header>
+
+      <div class="article-content">
+
+        <div class="callout">
+          \[
+          \begin{aligned}
+            a^m \cdot a^n &= a^{m+n} &\qquad
+            \dfrac{a^m}{a^n} &= a^{m-n} \\[0.6em]
+            (a^m)^n &= a^{mn} &\qquad
+            (ab)^n &= a^n b^n \\[0.6em]
+            \left(\dfrac{a}{b}\right)^n &= \dfrac{a^n}{b^n} &\qquad
+            a^0 &= 1 \\[0.6em]
+            a^{-n} &= \dfrac{1}{a^n}
+          \end{aligned}
+          \]
+        </div>
+
+        <h2>Exponent Rules</h2>
+
+        <p><strong>Simplify \(5^{-4}\).</strong></p>
+
+        <p>A negative exponent means "move to the denominator":</p>
+
+        \[5^{-4} = \frac{1}{5^4} = \frac{1}{625}\]
+
+        <p><strong>Simplify \(\dfrac{8^{-1}}{(-4)^0}\).</strong></p>
+
+        \[\frac{8^{-1}}{(-4)^0} = \frac{8^{-1}}{1} = 8^{-1} = \frac{1}{8}\]
+
+        <p><strong>Simplify \(\dfrac{7^{-2}\,m^0}{n^{-4}}\).</strong></p>
+
+        <p>Use \(m^0 = 1\), then move factors with negative exponents across the fraction bar:</p>
+
+        \[\frac{7^{-2}\,m^0}{n^{-4}} = \frac{7^{-2} \cdot 1}{n^{-4}} = \frac{n^4}{7^2} = \frac{n^4}{49}\]
+
+        <p><strong>Simplify \(\dfrac{t^{-5}}{8^{-2}\,s^{-3}}\).</strong></p>
+
+        <p>Every factor with a negative exponent moves across the bar and becomes positive:</p>
+
+        \[\frac{t^{-5}}{8^{-2}\,s^{-3}} = \frac{8^2\,s^3}{t^5} = \frac{64s^3}{t^5}\]
+
+        <h2>Roots and Radicals</h2>
+
+        <p class="lead">The \(n\)th root of \(a\) is the number whose \(n\)th power equals \(a\). When the index \(n\) is even and \(a\) is positive, there are two real roots (\(\pm\)). When \(n\) is odd, there is exactly one real root, and it carries the sign of \(a\).</p>
+
+        <p><strong>Find the real 6th roots of 64.</strong></p>
+
+        \[x^6 = 64 = 2^6 \;\Rightarrow\; x = \pm 2\]
+
+        <p>The index 6 is even and 64 is positive, so there are two real roots.</p>
+
+        <p><strong>A cube has volume \(729\text{ cm}^3\). Find the side length.</strong></p>
+
+        \[s^3 = 729 \;\Rightarrow\; s = \sqrt[3]{729} = 9\text{ cm}\]
+
+        <p>(Since \(9^3 = 729\).)</p>
+
+        <p><strong>Evaluate \(-\sqrt[3]{-512}\).</strong></p>
+
+        \[\sqrt[3]{-512} = -8 \qquad \text{(since }(-8)^3 = -512\text{)}\]
+
+        \[-\sqrt[3]{-512} = -(-8) = 8\]
+
+        <h2>Exponential Functions</h2>
+
+        <p class="lead">An exponential function has the form \(y = ab^x\), where \(b > 0\) and \(b \ne 1\). The key requirement is that the variable appears in the <em>exponent</em> — and the base must be a genuine constant different from 1.</p>
+
+        <p><strong>Is \(y = -6^x\) an exponential function?</strong></p>
+
+        <p>Rewrite as \(y = -(6^x) = -1 \cdot 6^x\). This fits \(y = ab^x\) with \(a = -1\) and \(b = 6\). The variable \(x\) is in the exponent and the base 6 ≠ 1, so yes — it's exponential. The negative coefficient reflects the curve below the \(x\)-axis but doesn't change the classification.</p>
+
+        <p><strong>Is \(y = 5(1)^x\) an exponential function?</strong></p>
+
+        \[y = 5(1)^x = 5 \cdot 1 = 5\]
+
+        <p>Since \(1^x = 1\) for every \(x\), this is just the constant function \(y = 5\) — a horizontal line. The base must not equal 1 for the function to be truly exponential.</p>
+
+        <div id="exp-functions-graph" class="jxgbox" style="width:100%;max-width:480px;height:300px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('exp-functions-graph', {
+            boundingbox: [-0.5, 12, 2.2, -7],
+            axis: true, grid: false,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('functiongraph', [function(x){ return Math.pow(6,x); }, -0.5, 2.2], {
+            strokeColor: '#2e7d3e', strokeWidth: 2.5, name: ''
+          });
+          b.create('functiongraph', [function(x){ return -Math.pow(6,x); }, -0.5, 2.2], {
+            strokeColor: '#bb2222', strokeWidth: 2.5, name: ''
+          });
+          b.create('functiongraph', [function(x){ return 5; }, -0.5, 2.2], {
+            strokeColor: '#cc7700', strokeWidth: 2.5, name: ''
+          });
+          b.create('text', [0.9, 10, '<span style="color:#2e7d3e">y = 6ˣ</span>'], { fixed: true, fontSize: 12 });
+          b.create('text', [0.9, -5.5, '<span style="color:#bb2222">y = −6ˣ</span>'], { fixed: true, fontSize: 12 });
+          b.create('text', [0.05, 5.8, '<span style="color:#cc7700">y = 5(1)ˣ = 5</span>'], { fixed: true, fontSize: 12 });
+        })();
+        </script>
+
+        <p>The green and red curves are exponential (one grows, one decays below the axis). The orange line is constant — not exponential.</p>
+
+        <h2>Exponential Growth</h2>
+
+        <p class="lead">An exponential growth model has the form \(f(t) = a(1+r)^t\), where \(a\) is the initial amount and \(r\) is the growth rate as a decimal.</p>
+
+        <p><strong>For \(f(t) = 220(1.015)^t\), find the initial amount and growth rate. Evaluate at \(t = 5\).</strong></p>
+
+        \[
+        \begin{aligned}
+          a &= 220 \\
+          1 + r &= 1.015 \;\Rightarrow\; r = 0.015 = 1.5\% \\
+          f(5) &= 220(1.015)^5 \approx 237.0
+        \end{aligned}
+        \]
+
+        <p><strong>For \(p(t) = 5.5(1.5)^t\), find the initial amount and growth rate. Evaluate at \(t = 5\).</strong></p>
+
+        \[
+        \begin{aligned}
+          a &= 5.5 \\
+          1 + r &= 1.5 \;\Rightarrow\; r = 0.5 = 50\% \\
+          p(5) &= 5.5(1.5)^5 \approx 41.8
+        \end{aligned}
+        \]
+
+        <p>The two growth rates — 1.5% and 50% — look like small numbers but produce dramatically different curves. The graph below compares the multiplier \(b^t\) for each base (starting from 1 so the shapes are comparable):</p>
+
+        <div id="growth-compare" class="jxgbox" style="width:100%;max-width:480px;height:300px"></div>
+        <script>
+        (function() {
+          var b = JXG.JSXGraph.initBoard('growth-compare', {
+            boundingbox: [0, 18, 7, 0],
+            axis: true, grid: false,
+            showNavigation: false,
+            pan: { enabled: false }, zoom: { wheel: false }
+          });
+          b.create('functiongraph', [function(t){ return Math.pow(1.5, t); }, 0, 7], {
+            strokeColor: '#2e7d3e', strokeWidth: 2.5, name: ''
+          });
+          b.create('functiongraph', [function(t){ return Math.pow(1.015, t); }, 0, 7], {
+            strokeColor: '#cc7700', strokeWidth: 2.5, name: ''
+          });
+          b.create('point', [5, Math.pow(1.5, 5)], {
+            name: '(5, 7.6)', size: 3, fillColor: '#2e7d3e', strokeColor: '#2e7d3e',
+            label: { offset: [8, 6], fontSize: 10 }
+          });
+          b.create('point', [5, Math.pow(1.015, 5)], {
+            name: '(5, 1.1)', size: 3, fillColor: '#cc7700', strokeColor: '#cc7700',
+            label: { offset: [8, -14], fontSize: 10 }
+          });
+          b.create('text', [4, 16, '<span style="color:#2e7d3e">b = 1.5 (r = 50%)</span>'], { fixed: true, fontSize: 11 });
+          b.create('text', [4, 14, '<span style="color:#cc7700">b = 1.015 (r = 1.5%)</span>'], { fixed: true, fontSize: 11 });
+        })();
+        </script>
+
+        <h2>Solving Exponential Equations</h2>
+
+        <p class="lead">When two exponential expressions have the same base, their exponents must be equal. Rewrite both sides with the same base, then set the exponents equal and solve.</p>
+
+        <p><strong>Solve \(3^{8x} = 3^{5x-6}\).</strong></p>
+
+        <p>Same base on both sides, so set exponents equal:</p>
+
+        \[
+        \begin{aligned}
+          8x &= 5x - 6 \\
+          3x &= -6 \\
+          x &= -2
+        \end{aligned}
+        \]
+
+        Check: \(3^{8(-2)} = 3^{-16}\) and \(3^{5(-2)-6} = 3^{-16}\) ✓
+
+        <p><strong>Solve \(2^{2x} = 2^{5x+3}\).</strong></p>
+
+        \[
+        \begin{aligned}
+          2x &= 5x + 3 \\
+          -3x &= 3 \\
+          x &= -1
+        \end{aligned}
+        \]
+
+        Check: \(2^{2(-1)} = 2^{-2}\) and \(2^{5(-1)+3} = 2^{-2}\) ✓
+
+        <h2>Geometric Sequences</h2>
+
+        <p class="lead">In a geometric sequence, each term is obtained by multiplying the previous term by a fixed number called the <em>common ratio</em> \(r\). To find \(r\), divide any term by the one before it.</p>
+
+        <p><strong>Find the common ratio: \(5,\ 20,\ 80,\ 320,\ \ldots\)</strong></p>
+
+        \[r = \frac{20}{5} = 4 \qquad \text{check: } \frac{80}{20} = 4 \;\checkmark\]
+
+        <p><strong>Find the common ratio: \(144,\ -72,\ 36,\ -18,\ \ldots\)</strong></p>
+
+        \[r = \frac{-72}{144} = -\frac{1}{2} \qquad \text{check: } \frac{36}{-72} = -\frac{1}{2} \;\checkmark\]
+
+        <p>A negative ratio causes the terms to alternate in sign.</p>
+
+        <p><strong>Find the common ratio: \(24,\ 84,\ 294,\ 1029,\ \ldots\)</strong></p>
+
+        \[r = \frac{84}{24} = \frac{7}{2} \qquad \text{check: } \frac{294}{84} = \frac{7}{2} \;\checkmark\]
+
+        <h2>Recursive Rules and Explicit Formulas</h2>
+
+        <p class="lead">A sequence can be described two ways. A <em>recursive rule</em> defines each term in terms of the one before it. An <em>explicit formula</em> gives the \(n\)th term directly, without computing all previous terms.</p>
+
+        \[
+        \begin{array}{ll}
+          \text{Arithmetic} & a_n = a_{n-1} + d \qquad (\text{adds the same value each step}) \\[4pt]
+          \text{Geometric} & a_n = r \cdot a_{n-1} \qquad (\text{multiplies by the same value each step})
+        \end{array}
+        \]
+
+        The explicit formula for a geometric sequence is:
+        \[a_n = a_1 \, r^{n-1}\]
+
+        <p><strong>Is \(a_1 = 5,\; a_n = 12a_{n-1}\) arithmetic or geometric?</strong></p>
+
+        <p>The rule multiplies by 12, so it's geometric with \(r = 12\).</p>
+
+        <p><strong>Is \(a_1 = 6,\; a_n = a_{n-1} - 3\) arithmetic or geometric?</strong></p>
+
+        <p>The rule subtracts 3 (adds \(-3\)), so it's arithmetic with \(d = -3\).</p>
+
+        <p><strong>Write the \(n\)th term for \(\dfrac{3}{125},\ \dfrac{3}{25},\ \dfrac{3}{5},\ 3,\ \ldots\) and find \(a_6\).</strong></p>
+
+        \[r = \frac{\;\tfrac{3}{25}\;}{\tfrac{3}{125}} = \frac{3}{25} \cdot \frac{125}{3} = 5\]
+
+        \[a_n = \frac{3}{125}(5)^{n-1}\]
+
+        \[a_6 = \frac{3}{125}(5^5) = \frac{3}{125}(3125) = 75\]
+
+        <p><strong>Write the \(n\)th term for \(0.2,\ 1.6,\ 12.8,\ 102.4,\ \ldots\) and find \(a_6\).</strong></p>
+
+        \[r = \frac{1.6}{0.2} = 8\]
+
+        \[a_n = 0.2(8)^{n-1}\]
+
+        \[a_6 = 0.2(8^5) = 0.2(32{,}768) = 6553.6\]
+
+      </div>
+
+      <nav class="article-nav" aria-label="Article navigation">
+        <a href="../index.html">← Home</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
