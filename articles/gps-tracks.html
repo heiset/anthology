@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GPS tracks from running and skiing in the Wasatch.">
+  <title>GPS Tracks — 卄乇丨丂乇</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="/tree.png" type="image/png">
+  <link rel="apple-touch-icon" href="/tree.png">
+  <meta property="og:image" content="/tree.png">
+  <script defer src="../script.js"></script>
+  <style>
+    .track-list {
+      list-style: none;
+      margin: 0.3em 0 1.6em 0;
+      padding: 0;
+    }
+    .track-list li {
+      padding: 4px 0;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: baseline;
+      gap: 0.6em;
+      font-size: 0.93em;
+    }
+    .track-list li:last-child { border-bottom: none; }
+    .track-list a {
+      flex: 1;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .track-list a:hover { color: var(--accent); text-decoration: underline; }
+    .track-tag {
+      font-size: 0.72em;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .track-section-heading {
+      margin: 2em 0 0.5em;
+      font-size: 1.1em;
+      font-weight: 700;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+  <aside class="site-sidebar">
+    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+    <nav class="sidebar-nav" aria-label="Site map">
+      <a href="../index.html">Home</a>
+      <div class="sidebar-group">
+        <a href="infinite-series.html">Calculus</a>
+        <div class="sidebar-sub">
+          <a href="infinite-series.html">Infinite Series</a>
+          <a href="calculus-limits.html">Limits</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="polynomial-roots.html">Math &amp; Computers</a>
+        <div class="sidebar-sub">
+          <a href="polynomial-roots.html">Polynomials</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="algebra-quadratics.html">Algebra</a>
+        <div class="sidebar-sub">
+          <a href="algebra-quadratics.html">Quadratics</a>
+        </div>
+      </div>
+      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+      <a href="library.html">Library</a>
+      <a href="gps-tracks.html" class="active">GPS Tracks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </aside>
+  <a class="sidebar-mark" href="../index.html" aria-label="Home">
+    <img src="../glyph.png" alt="" height="26">
+    <span class="sidebar-mark-hint">home</span>
+  </a>
+
+  <main class="article-shell">
+    <article>
+      <header class="article-header">
+        <h1>GPS Tracks</h1>
+        <p class="subtitle">Wasatch running and skiing routes — download .gpx for Caltopo, Gaia, Garmin</p>
+      </header>
+
+      <div class="article-content">
+
+        <h2 class="track-section-heading">Foothills &amp; Northern SLC</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/parleys-ridge.gpx" download>Parley's Ridge</a></li>
+          <li><a href="../gpx/foothill-ultimate-ridge-linkup.gpx" download>Foothill Ultimate Ridge Linkup (FURL)</a></li>
+          <li><a href="../gpx/wasatch-steeplechase-course.gpx" download>Wasatch Steeplechase Course</a> <span class="track-tag">race</span></li>
+        </ul>
+
+        <h2 class="track-section-heading">Neff's Canyon &amp; Mount Olympus</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/mount-olympus.gpx" download>Mount Olympus</a></li>
+          <li><a href="../gpx/wildcat-ridge-traverse.gpx" download>Wildcat Ridge Traverse</a></li>
+          <li><a href="../gpx/neffs-canyon-descent.gpx" download>Neff's Canyon Descent</a></li>
+          <li><a href="../gpx/neffs-canyon-to-ridgeline.gpx" download>Neff's Canyon to Ridgeline</a></li>
+        </ul>
+
+        <h2 class="track-section-heading">Mill Creek Canyon</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/grandeur-via-millcreek-loop.gpx" download>Grandeur Peak via Mill Creek</a></li>
+          <li><a href="../gpx/grandeur-peak-challenge-loop.gpx" download>Grandeur Peak Challenge Loop</a></li>
+          <li><a href="../gpx/millcreek-canyon-loop.gpx" download>Mill Creek Canyon Loop</a></li>
+          <li><a href="../gpx/millcreek-lambs-trail-loop.gpx" download>Mill Creek Lamb's Trail Loop</a></li>
+          <li><a href="../gpx/millcreek-to-gobblers-knob.gpx" download>Mill Creek to Gobbler's Knob</a></li>
+          <li><a href="../gpx/pipeline-big-water-crest-loop.gpx" download>Pipeline–Big Water–Crest Loop</a></li>
+          <li><a href="../gpx/wasatch-to-whiskey-50k-course.gpx" download>Wasatch to Whiskey 50K Course</a> <span class="track-tag">race</span></li>
+        </ul>
+
+        <h2 class="track-section-heading">Twin Peaks, Broads Fork &amp; Ferguson Canyon</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/twin-peaks.gpx" download>Twin Peaks</a></li>
+          <li><a href="../gpx/broads-fork-to-twin-peaks.gpx" download>Broads Fork to Twin Peaks</a></li>
+          <li><a href="../gpx/broads-fork-to-twin-peaks-variant.gpx" download>Broads Fork to Twin Peaks (variant)</a></li>
+          <li><a href="../gpx/broads-fork-twin-peaks-loop.gpx" download>Broads Fork Twin Peaks Loop</a></li>
+          <li><a href="../gpx/broads-fork-area-run.gpx" download>Broads Fork Area Run</a></li>
+          <li><a href="../gpx/wurl-wasatch-ultimate-ridge-linkup.gpx" download>WURL — Wasatch Ultimate Ridge Linkup</a></li>
+          <li><a href="../gpx/storm-mountain-north-ridge-ferguson-canyon.gpx" download>Storm Mountain North Ridge via Ferguson Canyon</a></li>
+          <li><a href="../gpx/mineral-slab.gpx" download>Mineral Slab</a></li>
+          <li><a href="../gpx/lake-blanche-sundial-peak.gpx" download>Lake Blanche and Sundial Peak</a></li>
+          <li><a href="../gpx/sundial-peak-lake-blanche.gpx" download>Sundial Peak via Lake Blanche (variant)</a></li>
+        </ul>
+
+        <h2 class="track-section-heading">Big Cottonwood Canyon</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/big-cottonwood-traverse.gpx" download>Big Cottonwood Canyon Traverse</a> <span class="track-tag">FKT</span></li>
+          <li><a href="../gpx/big-cottonwood-traverse-alt-route.gpx" download>Big Cottonwood Traverse — Alt Route</a></li>
+          <li><a href="../gpx/desolation-lake-loop.gpx" download>Desolation Lake Loop</a></li>
+          <li><a href="../gpx/gobblers-knob-via-butler-fork.gpx" download>Gobbler's Knob via Butler Fork</a></li>
+          <li><a href="../gpx/kessler-peak.gpx" download>Kessler Peak</a></li>
+          <li><a href="../gpx/mineral-fork-peak-10820-loop.gpx" download>Mineral Fork to Peak 10820 Loop</a></li>
+          <li><a href="../gpx/mineral-fork-to-10820.gpx" download>Mineral Fork to 10820</a></li>
+          <li><a href="../gpx/mule-hollow-ridge.gpx" download>Mule Hollow Ridge</a></li>
+          <li><a href="../gpx/stairs-gulch-mule-hollow-loop.gpx" download>Stairs Gulch and Mule Hollow Loop</a></li>
+          <li><a href="../gpx/coalpit-gulch-to-north-thunder-mountain.gpx" download>Coalpit Gulch to North Thunder Mountain</a></li>
+        </ul>
+
+        <h2 class="track-section-heading">Little Cottonwood Canyon, Alta &amp; Brighton</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/alta-to-brighton.gpx" download>Alta to Brighton</a></li>
+          <li><a href="../gpx/alta-brighton-ridgeline-loop.gpx" download>Alta–Brighton Ridgeline Loop</a></li>
+          <li><a href="../gpx/brighton-cirque.gpx" download>Brighton Cirque</a></li>
+          <li><a href="../gpx/catherines-pass.gpx" download>Catherine's Pass</a></li>
+          <li><a href="../gpx/cardiff-fork-loop-from-alta.gpx" download>Cardiff Fork Loop from Alta</a></li>
+          <li><a href="../gpx/south-ridge-of-superior.gpx" download>South Ridge of Superior</a></li>
+          <li><a href="../gpx/speedgoat-50k-course.gpx" download>Speedgoat 50K Course</a> <span class="track-tag">race</span></li>
+          <li><a href="../gpx/sugarloaf-peak-cecret-lake.gpx" download>Sugarloaf Peak and Cecret Lake</a></li>
+          <li><a href="../gpx/little-cottonwood-canyon-direct-ascent.gpx" download>Little Cottonwood Canyon Direct Ascent</a></li>
+          <li><a href="../gpx/pfeifferhorn.gpx" download>Pfeifferhorn</a> <span class="track-tag">FKT</span></li>
+          <li><a href="../gpx/white-baldy.gpx" download>White Baldy</a></li>
+          <li><a href="../gpx/twin-peaks-via-lisa-falls.gpx" download>Twin Peaks via Lisa Falls</a></li>
+          <li><a href="../gpx/the-pawn-approach.gpx" download>The Pawn Approach</a></li>
+        </ul>
+
+        <h2 class="track-section-heading">Lone Peak &amp; American Fork Canyon</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/lone-peak.gpx" download>Lone Peak</a></li>
+          <li><a href="../gpx/lone-peak-via-jacobs-ladder.gpx" download>Lone Peak via Jacob's Ladder</a></li>
+          <li><a href="../gpx/box-elder-peak.gpx" download>Box Elder Peak</a> <span class="track-tag">FKT</span></li>
+          <li><a href="../gpx/elder-and-silver-peak-loop.gpx" download>Elder and Silver Peak Loop</a></li>
+          <li><a href="../gpx/silver-lake.gpx" download>Silver Lake</a></li>
+          <li><a href="../gpx/silver-lake-american-fork.gpx" download>Silver Lake (alternate)</a></li>
+          <li><a href="../gpx/tibble-fork-loop.gpx" download>Tibble Fork Loop</a></li>
+          <li><a href="../gpx/american-fork-canyon-run.gpx" download>American Fork Canyon Run</a></li>
+          <li><a href="../gpx/central-wasatch-cross-canyon-ramble.gpx" download>Central Wasatch Cross-Canyon Ramble</a></li>
+          <li><a href="../gpx/south-wasatch-foothills-loop.gpx" download>South Wasatch Foothills Loop</a></li>
+        </ul>
+
+        <h2 class="track-section-heading">Timpanogos &amp; Utah Valley</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/timpanogos-traverse.gpx" download>Timpanogos Traverse</a></li>
+          <li><a href="../gpx/timpanogos-time-trial.gpx" download>Timpanogos Time Trial</a></li>
+          <li><a href="../gpx/timpanogos-alternate-route.gpx" download>Timpanogos Alternate Route</a></li>
+          <li><a href="../gpx/rock-canyon-access-trail-provo.gpx" download>Rock Canyon Access Trail (Provo)</a></li>
+        </ul>
+
+        <h2 class="track-section-heading">Park City &amp; Wasatch Back</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/park-city-skyline-trail-traverse.gpx" download>Park City Skyline Trail Traverse</a></li>
+          <li><a href="../gpx/bobs-trail-to-park-city-skyline.gpx" download>Bob's Trail to Park City Skyline</a></li>
+          <li><a href="../gpx/park-city-to-gobblers-knob.gpx" download>Park City to Gobbler's Knob</a> <span class="track-tag">FKT</span></li>
+          <li><a href="../gpx/quarry-mountain.gpx" download>Quarry Mountain</a></li>
+          <li><a href="../gpx/rail-trail-park-city.gpx" download>Rail Trail</a></li>
+          <li><a href="../gpx/silver-creek-loop.gpx" download>Silver Creek Loop</a></li>
+          <li><a href="../gpx/guardsman-pass-to-sunset-peak.gpx" download>Guardsman Pass to Sunset Peak</a></li>
+          <li><a href="../gpx/guardsman-pass-bloods-lake.gpx" download>Guardsman Pass and Blood's Lake</a></li>
+          <li><a href="../gpx/wasatch-crest-to-uintas-crossing.gpx" download>Wasatch Crest to Uintas Crossing</a></li>
+          <li><a href="../gpx/promontory-trail.gpx" download>Promontory Trail</a></li>
+          <li><a href="../gpx/wasatch-back-loop.gpx" download>Wasatch Back Loop</a></li>
+        </ul>
+
+        <h2 class="track-section-heading">Uintas</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/kings-peak.gpx" download>Kings Peak via Henry's Fork</a></li>
+          <li><a href="../gpx/kings-peak-henry-fork-variant.gpx" download>Kings Peak (variant)</a></li>
+        </ul>
+
+      </div>
+
+      <nav class="article-nav" aria-label="Article navigation">
+        <a href="../index.html">← Home</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
