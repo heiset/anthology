@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The First Isomorphism Theorem: for any group homomorphism, G/ker(φ) is isomorphic to im(φ).">
+  <title>The First Isomorphism Theorem — Hard Problems</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="/tree.png" type="image/png">
+  <link rel="apple-touch-icon" href="/tree.png">
+  <meta property="og:image" content="/tree.png">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["\\(","\\)"]], displayMath: [["\\[","\\]"]], processEscapes: true },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="../script.js"></script>
+</head>
+<body>
+  <aside class="site-sidebar">
+    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+    <nav class="sidebar-nav" aria-label="Site map">
+      <a href="../index.html">Home</a>
+      <div class="sidebar-group">
+        <a href="infinite-series.html">Calculus</a>
+        <div class="sidebar-sub">
+          <a href="infinite-series.html">Infinite Series</a>
+          <a href="calculus-limits.html">Limits</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="polynomial-roots.html">Math &amp; Computers</a>
+        <div class="sidebar-sub">
+          <a href="polynomial-roots.html">Polynomials</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="algebra-quadratics.html">Algebra</a>
+        <div class="sidebar-sub">
+          <a href="algebra-functions.html">Functions and Lines</a>
+          <a href="algebra-writing-lines.html">Writing Line Equations</a>
+          <a href="algebra-systems.html">Linear Systems and Inequalities</a>
+          <a href="algebra-exponents.html">Exponents and Sequences</a>
+          <a href="algebra-polynomials.html">Polynomials and Factoring</a>
+          <a href="algebra-graphing-quadratics.html">Graphing Quadratics</a>
+          <a href="algebra-solving-quadratics.html">Solving Quadratics</a>
+          <a href="algebra-quadratics.html">Quadratics</a>
+          <a href="algebra-radical-functions.html">Radical Functions and Inverses</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="hard-problems-mersenne.html">Hard Problems</a>
+        <div class="sidebar-sub">
+                    <a href="hard-problems-mersenne.html">Mersenne Primes</a>
+          <a href="hard-problems-fta.html">Fundamental Theorem</a>
+          <a href="hard-problems-one-not-prime.html">Why 1 Is Not Prime</a>
+          <a href="hard-problems-almost-primes.html">Almost Primes</a>
+          <a href="hard-problems-prime-number-theorem.html">Prime Number Theorem</a>
+          <a href="hard-problems-green-tao.html">The Green-Tao Theorem</a>
+          <a href="hard-problems-godel.html">Gödel's Incompleteness</a>
+          <a href="hard-problems-furstenberg.html">Furstenberg's Proof</a>
+          <span class="section-nav-current">First Isomorphism Theorem</span>
+          <a href="hard-problems-weierstrass.html">The Weierstrass Function</a>
+        </div>
+      </div>
+      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+      <a href="library.html">Library</a>
+      <a href="gps-tracks.html">GPS Tracks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </aside>
+  <a class="sidebar-mark" href="../index.html" aria-label="Home">
+    <img src="../glyph.png" alt="" height="26">
+    <span class="sidebar-mark-hint">home</span>
+  </a>
+
+  <main class="article-shell">
+    <article>
+      <header class="article-header">
+        <h1>The First Isomorphism Theorem</h1>
+        <p class="subtitle">every homomorphism hides an isomorphism inside it</p>
+      </header>
+
+      <nav class="section-nav" aria-label="Hard Problems pages">
+        <span class="section-nav-label">Hard Problems</span>
+        <a href="hard-problems-mersenne.html">Mersenne Primes</a>
+        <a href="hard-problems-fta.html">Fundamental Theorem</a>
+        <a href="hard-problems-one-not-prime.html">Why 1 Is Not Prime</a>
+        <a href="hard-problems-almost-primes.html">Almost Primes</a>
+        <a href="hard-problems-prime-number-theorem.html">Prime Number Theorem</a>
+        <a href="hard-problems-green-tao.html">The Green-Tao Theorem</a>
+        <a href="hard-problems-godel.html">Gödel's Incompleteness</a>
+        <a href="hard-problems-furstenberg.html">Furstenberg's Proof</a>
+        <span class="section-nav-current">First Isomorphism Theorem</span>
+        <a href="hard-problems-weierstrass.html">The Weierstrass Function</a>
+      </nav>
+
+      <div class="article-content">
+
+        <p class="lead">In mathematics two structures are "the same" if there is a perfect structure-preserving bijection between them — an <em>isomorphism</em>. The First Isomorphism Theorem says something deeper: whenever you have any structure-preserving map (even a non-bijective one), an isomorphism is hiding inside it.</p>
+
+        <h2>Setup</h2>
+
+        <p>Let \(\phi: G \to H\) be a group homomorphism — a function between groups satisfying \(\phi(ab) = \phi(a)\phi(b)\) for all \(a, b \in G\). Two objects arise naturally:</p>
+
+        \[ \ker \phi = \{g \in G : \phi(g) = e_H\}, \qquad \mathrm{im}\,\phi = \{\phi(g) : g \in G\}. \]
+
+        <p>The kernel is a normal subgroup of \(G\), so we can form the quotient group \(G/\ker\phi\) whose elements are cosets \(g\ker\phi\).</p>
+
+        <h2>The theorem</h2>
+
+        <p><strong>First Isomorphism Theorem.</strong> For any group homomorphism \(\phi: G \to H\):</p>
+
+        \[ G\,/\ker\phi \;\cong\; \mathrm{im}\,\phi. \]
+
+        <p><strong>Intuition.</strong> Think of \(\phi\) as sorting elements of \(G\) into piles according to where they land in \(H\). Two elements share a pile if and only if they map to the same place. The kernel is the pile that lands on \(e_H\). Every other pile is a coset of \(\ker\phi\). The quotient \(G/\ker\phi\) is the collection of all these piles — and the theorem says the piles correspond exactly and perfectly to the elements of \(\mathrm{im}\,\phi\).</p>
+
+        <p><strong>Example.</strong> Let \(\phi: \mathbb{Z} \to \mathbb{Z}/6\mathbb{Z}\) be the map \(\phi(n) = n \bmod 6\). Then \(\ker\phi = 6\mathbb{Z}\) and \(\mathrm{im}\,\phi = \mathbb{Z}/6\mathbb{Z}\). The theorem gives \(\mathbb{Z}/6\mathbb{Z} \cong \mathbb{Z}/6\mathbb{Z}\) — true but trivial here. The power is that it identifies the quotient structure automatically.</p>
+
+        <h2>Challenge problem</h2>
+
+        <div class="callout">
+          <p><strong>(a)</strong> Define \(\psi: \mathbb{Z}/12\mathbb{Z} \to \mathbb{Z}/4\mathbb{Z}\) by \(\psi([n]_{12}) = [n]_4\). Verify \(\psi\) is well-defined and is a group homomorphism.</p>
+          <p><strong>(b)</strong> Find \(\ker\psi\) and \(\mathrm{im}\,\psi\). List the elements of the kernel explicitly.</p>
+          <p><strong>(c)</strong> Apply the First Isomorphism Theorem to identify \((\mathbb{Z}/12\mathbb{Z})/\ker\psi\) as a familiar group. Write out all cosets of \(\ker\psi\) in \(\mathbb{Z}/12\mathbb{Z}\).</p>
+          <p><strong>(d)</strong> How many distinct group homomorphisms are there from \(\mathbb{Z}/6\mathbb{Z}\) to \(\mathbb{Z}/4\mathbb{Z}\)? For each, identify the kernel and image.</p>
+        </div>
+
+      </div>
+
+      <nav class="article-nav" aria-label="Article navigation">
+        <a href="../index.html">← Home</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Prime Number Theorem and Don Zagier's essay on the stunning regularity of prime distribution.">
+  <title>The Prime Number Theorem — Hard Problems</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="/tree.png" type="image/png">
+  <link rel="apple-touch-icon" href="/tree.png">
+  <meta property="og:image" content="/tree.png">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["\\(","\\)"]], displayMath: [["\\[","\\]"]], processEscapes: true },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="../script.js"></script>
+</head>
+<body>
+  <aside class="site-sidebar">
+    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+    <nav class="sidebar-nav" aria-label="Site map">
+      <a href="../index.html">Home</a>
+      <div class="sidebar-group">
+        <a href="infinite-series.html">Calculus</a>
+        <div class="sidebar-sub">
+          <a href="infinite-series.html">Infinite Series</a>
+          <a href="calculus-limits.html">Limits</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="polynomial-roots.html">Math &amp; Computers</a>
+        <div class="sidebar-sub">
+          <a href="polynomial-roots.html">Polynomials</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="algebra-quadratics.html">Algebra</a>
+        <div class="sidebar-sub">
+          <a href="algebra-functions.html">Functions and Lines</a>
+          <a href="algebra-writing-lines.html">Writing Line Equations</a>
+          <a href="algebra-systems.html">Linear Systems and Inequalities</a>
+          <a href="algebra-exponents.html">Exponents and Sequences</a>
+          <a href="algebra-polynomials.html">Polynomials and Factoring</a>
+          <a href="algebra-graphing-quadratics.html">Graphing Quadratics</a>
+          <a href="algebra-solving-quadratics.html">Solving Quadratics</a>
+          <a href="algebra-quadratics.html">Quadratics</a>
+          <a href="algebra-radical-functions.html">Radical Functions and Inverses</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="hard-problems-mersenne.html">Hard Problems</a>
+        <div class="sidebar-sub">
+                    <a href="hard-problems-mersenne.html">Mersenne Primes</a>
+          <a href="hard-problems-fta.html">Fundamental Theorem</a>
+          <a href="hard-problems-one-not-prime.html">Why 1 Is Not Prime</a>
+          <a href="hard-problems-almost-primes.html">Almost Primes</a>
+          <span class="section-nav-current">Prime Number Theorem</span>
+          <a href="hard-problems-green-tao.html">The Green-Tao Theorem</a>
+          <a href="hard-problems-godel.html">Gödel's Incompleteness</a>
+          <a href="hard-problems-furstenberg.html">Furstenberg's Proof</a>
+          <a href="hard-problems-first-isomorphism.html">First Isomorphism Theorem</a>
+          <a href="hard-problems-weierstrass.html">The Weierstrass Function</a>
+        </div>
+      </div>
+      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+      <a href="library.html">Library</a>
+      <a href="gps-tracks.html">GPS Tracks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </aside>
+  <a class="sidebar-mark" href="../index.html" aria-label="Home">
+    <img src="../glyph.png" alt="" height="26">
+    <span class="sidebar-mark-hint">home</span>
+  </a>
+
+  <main class="article-shell">
+    <article>
+      <header class="article-header">
+        <h1>The Prime Number Theorem</h1>
+        <p class="subtitle">order hidden inside the chaos of the primes</p>
+      </header>
+
+      <nav class="section-nav" aria-label="Hard Problems pages">
+        <span class="section-nav-label">Hard Problems</span>
+        <a href="hard-problems-mersenne.html">Mersenne Primes</a>
+        <a href="hard-problems-fta.html">Fundamental Theorem</a>
+        <a href="hard-problems-one-not-prime.html">Why 1 Is Not Prime</a>
+        <a href="hard-problems-almost-primes.html">Almost Primes</a>
+        <span class="section-nav-current">Prime Number Theorem</span>
+        <a href="hard-problems-green-tao.html">The Green-Tao Theorem</a>
+        <a href="hard-problems-godel.html">Gödel's Incompleteness</a>
+        <a href="hard-problems-furstenberg.html">Furstenberg's Proof</a>
+        <a href="hard-problems-first-isomorphism.html">First Isomorphism Theorem</a>
+        <a href="hard-problems-weierstrass.html">The Weierstrass Function</a>
+      </nav>
+
+      <div class="article-content">
+
+        <p class="lead">In 1977 Don Zagier opened a celebrated essay with one of the most striking observations in number theory: primes grow like weeds among the integers, obeying no law but chance — and yet they exhibit stunning regularity, obeying laws of almost military precision. This double nature, local chaos and global order, is the central mystery of the primes.</p>
+
+        <h2>The theorem</h2>
+
+        <p>Let \(\pi(n)\) denote the number of primes up to \(n\). The <strong>Prime Number Theorem</strong>, proved independently by Hadamard and de la Vallée Poussin in 1896, states</p>
+
+        \[ \pi(n) \sim \frac{n}{\ln n} \]
+
+        <p>meaning the ratio \(\pi(n) \,/\, (n / \ln n)\) approaches 1 as \(n \to \infty\). Equivalently, the probability that a random integer near \(n\) is prime is approximately \(1/\ln n\). Near a million, roughly 1 in 14 numbers is prime. Near a trillion, roughly 1 in 28.</p>
+
+        <p>A sharper approximation uses the <em>logarithmic integral</em></p>
+
+        \[ \pi(n) \approx \mathrm{Li}(n) = \int_2^n \frac{dt}{\ln t}. \]
+
+        <p>The agreement is extraordinary. For \(n = 10^9\) the actual count is \(\pi(10^9) = 50{,}847{,}534\) and \(\mathrm{Li}(10^9) \approx 50{,}849{,}234\) — an error of less than 0.003%. Zagier's "military precision" is not hyperbole.</p>
+
+        <h2>Challenge problem</h2>
+
+        <div class="callout">
+          <p><strong>(a)</strong> Use the approximation \(\pi(n) \approx n / \ln n\) to estimate the number of primes between \(10^6\) and \(2 \times 10^6\). Show your calculation.</p>
+          <p><strong>(b)</strong> The average gap between consecutive primes near \(N\) is approximately \(\ln N\). For \(N = 10^6\), what is this predicted average gap?</p>
+          <p><strong>(c)</strong> Hardy and Littlewood conjectured that the number of twin prime pairs \((p,\, p+2)\) up to \(N\) is approximately</p>
+          \[ C \cdot \frac{N}{(\ln N)^2}, \quad C \approx 1.3203. \]
+          <p>Estimate the count of twin prime pairs up to \(10^6\). The actual count is 8,169 — how does your estimate compare?</p>
+        </div>
+
+      </div>
+
+      <nav class="article-nav" aria-label="Article navigation">
+        <a href="../index.html">← Home</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

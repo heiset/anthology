@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Fundamental Theorem of Arithmetic: every integer has a unique prime factorization.">
+  <title>The Fundamental Theorem of Arithmetic — Hard Problems</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="/tree.png" type="image/png">
+  <link rel="apple-touch-icon" href="/tree.png">
+  <meta property="og:image" content="/tree.png">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["\\(","\\)"]], displayMath: [["\\[","\\]"]], processEscapes: true },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="../script.js"></script>
+</head>
+<body>
+  <aside class="site-sidebar">
+    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+    <nav class="sidebar-nav" aria-label="Site map">
+      <a href="../index.html">Home</a>
+      <div class="sidebar-group">
+        <a href="infinite-series.html">Calculus</a>
+        <div class="sidebar-sub">
+          <a href="infinite-series.html">Infinite Series</a>
+          <a href="calculus-limits.html">Limits</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="polynomial-roots.html">Math &amp; Computers</a>
+        <div class="sidebar-sub">
+          <a href="polynomial-roots.html">Polynomials</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="algebra-quadratics.html">Algebra</a>
+        <div class="sidebar-sub">
+          <a href="algebra-functions.html">Functions and Lines</a>
+          <a href="algebra-writing-lines.html">Writing Line Equations</a>
+          <a href="algebra-systems.html">Linear Systems and Inequalities</a>
+          <a href="algebra-exponents.html">Exponents and Sequences</a>
+          <a href="algebra-polynomials.html">Polynomials and Factoring</a>
+          <a href="algebra-graphing-quadratics.html">Graphing Quadratics</a>
+          <a href="algebra-solving-quadratics.html">Solving Quadratics</a>
+          <a href="algebra-quadratics.html">Quadratics</a>
+          <a href="algebra-radical-functions.html">Radical Functions and Inverses</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="hard-problems-mersenne.html">Hard Problems</a>
+        <div class="sidebar-sub">
+                    <a href="hard-problems-mersenne.html">Mersenne Primes</a>
+          <span class="section-nav-current">Fundamental Theorem</span>
+          <a href="hard-problems-one-not-prime.html">Why 1 Is Not Prime</a>
+          <a href="hard-problems-almost-primes.html">Almost Primes</a>
+          <a href="hard-problems-prime-number-theorem.html">Prime Number Theorem</a>
+          <a href="hard-problems-green-tao.html">The Green-Tao Theorem</a>
+          <a href="hard-problems-godel.html">Gödel's Incompleteness</a>
+          <a href="hard-problems-furstenberg.html">Furstenberg's Proof</a>
+          <a href="hard-problems-first-isomorphism.html">First Isomorphism Theorem</a>
+          <a href="hard-problems-weierstrass.html">The Weierstrass Function</a>
+        </div>
+      </div>
+      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+      <a href="library.html">Library</a>
+      <a href="gps-tracks.html">GPS Tracks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </aside>
+  <a class="sidebar-mark" href="../index.html" aria-label="Home">
+    <img src="../glyph.png" alt="" height="26">
+    <span class="sidebar-mark-hint">home</span>
+  </a>
+
+  <main class="article-shell">
+    <article>
+      <header class="article-header">
+        <h1>The Fundamental Theorem of Arithmetic</h1>
+        <p class="subtitle">why primes are the building blocks of the integers</p>
+      </header>
+
+      <nav class="section-nav" aria-label="Hard Problems pages">
+        <span class="section-nav-label">Hard Problems</span>
+        <a href="hard-problems-mersenne.html">Mersenne Primes</a>
+        <span class="section-nav-current">Fundamental Theorem</span>
+        <a href="hard-problems-one-not-prime.html">Why 1 Is Not Prime</a>
+        <a href="hard-problems-almost-primes.html">Almost Primes</a>
+        <a href="hard-problems-prime-number-theorem.html">Prime Number Theorem</a>
+        <a href="hard-problems-green-tao.html">The Green-Tao Theorem</a>
+        <a href="hard-problems-godel.html">Gödel's Incompleteness</a>
+        <a href="hard-problems-furstenberg.html">Furstenberg's Proof</a>
+        <a href="hard-problems-first-isomorphism.html">First Isomorphism Theorem</a>
+        <a href="hard-problems-weierstrass.html">The Weierstrass Function</a>
+      </nav>
+
+      <div class="article-content">
+
+        <p class="lead">The integers can be endlessly added, subtracted, and multiplied — yet within all that arithmetic lies a rigid, surprising structure. Every integer greater than 1 can be written as a product of prime numbers, and there is essentially only one way to do so.</p>
+
+        <h2>The theorem</h2>
+
+        <p><strong>Fundamental Theorem of Arithmetic.</strong> Every integer \(n > 1\) can be written uniquely as a product of primes:</p>
+
+        \[ n = p_1^{a_1} \, p_2^{a_2} \cdots p_k^{a_k} \]
+
+        <p>where \(p_1 &lt; p_2 &lt; \cdots &lt; p_k\) are distinct primes and each \(a_i \geq 1\). The factorization is unique up to the order of factors.</p>
+
+        <p>For example, \(360 = 2^3 \cdot 3^2 \cdot 5\). No matter how you start — \(360 = 4 \cdot 90 = 8 \cdot 45 = 12 \cdot 30\) — breaking everything into primes always gives the same answer.</p>
+
+        <h2>Why primes are the building blocks</h2>
+
+        <p>Primes are the <em>atoms</em>: numbers with no smaller non-trivial pieces. Once you have assembled any integer from primes, no further decomposition is possible. This is exactly what makes them natural generators — every integer is uniquely determined by listing which primes appear and how many times.</p>
+
+        <p>The theorem is so fundamental that it shapes the very <em>definition</em> of prime. We need primes to be irreducible precisely so the theorem holds. If 1 were "prime," uniqueness would collapse: \(6 = 2 \cdot 3 = 1 \cdot 2 \cdot 3 = 1^{100} \cdot 2 \cdot 3\), all "different" factorizations.</p>
+
+        <p>The FTA also drives irrationality proofs. If \(\sqrt{2} = p/q\) in lowest terms then \(p^2 = 2q^2\). The left side has an even power of 2 in its prime factorization; the right side has an odd power — a contradiction by uniqueness.</p>
+
+        <h2>Challenge problem</h2>
+
+        <div class="callout">
+          <p><strong>(a)</strong> Prove that \(\log_2 3\) is irrational. That is, show there are no positive integers \(a, b\) satisfying \(2^a = 3^b\). Use the FTA to count powers of 2 on each side.</p>
+          <p><strong>(b)</strong> Extend: for any two distinct primes \(p\) and \(q\), prove that \(\log_p q\) is irrational.</p>
+          <p><strong>(c)</strong> Let \(n > 1\) be an integer. Prove that \(\sqrt{n}\) is either an integer or irrational. (If \(\sqrt{n} = a/b\) in lowest terms, examine the prime factorizations of \(a^2\) and \(nb^2\).)</p>
+        </div>
+
+      </div>
+
+      <nav class="article-nav" aria-label="Article navigation">
+        <a href="../index.html">← Home</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

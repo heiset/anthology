@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="What almost-primes and semiprimes are, and why they are powerful tools in attacking unsolved problems.">
+  <title>Almost Primes and Semiprimes — Hard Problems</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="/tree.png" type="image/png">
+  <link rel="apple-touch-icon" href="/tree.png">
+  <meta property="og:image" content="/tree.png">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["\\(","\\)"]], displayMath: [["\\[","\\]"]], processEscapes: true },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="../script.js"></script>
+</head>
+<body>
+  <aside class="site-sidebar">
+    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+    <nav class="sidebar-nav" aria-label="Site map">
+      <a href="../index.html">Home</a>
+      <div class="sidebar-group">
+        <a href="infinite-series.html">Calculus</a>
+        <div class="sidebar-sub">
+          <a href="infinite-series.html">Infinite Series</a>
+          <a href="calculus-limits.html">Limits</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="polynomial-roots.html">Math &amp; Computers</a>
+        <div class="sidebar-sub">
+          <a href="polynomial-roots.html">Polynomials</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="algebra-quadratics.html">Algebra</a>
+        <div class="sidebar-sub">
+          <a href="algebra-functions.html">Functions and Lines</a>
+          <a href="algebra-writing-lines.html">Writing Line Equations</a>
+          <a href="algebra-systems.html">Linear Systems and Inequalities</a>
+          <a href="algebra-exponents.html">Exponents and Sequences</a>
+          <a href="algebra-polynomials.html">Polynomials and Factoring</a>
+          <a href="algebra-graphing-quadratics.html">Graphing Quadratics</a>
+          <a href="algebra-solving-quadratics.html">Solving Quadratics</a>
+          <a href="algebra-quadratics.html">Quadratics</a>
+          <a href="algebra-radical-functions.html">Radical Functions and Inverses</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="hard-problems-mersenne.html">Hard Problems</a>
+        <div class="sidebar-sub">
+                    <a href="hard-problems-mersenne.html">Mersenne Primes</a>
+          <a href="hard-problems-fta.html">Fundamental Theorem</a>
+          <a href="hard-problems-one-not-prime.html">Why 1 Is Not Prime</a>
+          <span class="section-nav-current">Almost Primes</span>
+          <a href="hard-problems-prime-number-theorem.html">Prime Number Theorem</a>
+          <a href="hard-problems-green-tao.html">The Green-Tao Theorem</a>
+          <a href="hard-problems-godel.html">Gödel's Incompleteness</a>
+          <a href="hard-problems-furstenberg.html">Furstenberg's Proof</a>
+          <a href="hard-problems-first-isomorphism.html">First Isomorphism Theorem</a>
+          <a href="hard-problems-weierstrass.html">The Weierstrass Function</a>
+        </div>
+      </div>
+      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+      <a href="library.html">Library</a>
+      <a href="gps-tracks.html">GPS Tracks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </aside>
+  <a class="sidebar-mark" href="../index.html" aria-label="Home">
+    <img src="../glyph.png" alt="" height="26">
+    <span class="sidebar-mark-hint">home</span>
+  </a>
+
+  <main class="article-shell">
+    <article>
+      <header class="article-header">
+        <h1>Almost Primes and Semiprimes</h1>
+        <p class="subtitle">the building blocks one step above the primes</p>
+      </header>
+
+      <nav class="section-nav" aria-label="Hard Problems pages">
+        <span class="section-nav-label">Hard Problems</span>
+        <a href="hard-problems-mersenne.html">Mersenne Primes</a>
+        <a href="hard-problems-fta.html">Fundamental Theorem</a>
+        <a href="hard-problems-one-not-prime.html">Why 1 Is Not Prime</a>
+        <span class="section-nav-current">Almost Primes</span>
+        <a href="hard-problems-prime-number-theorem.html">Prime Number Theorem</a>
+        <a href="hard-problems-green-tao.html">The Green-Tao Theorem</a>
+        <a href="hard-problems-godel.html">Gödel's Incompleteness</a>
+        <a href="hard-problems-furstenberg.html">Furstenberg's Proof</a>
+        <a href="hard-problems-first-isomorphism.html">First Isomorphism Theorem</a>
+        <a href="hard-problems-weierstrass.html">The Weierstrass Function</a>
+      </nav>
+
+      <div class="article-content">
+
+        <p class="lead">Not every integer is prime, but some are <em>almost</em> prime — they have very few prime factors. A number is called <strong>\(k\)-almost prime</strong> if it has exactly \(k\) prime factors counted with multiplicity. The 1-almost primes are the ordinary primes. The 2-almost primes, called <em>semiprimes</em>, include \(4 = 2^2\), \(6 = 2 \cdot 3\), \(9 = 3^2\), \(10 = 2 \cdot 5\), and so on.</p>
+
+        <h2>Definition</h2>
+
+        <p>Define \(\Omega(n)\) as the number of prime factors of \(n\) counted with multiplicity:</p>
+
+        \[ \Omega(12) = \Omega(2^2 \cdot 3) = 3, \quad \Omega(30) = \Omega(2 \cdot 3 \cdot 5) = 3, \quad \Omega(p) = 1 \text{ for any prime } p. \]
+
+        <p>A number is \(k\)-almost prime if and only if \(\Omega(n) = k\).</p>
+
+        <h2>Why they matter</h2>
+
+        <p>Almost primes are a surprisingly powerful tool for attacking hard problems. Consider the <em>twin prime conjecture</em>: infinitely many pairs \((p, p+2)\) are both prime. This remains unproven. But in 1973 Jing-Run Chen proved there are infinitely many pairs \((p, p+2)\) where \(p\) is prime and \(p + 2\) is either prime or semiprime — one step away from the full conjecture.</p>
+
+        <p>The Green-Tao theorem (2004) also passed through almost primes on its way to proving that the primes contain arbitrarily long arithmetic progressions. The key move was to embed the primes in a pseudorandom set of almost primes where density arguments could be applied. Almost primes are more abundant than primes, and their abundance gives mathematicians room to maneuver where the thinness of the primes makes direct attack impossible.</p>
+
+        <h2>Challenge problem</h2>
+
+        <div class="callout">
+          <p><strong>(a)</strong> List all semiprimes between 1 and 50.</p>
+          <p><strong>(b)</strong> Prove that for any semiprime \(n = p \cdot q\) with \(p \leq q\) we have \(p \leq \sqrt{n}\). Use this to design an algorithm for testing whether a given number is semiprime, and estimate how many trial divisions it needs in the worst case.</p>
+          <p><strong>(c)</strong> Is \(n = 10403\) a semiprime? Apply your algorithm. (The answer is yes — find the two prime factors.)</p>
+        </div>
+
+      </div>
+
+      <nav class="article-nav" aria-label="Article navigation">
+        <a href="../index.html">← Home</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

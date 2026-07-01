@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A proof that if 2^n-1 is prime then n must be prime, with an exploration of Mersenne primes.">
+  <title>If \(2^n - 1\) Is Prime, So Is \(n\) — Hard Problems</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="/tree.png" type="image/png">
+  <link rel="apple-touch-icon" href="/tree.png">
+  <meta property="og:image" content="/tree.png">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["\\(","\\)"]], displayMath: [["\\[","\\]"]], processEscapes: true },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="../script.js"></script>
+</head>
+<body>
+  <aside class="site-sidebar">
+    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+    <nav class="sidebar-nav" aria-label="Site map">
+      <a href="../index.html">Home</a>
+      <div class="sidebar-group">
+        <a href="infinite-series.html">Calculus</a>
+        <div class="sidebar-sub">
+          <a href="infinite-series.html">Infinite Series</a>
+          <a href="calculus-limits.html">Limits</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="polynomial-roots.html">Math &amp; Computers</a>
+        <div class="sidebar-sub">
+          <a href="polynomial-roots.html">Polynomials</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="algebra-quadratics.html">Algebra</a>
+        <div class="sidebar-sub">
+          <a href="algebra-functions.html">Functions and Lines</a>
+          <a href="algebra-writing-lines.html">Writing Line Equations</a>
+          <a href="algebra-systems.html">Linear Systems and Inequalities</a>
+          <a href="algebra-exponents.html">Exponents and Sequences</a>
+          <a href="algebra-polynomials.html">Polynomials and Factoring</a>
+          <a href="algebra-graphing-quadratics.html">Graphing Quadratics</a>
+          <a href="algebra-solving-quadratics.html">Solving Quadratics</a>
+          <a href="algebra-quadratics.html">Quadratics</a>
+          <a href="algebra-radical-functions.html">Radical Functions and Inverses</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="hard-problems-mersenne.html">Hard Problems</a>
+        <div class="sidebar-sub">
+                    <span class="section-nav-current">Mersenne Primes</span>
+          <a href="hard-problems-fta.html">Fundamental Theorem</a>
+          <a href="hard-problems-one-not-prime.html">Why 1 Is Not Prime</a>
+          <a href="hard-problems-almost-primes.html">Almost Primes</a>
+          <a href="hard-problems-prime-number-theorem.html">Prime Number Theorem</a>
+          <a href="hard-problems-green-tao.html">The Green-Tao Theorem</a>
+          <a href="hard-problems-godel.html">Gödel's Incompleteness</a>
+          <a href="hard-problems-furstenberg.html">Furstenberg's Proof</a>
+          <a href="hard-problems-first-isomorphism.html">First Isomorphism Theorem</a>
+          <a href="hard-problems-weierstrass.html">The Weierstrass Function</a>
+        </div>
+      </div>
+      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+      <a href="library.html">Library</a>
+      <a href="gps-tracks.html">GPS Tracks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </aside>
+  <a class="sidebar-mark" href="../index.html" aria-label="Home">
+    <img src="../glyph.png" alt="" height="26">
+    <span class="sidebar-mark-hint">home</span>
+  </a>
+
+  <main class="article-shell">
+    <article>
+      <header class="article-header">
+        <h1>If \(2^n - 1\) Is Prime, So Is \(n\)</h1>
+        <p class="subtitle">Mersenne primes and a proof by contrapositive</p>
+      </header>
+
+      <nav class="section-nav" aria-label="Hard Problems pages">
+        <span class="section-nav-label">Hard Problems</span>
+        <span class="section-nav-current">Mersenne Primes</span>
+        <a href="hard-problems-fta.html">Fundamental Theorem</a>
+        <a href="hard-problems-one-not-prime.html">Why 1 Is Not Prime</a>
+        <a href="hard-problems-almost-primes.html">Almost Primes</a>
+        <a href="hard-problems-prime-number-theorem.html">Prime Number Theorem</a>
+        <a href="hard-problems-green-tao.html">The Green-Tao Theorem</a>
+        <a href="hard-problems-godel.html">Gödel's Incompleteness</a>
+        <a href="hard-problems-furstenberg.html">Furstenberg's Proof</a>
+        <a href="hard-problems-first-isomorphism.html">First Isomorphism Theorem</a>
+        <a href="hard-problems-weierstrass.html">The Weierstrass Function</a>
+      </nav>
+
+      <div class="article-content">
+
+        <p class="lead">Numbers of the form \(2^n - 1\) are called <em>Mersenne numbers</em>, after the seventeenth-century French friar Marin Mersenne who catalogued them. When \(2^n - 1\) is prime we call it a <em>Mersenne prime</em>. As of 2024 every record-breaking largest known prime is a Mersenne prime, discovered by the distributed computing project GIMPS. The current record holder has over 24 million digits.</p>
+
+        <p>Before hunting for Mersenne primes there is a useful filter: if the exponent \(n\) is composite then \(2^n - 1\) is guaranteed to be composite too. This eliminates enormous swaths of candidates immediately.</p>
+
+        <h2>The theorem</h2>
+
+        <p><strong>Theorem.</strong> If \(2^n - 1\) is prime, then \(n\) is prime.</p>
+
+        <p>The proof uses the <em>contrapositive</em>: instead of assuming \(2^n - 1\) is prime and deducing \(n\) is prime, we assume \(n\) is composite and deduce \(2^n - 1\) is composite. Suppose \(n = r \cdot s\) with \(r, s > 1\). Set \(x = 2^s\). Then the polynomial factorization \(x^r - 1 = (x - 1)(x^{r-1} + x^{r-2} + \cdots + x + 1)\) gives</p>
+
+        \[ 2^n - 1 = x^r - 1 = (x - 1)\bigl(x^{r-1} + x^{r-2} + \cdots + x + 1\bigr). \]
+
+        <p>Both factors exceed 1: since \(x = 2^s \geq 4\) we have \(x - 1 \geq 3\), and the second factor is a sum of \(r \geq 2\) positive terms. So \(2^n - 1\) is composite. \(\square\)</p>
+
+        <p>Note carefully: the converse is <em>false</em>. A prime exponent \(n\) does not guarantee \(2^n - 1\) is prime. The smallest counterexample is \(n = 11\): 11 is prime, yet \(2^{11} - 1 = 2047 = 23 \times 89\). Being prime is <em>necessary</em> for \(n\) but not sufficient.</p>
+
+        <h2>Challenge problem</h2>
+
+        <div class="callout">
+          <p><strong>(a)</strong> Use the factorization above to write \(2^{15} - 1\) explicitly as a product of two factors, each greater than 1. (Note \(15 = 3 \times 5\).)</p>
+          <p><strong>(b)</strong> Show by trial division that \(2^{11} - 1 = 2047\) is not prime. Find both prime factors.</p>
+          <p><strong>(c)</strong> Among the exponents \(n = 2, 3, 5, 7, 11, 13\), which produce a Mersenne prime \(2^n - 1\)? Check each one. Is there a pattern in which prime exponents work?</p>
+        </div>
+
+      </div>
+
+      <nav class="article-nav" aria-label="Article navigation">
+        <a href="../index.html">← Home</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

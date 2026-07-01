@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Weierstrass function: a continuous function with no derivative at any point, and what it means.">
+  <title>The Weierstrass Function — Hard Problems</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="/tree.png" type="image/png">
+  <link rel="apple-touch-icon" href="/tree.png">
+  <meta property="og:image" content="/tree.png">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["\\(","\\)"]], displayMath: [["\\[","\\]"]], processEscapes: true },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="../script.js"></script>
+</head>
+<body>
+  <aside class="site-sidebar">
+    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+    <nav class="sidebar-nav" aria-label="Site map">
+      <a href="../index.html">Home</a>
+      <div class="sidebar-group">
+        <a href="infinite-series.html">Calculus</a>
+        <div class="sidebar-sub">
+          <a href="infinite-series.html">Infinite Series</a>
+          <a href="calculus-limits.html">Limits</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="polynomial-roots.html">Math &amp; Computers</a>
+        <div class="sidebar-sub">
+          <a href="polynomial-roots.html">Polynomials</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="algebra-quadratics.html">Algebra</a>
+        <div class="sidebar-sub">
+          <a href="algebra-functions.html">Functions and Lines</a>
+          <a href="algebra-writing-lines.html">Writing Line Equations</a>
+          <a href="algebra-systems.html">Linear Systems and Inequalities</a>
+          <a href="algebra-exponents.html">Exponents and Sequences</a>
+          <a href="algebra-polynomials.html">Polynomials and Factoring</a>
+          <a href="algebra-graphing-quadratics.html">Graphing Quadratics</a>
+          <a href="algebra-solving-quadratics.html">Solving Quadratics</a>
+          <a href="algebra-quadratics.html">Quadratics</a>
+          <a href="algebra-radical-functions.html">Radical Functions and Inverses</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="hard-problems-mersenne.html">Hard Problems</a>
+        <div class="sidebar-sub">
+                    <a href="hard-problems-mersenne.html">Mersenne Primes</a>
+          <a href="hard-problems-fta.html">Fundamental Theorem</a>
+          <a href="hard-problems-one-not-prime.html">Why 1 Is Not Prime</a>
+          <a href="hard-problems-almost-primes.html">Almost Primes</a>
+          <a href="hard-problems-prime-number-theorem.html">Prime Number Theorem</a>
+          <a href="hard-problems-green-tao.html">The Green-Tao Theorem</a>
+          <a href="hard-problems-godel.html">Gödel's Incompleteness</a>
+          <a href="hard-problems-furstenberg.html">Furstenberg's Proof</a>
+          <a href="hard-problems-first-isomorphism.html">First Isomorphism Theorem</a>
+          <span class="section-nav-current">The Weierstrass Function</span>
+        </div>
+      </div>
+      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+      <a href="library.html">Library</a>
+      <a href="gps-tracks.html">GPS Tracks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </aside>
+  <a class="sidebar-mark" href="../index.html" aria-label="Home">
+    <img src="../glyph.png" alt="" height="26">
+    <span class="sidebar-mark-hint">home</span>
+  </a>
+
+  <main class="article-shell">
+    <article>
+      <header class="article-header">
+        <h1>The Weierstrass Function</h1>
+        <p class="subtitle">continuous everywhere, differentiable nowhere</p>
+      </header>
+
+      <nav class="section-nav" aria-label="Hard Problems pages">
+        <span class="section-nav-label">Hard Problems</span>
+        <a href="hard-problems-mersenne.html">Mersenne Primes</a>
+        <a href="hard-problems-fta.html">Fundamental Theorem</a>
+        <a href="hard-problems-one-not-prime.html">Why 1 Is Not Prime</a>
+        <a href="hard-problems-almost-primes.html">Almost Primes</a>
+        <a href="hard-problems-prime-number-theorem.html">Prime Number Theorem</a>
+        <a href="hard-problems-green-tao.html">The Green-Tao Theorem</a>
+        <a href="hard-problems-godel.html">Gödel's Incompleteness</a>
+        <a href="hard-problems-furstenberg.html">Furstenberg's Proof</a>
+        <a href="hard-problems-first-isomorphism.html">First Isomorphism Theorem</a>
+        <span class="section-nav-current">The Weierstrass Function</span>
+      </nav>
+
+      <div class="article-content">
+
+        <p class="lead">For most of mathematical history continuity and differentiability were thought to go hand in hand. A continuous curve — one you draw without lifting your pen — was imagined as smooth enough that it had a slope almost everywhere. Then in 1872 Karl Weierstrass presented a function that demolished this picture entirely.</p>
+
+        <h2>Continuity versus differentiability</h2>
+
+        <p>A function \(f\) is <em>continuous</em> at \(x_0\) if \(\lim_{x \to x_0} f(x) = f(x_0)\). It is <em>differentiable</em> at \(x_0\) if the limit</p>
+
+        \[ f'(x_0) = \lim_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h} \]
+
+        <p>exists. Differentiability is strictly stronger: every differentiable function is continuous, but Weierstrass showed the converse is spectacularly false.</p>
+
+        <h2>The function</h2>
+
+        \[ W(x) = \sum_{n=0}^{\infty} a^n \cos(b^n \pi x) \]
+
+        <p>where \(0 &lt; a &lt; 1\), \(b\) is a positive odd integer, and \(ab > 1 + \tfrac{3\pi}{2}\). The parameter \(a\) controls how fast amplitudes shrink (\(a^n \to 0\)); the parameter \(b\) controls how rapidly oscillations speed up (each term oscillates \(b\) times faster than the last). The tension between these forces creates a function that is continuous (the shrinking amplitudes prevent gaps) but has no slope anywhere (the accelerating oscillations prevent any straight-line approximation).</p>
+
+        <p>The function is a fractal: zooming in at any point reveals the same jagged complexity, never resolving into a line. Hermite called such functions "a lamentable scourge"; Poincaré called them "an affront to good sense." Today we recognize them as fundamental — Brownian motion, the random wandering of pollen grains in water, is modelled by functions with exactly this character.</p>
+
+        <h2>Challenge problem</h2>
+
+        <div class="callout">
+          <p><strong>(a)</strong> Prove from the definition of the derivative that \(f(x) = |x|\) is not differentiable at \(x = 0\). Compute the left-hand limit \(\lim_{h \to 0^-} |h|/h\) and right-hand limit \(\lim_{h \to 0^+} |h|/h\) separately and show they disagree.</p>
+          <p><strong>(b)</strong> Let \(g(x) = x\sin(1/x)\) for \(x \neq 0\) and \(g(0) = 0\). Prove \(g\) is continuous at \(x = 0\) using the Squeeze Theorem (\(-|x| \leq x\sin(1/x) \leq |x|\)). Then prove \(g\) is not differentiable at 0 by showing the difference quotient \(g(x)/x = \sin(1/x)\) has no limit as \(x \to 0\).</p>
+          <p><strong>(c)</strong> In Weierstrass's original construction, verify that \(a = 0.9\) and \(b = 7\) satisfy the condition \(ab > 1 + 3\pi/2 \approx 5.712\). Explain informally why, if \(a\) were very small (fast amplitude decay) and \(b\) very large (fast oscillation), you might actually get a differentiable function — so the condition \(ab > 1 + 3\pi/2\) is essential.</p>
+        </div>
+
+      </div>
+
+      <nav class="article-nav" aria-label="Article navigation">
+        <a href="../index.html">← Home</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

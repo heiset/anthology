@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Green-Tao theorem: for any k, the primes contain an arithmetic progression of length k.">
+  <title>The Green-Tao Theorem — Hard Problems</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="/tree.png" type="image/png">
+  <link rel="apple-touch-icon" href="/tree.png">
+  <meta property="og:image" content="/tree.png">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["\\(","\\)"]], displayMath: [["\\[","\\]"]], processEscapes: true },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="../script.js"></script>
+</head>
+<body>
+  <aside class="site-sidebar">
+    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+    <nav class="sidebar-nav" aria-label="Site map">
+      <a href="../index.html">Home</a>
+      <div class="sidebar-group">
+        <a href="infinite-series.html">Calculus</a>
+        <div class="sidebar-sub">
+          <a href="infinite-series.html">Infinite Series</a>
+          <a href="calculus-limits.html">Limits</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="polynomial-roots.html">Math &amp; Computers</a>
+        <div class="sidebar-sub">
+          <a href="polynomial-roots.html">Polynomials</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="algebra-quadratics.html">Algebra</a>
+        <div class="sidebar-sub">
+          <a href="algebra-functions.html">Functions and Lines</a>
+          <a href="algebra-writing-lines.html">Writing Line Equations</a>
+          <a href="algebra-systems.html">Linear Systems and Inequalities</a>
+          <a href="algebra-exponents.html">Exponents and Sequences</a>
+          <a href="algebra-polynomials.html">Polynomials and Factoring</a>
+          <a href="algebra-graphing-quadratics.html">Graphing Quadratics</a>
+          <a href="algebra-solving-quadratics.html">Solving Quadratics</a>
+          <a href="algebra-quadratics.html">Quadratics</a>
+          <a href="algebra-radical-functions.html">Radical Functions and Inverses</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="hard-problems-mersenne.html">Hard Problems</a>
+        <div class="sidebar-sub">
+                    <a href="hard-problems-mersenne.html">Mersenne Primes</a>
+          <a href="hard-problems-fta.html">Fundamental Theorem</a>
+          <a href="hard-problems-one-not-prime.html">Why 1 Is Not Prime</a>
+          <a href="hard-problems-almost-primes.html">Almost Primes</a>
+          <a href="hard-problems-prime-number-theorem.html">Prime Number Theorem</a>
+          <span class="section-nav-current">The Green-Tao Theorem</span>
+          <a href="hard-problems-godel.html">Gödel's Incompleteness</a>
+          <a href="hard-problems-furstenberg.html">Furstenberg's Proof</a>
+          <a href="hard-problems-first-isomorphism.html">First Isomorphism Theorem</a>
+          <a href="hard-problems-weierstrass.html">The Weierstrass Function</a>
+        </div>
+      </div>
+      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+      <a href="library.html">Library</a>
+      <a href="gps-tracks.html">GPS Tracks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </aside>
+  <a class="sidebar-mark" href="../index.html" aria-label="Home">
+    <img src="../glyph.png" alt="" height="26">
+    <span class="sidebar-mark-hint">home</span>
+  </a>
+
+  <main class="article-shell">
+    <article>
+      <header class="article-header">
+        <h1>The Green-Tao Theorem</h1>
+        <p class="subtitle">arithmetic progressions hiding inside the primes</p>
+      </header>
+
+      <nav class="section-nav" aria-label="Hard Problems pages">
+        <span class="section-nav-label">Hard Problems</span>
+        <a href="hard-problems-mersenne.html">Mersenne Primes</a>
+        <a href="hard-problems-fta.html">Fundamental Theorem</a>
+        <a href="hard-problems-one-not-prime.html">Why 1 Is Not Prime</a>
+        <a href="hard-problems-almost-primes.html">Almost Primes</a>
+        <a href="hard-problems-prime-number-theorem.html">Prime Number Theorem</a>
+        <span class="section-nav-current">The Green-Tao Theorem</span>
+        <a href="hard-problems-godel.html">Gödel's Incompleteness</a>
+        <a href="hard-problems-furstenberg.html">Furstenberg's Proof</a>
+        <a href="hard-problems-first-isomorphism.html">First Isomorphism Theorem</a>
+        <a href="hard-problems-weierstrass.html">The Weierstrass Function</a>
+      </nav>
+
+      <div class="article-content">
+
+        <p class="lead">An arithmetic progression is a sequence of numbers equally spaced: \(3, 7, 11, 15, 19\) (spacing 4). Among the primes, short arithmetic progressions appear easily — \(3, 5, 7\) or \(5, 11, 17, 23, 29\). But can we always find longer ones? Is there any limit?</p>
+
+        <h2>The theorem</h2>
+
+        <p><strong>Green-Tao Theorem (2004).</strong> For any positive integer \(k\), there exist \(k\) primes in arithmetic progression:</p>
+
+        \[ p, \quad p + d, \quad p + 2d, \quad \ldots, \quad p + (k-1)d \]
+
+        <p>for some prime \(p\) and common difference \(d > 0\).</p>
+
+        <p>This is a startling result. Primes thin out as numbers grow larger, and finding long arithmetic progressions would seem to require enormous density — yet the primes manage it despite their sparsity.</p>
+
+        <h2>The proof strategy</h2>
+
+        <p>Green and Tao (Tao later won the Fields Medal partly for this work) combined three ingredients:</p>
+
+        <p><strong>Szemerédi's theorem:</strong> any subset of the integers with positive upper density contains arbitrarily long arithmetic progressions.</p>
+
+        <p><strong>A transference principle:</strong> the key innovation, extending Szemerédi's result from dense sets to "pseudorandom" sets — sets that locally look random but contain the primes as a substantial portion.</p>
+
+        <p><strong>Goldston-Yildirim estimates:</strong> showing the primes can be embedded in a pseudorandom set of almost-primes with the right density properties.</p>
+
+        <p>The theorem does not give an explicit formula. As of 2019 the longest known arithmetic progression of primes has 27 terms, beginning at a 24-digit number.</p>
+
+        <h2>Challenge problem</h2>
+
+        <div class="callout">
+          <p><strong>(a)</strong> Verify that \(5, 11, 17, 23, 29\) is an arithmetic progression of 5 primes. What is the common difference? Confirm each term is prime by trial division.</p>
+          <p><strong>(b)</strong> Explain why any arithmetic progression of more than 2 primes, all greater than 3, must have an even common difference. Then show the common difference must be divisible by 6 if the progression has more than 3 terms, all greater than 3. (Consider the terms modulo 2 and modulo 3 separately.)</p>
+          <p><strong>(c)</strong> Find a second arithmetic progression of 5 primes, different from the one above, with a common difference that is a multiple of 6.</p>
+        </div>
+
+      </div>
+
+      <nav class="article-nav" aria-label="Article navigation">
+        <a href="../index.html">← Home</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

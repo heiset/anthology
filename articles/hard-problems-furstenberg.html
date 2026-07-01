@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Furstenberg's 1955 topological proof that there are infinitely many primes.">
+  <title>Furstenberg's Topological Proof — Hard Problems</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="/tree.png" type="image/png">
+  <link rel="apple-touch-icon" href="/tree.png">
+  <meta property="og:image" content="/tree.png">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["\\(","\\)"]], displayMath: [["\\[","\\]"]], processEscapes: true },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="../script.js"></script>
+</head>
+<body>
+  <aside class="site-sidebar">
+    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+    <nav class="sidebar-nav" aria-label="Site map">
+      <a href="../index.html">Home</a>
+      <div class="sidebar-group">
+        <a href="infinite-series.html">Calculus</a>
+        <div class="sidebar-sub">
+          <a href="infinite-series.html">Infinite Series</a>
+          <a href="calculus-limits.html">Limits</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="polynomial-roots.html">Math &amp; Computers</a>
+        <div class="sidebar-sub">
+          <a href="polynomial-roots.html">Polynomials</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="algebra-quadratics.html">Algebra</a>
+        <div class="sidebar-sub">
+          <a href="algebra-functions.html">Functions and Lines</a>
+          <a href="algebra-writing-lines.html">Writing Line Equations</a>
+          <a href="algebra-systems.html">Linear Systems and Inequalities</a>
+          <a href="algebra-exponents.html">Exponents and Sequences</a>
+          <a href="algebra-polynomials.html">Polynomials and Factoring</a>
+          <a href="algebra-graphing-quadratics.html">Graphing Quadratics</a>
+          <a href="algebra-solving-quadratics.html">Solving Quadratics</a>
+          <a href="algebra-quadratics.html">Quadratics</a>
+          <a href="algebra-radical-functions.html">Radical Functions and Inverses</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="hard-problems-mersenne.html">Hard Problems</a>
+        <div class="sidebar-sub">
+                    <a href="hard-problems-mersenne.html">Mersenne Primes</a>
+          <a href="hard-problems-fta.html">Fundamental Theorem</a>
+          <a href="hard-problems-one-not-prime.html">Why 1 Is Not Prime</a>
+          <a href="hard-problems-almost-primes.html">Almost Primes</a>
+          <a href="hard-problems-prime-number-theorem.html">Prime Number Theorem</a>
+          <a href="hard-problems-green-tao.html">The Green-Tao Theorem</a>
+          <a href="hard-problems-godel.html">Gödel's Incompleteness</a>
+          <span class="section-nav-current">Furstenberg's Proof</span>
+          <a href="hard-problems-first-isomorphism.html">First Isomorphism Theorem</a>
+          <a href="hard-problems-weierstrass.html">The Weierstrass Function</a>
+        </div>
+      </div>
+      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+      <a href="library.html">Library</a>
+      <a href="gps-tracks.html">GPS Tracks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </aside>
+  <a class="sidebar-mark" href="../index.html" aria-label="Home">
+    <img src="../glyph.png" alt="" height="26">
+    <span class="sidebar-mark-hint">home</span>
+  </a>
+
+  <main class="article-shell">
+    <article>
+      <header class="article-header">
+        <h1>Furstenberg's Topological Proof</h1>
+        <p class="subtitle">infinitely many primes, proved with open sets</p>
+      </header>
+
+      <nav class="section-nav" aria-label="Hard Problems pages">
+        <span class="section-nav-label">Hard Problems</span>
+        <a href="hard-problems-mersenne.html">Mersenne Primes</a>
+        <a href="hard-problems-fta.html">Fundamental Theorem</a>
+        <a href="hard-problems-one-not-prime.html">Why 1 Is Not Prime</a>
+        <a href="hard-problems-almost-primes.html">Almost Primes</a>
+        <a href="hard-problems-prime-number-theorem.html">Prime Number Theorem</a>
+        <a href="hard-problems-green-tao.html">The Green-Tao Theorem</a>
+        <a href="hard-problems-godel.html">Gödel's Incompleteness</a>
+        <span class="section-nav-current">Furstenberg's Proof</span>
+        <a href="hard-problems-first-isomorphism.html">First Isomorphism Theorem</a>
+        <a href="hard-problems-weierstrass.html">The Weierstrass Function</a>
+      </nav>
+
+      <div class="article-content">
+
+        <p class="lead">That there are infinitely many primes has been known since Euclid (~300 BCE). His proof is a one-paragraph gem. But in 1955 a 20-year-old Hillel Furstenberg published a proof using <em>topology</em> — the branch of mathematics dealing with abstract notions of openness and continuity, typically far removed from elementary number theory.</p>
+
+        <h2>The topology</h2>
+
+        <p>Define a topology on \(\mathbb{Z}\) by declaring that a set \(U \subseteq \mathbb{Z}\) is <em>open</em> if it is either empty or a union of two-way arithmetic progressions</p>
+
+        \[ S(a, d) = \{a + nd : n \in \mathbb{Z}\} = \{\ldots,\; a - 2d,\; a - d,\; a,\; a + d,\; a + 2d,\; \ldots\} \]
+
+        <p>where \(a \in \mathbb{Z}\) and \(d \in \mathbb{Z}^+\). One can verify this defines a valid topology on \(\mathbb{Z}\).</p>
+
+        <p><strong>Key observation:</strong> each \(S(a, d)\) is both open and closed (clopen). It is open by definition. Its complement is</p>
+
+        \[ S(a,d)^c = \bigcup_{r=1}^{d-1} S(a+r,\, d), \]
+
+        <p>a finite union of open sets, hence open. So \(S(a, d)\) is closed.</p>
+
+        <h2>The proof</h2>
+
+        <p>Every integer except \(\pm 1\) has at least one prime divisor, so</p>
+
+        \[ \mathbb{Z} \setminus \{-1, 1\} = \bigcup_{p \text{ prime}} S(0, p). \]
+
+        <p>Each \(S(0, p)\) is closed. If there were finitely many primes, this union would be finite — hence closed. Then \(\{-1, 1\}\) would be open.</p>
+
+        <p>But in this topology every non-empty open set is infinite: it must contain an arithmetic progression. The set \(\{-1, 1\}\) is finite and non-empty, so it cannot be open. Contradiction. \(\square\)</p>
+
+        <h2>Challenge problem</h2>
+
+        <div class="callout">
+          <p><strong>(a)</strong> Prove that in Furstenberg's topology every non-empty open set is infinite.</p>
+          <p><strong>(b)</strong> Prove that the complement of \(S(a, d)\) is a finite union of arithmetic progressions, and therefore open. Conclude \(S(a, d)\) is closed.</p>
+          <p><strong>(c)</strong> Write out Euclid's proof in full. Then identify the structural parallel: in both Euclid's and Furstenberg's proofs, what is the key object that leads to the contradiction, and how do the two proofs differ in constructing it?</p>
+        </div>
+
+      </div>
+
+      <nav class="article-nav" aria-label="Article navigation">
+        <a href="../index.html">← Home</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

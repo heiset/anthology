@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Why mathematicians exclude 1 from the primes: the connection to unique factorization and algebraic units.">
+  <title>Why 1 Is Not a Prime Number — Hard Problems</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="/tree.png" type="image/png">
+  <link rel="apple-touch-icon" href="/tree.png">
+  <meta property="og:image" content="/tree.png">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["\\(","\\)"]], displayMath: [["\\[","\\]"]], processEscapes: true },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="../script.js"></script>
+</head>
+<body>
+  <aside class="site-sidebar">
+    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+    <nav class="sidebar-nav" aria-label="Site map">
+      <a href="../index.html">Home</a>
+      <div class="sidebar-group">
+        <a href="infinite-series.html">Calculus</a>
+        <div class="sidebar-sub">
+          <a href="infinite-series.html">Infinite Series</a>
+          <a href="calculus-limits.html">Limits</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="polynomial-roots.html">Math &amp; Computers</a>
+        <div class="sidebar-sub">
+          <a href="polynomial-roots.html">Polynomials</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="algebra-quadratics.html">Algebra</a>
+        <div class="sidebar-sub">
+          <a href="algebra-functions.html">Functions and Lines</a>
+          <a href="algebra-writing-lines.html">Writing Line Equations</a>
+          <a href="algebra-systems.html">Linear Systems and Inequalities</a>
+          <a href="algebra-exponents.html">Exponents and Sequences</a>
+          <a href="algebra-polynomials.html">Polynomials and Factoring</a>
+          <a href="algebra-graphing-quadratics.html">Graphing Quadratics</a>
+          <a href="algebra-solving-quadratics.html">Solving Quadratics</a>
+          <a href="algebra-quadratics.html">Quadratics</a>
+          <a href="algebra-radical-functions.html">Radical Functions and Inverses</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="hard-problems-mersenne.html">Hard Problems</a>
+        <div class="sidebar-sub">
+                    <a href="hard-problems-mersenne.html">Mersenne Primes</a>
+          <a href="hard-problems-fta.html">Fundamental Theorem</a>
+          <span class="section-nav-current">Why 1 Is Not Prime</span>
+          <a href="hard-problems-almost-primes.html">Almost Primes</a>
+          <a href="hard-problems-prime-number-theorem.html">Prime Number Theorem</a>
+          <a href="hard-problems-green-tao.html">The Green-Tao Theorem</a>
+          <a href="hard-problems-godel.html">Gödel's Incompleteness</a>
+          <a href="hard-problems-furstenberg.html">Furstenberg's Proof</a>
+          <a href="hard-problems-first-isomorphism.html">First Isomorphism Theorem</a>
+          <a href="hard-problems-weierstrass.html">The Weierstrass Function</a>
+        </div>
+      </div>
+      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+      <a href="library.html">Library</a>
+      <a href="gps-tracks.html">GPS Tracks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </aside>
+  <a class="sidebar-mark" href="../index.html" aria-label="Home">
+    <img src="../glyph.png" alt="" height="26">
+    <span class="sidebar-mark-hint">home</span>
+  </a>
+
+  <main class="article-shell">
+    <article>
+      <header class="article-header">
+        <h1>Why 1 Is Not a Prime Number</h1>
+        <p class="subtitle">units, unique factorization, and the Gaussian integers</p>
+      </header>
+
+      <nav class="section-nav" aria-label="Hard Problems pages">
+        <span class="section-nav-label">Hard Problems</span>
+        <a href="hard-problems-mersenne.html">Mersenne Primes</a>
+        <a href="hard-problems-fta.html">Fundamental Theorem</a>
+        <span class="section-nav-current">Why 1 Is Not Prime</span>
+        <a href="hard-problems-almost-primes.html">Almost Primes</a>
+        <a href="hard-problems-prime-number-theorem.html">Prime Number Theorem</a>
+        <a href="hard-problems-green-tao.html">The Green-Tao Theorem</a>
+        <a href="hard-problems-godel.html">Gödel's Incompleteness</a>
+        <a href="hard-problems-furstenberg.html">Furstenberg's Proof</a>
+        <a href="hard-problems-first-isomorphism.html">First Isomorphism Theorem</a>
+        <a href="hard-problems-weierstrass.html">The Weierstrass Function</a>
+      </nav>
+
+      <div class="article-content">
+
+        <p class="lead">Every student learns to recite the primes: 2, 3, 5, 7, 11, 13, … But why doesn't the list begin with 1? It is, after all, divisible only by 1 and itself — which sounds like the definition of prime.</p>
+
+        <p>The answer is not arbitrary convention. It is forced by the Fundamental Theorem of Arithmetic.</p>
+
+        <h2>Uniqueness would collapse</h2>
+
+        <p>The FTA guarantees every integer \(n > 1\) has a <em>unique</em> prime factorization. If 1 were prime, uniqueness would immediately collapse. The number 6 could be factored as</p>
+
+        \[ 6 = 2 \cdot 3 = 1 \cdot 2 \cdot 3 = 1^2 \cdot 2 \cdot 3 = 1^{1000} \cdot 2 \cdot 3 = \cdots \]
+
+        <p>infinitely many distinct "prime" factorizations. The theorem would be meaningless.</p>
+
+        <h2>Units versus primes</h2>
+
+        <p>The deeper algebraic story is about <em>units</em>. In the ring of integers \(\mathbb{Z}\), a unit is an element with a multiplicative inverse also in \(\mathbb{Z}\). Only 1 and \(-1\) are units — every other integer lacks an inverse within \(\mathbb{Z}\). Units must be excluded from the prime definition to preserve unique factorization.</p>
+
+        <p>This principle reappears throughout mathematics. In the <em>Gaussian integers</em> \(\mathbb{Z}[i] = \{a + bi : a, b \in \mathbb{Z}\}\) the units are \(\{1, -1, i, -i\}\), and Gaussian primes are defined by excluding all four. For instance, 5 factors in \(\mathbb{Z}[i]\) as \(5 = (2 + i)(2 - i)\), so 5 is not a Gaussian prime — while 3 remains prime even there.</p>
+
+        <p>There is also an elementary reason: a prime \(p\) satisfies the property that if \(p \mid ab\) then \(p \mid a\) or \(p \mid b\). For \(p = 1\) this becomes "if \(1 \mid ab\) then \(1 \mid a\) or \(1 \mid b\)" — true vacuously since 1 divides everything. The property holds but says nothing. Primes are useful precisely because they <em>constrain</em>.</p>
+
+        <h2>Challenge problem</h2>
+
+        <div class="callout">
+          <p>Work in the Gaussian integers \(\mathbb{Z}[i]\). Define the norm \(N(a + bi) = a^2 + b^2\).</p>
+          <p><strong>(a)</strong> Show that the four units of \(\mathbb{Z}[i]\) are exactly the Gaussian integers with norm 1.</p>
+          <p><strong>(b)</strong> Verify that \(5 = (2 + i)(2 - i)\) by expanding the right side. Compute \(N(2 + i)\) and \(N(2 - i)\) and check that \(N(2+i) \cdot N(2-i) = N(5)\).</p>
+          <p><strong>(c)</strong> Show that the ordinary prime 3 does not factor non-trivially in \(\mathbb{Z}[i]\): if \(3 = \alpha \cdot \beta\) in \(\mathbb{Z}[i]\), prove at least one of \(\alpha, \beta\) is a unit. (Use the fact that \(N(\alpha\beta) = N(\alpha)N(\beta)\).)</p>
+        </div>
+
+      </div>
+
+      <nav class="article-nav" aria-label="Article navigation">
+        <a href="../index.html">← Home</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

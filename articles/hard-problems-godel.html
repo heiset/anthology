@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Gödel's incompleteness theorems: any consistent formal system powerful enough for arithmetic is incomplete.">
+  <title>Gödel's Incompleteness Theorems — Hard Problems</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="/tree.png" type="image/png">
+  <link rel="apple-touch-icon" href="/tree.png">
+  <meta property="og:image" content="/tree.png">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["\\(","\\)"]], displayMath: [["\\[","\\]"]], processEscapes: true },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="../script.js"></script>
+</head>
+<body>
+  <aside class="site-sidebar">
+    <a class="site-title" href="../index.html">卄乇丨丂乇</a>
+    <nav class="sidebar-nav" aria-label="Site map">
+      <a href="../index.html">Home</a>
+      <div class="sidebar-group">
+        <a href="infinite-series.html">Calculus</a>
+        <div class="sidebar-sub">
+          <a href="infinite-series.html">Infinite Series</a>
+          <a href="calculus-limits.html">Limits</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="polynomial-roots.html">Math &amp; Computers</a>
+        <div class="sidebar-sub">
+          <a href="polynomial-roots.html">Polynomials</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="algebra-quadratics.html">Algebra</a>
+        <div class="sidebar-sub">
+          <a href="algebra-functions.html">Functions and Lines</a>
+          <a href="algebra-writing-lines.html">Writing Line Equations</a>
+          <a href="algebra-systems.html">Linear Systems and Inequalities</a>
+          <a href="algebra-exponents.html">Exponents and Sequences</a>
+          <a href="algebra-polynomials.html">Polynomials and Factoring</a>
+          <a href="algebra-graphing-quadratics.html">Graphing Quadratics</a>
+          <a href="algebra-solving-quadratics.html">Solving Quadratics</a>
+          <a href="algebra-quadratics.html">Quadratics</a>
+          <a href="algebra-radical-functions.html">Radical Functions and Inverses</a>
+        </div>
+      </div>
+      <div class="sidebar-group">
+        <a href="hard-problems-mersenne.html">Hard Problems</a>
+        <div class="sidebar-sub">
+                    <a href="hard-problems-mersenne.html">Mersenne Primes</a>
+          <a href="hard-problems-fta.html">Fundamental Theorem</a>
+          <a href="hard-problems-one-not-prime.html">Why 1 Is Not Prime</a>
+          <a href="hard-problems-almost-primes.html">Almost Primes</a>
+          <a href="hard-problems-prime-number-theorem.html">Prime Number Theorem</a>
+          <a href="hard-problems-green-tao.html">The Green-Tao Theorem</a>
+          <span class="section-nav-current">Gödel's Incompleteness</span>
+          <a href="hard-problems-furstenberg.html">Furstenberg's Proof</a>
+          <a href="hard-problems-first-isomorphism.html">First Isomorphism Theorem</a>
+          <a href="hard-problems-weierstrass.html">The Weierstrass Function</a>
+        </div>
+      </div>
+      <a href="https://heiset.github.io/teloslatin" target="_blank">Latin</a>
+      <a href="library.html">Library</a>
+      <a href="gps-tracks.html">GPS Tracks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </aside>
+  <a class="sidebar-mark" href="../index.html" aria-label="Home">
+    <img src="../glyph.png" alt="" height="26">
+    <span class="sidebar-mark-hint">home</span>
+  </a>
+
+  <main class="article-shell">
+    <article>
+      <header class="article-header">
+        <h1>Gödel's Incompleteness Theorems</h1>
+        <p class="subtitle">mathematics cannot prove everything that is true</p>
+      </header>
+
+      <nav class="section-nav" aria-label="Hard Problems pages">
+        <span class="section-nav-label">Hard Problems</span>
+        <a href="hard-problems-mersenne.html">Mersenne Primes</a>
+        <a href="hard-problems-fta.html">Fundamental Theorem</a>
+        <a href="hard-problems-one-not-prime.html">Why 1 Is Not Prime</a>
+        <a href="hard-problems-almost-primes.html">Almost Primes</a>
+        <a href="hard-problems-prime-number-theorem.html">Prime Number Theorem</a>
+        <a href="hard-problems-green-tao.html">The Green-Tao Theorem</a>
+        <span class="section-nav-current">Gödel's Incompleteness</span>
+        <a href="hard-problems-furstenberg.html">Furstenberg's Proof</a>
+        <a href="hard-problems-first-isomorphism.html">First Isomorphism Theorem</a>
+        <a href="hard-problems-weierstrass.html">The Weierstrass Function</a>
+      </nav>
+
+      <div class="article-content">
+
+        <p class="lead">In 1900 David Hilbert proposed a grand program: find a complete, consistent set of axioms from which all of mathematical truth could be derived. Thirty years later Kurt Gödel proved this was impossible — not just practically, but in principle.</p>
+
+        <h2>The theorems</h2>
+
+        <p><strong>First Incompleteness Theorem.</strong> Any consistent formal system powerful enough to express basic arithmetic contains true statements that cannot be proved within that system.</p>
+
+        <p><strong>Second Incompleteness Theorem.</strong> No such system can prove its own consistency.</p>
+
+        <h2>The proof idea</h2>
+
+        <p>Gödel made arithmetic talk about itself. The key idea is <em>Gödel numbering</em>: assign each symbol in the formal language a natural number, then encode entire formulas as numbers via prime factorization. For example, if symbols are coded 1–12, the statement \(0 = 0\) might be encoded as</p>
+
+        \[ 2^6 \cdot 3^5 \cdot 5^6. \]
+
+        <p>Statements <em>about</em> formulas (metamathematics) now become statements <em>about numbers</em> (arithmetic), expressible inside the formal system itself.</p>
+
+        <p>With this encoding Gödel constructed a sentence \(G\) that, decoded, says: <strong>"This sentence has no proof."</strong> Then:</p>
+
+        <ul>
+          <li>If \(G\) is <em>provable</em>, the system just proved a false statement — it is inconsistent.</li>
+          <li>If \(G\) is <em>not provable</em>, then \(G\) is true — and the system is incomplete.</li>
+        </ul>
+
+        <p>Either way, a consistent system cannot be complete. The critical move — replacing "false" with "unprovable" — is what separates this from the Liar's Paradox ("This statement is false"). The Liar has no truth value; Gödel's sentence has a definite truth value, it simply has no proof.</p>
+
+        <h2>Challenge problem</h2>
+
+        <div class="callout">
+          <p><strong>(a)</strong> The Liar's Paradox says "This statement is false." Suppose it is true — derive a contradiction. Suppose it is false — derive another. Show it is genuinely neither.</p>
+          <p><strong>(b)</strong> Gödel replaced "false" with "unprovable." Show that if Gödel's sentence \(G\) is unprovable, no contradiction arises — \(G\) can simply be true. This is what separates Gödel from the Liar.</p>
+          <p><strong>(c)</strong> The Second Theorem says a consistent system \(S\) cannot prove its own consistency. Here is a sketch of why: if \(S\) proved its own consistency, it would know any provable statement is true, and in particular it would be able to prove that \(G\) is unprovable — which is exactly what \(G\) says, so \(S\) would have proved \(G\). Why is this a contradiction? Write up the full argument in your own words.</p>
+        </div>
+
+      </div>
+
+      <nav class="article-nav" aria-label="Article navigation">
+        <a href="../index.html">← Home</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
