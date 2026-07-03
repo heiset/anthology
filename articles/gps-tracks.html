@@ -18,26 +18,53 @@
     .article-header .subtitle {
       font-family: Helvetica, Arial, sans-serif;
     }
-    .track-list {
-      list-style: none;
-      margin: 0.3em 0 1.6em 0;
-      padding: 0;
-      columns: 2;
-      column-gap: 2em;
+    .track-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px 22px;
+      margin: 0.5em 0 1.8em 0;
     }
-    .track-list li {
-      padding: 3px 0;
-      border-bottom: 1px solid var(--rule);
-      font-size: 0.93em;
-      break-inside: avoid;
-    }
-    .track-list li:last-child { border-bottom: none; }
-    .track-list a {
-      display: block;
-      color: var(--ink);
+    .track-card {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      overflow: hidden;
       text-decoration: none;
+      color: var(--ink);
+      background: var(--paper);
+      transition: border-color 0.15s ease, transform 0.15s ease;
     }
-    .track-list a:hover { color: var(--accent); text-decoration: underline; }
+    .track-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .track-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 8 / 5;
+      object-fit: cover;
+      background: var(--rule);
+    }
+    .track-card-body {
+      padding: 10px 13px 12px;
+    }
+    .track-card-title {
+      display: block;
+      font-weight: 700;
+      font-size: 0.95em;
+      line-height: 1.32;
+    }
+    .track-card:hover .track-card-title { color: var(--accent); }
+    .track-card-stats {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.82em;
+      color: var(--muted);
+    }
+    @media (max-width: 640px) {
+      .track-grid { grid-template-columns: 1fr; }
+    }
     .track-section-heading {
       margin: 2em 0 0.5em;
       font-size: 1.1em;
@@ -128,235 +155,235 @@
         <h2 class="region-heading">Wasatch Front — Running &amp; Peakbagging</h2>
 
         <h2 class="track-section-heading">Foothills &amp; Northern SLC</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/parleys-ridge.gpx" download>Parley's Ridge (16.2 mi, 6,365 ft)</a></li>
-          <li><a href="../gpx/foothill-ultimate-ridge-linkup.gpx" download>Foothill Ultimate Ridge Linkup (FURL) (30.2 mi, 11,613 ft)</a></li>
-          <li><a href="../gpx/wasatch-steeplechase-course.gpx" download>Wasatch Steeplechase Course (16.7 mi, 5,594 ft)</a></li>
-          <li><a href="../gpx/aves-to-city-creek.gpx" download>Avenues to City Creek (2.0 mi, 344 ft)</a></li>
-          <li><a href="../gpx/mount-wire.gpx" download>Mount Wire (4.0 mi, 2,037 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/parleys-ridge.gpx" download><img src="../thumbs/parleys-ridge.jpg" alt="Map of Parley's Ridge" loading="lazy"><div class="track-card-body"><span class="track-card-title">Parley's Ridge</span><span class="track-card-stats">16.2 mi, 6,365 ft</span></div></a>
+          <a class="track-card" href="../gpx/foothill-ultimate-ridge-linkup.gpx" download><img src="../thumbs/foothill-ultimate-ridge-linkup.jpg" alt="Map of Foothill Ultimate Ridge Linkup (FURL)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Foothill Ultimate Ridge Linkup (FURL)</span><span class="track-card-stats">30.2 mi, 11,613 ft</span></div></a>
+          <a class="track-card" href="../gpx/wasatch-steeplechase-course.gpx" download><img src="../thumbs/wasatch-steeplechase-course.jpg" alt="Map of Wasatch Steeplechase Course" loading="lazy"><div class="track-card-body"><span class="track-card-title">Wasatch Steeplechase Course</span><span class="track-card-stats">16.7 mi, 5,594 ft</span></div></a>
+          <a class="track-card" href="../gpx/aves-to-city-creek.gpx" download><img src="../thumbs/aves-to-city-creek.jpg" alt="Map of Avenues to City Creek" loading="lazy"><div class="track-card-body"><span class="track-card-title">Avenues to City Creek</span><span class="track-card-stats">2.0 mi, 344 ft</span></div></a>
+          <a class="track-card" href="../gpx/mount-wire.gpx" download><img src="../thumbs/mount-wire.jpg" alt="Map of Mount Wire" loading="lazy"><div class="track-card-body"><span class="track-card-title">Mount Wire</span><span class="track-card-stats">4.0 mi, 2,037 ft</span></div></a>
+        </div>
 
         <h2 class="track-section-heading">Great Salt Lake</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/antelope-island-time-trial.gpx" download>Antelope Island Time Trial (7.0 mi, 2,358 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/antelope-island-time-trial.gpx" download><img src="../thumbs/antelope-island-time-trial.jpg" alt="Map of Antelope Island Time Trial" loading="lazy"><div class="track-card-body"><span class="track-card-title">Antelope Island Time Trial</span><span class="track-card-stats">7.0 mi, 2,358 ft</span></div></a>
+        </div>
 
         <h2 class="track-section-heading">Neff's Canyon &amp; Mount Olympus</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/mount-olympus.gpx" download>Mount Olympus (6.4 mi, 4,052 ft)</a></li>
-          <li><a href="../gpx/wildcat-ridge-traverse.gpx" download>Wildcat Ridge Traverse (12.2 mi, 7,212 ft)</a></li>
-          <li><a href="../gpx/neffs-canyon-descent.gpx" download>Neff's Canyon Descent (5.1 mi, 2,347 ft)</a></li>
-          <li><a href="../gpx/neffs-canyon-to-ridgeline.gpx" download>Neff's Canyon to Ridgeline (7.9 mi, 3,562 ft)</a></li>
-          <li><a href="../gpx/mount-olympus-west-slabs-attempt.gpx" download>Mount Olympus — West Slabs (attempt) (3.2 mi, 3,129 ft)</a></li>
-          <li><a href="../gpx/mount-olympus-west-slabs-full-route.gpx" download>Mount Olympus — West Slabs (full route) (5.3 mi, 4,394 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/mount-olympus.gpx" download><img src="../thumbs/mount-olympus.jpg" alt="Map of Mount Olympus" loading="lazy"><div class="track-card-body"><span class="track-card-title">Mount Olympus</span><span class="track-card-stats">6.4 mi, 4,052 ft</span></div></a>
+          <a class="track-card" href="../gpx/wildcat-ridge-traverse.gpx" download><img src="../thumbs/wildcat-ridge-traverse.jpg" alt="Map of Wildcat Ridge Traverse" loading="lazy"><div class="track-card-body"><span class="track-card-title">Wildcat Ridge Traverse</span><span class="track-card-stats">12.2 mi, 7,212 ft</span></div></a>
+          <a class="track-card" href="../gpx/neffs-canyon-descent.gpx" download><img src="../thumbs/neffs-canyon-descent.jpg" alt="Map of Neff's Canyon Descent" loading="lazy"><div class="track-card-body"><span class="track-card-title">Neff's Canyon Descent</span><span class="track-card-stats">5.1 mi, 2,347 ft</span></div></a>
+          <a class="track-card" href="../gpx/neffs-canyon-to-ridgeline.gpx" download><img src="../thumbs/neffs-canyon-to-ridgeline.jpg" alt="Map of Neff's Canyon to Ridgeline" loading="lazy"><div class="track-card-body"><span class="track-card-title">Neff's Canyon to Ridgeline</span><span class="track-card-stats">7.9 mi, 3,562 ft</span></div></a>
+          <a class="track-card" href="../gpx/mount-olympus-west-slabs-attempt.gpx" download><img src="../thumbs/mount-olympus-west-slabs-attempt.jpg" alt="Map of Mount Olympus — West Slabs (attempt)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Mount Olympus — West Slabs (attempt)</span><span class="track-card-stats">3.2 mi, 3,129 ft</span></div></a>
+          <a class="track-card" href="../gpx/mount-olympus-west-slabs-full-route.gpx" download><img src="../thumbs/mount-olympus-west-slabs-full-route.jpg" alt="Map of Mount Olympus — West Slabs (full route)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Mount Olympus — West Slabs (full route)</span><span class="track-card-stats">5.3 mi, 4,394 ft</span></div></a>
+        </div>
 
         <h2 class="track-section-heading">Mill Creek Canyon</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/grandeur-via-millcreek-loop.gpx" download>Grandeur Peak via Mill Creek (16.2 mi, 7,379 ft)</a></li>
-          <li><a href="../gpx/grandeur-peak-challenge-loop.gpx" download>Grandeur Peak Loop (9.9 mi, 3,967 ft)</a></li>
-          <li><a href="../gpx/millcreek-canyon-loop.gpx" download>Mill Creek Canyon Loop (11.2 mi, 3,398 ft)</a></li>
-          <li><a href="../gpx/millcreek-lambs-trail-loop.gpx" download>Mill Creek Lamb's Trail Loop (13.4 mi, 4,771 ft)</a></li>
-          <li><a href="../gpx/millcreek-to-gobblers-knob.gpx" download>Mill Creek to Gobbler's Knob (9.7 mi, 3,724 ft)</a></li>
-          <li><a href="../gpx/pipeline-big-water-crest-loop.gpx" download>Pipeline–Big Water–Crest Loop (24.3 mi, 4,311 ft)</a></li>
-          <li><a href="../gpx/wasatch-to-whiskey-50k-course.gpx" download>SLC to PC (31.2 mi, 7,297 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/grandeur-via-millcreek-loop.gpx" download><img src="../thumbs/grandeur-via-millcreek-loop.jpg" alt="Map of Grandeur Peak via Mill Creek" loading="lazy"><div class="track-card-body"><span class="track-card-title">Grandeur Peak via Mill Creek</span><span class="track-card-stats">16.2 mi, 7,379 ft</span></div></a>
+          <a class="track-card" href="../gpx/grandeur-peak-challenge-loop.gpx" download><img src="../thumbs/grandeur-peak-challenge-loop.jpg" alt="Map of Grandeur Peak Loop" loading="lazy"><div class="track-card-body"><span class="track-card-title">Grandeur Peak Loop</span><span class="track-card-stats">9.9 mi, 3,967 ft</span></div></a>
+          <a class="track-card" href="../gpx/millcreek-canyon-loop.gpx" download><img src="../thumbs/millcreek-canyon-loop.jpg" alt="Map of Mill Creek Canyon Loop" loading="lazy"><div class="track-card-body"><span class="track-card-title">Mill Creek Canyon Loop</span><span class="track-card-stats">11.2 mi, 3,398 ft</span></div></a>
+          <a class="track-card" href="../gpx/millcreek-lambs-trail-loop.gpx" download><img src="../thumbs/millcreek-lambs-trail-loop.jpg" alt="Map of Mill Creek Lamb's Trail Loop" loading="lazy"><div class="track-card-body"><span class="track-card-title">Mill Creek Lamb's Trail Loop</span><span class="track-card-stats">13.4 mi, 4,771 ft</span></div></a>
+          <a class="track-card" href="../gpx/millcreek-to-gobblers-knob.gpx" download><img src="../thumbs/millcreek-to-gobblers-knob.jpg" alt="Map of Mill Creek to Gobbler's Knob" loading="lazy"><div class="track-card-body"><span class="track-card-title">Mill Creek to Gobbler's Knob</span><span class="track-card-stats">9.7 mi, 3,724 ft</span></div></a>
+          <a class="track-card" href="../gpx/pipeline-big-water-crest-loop.gpx" download><img src="../thumbs/pipeline-big-water-crest-loop.jpg" alt="Map of Pipeline–Big Water–Crest Loop" loading="lazy"><div class="track-card-body"><span class="track-card-title">Pipeline–Big Water–Crest Loop</span><span class="track-card-stats">24.3 mi, 4,311 ft</span></div></a>
+          <a class="track-card" href="../gpx/wasatch-to-whiskey-50k-course.gpx" download><img src="../thumbs/wasatch-to-whiskey-50k-course.jpg" alt="Map of SLC to PC" loading="lazy"><div class="track-card-body"><span class="track-card-title">SLC to PC</span><span class="track-card-stats">31.2 mi, 7,297 ft</span></div></a>
+        </div>
 
         <h2 class="track-section-heading">Twin Peaks, Broads Fork &amp; Ferguson Canyon</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/twin-peaks.gpx" download>Twin Peaks (12.7 mi, 11,135 ft)</a></li>
-          <li><a href="../gpx/broads-fork-to-twin-peaks.gpx" download>Broads Fork to Twin Peaks (8.3 mi, 5,484 ft)</a></li>
-          <li><a href="../gpx/broads-fork-to-twin-peaks-variant.gpx" download>Broads Fork to Twin Peaks (variant) (8.3 mi, 5,484 ft)</a></li>
-          <li><a href="../gpx/broads-fork-twin-peaks-loop.gpx" download>Broads Fork Twin Peaks Loop (9.6 mi, 5,220 ft)</a></li>
-          <li><a href="../gpx/broads-fork-area-run.gpx" download>Broads Fork Run (8.1 mi, 5,712 ft)</a></li>
-          <li><a href="../gpx/wurl-wasatch-ultimate-ridge-linkup.gpx" download>WURL — Wasatch Ultimate Ridge Linkup (33.8 mi, 21,607 ft)</a></li>
-          <li><a href="../gpx/storm-mountain-north-ridge-ferguson-canyon.gpx" download>Storm Mountain North Ridge via Ferguson Canyon (7.8 mi, 5,086 ft)</a></li>
-          <li><a href="../gpx/mineral-slab.gpx" download>Mineral Slab (2.5 mi, 1,522 ft)</a></li>
-          <li><a href="../gpx/lake-blanche-sundial-peak.gpx" download>Lake Blanche and Sundial Peak (11.2 mi, 5,436 ft)</a></li>
-          <li><a href="../gpx/sundial-peak-lake-blanche.gpx" download>Sundial Peak via Lake Blanche (10.4 mi, 4,699 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/twin-peaks.gpx" download><img src="../thumbs/twin-peaks.jpg" alt="Map of Twin Peaks" loading="lazy"><div class="track-card-body"><span class="track-card-title">Twin Peaks</span><span class="track-card-stats">12.7 mi, 11,135 ft</span></div></a>
+          <a class="track-card" href="../gpx/broads-fork-to-twin-peaks.gpx" download><img src="../thumbs/broads-fork-to-twin-peaks.jpg" alt="Map of Broads Fork to Twin Peaks" loading="lazy"><div class="track-card-body"><span class="track-card-title">Broads Fork to Twin Peaks</span><span class="track-card-stats">8.3 mi, 5,484 ft</span></div></a>
+          <a class="track-card" href="../gpx/broads-fork-to-twin-peaks-variant.gpx" download><img src="../thumbs/broads-fork-to-twin-peaks-variant.jpg" alt="Map of Broads Fork to Twin Peaks (variant)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Broads Fork to Twin Peaks (variant)</span><span class="track-card-stats">8.3 mi, 5,484 ft</span></div></a>
+          <a class="track-card" href="../gpx/broads-fork-twin-peaks-loop.gpx" download><img src="../thumbs/broads-fork-twin-peaks-loop.jpg" alt="Map of Broads Fork Twin Peaks Loop" loading="lazy"><div class="track-card-body"><span class="track-card-title">Broads Fork Twin Peaks Loop</span><span class="track-card-stats">9.6 mi, 5,220 ft</span></div></a>
+          <a class="track-card" href="../gpx/broads-fork-area-run.gpx" download><img src="../thumbs/broads-fork-area-run.jpg" alt="Map of Broads Fork Run" loading="lazy"><div class="track-card-body"><span class="track-card-title">Broads Fork Run</span><span class="track-card-stats">8.1 mi, 5,712 ft</span></div></a>
+          <a class="track-card" href="../gpx/wurl-wasatch-ultimate-ridge-linkup.gpx" download><img src="../thumbs/wurl-wasatch-ultimate-ridge-linkup.jpg" alt="Map of WURL — Wasatch Ultimate Ridge Linkup" loading="lazy"><div class="track-card-body"><span class="track-card-title">WURL — Wasatch Ultimate Ridge Linkup</span><span class="track-card-stats">33.8 mi, 21,607 ft</span></div></a>
+          <a class="track-card" href="../gpx/storm-mountain-north-ridge-ferguson-canyon.gpx" download><img src="../thumbs/storm-mountain-north-ridge-ferguson-canyon.jpg" alt="Map of Storm Mountain North Ridge via Ferguson Canyon" loading="lazy"><div class="track-card-body"><span class="track-card-title">Storm Mountain North Ridge via Ferguson Canyon</span><span class="track-card-stats">7.8 mi, 5,086 ft</span></div></a>
+          <a class="track-card" href="../gpx/mineral-slab.gpx" download><img src="../thumbs/mineral-slab.jpg" alt="Map of Mineral Slab" loading="lazy"><div class="track-card-body"><span class="track-card-title">Mineral Slab</span><span class="track-card-stats">2.5 mi, 1,522 ft</span></div></a>
+          <a class="track-card" href="../gpx/lake-blanche-sundial-peak.gpx" download><img src="../thumbs/lake-blanche-sundial-peak.jpg" alt="Map of Lake Blanche and Sundial Peak" loading="lazy"><div class="track-card-body"><span class="track-card-title">Lake Blanche and Sundial Peak</span><span class="track-card-stats">11.2 mi, 5,436 ft</span></div></a>
+          <a class="track-card" href="../gpx/sundial-peak-lake-blanche.gpx" download><img src="../thumbs/sundial-peak-lake-blanche.jpg" alt="Map of Sundial Peak via Lake Blanche" loading="lazy"><div class="track-card-body"><span class="track-card-title">Sundial Peak via Lake Blanche</span><span class="track-card-stats">10.4 mi, 4,699 ft</span></div></a>
+        </div>
 
         <h2 class="track-section-heading">Big Cottonwood Canyon</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/big-cottonwood-traverse.gpx" download>Big Cottonwood Canyon Traverse (22.0 mi, 6,289 ft)</a></li>
-          <li><a href="../gpx/big-cottonwood-traverse-alt-route.gpx" download>Big Cottonwood Traverse — Alt Route (24.3 mi, 6,919 ft)</a></li>
-          <li><a href="../gpx/desolation-lake-loop.gpx" download>Desolation Lake Loop (12.4 mi, 3,963 ft)</a></li>
-          <li><a href="../gpx/gobblers-knob-via-butler-fork.gpx" download>Gobbler's Knob via Butler Fork (4.2 mi, 3,182 ft)</a></li>
-          <li><a href="../gpx/kessler-peak.gpx" download>Kessler Peak (1.9 mi, 2,607 ft)</a></li>
-          <li><a href="../gpx/mineral-fork-peak-10820-loop.gpx" download>Mineral Fork to Peak 10820 Loop (13.1 mi, 5,144 ft)</a></li>
-          <li><a href="../gpx/mineral-fork-to-10820.gpx" download>Mineral Fork to 10820 (10.5 mi, 4,390 ft)</a></li>
-          <li><a href="../gpx/mule-hollow-ridge.gpx" download>Mule Hollow Ridge (4.6 mi, 8,871 ft)</a></li>
-          <li><a href="../gpx/stairs-gulch-mule-hollow-loop.gpx" download>Stairs Gulch and Mule Hollow Loop (4.4 mi, 2,295 ft)</a></li>
-          <li><a href="../gpx/coalpit-gulch-to-north-thunder-mountain.gpx" download>Coalpit Gulch to North Thunder Mountain (9.0 mi, 6,393 ft)</a></li>
-          <li><a href="../gpx/kessler-peak-descent-to-car.gpx" download>Kessler Peak — Descent to Car (3.4 mi, 127 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/big-cottonwood-traverse.gpx" download><img src="../thumbs/big-cottonwood-traverse.jpg" alt="Map of Big Cottonwood Canyon Traverse" loading="lazy"><div class="track-card-body"><span class="track-card-title">Big Cottonwood Canyon Traverse</span><span class="track-card-stats">22.0 mi, 6,289 ft</span></div></a>
+          <a class="track-card" href="../gpx/big-cottonwood-traverse-alt-route.gpx" download><img src="../thumbs/big-cottonwood-traverse-alt-route.jpg" alt="Map of Big Cottonwood Traverse — Alt Route" loading="lazy"><div class="track-card-body"><span class="track-card-title">Big Cottonwood Traverse — Alt Route</span><span class="track-card-stats">24.3 mi, 6,919 ft</span></div></a>
+          <a class="track-card" href="../gpx/desolation-lake-loop.gpx" download><img src="../thumbs/desolation-lake-loop.jpg" alt="Map of Desolation Lake Loop" loading="lazy"><div class="track-card-body"><span class="track-card-title">Desolation Lake Loop</span><span class="track-card-stats">12.4 mi, 3,963 ft</span></div></a>
+          <a class="track-card" href="../gpx/gobblers-knob-via-butler-fork.gpx" download><img src="../thumbs/gobblers-knob-via-butler-fork.jpg" alt="Map of Gobbler's Knob via Butler Fork" loading="lazy"><div class="track-card-body"><span class="track-card-title">Gobbler's Knob via Butler Fork</span><span class="track-card-stats">4.2 mi, 3,182 ft</span></div></a>
+          <a class="track-card" href="../gpx/kessler-peak.gpx" download><img src="../thumbs/kessler-peak.jpg" alt="Map of Kessler Peak" loading="lazy"><div class="track-card-body"><span class="track-card-title">Kessler Peak</span><span class="track-card-stats">1.9 mi, 2,607 ft</span></div></a>
+          <a class="track-card" href="../gpx/mineral-fork-peak-10820-loop.gpx" download><img src="../thumbs/mineral-fork-peak-10820-loop.jpg" alt="Map of Mineral Fork to Peak 10820 Loop" loading="lazy"><div class="track-card-body"><span class="track-card-title">Mineral Fork to Peak 10820 Loop</span><span class="track-card-stats">13.1 mi, 5,144 ft</span></div></a>
+          <a class="track-card" href="../gpx/mineral-fork-to-10820.gpx" download><img src="../thumbs/mineral-fork-to-10820.jpg" alt="Map of Mineral Fork to 10820" loading="lazy"><div class="track-card-body"><span class="track-card-title">Mineral Fork to 10820</span><span class="track-card-stats">10.5 mi, 4,390 ft</span></div></a>
+          <a class="track-card" href="../gpx/mule-hollow-ridge.gpx" download><img src="../thumbs/mule-hollow-ridge.jpg" alt="Map of Mule Hollow Ridge" loading="lazy"><div class="track-card-body"><span class="track-card-title">Mule Hollow Ridge</span><span class="track-card-stats">4.6 mi, 8,871 ft</span></div></a>
+          <a class="track-card" href="../gpx/stairs-gulch-mule-hollow-loop.gpx" download><img src="../thumbs/stairs-gulch-mule-hollow-loop.jpg" alt="Map of Stairs Gulch and Mule Hollow Loop" loading="lazy"><div class="track-card-body"><span class="track-card-title">Stairs Gulch and Mule Hollow Loop</span><span class="track-card-stats">4.4 mi, 2,295 ft</span></div></a>
+          <a class="track-card" href="../gpx/coalpit-gulch-to-north-thunder-mountain.gpx" download><img src="../thumbs/coalpit-gulch-to-north-thunder-mountain.jpg" alt="Map of Coalpit Gulch to North Thunder Mountain" loading="lazy"><div class="track-card-body"><span class="track-card-title">Coalpit Gulch to North Thunder Mountain</span><span class="track-card-stats">9.0 mi, 6,393 ft</span></div></a>
+          <a class="track-card" href="../gpx/kessler-peak-descent-to-car.gpx" download><img src="../thumbs/kessler-peak-descent-to-car.jpg" alt="Map of Kessler Peak — Descent to Car" loading="lazy"><div class="track-card-body"><span class="track-card-title">Kessler Peak — Descent to Car</span><span class="track-card-stats">3.4 mi, 127 ft</span></div></a>
+        </div>
 
         <h2 class="track-section-heading">Little Cottonwood Canyon, Alta &amp; Brighton</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/alta-to-brighton.gpx" download>Alta to Brighton (5.5 mi, 1,825 ft)</a></li>
-          <li><a href="../gpx/alta-brighton-ridgeline-loop.gpx" download>Alta–Brighton Ridgeline Loop (8.2 mi)</a></li>
-          <li><a href="../gpx/brighton-cirque.gpx" download>Brighton Cirque (6.2 mi, 2,972 ft)</a></li>
-          <li><a href="../gpx/catherines-pass.gpx" download>Catherine's Pass (4.5 mi, 1,812 ft)</a></li>
-          <li><a href="../gpx/cardiff-fork-loop-from-alta.gpx" download>Cardiff Fork Loop from Alta (12.7 mi, 5,169 ft)</a></li>
-          <li><a href="../gpx/south-ridge-of-superior.gpx" download>South Ridge of Superior (4.5 mi, 2,816 ft)</a></li>
-          <li><a href="../gpx/speedgoat-50k-course.gpx" download>Speedgoat 50K Course (32.6 mi, 11,391 ft)</a></li>
-          <li><a href="../gpx/sugarloaf-peak-cecret-lake.gpx" download>Sugarloaf Peak and Cecret Lake (5.3 mi, 2,186 ft)</a></li>
-          <li><a href="../gpx/little-cottonwood-canyon-direct-ascent.gpx" download>Little Cottonwood Canyon Direct Ascent (16.8 mi, 3,336 ft)</a></li>
-          <li><a href="../gpx/pfeifferhorn.gpx" download>Pfeifferhorn (9.6 mi, 4,357 ft)</a></li>
-          <li><a href="../gpx/white-baldy.gpx" download>White Baldy (11.0 mi, 4,479 ft)</a></li>
-          <li><a href="../gpx/twin-peaks-via-lisa-falls.gpx" download>Twin Peaks via Lisa Falls (7.7 mi, 5,038 ft)</a></li>
-          <li><a href="../gpx/the-pawn-approach.gpx" download>The Pawn Approach (2.4 mi, 2,324 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/alta-to-brighton.gpx" download><img src="../thumbs/alta-to-brighton.jpg" alt="Map of Alta to Brighton" loading="lazy"><div class="track-card-body"><span class="track-card-title">Alta to Brighton</span><span class="track-card-stats">5.5 mi, 1,825 ft</span></div></a>
+          <a class="track-card" href="../gpx/alta-brighton-ridgeline-loop.gpx" download><img src="../thumbs/alta-brighton-ridgeline-loop.jpg" alt="Map of Alta–Brighton Ridgeline Loop" loading="lazy"><div class="track-card-body"><span class="track-card-title">Alta–Brighton Ridgeline Loop</span><span class="track-card-stats">8.2 mi</span></div></a>
+          <a class="track-card" href="../gpx/brighton-cirque.gpx" download><img src="../thumbs/brighton-cirque.jpg" alt="Map of Brighton Cirque" loading="lazy"><div class="track-card-body"><span class="track-card-title">Brighton Cirque</span><span class="track-card-stats">6.2 mi, 2,972 ft</span></div></a>
+          <a class="track-card" href="../gpx/catherines-pass.gpx" download><img src="../thumbs/catherines-pass.jpg" alt="Map of Catherine's Pass" loading="lazy"><div class="track-card-body"><span class="track-card-title">Catherine's Pass</span><span class="track-card-stats">4.5 mi, 1,812 ft</span></div></a>
+          <a class="track-card" href="../gpx/cardiff-fork-loop-from-alta.gpx" download><img src="../thumbs/cardiff-fork-loop-from-alta.jpg" alt="Map of Cardiff Fork Loop from Alta" loading="lazy"><div class="track-card-body"><span class="track-card-title">Cardiff Fork Loop from Alta</span><span class="track-card-stats">12.7 mi, 5,169 ft</span></div></a>
+          <a class="track-card" href="../gpx/south-ridge-of-superior.gpx" download><img src="../thumbs/south-ridge-of-superior.jpg" alt="Map of South Ridge of Superior" loading="lazy"><div class="track-card-body"><span class="track-card-title">South Ridge of Superior</span><span class="track-card-stats">4.5 mi, 2,816 ft</span></div></a>
+          <a class="track-card" href="../gpx/speedgoat-50k-course.gpx" download><img src="../thumbs/speedgoat-50k-course.jpg" alt="Map of Speedgoat 50K Course" loading="lazy"><div class="track-card-body"><span class="track-card-title">Speedgoat 50K Course</span><span class="track-card-stats">32.6 mi, 11,391 ft</span></div></a>
+          <a class="track-card" href="../gpx/sugarloaf-peak-cecret-lake.gpx" download><img src="../thumbs/sugarloaf-peak-cecret-lake.jpg" alt="Map of Sugarloaf Peak and Cecret Lake" loading="lazy"><div class="track-card-body"><span class="track-card-title">Sugarloaf Peak and Cecret Lake</span><span class="track-card-stats">5.3 mi, 2,186 ft</span></div></a>
+          <a class="track-card" href="../gpx/little-cottonwood-canyon-direct-ascent.gpx" download><img src="../thumbs/little-cottonwood-canyon-direct-ascent.jpg" alt="Map of Little Cottonwood Canyon Direct Ascent" loading="lazy"><div class="track-card-body"><span class="track-card-title">Little Cottonwood Canyon Direct Ascent</span><span class="track-card-stats">16.8 mi, 3,336 ft</span></div></a>
+          <a class="track-card" href="../gpx/pfeifferhorn.gpx" download><img src="../thumbs/pfeifferhorn.jpg" alt="Map of Pfeifferhorn" loading="lazy"><div class="track-card-body"><span class="track-card-title">Pfeifferhorn</span><span class="track-card-stats">9.6 mi, 4,357 ft</span></div></a>
+          <a class="track-card" href="../gpx/white-baldy.gpx" download><img src="../thumbs/white-baldy.jpg" alt="Map of White Baldy" loading="lazy"><div class="track-card-body"><span class="track-card-title">White Baldy</span><span class="track-card-stats">11.0 mi, 4,479 ft</span></div></a>
+          <a class="track-card" href="../gpx/twin-peaks-via-lisa-falls.gpx" download><img src="../thumbs/twin-peaks-via-lisa-falls.jpg" alt="Map of Twin Peaks via Lisa Falls" loading="lazy"><div class="track-card-body"><span class="track-card-title">Twin Peaks via Lisa Falls</span><span class="track-card-stats">7.7 mi, 5,038 ft</span></div></a>
+          <a class="track-card" href="../gpx/the-pawn-approach.gpx" download><img src="../thumbs/the-pawn-approach.jpg" alt="Map of The Pawn Approach" loading="lazy"><div class="track-card-body"><span class="track-card-title">The Pawn Approach</span><span class="track-card-stats">2.4 mi, 2,324 ft</span></div></a>
+        </div>
 
         <h2 class="track-section-heading">Lone Peak &amp; American Fork Canyon</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/lone-peak.gpx" download>Lone Peak (11.4 mi, 6,190 ft)</a></li>
-          <li><a href="../gpx/lone-peak-via-jacobs-ladder.gpx" download>Lone Peak via Jacob's Ladder (15.6 mi, 6,593 ft)</a></li>
-          <li><a href="../gpx/box-elder-peak.gpx" download>Box Elder Peak (12.1 mi, 4,714 ft)</a></li>
-          <li><a href="../gpx/elder-and-silver-peak-loop.gpx" download>Elder and Silver Peak Loop (15.0 mi, 6,703 ft)</a></li>
-          <li><a href="../gpx/silver-lake.gpx" download>Silver Lake (15.7 mi, 6,361 ft)</a></li>
-          <li><a href="../gpx/silver-lake-american-fork.gpx" download>Silver Lake (alternate) (15.7 mi, 6,361 ft)</a></li>
-          <li><a href="../gpx/tibble-fork-loop.gpx" download>Tibble Fork Loop (22.3 mi, 4,190 ft)</a></li>
-          <li><a href="../gpx/american-fork-canyon-run.gpx" download>American Fork Canyon Run (11.6 mi, 5,468 ft)</a></li>
-          <li><a href="../gpx/central-wasatch-cross-canyon-ramble.gpx" download>Central Wasatch Cross-Canyon Ramble (28.2 mi, 12,635 ft)</a></li>
-          <li><a href="../gpx/south-wasatch-foothills-loop.gpx" download>South Wasatch Foothills Loop (10.9 mi, 4,905 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/lone-peak.gpx" download><img src="../thumbs/lone-peak.jpg" alt="Map of Lone Peak" loading="lazy"><div class="track-card-body"><span class="track-card-title">Lone Peak</span><span class="track-card-stats">11.4 mi, 6,190 ft</span></div></a>
+          <a class="track-card" href="../gpx/lone-peak-via-jacobs-ladder.gpx" download><img src="../thumbs/lone-peak-via-jacobs-ladder.jpg" alt="Map of Lone Peak via Jacob's Ladder" loading="lazy"><div class="track-card-body"><span class="track-card-title">Lone Peak via Jacob's Ladder</span><span class="track-card-stats">15.6 mi, 6,593 ft</span></div></a>
+          <a class="track-card" href="../gpx/box-elder-peak.gpx" download><img src="../thumbs/box-elder-peak.jpg" alt="Map of Box Elder Peak" loading="lazy"><div class="track-card-body"><span class="track-card-title">Box Elder Peak</span><span class="track-card-stats">12.1 mi, 4,714 ft</span></div></a>
+          <a class="track-card" href="../gpx/elder-and-silver-peak-loop.gpx" download><img src="../thumbs/elder-and-silver-peak-loop.jpg" alt="Map of Elder and Silver Peak Loop" loading="lazy"><div class="track-card-body"><span class="track-card-title">Elder and Silver Peak Loop</span><span class="track-card-stats">15.0 mi, 6,703 ft</span></div></a>
+          <a class="track-card" href="../gpx/silver-lake.gpx" download><img src="../thumbs/silver-lake.jpg" alt="Map of Silver Lake" loading="lazy"><div class="track-card-body"><span class="track-card-title">Silver Lake</span><span class="track-card-stats">15.7 mi, 6,361 ft</span></div></a>
+          <a class="track-card" href="../gpx/silver-lake-american-fork.gpx" download><img src="../thumbs/silver-lake-american-fork.jpg" alt="Map of Silver Lake (alternate)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Silver Lake (alternate)</span><span class="track-card-stats">15.7 mi, 6,361 ft</span></div></a>
+          <a class="track-card" href="../gpx/tibble-fork-loop.gpx" download><img src="../thumbs/tibble-fork-loop.jpg" alt="Map of Tibble Fork Loop" loading="lazy"><div class="track-card-body"><span class="track-card-title">Tibble Fork Loop</span><span class="track-card-stats">22.3 mi, 4,190 ft</span></div></a>
+          <a class="track-card" href="../gpx/american-fork-canyon-run.gpx" download><img src="../thumbs/american-fork-canyon-run.jpg" alt="Map of American Fork Canyon Run" loading="lazy"><div class="track-card-body"><span class="track-card-title">American Fork Canyon Run</span><span class="track-card-stats">11.6 mi, 5,468 ft</span></div></a>
+          <a class="track-card" href="../gpx/central-wasatch-cross-canyon-ramble.gpx" download><img src="../thumbs/central-wasatch-cross-canyon-ramble.jpg" alt="Map of Central Wasatch Cross-Canyon Ramble" loading="lazy"><div class="track-card-body"><span class="track-card-title">Central Wasatch Cross-Canyon Ramble</span><span class="track-card-stats">28.2 mi, 12,635 ft</span></div></a>
+          <a class="track-card" href="../gpx/south-wasatch-foothills-loop.gpx" download><img src="../thumbs/south-wasatch-foothills-loop.jpg" alt="Map of South Wasatch Foothills Loop" loading="lazy"><div class="track-card-body"><span class="track-card-title">South Wasatch Foothills Loop</span><span class="track-card-stats">10.9 mi, 4,905 ft</span></div></a>
+        </div>
 
         <h2 class="track-section-heading">Timpanogos &amp; Utah Valley</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/timpanogos-traverse.gpx" download>Timpanogos Traverse (13.8 mi, 6,690 ft)</a></li>
-          <li><a href="../gpx/timpanogos-time-trial.gpx" download>Timpanogos (13.8 mi, 5,693 ft)</a></li>
-          <li><a href="../gpx/timpanogos-alternate-route.gpx" download>Timpanogos Alternate Route (9.0 mi, 6,427 ft)</a></li>
-          <li><a href="../gpx/rock-canyon-access-trail-provo.gpx" download>Rock Canyon Access Trail (Provo) (31.7 mi, 8,810 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/timpanogos-traverse.gpx" download><img src="../thumbs/timpanogos-traverse.jpg" alt="Map of Timpanogos Traverse" loading="lazy"><div class="track-card-body"><span class="track-card-title">Timpanogos Traverse</span><span class="track-card-stats">13.8 mi, 6,690 ft</span></div></a>
+          <a class="track-card" href="../gpx/timpanogos-time-trial.gpx" download><img src="../thumbs/timpanogos-time-trial.jpg" alt="Map of Timpanogos" loading="lazy"><div class="track-card-body"><span class="track-card-title">Timpanogos</span><span class="track-card-stats">13.8 mi, 5,693 ft</span></div></a>
+          <a class="track-card" href="../gpx/timpanogos-alternate-route.gpx" download><img src="../thumbs/timpanogos-alternate-route.jpg" alt="Map of Timpanogos Alternate Route" loading="lazy"><div class="track-card-body"><span class="track-card-title">Timpanogos Alternate Route</span><span class="track-card-stats">9.0 mi, 6,427 ft</span></div></a>
+          <a class="track-card" href="../gpx/rock-canyon-access-trail-provo.gpx" download><img src="../thumbs/rock-canyon-access-trail-provo.jpg" alt="Map of Rock Canyon Access Trail (Provo)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Rock Canyon Access Trail (Provo)</span><span class="track-card-stats">31.7 mi, 8,810 ft</span></div></a>
+        </div>
 
         <h2 class="track-section-heading">Park City &amp; Wasatch Back</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/park-city-skyline-trail-traverse.gpx" download>Park City Skyline Trail Traverse (26.2 mi, 8,010 ft)</a></li>
-          <li><a href="../gpx/bobs-trail-to-park-city-skyline.gpx" download>Bob's Trail to Park City Skyline (8.8 mi, 2,183 ft)</a></li>
-          <li><a href="../gpx/park-city-to-gobblers-knob.gpx" download>Park City to Gobbler's Knob (27.7 mi, 7,018 ft)</a></li>
-          <li><a href="../gpx/quarry-mountain.gpx" download>Quarry Mountain (2.2 mi, 988 ft)</a></li>
-          <li><a href="../gpx/rail-trail-park-city.gpx" download>Rail Trail (22.3 mi, 207 ft)</a></li>
-          <li><a href="../gpx/silver-creek-loop.gpx" download>Silver Creek Loop (8.7 mi, 1,258 ft)</a></li>
-          <li><a href="../gpx/guardsman-pass-to-sunset-peak.gpx" download>Guardsman Pass to Sunset Peak (14.6 mi, 6,745 ft)</a></li>
-          <li><a href="../gpx/guardsman-pass-bloods-lake.gpx" download>Guardsman Pass and Blood's Lake (9.3 mi, 2,625 ft)</a></li>
-          <li><a href="../gpx/wasatch-crest-to-uintas-crossing.gpx" download>Wasatch Crest to Uintas Crossing (186.5 mi, 15,987 ft)</a></li>
-          <li><a href="../gpx/promontory-trail.gpx" download>Promontory Trail (21.1 mi, 5,282 ft)</a></li>
-          <li><a href="../gpx/wasatch-back-loop.gpx" download>Wasatch Back Loop (7.0 mi, 1,475 ft)</a></li>
-          <li><a href="../gpx/rockport-beach-to-the-blob.gpx" download>Rockport: Beach to "The Blob" (4.8 mi, 1,226 ft)</a></li>
-          <li><a href="../gpx/park-city-to-snowbird-traverse.gpx" download>Park City to Snowbird Traverse (27.7 mi, 5,810 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/park-city-skyline-trail-traverse.gpx" download><img src="../thumbs/park-city-skyline-trail-traverse.jpg" alt="Map of Park City Skyline Trail Traverse" loading="lazy"><div class="track-card-body"><span class="track-card-title">Park City Skyline Trail Traverse</span><span class="track-card-stats">26.2 mi, 8,010 ft</span></div></a>
+          <a class="track-card" href="../gpx/bobs-trail-to-park-city-skyline.gpx" download><img src="../thumbs/bobs-trail-to-park-city-skyline.jpg" alt="Map of Bob's Trail to Park City Skyline" loading="lazy"><div class="track-card-body"><span class="track-card-title">Bob's Trail to Park City Skyline</span><span class="track-card-stats">8.8 mi, 2,183 ft</span></div></a>
+          <a class="track-card" href="../gpx/park-city-to-gobblers-knob.gpx" download><img src="../thumbs/park-city-to-gobblers-knob.jpg" alt="Map of Park City to Gobbler's Knob" loading="lazy"><div class="track-card-body"><span class="track-card-title">Park City to Gobbler's Knob</span><span class="track-card-stats">27.7 mi, 7,018 ft</span></div></a>
+          <a class="track-card" href="../gpx/quarry-mountain.gpx" download><img src="../thumbs/quarry-mountain.jpg" alt="Map of Quarry Mountain" loading="lazy"><div class="track-card-body"><span class="track-card-title">Quarry Mountain</span><span class="track-card-stats">2.2 mi, 988 ft</span></div></a>
+          <a class="track-card" href="../gpx/rail-trail-park-city.gpx" download><img src="../thumbs/rail-trail-park-city.jpg" alt="Map of Rail Trail" loading="lazy"><div class="track-card-body"><span class="track-card-title">Rail Trail</span><span class="track-card-stats">22.3 mi, 207 ft</span></div></a>
+          <a class="track-card" href="../gpx/silver-creek-loop.gpx" download><img src="../thumbs/silver-creek-loop.jpg" alt="Map of Silver Creek Loop" loading="lazy"><div class="track-card-body"><span class="track-card-title">Silver Creek Loop</span><span class="track-card-stats">8.7 mi, 1,258 ft</span></div></a>
+          <a class="track-card" href="../gpx/guardsman-pass-to-sunset-peak.gpx" download><img src="../thumbs/guardsman-pass-to-sunset-peak.jpg" alt="Map of Guardsman Pass to Sunset Peak" loading="lazy"><div class="track-card-body"><span class="track-card-title">Guardsman Pass to Sunset Peak</span><span class="track-card-stats">14.6 mi, 6,745 ft</span></div></a>
+          <a class="track-card" href="../gpx/guardsman-pass-bloods-lake.gpx" download><img src="../thumbs/guardsman-pass-bloods-lake.jpg" alt="Map of Guardsman Pass and Blood's Lake" loading="lazy"><div class="track-card-body"><span class="track-card-title">Guardsman Pass and Blood's Lake</span><span class="track-card-stats">9.3 mi, 2,625 ft</span></div></a>
+          <a class="track-card" href="../gpx/wasatch-crest-to-uintas-crossing.gpx" download><img src="../thumbs/wasatch-crest-to-uintas-crossing.jpg" alt="Map of Wasatch Crest to Uintas Crossing" loading="lazy"><div class="track-card-body"><span class="track-card-title">Wasatch Crest to Uintas Crossing</span><span class="track-card-stats">186.5 mi, 15,987 ft</span></div></a>
+          <a class="track-card" href="../gpx/promontory-trail.gpx" download><img src="../thumbs/promontory-trail.jpg" alt="Map of Promontory Trail" loading="lazy"><div class="track-card-body"><span class="track-card-title">Promontory Trail</span><span class="track-card-stats">21.1 mi, 5,282 ft</span></div></a>
+          <a class="track-card" href="../gpx/wasatch-back-loop.gpx" download><img src="../thumbs/wasatch-back-loop.jpg" alt="Map of Wasatch Back Loop" loading="lazy"><div class="track-card-body"><span class="track-card-title">Wasatch Back Loop</span><span class="track-card-stats">7.0 mi, 1,475 ft</span></div></a>
+          <a class="track-card" href="../gpx/rockport-beach-to-the-blob.gpx" download><img src="../thumbs/rockport-beach-to-the-blob.jpg" alt="Map of Rockport: Beach to &quot;The Blob&quot;" loading="lazy"><div class="track-card-body"><span class="track-card-title">Rockport: Beach to "The Blob"</span><span class="track-card-stats">4.8 mi, 1,226 ft</span></div></a>
+          <a class="track-card" href="../gpx/park-city-to-snowbird-traverse.gpx" download><img src="../thumbs/park-city-to-snowbird-traverse.jpg" alt="Map of Park City to Snowbird Traverse" loading="lazy"><div class="track-card-body"><span class="track-card-title">Park City to Snowbird Traverse</span><span class="track-card-stats">27.7 mi, 5,810 ft</span></div></a>
+        </div>
 
         <h2 class="track-section-heading">Uintas</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/kings-peak.gpx" download>Kings Peak via Henry's Fork (27.1 mi)</a></li>
-          <li><a href="../gpx/kings-peak-henry-fork-variant.gpx" download>King's Peak (followed Krupicka track) (24.1 mi, 4,728 ft)</a></li>
-          <li><a href="../gpx/island-lake-uintas.gpx" download>Island Lake (7.6 mi, 1,211 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/kings-peak.gpx" download><img src="../thumbs/kings-peak.jpg" alt="Map of Kings Peak via Henry's Fork" loading="lazy"><div class="track-card-body"><span class="track-card-title">Kings Peak via Henry's Fork</span><span class="track-card-stats">27.1 mi</span></div></a>
+          <a class="track-card" href="../gpx/kings-peak-henry-fork-variant.gpx" download><img src="../thumbs/kings-peak-henry-fork-variant.jpg" alt="Map of King's Peak (followed Krupicka track)" loading="lazy"><div class="track-card-body"><span class="track-card-title">King's Peak (followed Krupicka track)</span><span class="track-card-stats">24.1 mi, 4,728 ft</span></div></a>
+          <a class="track-card" href="../gpx/island-lake-uintas.gpx" download><img src="../thumbs/island-lake-uintas.jpg" alt="Map of Island Lake" loading="lazy"><div class="track-card-body"><span class="track-card-title">Island Lake</span><span class="track-card-stats">7.6 mi, 1,211 ft</span></div></a>
+        </div>
 
         <h2 class="region-heading">Wasatch Front — Backcountry Skiing</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/mount-raymond-via-porter-fork-ski.gpx" download>Mount Raymond via Porter Fork (10.0 mi, 5,033 ft)</a></li>
-          <li><a href="../gpx/flagstaff-mountain-west-bowl-ski.gpx" download>Flagstaff Mountain — West Bowl Exit (3.9 mi, 2,888 ft)</a></li>
-          <li><a href="../gpx/the-cone-hayden-peak-ski.gpx" download>The Cone (Hayden Peak) — Brighton-Mill Creek Divide (4.2 mi, 1,827 ft)</a></li>
-          <li><a href="../gpx/hod-cardiac-chute-cardiff-pass-ski.gpx" download>Heart of Darkness → Cardiac Chute → Cardiff Pass (8.1 mi, 6,760 ft)</a></li>
-          <li><a href="../gpx/cardiac-ridge-ski.gpx" download>Cardiac Ridge (0.9 mi, 957 ft)</a></li>
-          <li><a href="../gpx/suicide-chute-ski.gpx" download>Suicide Chute, Mt. Superior (1.7 mi, 1,727 ft)</a></li>
-          <li><a href="../gpx/bonkers-couloir-splitboard.gpx" download>Bonkers Couloir (splitboard) (7.5 mi, 4,528 ft)</a></li>
-          <li><a href="../gpx/pfeifferhorn-ski.gpx" download>Pfeifferhorn (ski descent) (10.0 mi, 4,845 ft)</a></li>
-          <li><a href="../gpx/pfeifferhorn-time-trial-ski.gpx" download>Pfeifferhorn Time Trial (ski) (9.1 mi, 4,146 ft)</a></li>
-          <li><a href="../gpx/alta-to-mount-greeley-ski.gpx" download>Alta Toward Mount Greeley (11.3 mi, 5,497 ft)</a></li>
-          <li><a href="../gpx/alta-to-sugarloaf-ski.gpx" download>Alta Toward Sugarloaf (11.3 mi, 5,456 ft)</a></li>
-          <li><a href="../gpx/laps-on-10420-ski.gpx" download>Laps on Peak 10,420 (5.5 mi, 2,533 ft)</a></li>
-          <li><a href="../gpx/park-city-to-brighton-ski.gpx" download>Park City to Brighton (Easter tour) (7.0 mi, 2,785 ft)</a></li>
-          <li><a href="../gpx/timpanogos-cascade-cirque-ski.gpx" download>Timpanogos — Cascade Cirque via Dry Canyon (13.2 mi, 10,089 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/mount-raymond-via-porter-fork-ski.gpx" download><img src="../thumbs/mount-raymond-via-porter-fork-ski.jpg" alt="Map of Mount Raymond via Porter Fork" loading="lazy"><div class="track-card-body"><span class="track-card-title">Mount Raymond via Porter Fork</span><span class="track-card-stats">10.0 mi, 5,033 ft</span></div></a>
+          <a class="track-card" href="../gpx/flagstaff-mountain-west-bowl-ski.gpx" download><img src="../thumbs/flagstaff-mountain-west-bowl-ski.jpg" alt="Map of Flagstaff Mountain — West Bowl Exit" loading="lazy"><div class="track-card-body"><span class="track-card-title">Flagstaff Mountain — West Bowl Exit</span><span class="track-card-stats">3.9 mi, 2,888 ft</span></div></a>
+          <a class="track-card" href="../gpx/the-cone-hayden-peak-ski.gpx" download><img src="../thumbs/the-cone-hayden-peak-ski.jpg" alt="Map of The Cone (Hayden Peak) — Brighton-Mill Creek Divide" loading="lazy"><div class="track-card-body"><span class="track-card-title">The Cone (Hayden Peak) — Brighton-Mill Creek Divide</span><span class="track-card-stats">4.2 mi, 1,827 ft</span></div></a>
+          <a class="track-card" href="../gpx/hod-cardiac-chute-cardiff-pass-ski.gpx" download><img src="../thumbs/hod-cardiac-chute-cardiff-pass-ski.jpg" alt="Map of Heart of Darkness → Cardiac Chute → Cardiff Pass" loading="lazy"><div class="track-card-body"><span class="track-card-title">Heart of Darkness → Cardiac Chute → Cardiff Pass</span><span class="track-card-stats">8.1 mi, 6,760 ft</span></div></a>
+          <a class="track-card" href="../gpx/cardiac-ridge-ski.gpx" download><img src="../thumbs/cardiac-ridge-ski.jpg" alt="Map of Cardiac Ridge" loading="lazy"><div class="track-card-body"><span class="track-card-title">Cardiac Ridge</span><span class="track-card-stats">0.9 mi, 957 ft</span></div></a>
+          <a class="track-card" href="../gpx/suicide-chute-ski.gpx" download><img src="../thumbs/suicide-chute-ski.jpg" alt="Map of Suicide Chute, Mt. Superior" loading="lazy"><div class="track-card-body"><span class="track-card-title">Suicide Chute, Mt. Superior</span><span class="track-card-stats">1.7 mi, 1,727 ft</span></div></a>
+          <a class="track-card" href="../gpx/bonkers-couloir-splitboard.gpx" download><img src="../thumbs/bonkers-couloir-splitboard.jpg" alt="Map of Bonkers Couloir (splitboard)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Bonkers Couloir (splitboard)</span><span class="track-card-stats">7.5 mi, 4,528 ft</span></div></a>
+          <a class="track-card" href="../gpx/pfeifferhorn-ski.gpx" download><img src="../thumbs/pfeifferhorn-ski.jpg" alt="Map of Pfeifferhorn (ski descent)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Pfeifferhorn (ski descent)</span><span class="track-card-stats">10.0 mi, 4,845 ft</span></div></a>
+          <a class="track-card" href="../gpx/pfeifferhorn-time-trial-ski.gpx" download><img src="../thumbs/pfeifferhorn-time-trial-ski.jpg" alt="Map of Pfeifferhorn Time Trial (ski)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Pfeifferhorn Time Trial (ski)</span><span class="track-card-stats">9.1 mi, 4,146 ft</span></div></a>
+          <a class="track-card" href="../gpx/alta-to-mount-greeley-ski.gpx" download><img src="../thumbs/alta-to-mount-greeley-ski.jpg" alt="Map of Alta Toward Mount Greeley" loading="lazy"><div class="track-card-body"><span class="track-card-title">Alta Toward Mount Greeley</span><span class="track-card-stats">11.3 mi, 5,497 ft</span></div></a>
+          <a class="track-card" href="../gpx/alta-to-sugarloaf-ski.gpx" download><img src="../thumbs/alta-to-sugarloaf-ski.jpg" alt="Map of Alta Toward Sugarloaf" loading="lazy"><div class="track-card-body"><span class="track-card-title">Alta Toward Sugarloaf</span><span class="track-card-stats">11.3 mi, 5,456 ft</span></div></a>
+          <a class="track-card" href="../gpx/laps-on-10420-ski.gpx" download><img src="../thumbs/laps-on-10420-ski.jpg" alt="Map of Laps on Peak 10,420" loading="lazy"><div class="track-card-body"><span class="track-card-title">Laps on Peak 10,420</span><span class="track-card-stats">5.5 mi, 2,533 ft</span></div></a>
+          <a class="track-card" href="../gpx/park-city-to-brighton-ski.gpx" download><img src="../thumbs/park-city-to-brighton-ski.jpg" alt="Map of Park City to Brighton (Easter tour)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Park City to Brighton (Easter tour)</span><span class="track-card-stats">7.0 mi, 2,785 ft</span></div></a>
+          <a class="track-card" href="../gpx/timpanogos-cascade-cirque-ski.gpx" download><img src="../thumbs/timpanogos-cascade-cirque-ski.jpg" alt="Map of Timpanogos — Cascade Cirque via Dry Canyon" loading="lazy"><div class="track-card-body"><span class="track-card-title">Timpanogos — Cascade Cirque via Dry Canyon</span><span class="track-card-stats">13.2 mi, 10,089 ft</span></div></a>
+        </div>
 
         <h2 class="region-heading">Sierra Nevada — Running</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/john-muir-trail.gpx" download>John Muir Trail (207.2 mi)</a></li>
-          <li><a href="../gpx/trans-yosemite-route.gpx" download>Trans-Yosemite Route (74.4 mi, 0 ft)</a></li>
-          <li><a href="../gpx/crowley-lake-trail-run.gpx" download>Crowley Lake Trail Run (44.4 mi, 8,898 ft)</a></li>
-          <li><a href="../gpx/evolution-traverse.gpx" download>Evolution Traverse (29.4 mi, 17,413 ft)</a></li>
-          <li><a href="../gpx/evolution-traverse-2025.gpx" download>Evolution Traverse (Aug 2025) (29.7 mi, 23,060 ft)</a></li>
-          <li><a href="../gpx/mount-whitney-from-lone-pine-followed-kuenzle-track.gpx" download>Mount Whitney from Lone Pine (followed Kuenzle track) (43.1 mi, 11,667 ft)</a></li>
-          <li><a href="../gpx/cactus-to-clouds.gpx" download>Cactus to Clouds (19.7 mi, 13,438 ft)</a></li>
-          <li><a href="../gpx/cactus-to-clouds-followed-david-hedges-track.gpx" download>Cactus to Clouds (followed David Hedges track) (28.4 mi, 12,008 ft)</a></li>
-          <li><a href="../gpx/cottonwood-marble-canyon.gpx" download>Cottonwood–Marble Canyon (31.6 mi, 4,765 ft)</a></li>
-          <li><a href="../gpx/pratt-to-nordhoff-lookout.gpx" download>Pratt to Nordhoff Lookout (18.4 mi, 4,645 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/john-muir-trail.gpx" download><img src="../thumbs/john-muir-trail.jpg" alt="Map of John Muir Trail" loading="lazy"><div class="track-card-body"><span class="track-card-title">John Muir Trail</span><span class="track-card-stats">207.2 mi</span></div></a>
+          <a class="track-card" href="../gpx/trans-yosemite-route.gpx" download><img src="../thumbs/trans-yosemite-route.jpg" alt="Map of Trans-Yosemite Route" loading="lazy"><div class="track-card-body"><span class="track-card-title">Trans-Yosemite Route</span><span class="track-card-stats">74.4 mi, 0 ft</span></div></a>
+          <a class="track-card" href="../gpx/crowley-lake-trail-run.gpx" download><img src="../thumbs/crowley-lake-trail-run.jpg" alt="Map of Crowley Lake Trail Run" loading="lazy"><div class="track-card-body"><span class="track-card-title">Crowley Lake Trail Run</span><span class="track-card-stats">44.4 mi, 8,898 ft</span></div></a>
+          <a class="track-card" href="../gpx/evolution-traverse.gpx" download><img src="../thumbs/evolution-traverse.jpg" alt="Map of Evolution Traverse" loading="lazy"><div class="track-card-body"><span class="track-card-title">Evolution Traverse</span><span class="track-card-stats">29.4 mi, 17,413 ft</span></div></a>
+          <a class="track-card" href="../gpx/evolution-traverse-2025.gpx" download><img src="../thumbs/evolution-traverse-2025.jpg" alt="Map of Evolution Traverse (Aug 2025)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Evolution Traverse (Aug 2025)</span><span class="track-card-stats">29.7 mi, 23,060 ft</span></div></a>
+          <a class="track-card" href="../gpx/mount-whitney-from-lone-pine-followed-kuenzle-track.gpx" download><img src="../thumbs/mount-whitney-from-lone-pine-followed-kuenzle-track.jpg" alt="Map of Mount Whitney from Lone Pine (followed Kuenzle track)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Mount Whitney from Lone Pine (followed Kuenzle track)</span><span class="track-card-stats">43.1 mi, 11,667 ft</span></div></a>
+          <a class="track-card" href="../gpx/cactus-to-clouds.gpx" download><img src="../thumbs/cactus-to-clouds.jpg" alt="Map of Cactus to Clouds" loading="lazy"><div class="track-card-body"><span class="track-card-title">Cactus to Clouds</span><span class="track-card-stats">19.7 mi, 13,438 ft</span></div></a>
+          <a class="track-card" href="../gpx/cactus-to-clouds-followed-david-hedges-track.gpx" download><img src="../thumbs/cactus-to-clouds-followed-david-hedges-track.jpg" alt="Map of Cactus to Clouds (followed David Hedges track)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Cactus to Clouds (followed David Hedges track)</span><span class="track-card-stats">28.4 mi, 12,008 ft</span></div></a>
+          <a class="track-card" href="../gpx/cottonwood-marble-canyon.gpx" download><img src="../thumbs/cottonwood-marble-canyon.jpg" alt="Map of Cottonwood–Marble Canyon" loading="lazy"><div class="track-card-body"><span class="track-card-title">Cottonwood–Marble Canyon</span><span class="track-card-stats">31.6 mi, 4,765 ft</span></div></a>
+          <a class="track-card" href="../gpx/pratt-to-nordhoff-lookout.gpx" download><img src="../thumbs/pratt-to-nordhoff-lookout.jpg" alt="Map of Pratt to Nordhoff Lookout" loading="lazy"><div class="track-card-body"><span class="track-card-title">Pratt to Nordhoff Lookout</span><span class="track-card-stats">18.4 mi, 4,645 ft</span></div></a>
+        </div>
 
         <h2 class="track-section-heading">Sierra Nevada — Skiing</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/whitney-hikers-route-ski.gpx" download>Mount Whitney — Hiker's Route (ski) (9.3 mi, 3,518 ft)</a></li>
-          <li><a href="../gpx/monarch-divide-ski.gpx" download>Monarch Divide (38.5 mi, 13,167 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/whitney-hikers-route-ski.gpx" download><img src="../thumbs/whitney-hikers-route-ski.jpg" alt="Map of Mount Whitney — Hiker's Route (ski)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Mount Whitney — Hiker's Route (ski)</span><span class="track-card-stats">9.3 mi, 3,518 ft</span></div></a>
+          <a class="track-card" href="../gpx/monarch-divide-ski.gpx" download><img src="../thumbs/monarch-divide-ski.jpg" alt="Map of Monarch Divide" loading="lazy"><div class="track-card-body"><span class="track-card-title">Monarch Divide</span><span class="track-card-stats">38.5 mi, 13,167 ft</span></div></a>
+        </div>
 
         <h2 class="region-heading">Red Rock, Nevada</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/rainbow-triple-peak-loop.gpx" download>Rainbow Triple Peak Loop (8.4 mi, 3,642 ft)</a></li>
-          <li><a href="../gpx/rainbow-cirque.gpx" download>Rainbow Cirque (7.5 mi, 4,688 ft)</a></li>
-          <li><a href="../gpx/calico-traverse.gpx" download>Calico Traverse (7.5 mi, 4,412 ft)</a></li>
-          <li><a href="../gpx/ice-box-pinnacle.gpx" download>Ice Box Pinnacle (6.7 mi, 3,635 ft)</a></li>
-          <li><a href="../gpx/mount-wilson.gpx" download>Mount Wilson (8.8 mi, 3,858 ft)</a></li>
-          <li><a href="../gpx/big-macs-six-peak-cirque.gpx" download>Big Mac's 6 Peak Cirque (24.6 mi, 11,577 ft)</a></li>
-          <li><a href="../gpx/gunsight-notch-peak-loop.gpx" download>Gunsight Notch Peak Loop (12.2 mi, 8,501 ft)</a></li>
-          <li><a href="../gpx/black-velvet-peak-epinephrine-descent.gpx" download>Black Velvet Peak — Epinephrine Descent (1.7 mi, 409 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/rainbow-triple-peak-loop.gpx" download><img src="../thumbs/rainbow-triple-peak-loop.jpg" alt="Map of Rainbow Triple Peak Loop" loading="lazy"><div class="track-card-body"><span class="track-card-title">Rainbow Triple Peak Loop</span><span class="track-card-stats">8.4 mi, 3,642 ft</span></div></a>
+          <a class="track-card" href="../gpx/rainbow-cirque.gpx" download><img src="../thumbs/rainbow-cirque.jpg" alt="Map of Rainbow Cirque" loading="lazy"><div class="track-card-body"><span class="track-card-title">Rainbow Cirque</span><span class="track-card-stats">7.5 mi, 4,688 ft</span></div></a>
+          <a class="track-card" href="../gpx/calico-traverse.gpx" download><img src="../thumbs/calico-traverse.jpg" alt="Map of Calico Traverse" loading="lazy"><div class="track-card-body"><span class="track-card-title">Calico Traverse</span><span class="track-card-stats">7.5 mi, 4,412 ft</span></div></a>
+          <a class="track-card" href="../gpx/ice-box-pinnacle.gpx" download><img src="../thumbs/ice-box-pinnacle.jpg" alt="Map of Ice Box Pinnacle" loading="lazy"><div class="track-card-body"><span class="track-card-title">Ice Box Pinnacle</span><span class="track-card-stats">6.7 mi, 3,635 ft</span></div></a>
+          <a class="track-card" href="../gpx/mount-wilson.gpx" download><img src="../thumbs/mount-wilson.jpg" alt="Map of Mount Wilson" loading="lazy"><div class="track-card-body"><span class="track-card-title">Mount Wilson</span><span class="track-card-stats">8.8 mi, 3,858 ft</span></div></a>
+          <a class="track-card" href="../gpx/big-macs-six-peak-cirque.gpx" download><img src="../thumbs/big-macs-six-peak-cirque.jpg" alt="Map of Big Mac's 6 Peak Cirque" loading="lazy"><div class="track-card-body"><span class="track-card-title">Big Mac's 6 Peak Cirque</span><span class="track-card-stats">24.6 mi, 11,577 ft</span></div></a>
+          <a class="track-card" href="../gpx/gunsight-notch-peak-loop.gpx" download><img src="../thumbs/gunsight-notch-peak-loop.jpg" alt="Map of Gunsight Notch Peak Loop" loading="lazy"><div class="track-card-body"><span class="track-card-title">Gunsight Notch Peak Loop</span><span class="track-card-stats">12.2 mi, 8,501 ft</span></div></a>
+          <a class="track-card" href="../gpx/black-velvet-peak-epinephrine-descent.gpx" download><img src="../thumbs/black-velvet-peak-epinephrine-descent.jpg" alt="Map of Black Velvet Peak — Epinephrine Descent" loading="lazy"><div class="track-card-body"><span class="track-card-title">Black Velvet Peak — Epinephrine Descent</span><span class="track-card-stats">1.7 mi, 409 ft</span></div></a>
+        </div>
 
         <h2 class="region-heading">Zion, Utah</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/zion-traverse.gpx" download>Zion Traverse (48.6 mi, 12,735 ft)</a></li>
-          <li><a href="../gpx/trans-zion-short.gpx" download>Trans-Zion (short) (37.0 mi, 9,425 ft)</a></li>
-          <li><a href="../gpx/zion-west-rim.gpx" download>West Rim (15.1 mi, 3,868 ft)</a></li>
-          <li><a href="../gpx/lady-mountain.gpx" download>Lady Mountain (3.8 mi, 2,835 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/zion-traverse.gpx" download><img src="../thumbs/zion-traverse.jpg" alt="Map of Zion Traverse" loading="lazy"><div class="track-card-body"><span class="track-card-title">Zion Traverse</span><span class="track-card-stats">48.6 mi, 12,735 ft</span></div></a>
+          <a class="track-card" href="../gpx/trans-zion-short.gpx" download><img src="../thumbs/trans-zion-short.jpg" alt="Map of Trans-Zion (short)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Trans-Zion (short)</span><span class="track-card-stats">37.0 mi, 9,425 ft</span></div></a>
+          <a class="track-card" href="../gpx/zion-west-rim.gpx" download><img src="../thumbs/zion-west-rim.jpg" alt="Map of West Rim" loading="lazy"><div class="track-card-body"><span class="track-card-title">West Rim</span><span class="track-card-stats">15.1 mi, 3,868 ft</span></div></a>
+          <a class="track-card" href="../gpx/lady-mountain.gpx" download><img src="../thumbs/lady-mountain.jpg" alt="Map of Lady Mountain" loading="lazy"><div class="track-card-body"><span class="track-card-title">Lady Mountain</span><span class="track-card-stats">3.8 mi, 2,835 ft</span></div></a>
+        </div>
 
         <h2 class="region-heading">Escalante &amp; Capitol Reef, Utah</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/death-hollow-loop-mamie-creek.gpx" download>Death Hollow Loop &amp; Mamie Creek Natural Bridge (21.7 mi)</a></li>
-          <li><a href="../gpx/death-hollow-via-boulder-mail-trail.gpx" download>Death Hollow via Boulder Mail Trail (14.7 mi)</a></li>
-          <li><a href="../gpx/muley-arch-loop-upper-muley-twist.gpx" download>Muley Arch Loop via Upper Muley Twist Canyon (9.2 mi)</a></li>
-          <li><a href="../gpx/navajo-knobs.gpx" download>Navajo Knobs (4.5 mi)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/death-hollow-loop-mamie-creek.gpx" download><img src="../thumbs/death-hollow-loop-mamie-creek.jpg" alt="Map of Death Hollow Loop &amp; Mamie Creek Natural Bridge" loading="lazy"><div class="track-card-body"><span class="track-card-title">Death Hollow Loop &amp; Mamie Creek Natural Bridge</span><span class="track-card-stats">21.7 mi</span></div></a>
+          <a class="track-card" href="../gpx/death-hollow-via-boulder-mail-trail.gpx" download><img src="../thumbs/death-hollow-via-boulder-mail-trail.jpg" alt="Map of Death Hollow via Boulder Mail Trail" loading="lazy"><div class="track-card-body"><span class="track-card-title">Death Hollow via Boulder Mail Trail</span><span class="track-card-stats">14.7 mi</span></div></a>
+          <a class="track-card" href="../gpx/muley-arch-loop-upper-muley-twist.gpx" download><img src="../thumbs/muley-arch-loop-upper-muley-twist.jpg" alt="Map of Muley Arch Loop via Upper Muley Twist Canyon" loading="lazy"><div class="track-card-body"><span class="track-card-title">Muley Arch Loop via Upper Muley Twist Canyon</span><span class="track-card-stats">9.2 mi</span></div></a>
+          <a class="track-card" href="../gpx/navajo-knobs.gpx" download><img src="../thumbs/navajo-knobs.jpg" alt="Map of Navajo Knobs" loading="lazy"><div class="track-card-body"><span class="track-card-title">Navajo Knobs</span><span class="track-card-stats">4.5 mi</span></div></a>
+        </div>
 
         <h2 class="region-heading">Sedona, Arizona</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/cocodona-250-2024.gpx" download>Cocodona 250 (2024) (248.4 mi, 39,990 ft)</a></li>
-          <li><a href="../gpx/sedona-three-passes.gpx" download>Three Passes (20.3 mi, 4,125 ft)</a></li>
-          <li><a href="../gpx/casner-canyon-loop.gpx" download>Casner Canyon Loop (12.1 mi, 2,378 ft)</a></li>
-          <li><a href="../gpx/casner-canyon-out-with-a-bang.gpx" download>Casner Canyon — Out With a Bang (8.4 mi, 2,446 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/cocodona-250-2024.gpx" download><img src="../thumbs/cocodona-250-2024.jpg" alt="Map of Cocodona 250 (2024)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Cocodona 250 (2024)</span><span class="track-card-stats">248.4 mi, 39,990 ft</span></div></a>
+          <a class="track-card" href="../gpx/sedona-three-passes.gpx" download><img src="../thumbs/sedona-three-passes.jpg" alt="Map of Three Passes" loading="lazy"><div class="track-card-body"><span class="track-card-title">Three Passes</span><span class="track-card-stats">20.3 mi, 4,125 ft</span></div></a>
+          <a class="track-card" href="../gpx/casner-canyon-loop.gpx" download><img src="../thumbs/casner-canyon-loop.jpg" alt="Map of Casner Canyon Loop" loading="lazy"><div class="track-card-body"><span class="track-card-title">Casner Canyon Loop</span><span class="track-card-stats">12.1 mi, 2,378 ft</span></div></a>
+          <a class="track-card" href="../gpx/casner-canyon-out-with-a-bang.gpx" download><img src="../thumbs/casner-canyon-out-with-a-bang.jpg" alt="Map of Casner Canyon — Out With a Bang" loading="lazy"><div class="track-card-body"><span class="track-card-title">Casner Canyon — Out With a Bang</span><span class="track-card-stats">8.4 mi, 2,446 ft</span></div></a>
+        </div>
 
         <h2 class="region-heading">Grand Teton, Wyoming</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/teton-crest-trail.gpx" download>Teton Crest Trail (7:27) (39.6 mi, 9,445 ft)</a></li>
-          <li><a href="../gpx/paintbrush-divide.gpx" download>Paintbrush Divide (19.1 mi, 4,422 ft)</a></li>
-          <li><a href="../gpx/grand-teton-skill-issue-followed-kuenzle-track.gpx" download>The Grand Teton — "Skill Issue" (followed Kuenzle track) (14.3 mi, 7,165 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/teton-crest-trail.gpx" download><img src="../thumbs/teton-crest-trail.jpg" alt="Map of Teton Crest Trail (7:27)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Teton Crest Trail (7:27)</span><span class="track-card-stats">39.6 mi, 9,445 ft</span></div></a>
+          <a class="track-card" href="../gpx/paintbrush-divide.gpx" download><img src="../thumbs/paintbrush-divide.jpg" alt="Map of Paintbrush Divide" loading="lazy"><div class="track-card-body"><span class="track-card-title">Paintbrush Divide</span><span class="track-card-stats">19.1 mi, 4,422 ft</span></div></a>
+          <a class="track-card" href="../gpx/grand-teton-skill-issue-followed-kuenzle-track.gpx" download><img src="../thumbs/grand-teton-skill-issue-followed-kuenzle-track.jpg" alt="Map of The Grand Teton — &quot;Skill Issue&quot; (followed Kuenzle track)" loading="lazy"><div class="track-card-body"><span class="track-card-title">The Grand Teton — "Skill Issue" (followed Kuenzle track)</span><span class="track-card-stats">14.3 mi, 7,165 ft</span></div></a>
+        </div>
 
         <h2 class="region-heading">Cascades — Ski Descents</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/mount-rainier-earth-wind-fire-followed-kuenzle-track.gpx" download>Mount Rainier — Earth, Wind &amp; Fire (followed Kuenzle track) (13.3 mi, 9,023 ft)</a></li>
-          <li><a href="../gpx/mount-shasta-rime-and-punishment-followed-kuenzle-track.gpx" download>Mount Shasta — Rime and Punishment (followed Kuenzle track) (10.4 mi, 8,843 ft)</a></li>
-          <li><a href="../gpx/mount-hood-skimo-followed-kuenzle-track.gpx" download>Mount Hood — Intergalactic Skimo (followed Kuenzle track) (6.7 mi, 5,394 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/mount-rainier-earth-wind-fire-followed-kuenzle-track.gpx" download><img src="../thumbs/mount-rainier-earth-wind-fire-followed-kuenzle-track.jpg" alt="Map of Mount Rainier — Earth, Wind &amp; Fire (followed Kuenzle track)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Mount Rainier — Earth, Wind &amp; Fire (followed Kuenzle track)</span><span class="track-card-stats">13.3 mi, 9,023 ft</span></div></a>
+          <a class="track-card" href="../gpx/mount-shasta-rime-and-punishment-followed-kuenzle-track.gpx" download><img src="../thumbs/mount-shasta-rime-and-punishment-followed-kuenzle-track.jpg" alt="Map of Mount Shasta — Rime and Punishment (followed Kuenzle track)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Mount Shasta — Rime and Punishment (followed Kuenzle track)</span><span class="track-card-stats">10.4 mi, 8,843 ft</span></div></a>
+          <a class="track-card" href="../gpx/mount-hood-skimo-followed-kuenzle-track.gpx" download><img src="../thumbs/mount-hood-skimo-followed-kuenzle-track.jpg" alt="Map of Mount Hood — Intergalactic Skimo (followed Kuenzle track)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Mount Hood — Intergalactic Skimo (followed Kuenzle track)</span><span class="track-card-stats">6.7 mi, 5,394 ft</span></div></a>
+        </div>
 
         <h2 class="region-heading">Big Bend, Texas</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/big-bend-100.gpx" download>Big Bend 100 (117.8 mi, 0 ft)</a></li>
-          <li><a href="../gpx/big-bend-loop.gpx" download>Big Bend Loop (31.8 mi, 7,701 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/big-bend-100.gpx" download><img src="../thumbs/big-bend-100.jpg" alt="Map of Big Bend 100" loading="lazy"><div class="track-card-body"><span class="track-card-title">Big Bend 100</span><span class="track-card-stats">117.8 mi, 0 ft</span></div></a>
+          <a class="track-card" href="../gpx/big-bend-loop.gpx" download><img src="../thumbs/big-bend-loop.jpg" alt="Map of Big Bend Loop" loading="lazy"><div class="track-card-body"><span class="track-card-title">Big Bend Loop</span><span class="track-card-stats">31.8 mi, 7,701 ft</span></div></a>
+        </div>
 
         <h2 class="region-heading">Boulder, Colorado</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/la-freeway-followed-krupicka-track.gpx" download>LA Freeway (followed Krupicka track) (32.2 mi, 20,384 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/la-freeway-followed-krupicka-track.gpx" download><img src="../thumbs/la-freeway-followed-krupicka-track.jpg" alt="Map of LA Freeway (followed Krupicka track)" loading="lazy"><div class="track-card-body"><span class="track-card-title">LA Freeway (followed Krupicka track)</span><span class="track-card-stats">32.2 mi, 20,384 ft</span></div></a>
+        </div>
 
         <h2 class="region-heading">Texas Hill Country</h2>
-        <ul class="track-list">
-          <li><a href="../gpx/austin-oxford-llano-cycling.gpx" download>Austin–Oxford–Llano (cycling) (88.8 mi, 3,792 ft)</a></li>
-        </ul>
+        <div class="track-grid">
+          <a class="track-card" href="../gpx/austin-oxford-llano-cycling.gpx" download><img src="../thumbs/austin-oxford-llano-cycling.jpg" alt="Map of Austin–Oxford–Llano (cycling)" loading="lazy"><div class="track-card-body"><span class="track-card-title">Austin–Oxford–Llano (cycling)</span><span class="track-card-stats">88.8 mi, 3,792 ft</span></div></a>
+        </div>
 
         <figure style="margin: 3em 0 0; padding: 0;">
           <img src="../Terry%20Ekasala-Closer%20to%20Shore%20(2026).jpg" alt="Terry Ekasala — Closer to Shore (2026)" style="width: 100%; display: block;">
