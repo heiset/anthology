@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="GPS tracks from runs in the Wasatch.">
+  <meta name="description" content="GPS tracks from running and skiing in the Wasatch, Sierra, and beyond.">
   <title>GPS Tracks — 卄乇丨丂乇</title>
   <link rel="stylesheet" href="../styles.css">
   <link rel="icon" href="/tree.png" type="image/png">
@@ -38,6 +38,15 @@
       border-bottom: 1px solid var(--rule);
       padding-bottom: 4px;
     }
+    .region-heading {
+      margin: 3em 0 0.3em;
+      font-size: 1.5em;
+      font-weight: 700;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 6px;
+    }
+    .region-heading:first-of-type { margin-top: 1.5em; }
   </style>
 </head>
 <body>
@@ -100,7 +109,7 @@
     <article>
       <header class="article-header">
         <h1>GPS Tracks</h1>
-        <p class="subtitle">Runs I've done with a .gpx link — not all of these files are mine</p>
+        <p class="subtitle">Runs and ski descents I've logged with a .gpx track, from the Wasatch to the Sierra and beyond — not all of these files are mine</p>
       </header>
 
       <div class="article-content">
@@ -109,11 +118,20 @@
           <img src="../Wasatch.png" alt="All GPX tracks overlaid on a Google Earth view of the Wasatch" style="width: 100%; display: block;">
         </figure>
 
+        <h2 class="region-heading">Wasatch Front — Running &amp; Peakbagging</h2>
+
         <h2 class="track-section-heading">Foothills &amp; Northern SLC</h2>
         <ul class="track-list">
           <li><a href="../gpx/parleys-ridge.gpx" download>Parley's Ridge</a></li>
           <li><a href="../gpx/foothill-ultimate-ridge-linkup.gpx" download>Foothill Ultimate Ridge Linkup (FURL)</a></li>
           <li><a href="../gpx/wasatch-steeplechase-course.gpx" download>Wasatch Steeplechase Course</a></li>
+          <li><a href="../gpx/aves-to-city-creek.gpx" download>Avenues to City Creek</a></li>
+          <li><a href="../gpx/mount-wire.gpx" download>Mount Wire</a></li>
+        </ul>
+
+        <h2 class="track-section-heading">Great Salt Lake</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/antelope-island-time-trial.gpx" download>Antelope Island Time Trial</a></li>
         </ul>
 
         <h2 class="track-section-heading">Neff's Canyon &amp; Mount Olympus</h2>
@@ -122,6 +140,8 @@
           <li><a href="../gpx/wildcat-ridge-traverse.gpx" download>Wildcat Ridge Traverse</a></li>
           <li><a href="../gpx/neffs-canyon-descent.gpx" download>Neff's Canyon Descent</a></li>
           <li><a href="../gpx/neffs-canyon-to-ridgeline.gpx" download>Neff's Canyon to Ridgeline</a></li>
+          <li><a href="../gpx/mount-olympus-west-slabs-fkt.gpx" download>Mount Olympus — West Slabs (FKT attempt)</a></li>
+          <li><a href="../gpx/mount-olympus-west-slabs-full-route.gpx" download>Mount Olympus — West Slabs (full route)</a></li>
         </ul>
 
         <h2 class="track-section-heading">Mill Creek Canyon</h2>
@@ -161,6 +181,7 @@
           <li><a href="../gpx/mule-hollow-ridge.gpx" download>Mule Hollow Ridge</a></li>
           <li><a href="../gpx/stairs-gulch-mule-hollow-loop.gpx" download>Stairs Gulch and Mule Hollow Loop</a></li>
           <li><a href="../gpx/coalpit-gulch-to-north-thunder-mountain.gpx" download>Coalpit Gulch to North Thunder Mountain</a></li>
+          <li><a href="../gpx/kessler-peak-descent-to-car.gpx" download>Kessler Peak — Descent to Car</a></li>
         </ul>
 
         <h2 class="track-section-heading">Little Cottonwood Canyon, Alta &amp; Brighton</h2>
@@ -215,12 +236,119 @@
           <li><a href="../gpx/wasatch-crest-to-uintas-crossing.gpx" download>Wasatch Crest to Uintas Crossing</a></li>
           <li><a href="../gpx/promontory-trail.gpx" download>Promontory Trail</a></li>
           <li><a href="../gpx/wasatch-back-loop.gpx" download>Wasatch Back Loop</a></li>
+          <li><a href="../gpx/rockport-beach-to-the-blob.gpx" download>Rockport: Beach to "The Blob"</a></li>
+          <li><a href="../gpx/park-city-to-snowbird-traverse.gpx" download>Park City to Snowbird Traverse</a></li>
         </ul>
 
         <h2 class="track-section-heading">Uintas</h2>
         <ul class="track-list">
           <li><a href="../gpx/kings-peak.gpx" download>Kings Peak via Henry's Fork</a></li>
           <li><a href="../gpx/kings-peak-henry-fork-variant.gpx" download>King's Peak (Krupicka route)</a></li>
+          <li><a href="../gpx/island-lake-uintas.gpx" download>Island Lake</a></li>
+        </ul>
+
+        <h2 class="region-heading">Wasatch Front — Backcountry Skiing</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/mount-raymond-via-porter-fork-ski.gpx" download>Mount Raymond via Porter Fork</a></li>
+          <li><a href="../gpx/flagstaff-mountain-west-bowl-ski.gpx" download>Flagstaff Mountain — West Bowl Exit</a></li>
+          <li><a href="../gpx/the-cone-hayden-peak-ski.gpx" download>The Cone (Hayden Peak) — Brighton-Mill Creek Divide</a></li>
+          <li><a href="../gpx/hod-cardiac-chute-cardiff-pass-ski.gpx" download>Heart of Darkness → Cardiac Chute → Cardiff Pass</a></li>
+          <li><a href="../gpx/cardiac-ridge-ski.gpx" download>Cardiac Ridge</a></li>
+          <li><a href="../gpx/suicide-chute-ski.gpx" download>Suicide Chute, Mt. Superior</a></li>
+          <li><a href="../gpx/bonkers-couloir-splitboard.gpx" download>Bonkers Couloir (splitboard)</a></li>
+          <li><a href="../gpx/pfeifferhorn-ski.gpx" download>Pfeifferhorn (ski descent)</a></li>
+          <li><a href="../gpx/pfeifferhorn-time-trial-ski.gpx" download>Pfeifferhorn Time Trial (ski)</a></li>
+          <li><a href="../gpx/alta-to-mount-greeley-ski.gpx" download>Alta Toward Mount Greeley</a></li>
+          <li><a href="../gpx/alta-to-sugarloaf-ski.gpx" download>Alta Toward Sugarloaf</a></li>
+          <li><a href="../gpx/laps-on-10420-ski.gpx" download>Laps on Peak 10,420</a></li>
+          <li><a href="../gpx/park-city-to-brighton-ski.gpx" download>Park City to Brighton (Easter tour)</a></li>
+          <li><a href="../gpx/timpanogos-cascade-cirque-ski.gpx" download>Timpanogos — Cascade Cirque via Dry Canyon</a></li>
+        </ul>
+
+        <h2 class="region-heading">Sierra Nevada — Running</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/john-muir-trail.gpx" download>John Muir Trail</a></li>
+          <li><a href="../gpx/trans-yosemite-route.gpx" download>Trans-Yosemite Route</a></li>
+          <li><a href="../gpx/crowley-lake-trail-run.gpx" download>Crowley Lake Trail Run</a></li>
+          <li><a href="../gpx/evolution-traverse.gpx" download>Evolution Traverse</a></li>
+          <li><a href="../gpx/evolution-traverse-fkt-2025.gpx" download>Evolution Traverse FKT (Aug 2025)</a></li>
+          <li><a href="../gpx/mount-whitney-from-lone-pine-kuenzle.gpx" download>Mount Whitney from Lone Pine (Kuenzle track)</a></li>
+          <li><a href="../gpx/cactus-to-clouds.gpx" download>Cactus to Clouds</a></li>
+          <li><a href="../gpx/cactus-to-clouds-variant.gpx" download>Cactus to Clouds (David Hedges variant)</a></li>
+          <li><a href="../gpx/cottonwood-marble-canyon-fkt.gpx" download>Cottonwood–Marble Canyon FKT</a></li>
+          <li><a href="../gpx/pratt-to-nordhoff-lookout.gpx" download>Pratt to Nordhoff Lookout</a></li>
+        </ul>
+
+        <h2 class="track-section-heading">Sierra Nevada — Skiing</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/whitney-hikers-route-ski.gpx" download>Mount Whitney — Hiker's Route (ski)</a></li>
+          <li><a href="../gpx/monarch-divide-ski.gpx" download>Monarch Divide</a></li>
+        </ul>
+
+        <h2 class="region-heading">Red Rock, Nevada</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/rainbow-triple-peak-loop.gpx" download>Rainbow Triple Peak Loop</a></li>
+          <li><a href="../gpx/rainbow-cirque.gpx" download>Rainbow Cirque</a></li>
+          <li><a href="../gpx/calico-traverse.gpx" download>Calico Traverse</a></li>
+          <li><a href="../gpx/ice-box-pinnacle.gpx" download>Ice Box Pinnacle</a></li>
+          <li><a href="../gpx/mount-wilson-kom.gpx" download>Mount Wilson KOM</a></li>
+          <li><a href="../gpx/big-macs-six-peak-cirque.gpx" download>Big Mac's 6 Peak Cirque</a></li>
+          <li><a href="../gpx/gunsight-notch-peak-loop.gpx" download>Gunsight Notch Peak Loop</a></li>
+          <li><a href="../gpx/black-velvet-peak-epinephrine-descent.gpx" download>Black Velvet Peak — Epinephrine Descent</a></li>
+        </ul>
+
+        <h2 class="region-heading">Zion, Utah</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/zion-traverse.gpx" download>Zion Traverse</a></li>
+          <li><a href="../gpx/trans-zion-short.gpx" download>Trans-Zion (short)</a></li>
+          <li><a href="../gpx/zion-west-rim.gpx" download>West Rim</a></li>
+          <li><a href="../gpx/lady-mountain.gpx" download>Lady Mountain</a></li>
+        </ul>
+
+        <h2 class="region-heading">Escalante &amp; Capitol Reef, Utah</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/death-hollow-loop-mamie-creek.gpx" download>Death Hollow Loop &amp; Mamie Creek Natural Bridge</a></li>
+          <li><a href="../gpx/death-hollow-via-boulder-mail-trail.gpx" download>Death Hollow via Boulder Mail Trail</a></li>
+          <li><a href="../gpx/muley-arch-loop-upper-muley-twist.gpx" download>Muley Arch Loop via Upper Muley Twist Canyon</a></li>
+          <li><a href="../gpx/navajo-knobs.gpx" download>Navajo Knobs</a></li>
+        </ul>
+
+        <h2 class="region-heading">Sedona, Arizona</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/cocodona-250-2024.gpx" download>Cocodona 250 (2024)</a></li>
+          <li><a href="../gpx/sedona-three-passes.gpx" download>Three Passes</a></li>
+          <li><a href="../gpx/casner-canyon-loop.gpx" download>Casner Canyon Loop</a></li>
+          <li><a href="../gpx/casner-canyon-full-send.gpx" download>Casner Canyon — Full Send</a></li>
+        </ul>
+
+        <h2 class="region-heading">Grand Teton, Wyoming</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/teton-crest-trail-fkt.gpx" download>Teton Crest Trail FKT (7:27)</a></li>
+          <li><a href="../gpx/paintbrush-divide.gpx" download>Paintbrush Divide</a></li>
+          <li><a href="../gpx/grand-teton-skill-issue-kuenzle.gpx" download>The Grand Teton — "Skill Issue" (Kuenzle track)</a></li>
+        </ul>
+
+        <h2 class="region-heading">Cascades — Ski Descents</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/mount-rainier-earth-wind-fire-kuenzle.gpx" download>Mount Rainier — Earth, Wind &amp; Fire (Kuenzle track)</a></li>
+          <li><a href="../gpx/mount-shasta-rime-and-punishment-kuenzle.gpx" download>Mount Shasta — Rime and Punishment (Kuenzle track)</a></li>
+          <li><a href="../gpx/mount-hood-skimo-kuenzle.gpx" download>Mount Hood — Intergalactic Skimo (Kuenzle track)</a></li>
+        </ul>
+
+        <h2 class="region-heading">Big Bend, Texas</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/big-bend-100.gpx" download>Big Bend 100</a></li>
+          <li><a href="../gpx/big-bend-loop-fkt.gpx" download>Big Bend Loop FKT</a></li>
+        </ul>
+
+        <h2 class="region-heading">Boulder, Colorado</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/la-freeway-fkt-krupicka.gpx" download>LA Freeway FKT (Krupicka track)</a></li>
+        </ul>
+
+        <h2 class="region-heading">Texas Hill Country</h2>
+        <ul class="track-list">
+          <li><a href="../gpx/austin-oxford-llano-cycling.gpx" download>Austin–Oxford–Llano (cycling)</a></li>
         </ul>
 
         <figure style="margin: 3em 0 0; padding: 0;">
