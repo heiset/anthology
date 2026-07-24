@@ -413,6 +413,10 @@ a:hover {
   color: var(--muted);
 }
 
+.blog-note {
+  color: var(--muted);
+}
+
 /* MathJax */
 .math-display,
 .mjx-container[display="true"] {
