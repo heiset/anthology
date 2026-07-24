@@ -417,6 +417,53 @@ a:hover {
   color: var(--muted);
 }
 
+.blog-quote-interview {
+  font-style: normal;
+}
+
+.blog-interview-q {
+  font-weight: 700;
+}
+
+.blog-footnote {
+  margin-top: 1.4em;
+  padding-top: 0.9em;
+  border-top: 1px solid var(--rule);
+  font-size: 0.88em;
+  color: var(--muted);
+}
+
+.blog-photo-set {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px 20px;
+  margin: 1.8em 0;
+}
+
+.blog-photo {
+  margin: 0;
+}
+
+.blog-photo img {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+.blog-photo figcaption {
+  margin-top: 0.5em;
+  font-size: 0.85em;
+  font-style: italic;
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .blog-photo-set {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* MathJax */
 .math-display,
 .mjx-container[display="true"] {
