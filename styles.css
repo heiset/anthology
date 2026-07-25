@@ -464,6 +464,11 @@ a:hover {
   }
 }
 
+.blog-photo-single {
+  max-width: 520px;
+  margin: 1.8em auto;
+}
+
 /* MathJax */
 .math-display,
 .mjx-container[display="true"] {
