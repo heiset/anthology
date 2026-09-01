@@ -8,22 +8,26 @@ my-site-template/
   styles.css
   script.js
   articles/
-    infinite-series.html  ← Calculus project, page 1
-    polynomial-roots.html ← Exploring Math with Computers project, page 1
-    teloslatin.html       ← Latin redirect (no sub-pages)
+    algebra-*.html         ← Algebra project pages
+    library.html            ← My Library project
+    blog.html
+    teloslatin.html         ← Latin redirect (no sub-pages)
     contact.html
-    photography.html      ← placeholder, not active yet
-    article-template.html ← copy this when adding a new page
+    photography.html        ← placeholder, not active yet
+    article-template.html   ← copy this when adding a new page
 ```
 
 ## Projects and their sub-pages
 
 | Project | Folder prefix | Current pages |
 |---|---|---|
-| Calculus | `articles/calculus-*.html` | `infinite-series.html`, `calculus-limits.html` |
-| Exploring Math with Computers | `articles/math-*.html` | `polynomial-roots.html` |
+| Algebra | `articles/algebra-*.html` | see nav for full list |
 | Latin | external link only | — |
+| My Library | — | `library.html` |
+| Blog | — | `blog.html` |
 | Photography | `articles/photo-*.html` | none yet |
+
+Calculus, Exploring Math with Computers, Hard Problems, and GPS Tracks were removed from the site (pages deleted, nav/home-page entries removed).
 
 ## How to add a new sub-page to a project
 

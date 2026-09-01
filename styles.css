@@ -161,29 +161,6 @@ a:hover {
   margin: 0;
 }
 
-.home-portrait {
-  width: 320px;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 0 28px;
-}
-
-.home-name {
-  text-align: left;
-  font-size: clamp(26px, 5vw, 36px);
-  margin: 0 0 20px;
-}
-
-.home-bio-section {
-  max-width: 600px;
-  margin: 0 0 56px;
-}
-
-.home-bio-section p {
-  margin: 0.9em 0;
-}
-
 .home-lead {
   font-size: 1.05em;
 }
@@ -564,14 +541,15 @@ body:not(.page-home).show-main-menu .sidebar-group {
 /* Library page ---------------------------------------------------------  */
 .library-books {
   counter-reset: books;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 0.875em;
 }
 
 .book-list {
   margin: 0.4em 0 1.8em 0;
   padding: 0;
   list-style: none;
-  columns: 2;
-  column-gap: 2.5em;
+  columns: 1;
 }
 
 .book-list li {
