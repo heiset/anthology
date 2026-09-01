@@ -161,6 +161,14 @@ a:hover {
   margin: 0;
 }
 
+.home-portrait {
+  width: 320px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 0 28px;
+}
+
 .home-lead {
   font-size: 1.05em;
 }
