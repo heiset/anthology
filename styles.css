@@ -105,10 +105,16 @@ a:hover {
 }
 
 .sidebar-sub {
-  display: flex;
+  display: none;
   flex-direction: column;
   margin-left: 9px;
   margin-bottom: 2px;
+}
+
+/* A subsection map only appears once you're inside that project — never on
+   the home page's site map, and never for an unrelated project's group. */
+.sidebar-group:has(.active) .sidebar-sub {
+  display: flex;
 }
 
 .sidebar-sub a {
@@ -549,37 +555,225 @@ body:not(.page-home).show-main-menu .sidebar-group {
 /* Library page ---------------------------------------------------------  */
 .library-books {
   counter-reset: books;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 0.875em;
+  font-size: 0.9em;
+}
+
+.library-books h2 {
+  margin: 2.2em 0 0.7em;
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid var(--ink);
+  font-size: 1.05em;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.library-books h2:first-child {
+  margin-top: 0;
 }
 
 .book-list {
-  margin: 0.4em 0 1.8em 0;
+  margin: 0 0 1.6em 0;
   padding: 0;
   list-style: none;
-  columns: 1;
 }
 
-.book-list li {
-  margin: 0.15em 0;
-  line-height: 1.45;
+.book-entry {
+  display: grid;
+  grid-template-columns: 2em 1fr auto;
+  column-gap: 1em;
+  align-items: center;
+  padding: 0.5em 0;
   counter-increment: books;
   break-inside: avoid;
-  padding-left: 2.2em;
-  text-indent: -2.2em;
 }
 
-.book-list li::before {
-  content: counter(books) ". ";
-  display: inline-block;
-  min-width: 2em;
+.book-entry::before {
+  content: counter(books);
   color: var(--muted);
   font-size: 0.85em;
+}
+
+.book-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.book-title {
+  font-weight: 700;
+}
+
+.book-author {
+  margin-top: 0.15em;
+  color: var(--muted);
+  font-size: 0.85em;
+}
+
+.book-year {
+  color: var(--muted);
+  font-size: 0.85em;
+  text-align: right;
+  white-space: nowrap;
 }
 
 .book-note {
   color: var(--muted);
   font-size: 0.82em;
+}
+
+@media (max-width: 560px) {
+  .book-entry {
+    grid-template-columns: 1.6em 1fr;
+  }
+
+  .book-year {
+    grid-column: 2;
+    text-align: left;
+    margin-top: 0.15em;
+  }
+}
+
+/* GPS Tracks page --------------------------------------------------------  */
+.gps-hero {
+  position: relative;
+  margin: 0 0 2em;
+  overflow: hidden;
+}
+
+.gps-hero-img {
+  width: 100%;
+  max-height: 440px;
+  object-fit: cover;
+  display: block;
+}
+
+.gps-hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 55%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  pointer-events: none;
+}
+
+.gps-hero-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 22px;
+  margin: 0;
+  text-align: center;
+  color: #fff;
+  font-size: clamp(37px, 6vw, 52px);
+  line-height: 1.14;
+  letter-spacing: 0.005em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65);
+}
+
+.gps-tracks {
+  counter-reset: tracks;
+  font-size: 0.9em;
+}
+
+.gps-tracks h2 {
+  margin: 2.2em 0 0.7em;
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid var(--ink);
+  font-size: 1.05em;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.gps-tracks h2:first-of-type {
+  margin-top: 0;
+}
+
+.gps-tracks h3 {
+  margin: 1.3em 0 0.4em;
+  font-size: 0.88em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.track-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.track-entry-wrap {
+  border-bottom: 1px solid var(--rule);
+}
+
+.track-entry-wrap:last-child {
+  border-bottom: none;
+}
+
+.track-entry {
+  display: grid;
+  grid-template-columns: 2em 1fr 96px;
+  column-gap: 1em;
+  align-items: center;
+  padding: 0.6em 0;
+  text-decoration: none;
+  color: inherit;
+  counter-increment: tracks;
+}
+
+.track-entry::before {
+  content: counter(tracks);
+  color: var(--muted);
+  font-size: 0.85em;
+}
+
+.track-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.track-title {
+  font-weight: 700;
+}
+
+.track-entry:hover .track-title {
+  color: var(--accent);
+}
+
+.track-stats {
+  margin-top: 0.15em;
+  color: var(--muted);
+  font-size: 0.85em;
+}
+
+.track-thumb {
+  width: 96px;
+  height: 60px;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--rule);
+}
+
+.track-entry:hover .track-thumb {
+  border-color: var(--accent);
+}
+
+@media (max-width: 560px) {
+  .track-entry {
+    grid-template-columns: 1.5em 1fr 64px;
+    column-gap: 0.7em;
+  }
+
+  .track-thumb {
+    width: 64px;
+    height: 40px;
+  }
 }
 
 /* Mobile title (shown only via media query) ---------------------------- */
