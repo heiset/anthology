@@ -666,7 +666,8 @@ body:not(.page-home).show-main-menu .sidebar-group {
   margin: 0;
   text-align: center;
   color: #fff;
-  font-size: clamp(37px, 6vw, 52px);
+  font-weight: 700;
+  font-size: clamp(48px, 8vw, 72px);
   line-height: 1.14;
   letter-spacing: 0.005em;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65);
