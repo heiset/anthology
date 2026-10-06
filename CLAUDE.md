@@ -26,8 +26,16 @@ my-site-template/
 | My Library | — | `library.html` |
 | Blog | — | `blog.html` |
 | Photography | `articles/photo-*.html` | none yet |
+| Calculus | — | `calculus-warmups.html` (daily warm-ups) |
+| Algebra 2 | — | `algebra-warmups.html` (daily warm-ups) |
+| GPS Tracks | — | `gps-tracks.html` |
+| Stats | `articles/stats-*.html` | `stats-ch1-flashcards.html` (password-protected flashcards) |
 
-Calculus, Exploring Math with Computers, Hard Problems, and GPS Tracks were removed from the site (pages deleted, nav/home-page entries removed).
+The nav structure actually in use is a left `site-sidebar` with top-level `<a>` links and `sidebar-group`/`sidebar-sub` dropdowns for multi-page projects (Algebra, Calculus, Algebra 2) — not the `project-card` layout this doc used to describe. Single-page projects (Library, GPS Tracks, Stats, Contact) are a single top-level `<a>`, no dropdown, no `section-nav` block on the page itself. Body font is Arial (not Times New Roman, despite the note below — verify against `styles.css` `:root`/`body` rules if in doubt, this doc can drift).
+
+## Password-protected pages
+
+`articles/stats-ch1-flashcards.html` is the template for a locked page: a `#pwGate` div (visible by default) and a content div with the `hidden` attribute, gated by a small inline script that checks a plaintext password against `localStorage` (key `stats-<name>-unlocked`) and un-hides the content on match. This is a soft, client-side-only gate (visible in page source) meant to keep casual visitors out, not real security. To add another locked page, copy that gate pattern and change the `PASSWORD` constant and `localStorage` key. Shared CSS for the gate and flashcard UI lives in `styles.css` under `/* Stats Flashcards page */`.
 
 ## How to add a new sub-page to a project
 
