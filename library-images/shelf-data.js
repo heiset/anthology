@@ -1563,6 +1563,14 @@ const SHELF_MAP = [
   "h": 22.341
  },
  {
+  "id": "book-perceptrons",
+  "img": 2,
+  "x": 63.663,
+  "y": 52.13,
+  "w": 2.189,
+  "h": 26.81
+ },
+ {
   "id": "book-legends-of-the-sea",
   "img": 2,
   "x": 65.852,
