@@ -633,6 +633,256 @@ body:not(.page-home).show-main-menu .sidebar-group {
   }
 }
 
+.book-entry.is-highlighted {
+  animation: book-flash 1.7s ease;
+  border-radius: 4px;
+}
+
+@keyframes book-flash {
+  0% { background: rgba(75, 35, 120, 0.14); }
+  100% { background: transparent; }
+}
+
+.book-shelf-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.4em;
+  width: 1.5em;
+  height: 1.5em;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  background: var(--paper);
+  font-size: 0.72em;
+  line-height: 1;
+  cursor: pointer;
+  vertical-align: -0.3em;
+  padding: 0;
+}
+
+.book-shelf-link:hover,
+.book-shelf-link:focus-visible {
+  border-color: var(--accent);
+  background: #f4effa;
+  outline: none;
+}
+
+/* Library shelf browser --------------------------------------------------- */
+.shelf-browser {
+  margin: 0 0 2.6em;
+}
+
+.shelf-intro {
+  color: var(--muted);
+  font-size: 0.88em;
+  margin: 0 0 1em;
+}
+
+.shelf-intro-pin {
+  font-size: 0.95em;
+}
+
+.shelf-photos {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.shelf-photo {
+  margin: 0;
+  cursor: zoom-in;
+}
+
+.shelf-photo:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.shelf-photo-frame {
+  position: relative;
+  border: 1px solid var(--rule);
+  overflow: hidden;
+  background: #efefef;
+}
+
+.shelf-photo-frame img {
+  width: 100%;
+  display: block;
+}
+
+.shelf-photo-zoom-badge {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+
+.shelf-photo figcaption {
+  margin-top: 0.55em;
+  font-size: 0.82em;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Lightbox ------------------------------------------------------------- */
+.shelf-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(8, 8, 10, 0.95);
+  display: flex;
+  flex-direction: column;
+}
+
+.shelf-lightbox[hidden] {
+  display: none;
+}
+
+.shelf-lightbox-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  flex: none;
+}
+
+.shelf-lightbox-caption {
+  color: #e4e4e7;
+  font-size: 0.85em;
+  font-style: italic;
+}
+
+.shelf-lightbox-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  color: #fff;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.shelf-lightbox-close:hover,
+.shelf-lightbox-close:focus-visible {
+  background: rgba(255, 255, 255, 0.14);
+  outline: none;
+}
+
+.shelf-lightbox-scroll {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  touch-action: none;
+  cursor: grab;
+}
+
+.shelf-lightbox-scroll.dragging {
+  cursor: grabbing;
+}
+
+.shelf-lightbox-stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+.shelf-lightbox-stage img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.shelf-hotspot {
+  position: absolute;
+  margin: 0;
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.shelf-hotspot:hover,
+.shelf-hotspot:focus-visible {
+  background: rgba(255, 221, 102, 0.26);
+  border-color: rgba(255, 199, 40, 0.9);
+  outline: none;
+}
+
+.shelf-hotspot.is-active {
+  background: rgba(255, 221, 102, 0.4);
+  border-color: rgba(255, 199, 40, 1);
+  animation: hotspot-pulse 1.8s ease;
+}
+
+@keyframes hotspot-pulse {
+  0% { box-shadow: 0 0 0 6px rgba(255, 199, 40, 0.45); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 199, 40, 0); }
+}
+
+.shelf-lightbox-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  color: #e4e4e7;
+  font-size: 0.78em;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 6px 12px;
+  border-radius: 20px;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.shelf-lightbox-zoom-controls {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.shelf-lightbox-zoom-controls button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.shelf-lightbox-zoom-controls button:hover,
+.shelf-lightbox-zoom-controls button:focus-visible {
+  background: rgba(255, 255, 255, 0.18);
+  outline: none;
+}
+
+@media (max-width: 700px) {
+  .shelf-lightbox-zoom-controls {
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
 /* GPS Tracks page --------------------------------------------------------  */
 .gps-hero {
   position: relative;
