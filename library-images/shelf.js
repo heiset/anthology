@@ -231,20 +231,43 @@
     setZoomAt(target, e.clientX, e.clientY);
   });
 
-  // Pointer-based pan + pinch zoom (covers touch and mouse)
+  // Pointer-based pan + pinch zoom (covers touch and mouse).
+  //
+  // Hotspot buttons tile almost the entire photo, so we can't decide
+  // "is this a tap on a button or the start of a drag/pinch" from the
+  // target alone — nearly every touch starts on some button. Instead every
+  // pointer is tracked regardless of target, and a gesture only becomes a
+  // pan/pinch once it moves past a small threshold; a release before that
+  // threshold is left alone so the pointer's native click still reaches
+  // whatever hotspot it started on. If a gesture DOES cross the threshold,
+  // the next click is suppressed so a drag/pinch that happens to end over
+  // a hotspot doesn't also "click" it. That suppression has to happen on
+  // a capturing listener on scrollEl (an ANCESTOR of the hotspots) rather
+  // than on the hotspot itself — a same-element listener added after the
+  // hotspot's own click listener would fire after it, too late to stop it,
+  // since same-element listeners run in registration order regardless of
+  // the capture flag.
+  const DRAG_THRESHOLD = 8; // px
   const pointers = new Map();
   let dragStart = null;
   let pinchStart = null;
+  let suppressClick = false;
+
+  scrollEl.addEventListener('click', (e) => {
+    if (!suppressClick) return;
+    suppressClick = false;
+    e.preventDefault();
+    e.stopPropagation();
+  }, { capture: true });
 
   scrollEl.addEventListener('pointerdown', (e) => {
-    if (e.target.closest('button')) return;
-    scrollEl.setPointerCapture(e.pointerId);
-    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY, startX: e.clientX, startY: e.clientY, moved: false });
+
     if (pointers.size === 1) {
       dragStart = { x: e.clientX, y: e.clientY, tx: state.tx, ty: state.ty };
-      scrollEl.classList.add('dragging');
     } else if (pointers.size === 2) {
       dragStart = null;
+      scrollEl.classList.remove('dragging');
       const pts = [...pointers.values()];
       pinchStart = {
         dist: Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y) || 1,
@@ -254,9 +277,20 @@
   });
 
   scrollEl.addEventListener('pointermove', (e) => {
-    if (!pointers.has(e.pointerId)) return;
-    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    const p = pointers.get(e.pointerId);
+    if (!p) return;
+    p.x = e.clientX;
+    p.y = e.clientY;
+    if (!p.moved && Math.hypot(e.clientX - p.startX, e.clientY - p.startY) > DRAG_THRESHOLD) {
+      p.moved = true;
+      try { scrollEl.setPointerCapture(e.pointerId); } catch (err) { /* capture is a nicety, not required */ }
+      suppressClick = true;
+      setTimeout(() => { suppressClick = false; }, 400);
+    }
+
     if (pointers.size === 1 && dragStart) {
+      if (!p.moved) return;
+      scrollEl.classList.add('dragging');
       state.tx = dragStart.tx + (e.clientX - dragStart.x);
       state.ty = dragStart.ty + (e.clientY - dragStart.y);
       constrain();
@@ -276,6 +310,12 @@
     if (pointers.size === 0) {
       dragStart = null;
       scrollEl.classList.remove('dragging');
+    } else if (pointers.size === 1) {
+      // Dropping from a pinch (2 fingers) back to a pan (1 finger) — treat
+      // the remaining pointer's current position as a fresh drag start so
+      // panning continues instead of freezing until it's lifted and replaced.
+      const [p] = pointers.values();
+      dragStart = { x: p.x, y: p.y, tx: state.tx, ty: state.ty };
     }
     if (pointers.size < 2) pinchStart = null;
   }
