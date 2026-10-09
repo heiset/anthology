@@ -16,6 +16,12 @@
   const scrollEl = lightbox.querySelector('.shelf-lightbox-scroll');
   const stage = lightbox.querySelector('.shelf-lightbox-stage');
   const imgEl = stage.querySelector('img');
+  // Firefox-family browsers (e.g. Zen) ignore the WebKit-only
+  // `-webkit-user-drag: none` in the CSS and start a native image drag on
+  // mousedown+move, which steals the gesture from our pointer-based pan.
+  // draggable="false" in the markup covers most cases; this is the
+  // standards-based belt-and-suspenders backup.
+  imgEl.addEventListener('dragstart', (e) => e.preventDefault());
   const captionEl = lightbox.querySelector('.shelf-lightbox-caption');
   const closeBtn = lightbox.querySelector('.shelf-lightbox-close');
   const hintEl = lightbox.querySelector('.shelf-lightbox-hint');
