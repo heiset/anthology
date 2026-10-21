@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Flashcards covering Statistics Chapter 1: key terms and quick-compute drills.">
-  <title>Chapter 1 Flashcards — 卄乇丨丂乇</title>
+  <meta name="description" content="AP Statistics flashcards: key terms and quick-compute drills, organized section by section.">
+  <title>Statistics Flashcards — 卄乇丨丂乇</title>
   <link rel="stylesheet" href="../styles.css">
   <link rel="icon" href="/tree.png" type="image/png">
   <link rel="apple-touch-icon" href="/tree.png">
@@ -51,8 +51,8 @@
   <main class="article-shell">
     <article>
       <header class="article-header">
-        <h1>Chapter 1 Flashcards</h1>
-        <p class="subtitle">Collecting and describing data — terms and quick-compute drills (1.1&ndash;1.7)</p>
+        <h1>Statistics Flashcards</h1>
+        <p class="subtitle">Key terms and quick-compute drills, organized by section — growing section by section</p>
       </header>
 
       <div class="article-content">
@@ -69,10 +69,19 @@
         </div>
 
         <div id="fcApp" hidden>
-          <p class="lead">Every bolded term from the Chapter 1 notes, plus quick-compute drills (Z-scores, mean/SD, quartiles, and more) using very simple numbers. Click the card to flip it.</p>
+          <p class="lead">Every bolded term from the notes, section by section, plus quick-compute drills using very simple numbers. Pick a section below, then click the card to flip it.</p>
+
+          <div class="fc-section-row">
+            <span class="fc-section-label">Section</span>
+            <div class="fc-filter" id="fcSectionFilter">
+              <button type="button" data-section="all" class="active">All</button>
+              <button type="button" data-section="ch1">Chapter 1 Review</button>
+              <button type="button" data-section="2.2">2.2 Review</button>
+            </div>
+          </div>
 
           <div class="fc-controls">
-            <div class="fc-filter">
+            <div class="fc-filter" id="fcTypeFilter">
               <button type="button" data-type="all" class="active">All</button>
               <button type="button" data-type="term">Terms</button>
               <button type="button" data-type="apply">Quick Compute</button>
@@ -116,118 +125,142 @@
     // The deck ------------------------------------------------------------
     var CARDS = [
       // 1.1 Why we collect data; populations and samples; units, variables, parameters, statistics
-      {type:"term", q:"Statistics", a:"The investigative process: identify a statistical question, collect data, analyze it, and form a conclusion."},
-      {type:"term", q:"Statistical question", a:"A question that can actually be answered by collecting and analyzing data."},
-      {type:"term", q:"Population", a:"The entire group (size N) that a research question is about."},
-      {type:"term", q:"Sample", a:"The subset (size n) of the population on which data is actually collected."},
-      {type:"term", q:"Statistical study", a:"Using a sample to answer a question about a larger population."},
-      {type:"term", q:"Observational unit (case)", a:"A single individual or object from which data is collected."},
-      {type:"term", q:"Variable", a:"A characteristic measured or recorded for each observational unit that can vary unit to unit."},
-      {type:"term", q:"Parameter", a:"A fixed numerical summary of the population — almost always unknown in practice."},
-      {type:"term", q:"Statistic", a:"A numerical summary computed from a sample, used to estimate an unknown parameter."},
-      {type:"term", q:"Data matrix", a:"The standard way to organize a data set: rows are observational units, columns are variables."},
-      {type:"term", q:"Numerical (quantitative) variable", a:"A variable whose values support meaningful arithmetic (averages, differences)."},
-      {type:"term", q:"Categorical variable", a:"A variable whose values are labels or categories, called its levels."},
-      {type:"term", q:"Continuous variable", a:"A numerical variable that can take any value in a range (e.g. interest rate)."},
-      {type:"term", q:"Discrete variable", a:"A numerical variable limited to certain, usually whole-number, values (e.g. loan term)."},
-      {type:"term", q:"Nominal variable", a:"A categorical variable with no natural order among its levels (e.g. state)."},
-      {type:"term", q:"Ordinal variable", a:"A categorical variable whose levels have a natural order (e.g. letter grade)."},
+      {section:"ch1", type:"term", q:"Statistics", a:"The investigative process: identify a statistical question, collect data, analyze it, and form a conclusion."},
+      {section:"ch1", type:"term", q:"Statistical question", a:"A question that can actually be answered by collecting and analyzing data."},
+      {section:"ch1", type:"term", q:"Population", a:"The entire group (size N) that a research question is about."},
+      {section:"ch1", type:"term", q:"Sample", a:"The subset (size n) of the population on which data is actually collected."},
+      {section:"ch1", type:"term", q:"Statistical study", a:"Using a sample to answer a question about a larger population."},
+      {section:"ch1", type:"term", q:"Observational unit (case)", a:"A single individual or object from which data is collected."},
+      {section:"ch1", type:"term", q:"Variable", a:"A characteristic measured or recorded for each observational unit that can vary unit to unit."},
+      {section:"ch1", type:"term", q:"Parameter", a:"A fixed numerical summary of the population — almost always unknown in practice."},
+      {section:"ch1", type:"term", q:"Statistic", a:"A numerical summary computed from a sample, used to estimate an unknown parameter."},
+      {section:"ch1", type:"term", q:"Data matrix", a:"The standard way to organize a data set: rows are observational units, columns are variables."},
+      {section:"ch1", type:"term", q:"Numerical (quantitative) variable", a:"A variable whose values support meaningful arithmetic (averages, differences)."},
+      {section:"ch1", type:"term", q:"Categorical variable", a:"A variable whose values are labels or categories, called its levels."},
+      {section:"ch1", type:"term", q:"Continuous variable", a:"A numerical variable that can take any value in a range (e.g. interest rate)."},
+      {section:"ch1", type:"term", q:"Discrete variable", a:"A numerical variable limited to certain, usually whole-number, values (e.g. loan term)."},
+      {section:"ch1", type:"term", q:"Nominal variable", a:"A categorical variable with no natural order among its levels (e.g. state)."},
+      {section:"ch1", type:"term", q:"Ordinal variable", a:"A categorical variable whose levels have a natural order (e.g. letter grade)."},
 
       // 1.2 Representing categorical data
-      {type:"term", q:"Frequency table", a:"Lists each level of a categorical variable together with its count."},
-      {type:"term", q:"Relative frequency table", a:"Lists the proportion (or percent) of observations at each level; the values sum to 1."},
-      {type:"term", q:"Bar chart", a:"Displays a categorical variable with one bar per level; bar height equals frequency."},
-      {type:"term", q:"Pie chart", a:"A circle divided into slices, where each slice's area equals that level's relative frequency."},
+      {section:"ch1", type:"term", q:"Frequency table", a:"Lists each level of a categorical variable together with its count."},
+      {section:"ch1", type:"term", q:"Relative frequency table", a:"Lists the proportion (or percent) of observations at each level; the values sum to 1."},
+      {section:"ch1", type:"term", q:"Bar chart", a:"Displays a categorical variable with one bar per level; bar height equals frequency."},
+      {section:"ch1", type:"term", q:"Pie chart", a:"A circle divided into slices, where each slice's area equals that level's relative frequency."},
 
       // 1.3 Representing numerical data with graphs
-      {type:"term", q:"Distribution", a:"The values a variable takes and how often each occurs."},
-      {type:"term", q:"Stem-and-leaf plot", a:"Splits each value into a stem (leading digits) and a leaf (final digit)."},
-      {type:"term", q:"Dot plot", a:"Places one dot per observation along a number line, stacking dots for repeated values."},
-      {type:"term", q:"Outlier", a:"An observation that is unusually far from the rest of the data."},
-      {type:"term", q:"Histogram", a:"Groups numerical data into equal-width bins and draws a bar whose height is each bin's frequency."},
-      {type:"term", q:"Skewed distribution", a:"Right skewed has a long right tail; left skewed has a long left tail."},
-      {type:"term", q:"Modality", a:"A mode is a prominent peak; a distribution is unimodal, bimodal, or multimodal by its peak count."},
-      {type:"term", q:"Uniform distribution", a:"No prominent peak — roughly the same frequency at every value."},
-      {type:"term", q:"Descriptive statistics", a:"Describes the data that was actually collected."},
-      {type:"term", q:"Inferential statistics", a:"Uses a sample to generalize or infer something about the larger population."},
+      {section:"ch1", type:"term", q:"Distribution", a:"The values a variable takes and how often each occurs."},
+      {section:"ch1", type:"term", q:"Stem-and-leaf plot", a:"Splits each value into a stem (leading digits) and a leaf (final digit)."},
+      {section:"ch1", type:"term", q:"Dot plot", a:"Places one dot per observation along a number line, stacking dots for repeated values."},
+      {section:"ch1", type:"term", q:"Outlier", a:"An observation that is unusually far from the rest of the data."},
+      {section:"ch1", type:"term", q:"Histogram", a:"Groups numerical data into equal-width bins and draws a bar whose height is each bin's frequency."},
+      {section:"ch1", type:"term", q:"Skewed distribution", a:"Right skewed has a long right tail; left skewed has a long left tail."},
+      {section:"ch1", type:"term", q:"Modality", a:"A mode is a prominent peak; a distribution is unimodal, bimodal, or multimodal by its peak count."},
+      {section:"ch1", type:"term", q:"Uniform distribution", a:"No prominent peak — roughly the same frequency at every value."},
+      {section:"ch1", type:"term", q:"Descriptive statistics", a:"Describes the data that was actually collected."},
+      {section:"ch1", type:"term", q:"Inferential statistics", a:"Uses a sample to generalize or infer something about the larger population."},
 
       // 1.4 Numerical summaries, box plots, Z-scores
-      {type:"term", q:"Mean", a:"The balancing point (average) of a distribution, written x̄ for a sample or μ for a population."},
-      {type:"term", q:"Median", a:"The middle value of ordered data; resistant to outliers and skew."},
-      {type:"term", q:"Resistant (robust) statistic", a:"A statistic not greatly affected by outliers or skew, e.g. the median or IQR."},
-      {type:"term", q:"Range", a:"Maximum minus minimum — the simplest measure of spread."},
-      {type:"term", q:"Deviation", a:"An observation's distance from the mean: xᵢ − x̄."},
-      {type:"term", q:"Variance", a:"The average of the squared deviations from the mean."},
-      {type:"term", q:"Standard deviation", a:"The square root of the variance — the “typical” distance of an observation from the mean."},
-      {type:"term", q:"Quartiles (Q1, Q3)", a:"Q1 (25th percentile) and Q3 (75th percentile) mark the boundaries of the middle 50% of the data."},
-      {type:"term", q:"Interquartile range (IQR)", a:"Q3 − Q1 — the spread of the middle 50% of the data; resistant to outliers."},
-      {type:"term", q:"Empirical (68-95-99.7) rule", a:"For bell-shaped data, about 68/95/99.7% of values fall within 1/2/3 standard deviations of the mean."},
-      {type:"term", q:"Linear transformation", a:"Rescaling every value as x′ = a + bx for constants a, b."},
-      {type:"term", q:"Five-number summary", a:"Minimum, Q1, median, Q3, maximum."},
-      {type:"term", q:"Box plot", a:"Plots a data set's five-number summary, marking unusual observations individually."},
-      {type:"term", q:"Whiskers", a:"Lines from the box out to the most extreme data point that is not an outlier."},
-      {type:"term", q:"Back-to-back stem-and-leaf plot", a:"Shares one column of stems; one group's leaves extend left, the other's extend right."},
-      {type:"term", q:"Parallel box plots", a:"Side-by-side box plots used to compare groups' five-number summaries."},
-      {type:"term", q:"Z-score", a:"The number of standard deviations an observation falls above or below the mean."},
-      {type:"term", q:"Standard units", a:"Another name for Z-scores, since they carry no units."},
+      {section:"ch1", type:"term", q:"Mean", a:"The balancing point (average) of a distribution, written x̄ for a sample or μ for a population."},
+      {section:"ch1", type:"term", q:"Median", a:"The middle value of ordered data; resistant to outliers and skew."},
+      {section:"ch1", type:"term", q:"Resistant (robust) statistic", a:"A statistic not greatly affected by outliers or skew, e.g. the median or IQR."},
+      {section:"ch1", type:"term", q:"Range", a:"Maximum minus minimum — the simplest measure of spread."},
+      {section:"ch1", type:"term", q:"Deviation", a:"An observation's distance from the mean: xᵢ − x̄."},
+      {section:"ch1", type:"term", q:"Variance", a:"The average of the squared deviations from the mean."},
+      {section:"ch1", type:"term", q:"Standard deviation", a:"The square root of the variance — the “typical” distance of an observation from the mean."},
+      {section:"ch1", type:"term", q:"Quartiles (Q1, Q3)", a:"Q1 (25th percentile) and Q3 (75th percentile) mark the boundaries of the middle 50% of the data."},
+      {section:"ch1", type:"term", q:"Interquartile range (IQR)", a:"Q3 − Q1 — the spread of the middle 50% of the data; resistant to outliers."},
+      {section:"ch1", type:"term", q:"Empirical (68-95-99.7) rule", a:"For bell-shaped data, about 68/95/99.7% of values fall within 1/2/3 standard deviations of the mean."},
+      {section:"ch1", type:"term", q:"Linear transformation", a:"Rescaling every value as x′ = a + bx for constants a, b."},
+      {section:"ch1", type:"term", q:"Five-number summary", a:"Minimum, Q1, median, Q3, maximum."},
+      {section:"ch1", type:"term", q:"Box plot", a:"Plots a data set's five-number summary, marking unusual observations individually."},
+      {section:"ch1", type:"term", q:"Whiskers", a:"Lines from the box out to the most extreme data point that is not an outlier."},
+      {section:"ch1", type:"term", q:"Back-to-back stem-and-leaf plot", a:"Shares one column of stems; one group's leaves extend left, the other's extend right."},
+      {section:"ch1", type:"term", q:"Parallel box plots", a:"Side-by-side box plots used to compare groups' five-number summaries."},
+      {section:"ch1", type:"term", q:"Z-score", a:"The number of standard deviations an observation falls above or below the mean."},
+      {section:"ch1", type:"term", q:"Standard units", a:"Another name for Z-scores, since they carry no units."},
 
       // 1.5 Data collection principles
-      {type:"term", q:"Causal conclusion", a:"A conclusion about the effect of a treatment — requires an experiment."},
-      {type:"term", q:"Generalization", a:"Inferring from a sample to a larger population — requires random sampling."},
-      {type:"term", q:"Experiment", a:"Imposes a treatment on units to investigate a causal connection."},
-      {type:"term", q:"Observational study", a:"Collects data without imposing a treatment or otherwise interfering."},
-      {type:"term", q:"Census", a:"Recording data from every individual in the population."},
-      {type:"term", q:"Anecdotal evidence", a:"Data collected haphazardly, often from just one or two memorable cases."},
-      {type:"term", q:"Explanatory variable", a:"The variable suspected to cause a change in another variable."},
-      {type:"term", q:"Response variable", a:"The variable suspected to be affected by the explanatory variable."},
-      {type:"term", q:"Experimental units", a:"The subjects or objects a treatment is imposed on."},
-      {type:"term", q:"Randomized experiment", a:"An experiment in which units are randomly assigned to a treatment."},
-      {type:"term", q:"Factor and level", a:"A factor is an explanatory variable in an experiment; a level is one of its possible values."},
-      {type:"term", q:"Treatment", a:"One combination of factor levels (one chosen from each factor) applied to a unit."},
-      {type:"term", q:"Cohort", a:"A group of individuals followed over time in an observational study."},
-      {type:"term", q:"Prospective vs. retrospective study", a:"Prospective collects data as events unfold going forward; retrospective uses records of events that already happened."},
-      {type:"term", q:"Confounding variable", a:"Associated with both the explanatory and response variables — may be the true explanation for an observed association."},
+      {section:"ch1", type:"term", q:"Causal conclusion", a:"A conclusion about the effect of a treatment — requires an experiment."},
+      {section:"ch1", type:"term", q:"Generalization", a:"Inferring from a sample to a larger population — requires random sampling."},
+      {section:"ch1", type:"term", q:"Experiment", a:"Imposes a treatment on units to investigate a causal connection."},
+      {section:"ch1", type:"term", q:"Observational study", a:"Collects data without imposing a treatment or otherwise interfering."},
+      {section:"ch1", type:"term", q:"Census", a:"Recording data from every individual in the population."},
+      {section:"ch1", type:"term", q:"Anecdotal evidence", a:"Data collected haphazardly, often from just one or two memorable cases."},
+      {section:"ch1", type:"term", q:"Explanatory variable", a:"The variable suspected to cause a change in another variable."},
+      {section:"ch1", type:"term", q:"Response variable", a:"The variable suspected to be affected by the explanatory variable."},
+      {section:"ch1", type:"term", q:"Experimental units", a:"The subjects or objects a treatment is imposed on."},
+      {section:"ch1", type:"term", q:"Randomized experiment", a:"An experiment in which units are randomly assigned to a treatment."},
+      {section:"ch1", type:"term", q:"Factor and level", a:"A factor is an explanatory variable in an experiment; a level is one of its possible values."},
+      {section:"ch1", type:"term", q:"Treatment", a:"One combination of factor levels (one chosen from each factor) applied to a unit."},
+      {section:"ch1", type:"term", q:"Cohort", a:"A group of individuals followed over time in an observational study."},
+      {section:"ch1", type:"term", q:"Prospective vs. retrospective study", a:"Prospective collects data as events unfold going forward; retrospective uses records of events that already happened."},
+      {section:"ch1", type:"term", q:"Confounding variable", a:"Associated with both the explanatory and response variables — may be the true explanation for an observed association."},
 
       // 1.6 Sampling methods and bias
-      {type:"term", q:"Bias (sampling)", a:"A systematic error that makes a statistic consistently larger or smaller than the parameter it estimates."},
-      {type:"term", q:"Undercoverage bias", a:"Some individuals in the population are inherently less likely to be included in the sample."},
-      {type:"term", q:"Convenience sample", a:"Selects whichever individuals are easiest to access."},
-      {type:"term", q:"Voluntary response bias", a:"Arises when individuals choose for themselves whether to respond."},
-      {type:"term", q:"Non-response bias", a:"Arises when only some of a randomly selected sample actually responds."},
-      {type:"term", q:"Response bias", a:"Anything that influences how a person answers — wording, order, interviewer effects."},
-      {type:"term", q:"Simple random sample (SRS)", a:"Every individual, and every group of n individuals, has an equal chance of being selected."},
-      {type:"term", q:"Systematic sampling", a:"Pick one random starting point, then select every kth individual from an ordered list."},
-      {type:"term", q:"Stratified sampling", a:"Divide the population into homogeneous strata, then take an SRS within each."},
-      {type:"term", q:"Cluster sampling", a:"Divide the population into heterogeneous clusters, then randomly select a few whole clusters."},
+      {section:"ch1", type:"term", q:"Bias (sampling)", a:"A systematic error that makes a statistic consistently larger or smaller than the parameter it estimates."},
+      {section:"ch1", type:"term", q:"Undercoverage bias", a:"Some individuals in the population are inherently less likely to be included in the sample."},
+      {section:"ch1", type:"term", q:"Convenience sample", a:"Selects whichever individuals are easiest to access."},
+      {section:"ch1", type:"term", q:"Voluntary response bias", a:"Arises when individuals choose for themselves whether to respond."},
+      {section:"ch1", type:"term", q:"Non-response bias", a:"Arises when only some of a randomly selected sample actually responds."},
+      {section:"ch1", type:"term", q:"Response bias", a:"Anything that influences how a person answers — wording, order, interviewer effects."},
+      {section:"ch1", type:"term", q:"Simple random sample (SRS)", a:"Every individual, and every group of n individuals, has an equal chance of being selected."},
+      {section:"ch1", type:"term", q:"Systematic sampling", a:"Pick one random starting point, then select every kth individual from an ordered list."},
+      {section:"ch1", type:"term", q:"Stratified sampling", a:"Divide the population into homogeneous strata, then take an SRS within each."},
+      {section:"ch1", type:"term", q:"Cluster sampling", a:"Divide the population into heterogeneous clusters, then randomly select a few whole clusters."},
 
       // 1.7 Experiment design
-      {type:"term", q:"Treatment group / control group", a:"The group receiving the treatment under study, vs. the baseline group (no treatment or a placebo)."},
-      {type:"term", q:"Statistically significant", a:"A result unlikely to be due to chance alone."},
-      {type:"term", q:"Random assignment", a:"Randomly assigning subjects to treatment groups — supports a causal conclusion by reducing confounding."},
-      {type:"term", q:"Blind (single-blind) study", a:"Subjects don't know which treatment they're receiving."},
-      {type:"term", q:"Placebo / placebo effect", a:"A placebo is a fake treatment for the control group; the placebo effect is a real improvement from just believing you were treated."},
-      {type:"term", q:"Double-blind study", a:"Neither the subjects nor the researchers who interact with them know who received which treatment."},
-      {type:"term", q:"Extraneous variable", a:"Any variable other than the treatment that could affect the response."},
-      {type:"term", q:"Replication", a:"Assigning multiple subjects to each treatment, so a chance imbalance is unlikely to dominate one group."},
-      {type:"term", q:"Direct control", a:"Holding an extraneous variable fixed across every subject."},
-      {type:"term", q:"Completely randomized experiment", a:"Subjects are assigned to treatment groups purely by a random number generator."},
-      {type:"term", q:"Blocking", a:"Grouping subjects into blocks based on a variable, then randomizing within each block."},
-      {type:"term", q:"Matched pairs design", a:"A special case of blocking with blocks of size two."},
+      {section:"ch1", type:"term", q:"Treatment group / control group", a:"The group receiving the treatment under study, vs. the baseline group (no treatment or a placebo)."},
+      {section:"ch1", type:"term", q:"Statistically significant", a:"A result unlikely to be due to chance alone."},
+      {section:"ch1", type:"term", q:"Random assignment", a:"Randomly assigning subjects to treatment groups — supports a causal conclusion by reducing confounding."},
+      {section:"ch1", type:"term", q:"Blind (single-blind) study", a:"Subjects don't know which treatment they're receiving."},
+      {section:"ch1", type:"term", q:"Placebo / placebo effect", a:"A placebo is a fake treatment for the control group; the placebo effect is a real improvement from just believing you were treated."},
+      {section:"ch1", type:"term", q:"Double-blind study", a:"Neither the subjects nor the researchers who interact with them know who received which treatment."},
+      {section:"ch1", type:"term", q:"Extraneous variable", a:"Any variable other than the treatment that could affect the response."},
+      {section:"ch1", type:"term", q:"Replication", a:"Assigning multiple subjects to each treatment, so a chance imbalance is unlikely to dominate one group."},
+      {section:"ch1", type:"term", q:"Direct control", a:"Holding an extraneous variable fixed across every subject."},
+      {section:"ch1", type:"term", q:"Completely randomized experiment", a:"Subjects are assigned to treatment groups purely by a random number generator."},
+      {section:"ch1", type:"term", q:"Blocking", a:"Grouping subjects into blocks based on a variable, then randomizing within each block."},
+      {section:"ch1", type:"term", q:"Matched pairs design", a:"A special case of blocking with blocks of size two."},
 
       // Quick-compute / sharp-knowledge drills
-      {type:"apply", q:"Find the mean of 2, 4, 6, 8, 10.", a:"x̄ = 30 / 5 = 6"},
-      {type:"apply", q:"Data: 10, 12, 14. Find the sample standard deviation s.", a:"x̄ = 12; deviations −2, 0, 2 → squared 4, 0, 4, sum 8; s² = 8/(3−1) = 4, so s = 2"},
-      {type:"apply", q:"μ = 50, σ = 5. Find the Z-score of x = 60.", a:"Z = (60 − 50)/5 = 2"},
-      {type:"apply", q:"μ = 80, σ = 4, and Z = −1.5. Find x.", a:"x = μ + Zσ = 80 + (−1.5)(4) = 74"},
-      {type:"apply", q:"Ordered data (n = 7): 2, 4, 5, 7, 9, 10, 12. Find the median.", a:"median = 7 (the 4th value)"},
-      {type:"apply", q:"Same data — lower half {2, 4, 5}, upper half {9, 10, 12}. Find Q1 and Q3.", a:"Q1 = 4 (median of the lower half); Q3 = 10 (median of the upper half)"},
-      {type:"apply", q:"Q1 = 4, Q3 = 10. Find the IQR and the high-end outlier boundary (Q3 + 1.5·IQR).", a:"IQR = 10 − 4 = 6; boundary = 10 + 1.5(6) = 19"},
-      {type:"apply", q:"Test scores: mean 75, SD 8. About what percent fall between 59 and 91? (empirical rule)", a:"59 and 91 are each exactly 2 SD from 75, so about 95%"},
-      {type:"apply", q:"Temps in °C: mean 20, SD 4. Convert to °F via x′ = 32 + 1.8x. Find the new mean and SD.", a:"mean′ = 32 + 1.8(20) = 68°F; SD′ = 1.8(4) = 7.2°F — shifting never changes spread, only scaling does"},
-      {type:"apply", q:"Neither the subjects nor the researchers measuring them know who got the real treatment. Name this design.", a:"A double-blind study"},
-      {type:"apply", q:"A population is split into groups that each resemble the whole population, then a few whole groups are randomly chosen and fully sampled. Name this method.", a:"Cluster sampling"},
-      {type:"apply", q:"A population is split into internally similar groups, and an SRS is drawn from each group. Name this method.", a:"Stratified sampling"},
-      {type:"apply", q:"Ice cream sales and shark attacks rise together, but both are really driven by hot weather. What is hot weather called here, statistically speaking?", a:"A confounding variable"}
+      {section:"ch1", type:"apply", q:"Find the mean of 2, 4, 6, 8, 10.", a:"x̄ = 30 / 5 = 6"},
+      {section:"ch1", type:"apply", q:"Data: 10, 12, 14. Find the sample standard deviation s.", a:"x̄ = 12; deviations −2, 0, 2 → squared 4, 0, 4, sum 8; s² = 8/(3−1) = 4, so s = 2"},
+      {section:"ch1", type:"apply", q:"μ = 50, σ = 5. Find the Z-score of x = 60.", a:"Z = (60 − 50)/5 = 2"},
+      {section:"ch1", type:"apply", q:"μ = 80, σ = 4, and Z = −1.5. Find x.", a:"x = μ + Zσ = 80 + (−1.5)(4) = 74"},
+      {section:"ch1", type:"apply", q:"Ordered data (n = 7): 2, 4, 5, 7, 9, 10, 12. Find the median.", a:"median = 7 (the 4th value)"},
+      {section:"ch1", type:"apply", q:"Same data — lower half {2, 4, 5}, upper half {9, 10, 12}. Find Q1 and Q3.", a:"Q1 = 4 (median of the lower half); Q3 = 10 (median of the upper half)"},
+      {section:"ch1", type:"apply", q:"Q1 = 4, Q3 = 10. Find the IQR and the high-end outlier boundary (Q3 + 1.5·IQR).", a:"IQR = 10 − 4 = 6; boundary = 10 + 1.5(6) = 19"},
+      {section:"ch1", type:"apply", q:"Test scores: mean 75, SD 8. About what percent fall between 59 and 91? (empirical rule)", a:"59 and 91 are each exactly 2 SD from 75, so about 95%"},
+      {section:"ch1", type:"apply", q:"Temps in °C: mean 20, SD 4. Convert to °F via x′ = 32 + 1.8x. Find the new mean and SD.", a:"mean′ = 32 + 1.8(20) = 68°F; SD′ = 1.8(4) = 7.2°F — shifting never changes spread, only scaling does"},
+      {section:"ch1", type:"apply", q:"Neither the subjects nor the researchers measuring them know who got the real treatment. Name this design.", a:"A double-blind study"},
+      {section:"ch1", type:"apply", q:"A population is split into groups that each resemble the whole population, then a few whole groups are randomly chosen and fully sampled. Name this method.", a:"Cluster sampling"},
+      {section:"ch1", type:"apply", q:"A population is split into internally similar groups, and an SRS is drawn from each group. Name this method.", a:"Stratified sampling"},
+      {section:"ch1", type:"apply", q:"Ice cream sales and shark attacks rise together, but both are really driven by hot weather. What is hot weather called here, statistically speaking?", a:"A confounding variable"},
+
+      // 2.2 Probability basics: random processes, simulation, sample space,
+      // complement, disjoint outcomes, independent joint probabilities
+      {section:"2.2", type:"term", q:"Random process", a:"Generates results that are determined by chance."},
+      {section:"2.2", type:"term", q:"Outcome", a:"The result of one trial of a random process."},
+      {section:"2.2", type:"term", q:"Event", a:"A collection of outcomes."},
+      {section:"2.2", type:"term", q:"Simulation", a:"A way to model random events so simulated outcomes closely match real-world outcomes — assign a value to every possible outcome, then record the counts of simulated outcomes and the count total."},
+      {section:"2.2", type:"term", q:"Probability", a:"The long-run relative frequency of an outcome or event — its relative frequency over a large number of trials. Always between 0 and 1, inclusive."},
+      {section:"2.2", type:"term", q:"Relative frequency", a:"An outcome's or event's frequency determined from empirical data, used to estimate its actual (true) probability."},
+      {section:"2.2", type:"term", q:"Law of large numbers", a:"For independent trials, as the number of trials increases, the long-run relative frequency of an outcome or event gets closer and closer to a single value."},
+      {section:"2.2", type:"term", q:"Sample space", a:"The set of all possible nonoverlapping outcomes of a random process. The probability of the sample space is 1."},
+      {section:"2.2", type:"term", q:"Theoretical probability", a:"When all outcomes in the sample space are equally likely: P(E) = (number of outcomes in E) / (total number of outcomes in the sample space)."},
+      {section:"2.2", type:"term", q:"Complement", a:"The complement of event E (written “not E” or Eᶜ) is every outcome in the sample space not in E. P(Eᶜ) = 1 − P(E), equivalently P(E) = 1 − P(Eᶜ)."},
+      {section:"2.2", type:"term", q:"Joint probability", a:"The probability that events A and B both occur — the probability of the intersection of A and B."},
+      {section:"2.2", type:"term", q:"Mutually exclusive (disjoint) events", a:"Events A and B that cannot happen together, so they don't overlap: P(A and B) = 0. Special case: P(A or B) = P(A) + P(B)."},
+      {section:"2.2", type:"term", q:"“At least one” (of two events)", a:"The probability that one event or the other happens — P(A or B)."},
+      {section:"2.2", type:"term", q:"Rule of complements (at least one)", a:"P(at least one) = 1 − P(none) — a special case of the complement rule, usually the easiest way to find an “at least one” probability."},
+      {section:"2.2", type:"term", q:"Independent events", a:"Two events are independent when the occurrence of one doesn't change the likelihood of the other (e.g. coin flips, dice rolls). Special case: P(A and B) = P(A) × P(B)."},
+
+      {section:"2.2", type:"apply", q:"A fair six-sided die is rolled once. Find P(not rolling a 4).", a:"1 − 1/6 = 5/6 (complement)"},
+      {section:"2.2", type:"apply", q:"Rolling one die: A = {1, 2}, B = {5, 6} (disjoint). Find P(A or B).", a:"P(A) + P(B) = 2/6 + 2/6 = 4/6 = 2/3"},
+      {section:"2.2", type:"apply", q:"Flip a coin and roll a die (independent). Find P(heads and rolling a 6).", a:"1/2 × 1/6 = 1/12"},
+      {section:"2.2", type:"apply", q:"In 1,000 simulated trials, an event occurred 215 times. Estimate its probability.", a:"215/1000 = 0.215 (relative frequency)"},
+      {section:"2.2", type:"apply", q:"Rolling two dice gives 36 equally likely outcomes. Event E = “sum is 7” has 6 of them. Find P(E).", a:"6/36 = 1/6 (theoretical probability)"}
     ];
 
     // Password gate ---------------------------------------------------------
@@ -272,6 +305,8 @@
       var deck = all.slice();
       var idx = 0;
       var flipped = false;
+      var currentSection = "all";
+      var currentType = "all";
 
       var cardEl = document.getElementById("fcCard");
       var front = document.getElementById("fcFront");
@@ -279,11 +314,21 @@
       var typeFront = document.getElementById("fcTypeFront");
       var typeBack = document.getElementById("fcTypeBack");
       var progress = document.getElementById("fcProgress");
-      var filterButtons = document.querySelectorAll(".fc-filter button");
+      var sectionButtons = document.querySelectorAll("#fcSectionFilter button");
+      var typeButtons = document.querySelectorAll("#fcTypeFilter button");
 
       function label(t) { return t === "apply" ? "quick compute" : "term"; }
 
       function render() {
+        if (deck.length === 0) {
+          front.textContent = "No cards match this filter yet.";
+          back.textContent = "Try a different section or type.";
+          typeFront.textContent = "";
+          typeBack.textContent = "";
+          progress.textContent = "0 / 0";
+          cardEl.classList.remove("flipped");
+          return;
+        }
         var c = deck[idx];
         front.textContent = c.q;
         back.textContent = c.a;
@@ -294,17 +339,20 @@
       }
 
       function flip() {
+        if (deck.length === 0) return;
         flipped = !flipped;
         cardEl.classList.toggle("flipped", flipped);
       }
 
       function next() {
+        if (deck.length === 0) return;
         idx = (idx + 1) % deck.length;
         flipped = false;
         render();
       }
 
       function prev() {
+        if (deck.length === 0) return;
         idx = (idx - 1 + deck.length) % deck.length;
         flipped = false;
         render();
@@ -320,12 +368,29 @@
         render();
       }
 
-      function setFilter(type) {
-        deck = type === "all" ? all.slice() : all.filter(function (c) { return c.type === type; });
+      function applyFilters() {
+        deck = all.filter(function (c) {
+          var sectionOk = currentSection === "all" || c.section === currentSection;
+          var typeOk = currentType === "all" || c.type === currentType;
+          return sectionOk && typeOk;
+        });
         idx = 0;
         flipped = false;
         render();
-        filterButtons.forEach(function (b) {
+      }
+
+      function setSectionFilter(section) {
+        currentSection = section;
+        applyFilters();
+        sectionButtons.forEach(function (b) {
+          b.classList.toggle("active", b.dataset.section === section);
+        });
+      }
+
+      function setTypeFilter(type) {
+        currentType = type;
+        applyFilters();
+        typeButtons.forEach(function (b) {
           b.classList.toggle("active", b.dataset.type === type);
         });
       }
@@ -337,8 +402,11 @@
       document.getElementById("fcNext").addEventListener("click", next);
       document.getElementById("fcPrev").addEventListener("click", prev);
       document.getElementById("fcShuffle").addEventListener("click", shuffle);
-      filterButtons.forEach(function (b) {
-        b.addEventListener("click", function () { setFilter(b.dataset.type); });
+      sectionButtons.forEach(function (b) {
+        b.addEventListener("click", function () { setSectionFilter(b.dataset.section); });
+      });
+      typeButtons.forEach(function (b) {
+        b.addEventListener("click", function () { setTypeFilter(b.dataset.type); });
       });
 
       document.addEventListener("keydown", function (e) {
@@ -348,7 +416,8 @@
         else if (e.key === "ArrowLeft") prev();
       });
 
-      setFilter("all");
+      setSectionFilter("all");
+      setTypeFilter("all");
     }
   </script>
 </body>

@@ -28,13 +28,15 @@ my-site-template/
 | Photography | `articles/photo-*.html` | none yet |
 | Algebra 2 | — | `algebra-warmups.html` (daily warm-ups) |
 | GPS Tracks | — | `gps-tracks.html` |
-| Stats | `articles/stats-*.html` | `stats-ch1-flashcards.html` (password-protected flashcards) |
+| Stats | `articles/stats-*.html` | `stats-ch1-flashcards.html` (password-protected flashcards, single page, growing section by section — see below) |
 
 The nav structure actually in use is a left `site-sidebar` with top-level `<a>` links and `sidebar-group`/`sidebar-sub` dropdowns for multi-page projects (Algebra, Algebra 2) — not the `project-card` layout this doc used to describe. Single-page projects (Library, GPS Tracks, Stats, Contact) are a single top-level `<a>`, no dropdown, no `section-nav` block on the page itself. Body font is Arial (not Times New Roman, despite the note below — verify against `styles.css` `:root`/`body` rules if in doubt, this doc can drift).
 
 ## Password-protected pages
 
 `articles/stats-ch1-flashcards.html` is the template for a locked page: a `#pwGate` div (visible by default) and a content div with the `hidden` attribute, gated by a small inline script that checks a plaintext password against `localStorage` (key `stats-<name>-unlocked`) and un-hides the content on match. This is a soft, client-side-only gate (visible in page source) meant to keep casual visitors out, not real security. To add another locked page, copy that gate pattern and change the `PASSWORD` constant and `localStorage` key. Shared CSS for the gate and flashcard UI lives in `styles.css` under `/* Stats Flashcards page */`.
+
+Despite its filename, this one page now holds the whole stats deck, not just Chapter 1 — every card in `CARDS` carries a `section` field (`"ch1"`, `"2.2"`, â€¦), and a `#fcSectionFilter` button row (alongside the existing `#fcTypeFilter` term/quick-compute row) filters on it; both filters combine via AND in `applyFilters()`. To add the next section (e.g. 2.3): append `{section:"2.3", type:"term"/"apply", q:..., a:...}` entries to `CARDS` (term cards from that section's bolded textbook vocab, a handful of `apply` quick-compute drills with simple numbers to match), and add one more `<button data-section="2.3">2.3 Review</button>` to `#fcSectionFilter`. No new page, no nav change needed.
 
 ## How to add a new sub-page to a project
 
