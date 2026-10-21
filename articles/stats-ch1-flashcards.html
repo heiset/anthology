@@ -76,7 +76,9 @@
             <div class="fc-filter" id="fcSectionFilter">
               <button type="button" data-section="all" class="active">All</button>
               <button type="button" data-section="ch1">Chapter 1 Review</button>
+              <button type="button" data-section="2.1">2.1 Review</button>
               <button type="button" data-section="2.2">2.2 Review</button>
+              <button type="button" data-section="2.3">2.3 Review</button>
             </div>
           </div>
 
@@ -238,6 +240,20 @@
       {section:"ch1", type:"apply", q:"A population is split into internally similar groups, and an SRS is drawn from each group. Name this method.", a:"Stratified sampling"},
       {section:"ch1", type:"apply", q:"Ice cream sales and shark attacks rise together, but both are really driven by hot weather. What is hot weather called here, statistically speaking?", a:"A confounding variable"},
 
+      // 2.1 Relationships between two categorical variables: two-way tables,
+      // graphical representations, conditional relative frequencies
+      {section:"2.1", type:"term", q:"Two-way table (contingency table)", a:"Summarizes/compares data for two categorical variables; cell entries are frequencies (counts) or relative frequencies (proportions)."},
+      {section:"2.1", type:"term", q:"Side-by-side bar chart", a:"Places separate bars for one variable's levels next to each other, within each category of the other variable."},
+      {section:"2.1", type:"term", q:"Segmented bar chart", a:"Stacks one variable's levels within a single bar for each category of the other variable."},
+      {section:"2.1", type:"term", q:"Mosaic plot", a:"Behaves like a segmented bar chart, except each bar's width also varies to reflect that group's relative size — so it preserves both proportions and group sizes at once."},
+      {section:"2.1", type:"term", q:"Joint relative frequency", a:"A cell frequency in a two-way table divided by the total for the entire table."},
+      {section:"2.1", type:"term", q:"Marginal relative frequency", a:"A row total (or column total) in a two-way table divided by the total for the entire table."},
+      {section:"2.1", type:"term", q:"Conditional relative frequency", a:"A relative frequency computed by restricting to one particular row or column: a cell frequency divided by the total for just that row or column."},
+
+      {section:"2.1", type:"apply", q:"Two-way table: of 100 people, 20 are male smokers. Find the joint relative frequency of 'male and smoker'.", a:"20/100 = 0.20"},
+      {section:"2.1", type:"apply", q:"Same table: 30 of the 100 people are smokers (any gender). Find the marginal relative frequency of 'smoker'.", a:"30/100 = 0.30"},
+      {section:"2.1", type:"apply", q:"Same table: of the 50 males, 20 are smokers. Find the conditional relative frequency of 'smoker' given 'male'.", a:"20/50 = 0.40"},
+
       // 2.2 Probability basics: random processes, simulation, sample space,
       // complement, disjoint outcomes, independent joint probabilities
       {section:"2.2", type:"term", q:"Random process", a:"Generates results that are determined by chance."},
@@ -260,7 +276,25 @@
       {section:"2.2", type:"apply", q:"Rolling one die: A = {1, 2}, B = {5, 6} (disjoint). Find P(A or B).", a:"P(A) + P(B) = 2/6 + 2/6 = 4/6 = 2/3"},
       {section:"2.2", type:"apply", q:"Flip a coin and roll a die (independent). Find P(heads and rolling a 6).", a:"1/2 × 1/6 = 1/12"},
       {section:"2.2", type:"apply", q:"In 1,000 simulated trials, an event occurred 215 times. Estimate its probability.", a:"215/1000 = 0.215 (relative frequency)"},
-      {section:"2.2", type:"apply", q:"Rolling two dice gives 36 equally likely outcomes. Event E = “sum is 7” has 6 of them. Find P(E).", a:"6/36 = 1/6 (theoretical probability)"}
+      {section:"2.2", type:"apply", q:"Rolling two dice gives 36 equally likely outcomes. Event E = “sum is 7” has 6 of them. Find P(E).", a:"6/36 = 1/6 (theoretical probability)"},
+
+      // 2.3 Conditional probability, intersections, and unions
+      {section:"2.3", type:"term", q:"Conditional probability", a:"Written P(A|B), read “probability of A given B” — we're given information about B."},
+      {section:"2.3", type:"term", q:"Unconditional probability", a:"Written P(A) — no information is given or assumed about any other event."},
+      {section:"2.3", type:"term", q:"Conditional probability rule", a:"P(A|B) = P(A∩B) / P(B)."},
+      {section:"2.3", type:"term", q:"General Multiplication Rule", a:"P(A∩B) = P(A) × P(B|A) — equivalently, P(A∩B) can be found by multiplying P(A|B) × P(B)."},
+      {section:"2.3", type:"term", q:"Inverted conditional probability", a:"When P(B|A) is known but P(A|B) is wanted: draw a tree diagram and apply the conditional probability rule, P(A|B) = P(A∩B)/P(B), computing P(B) by combining multiple pieces from the tree."},
+      {section:"2.3", type:"term", q:"Independent events", a:"The outcome of one has no effect on the outcome of the other: P(B|A) = P(B) and P(A|B) = P(A). Special case: P(A∩B) = P(A) × P(B)."},
+      {section:"2.3", type:"term", q:"Sampling with replacement", a:"Each draw is returned to the population before the next — events stay independent."},
+      {section:"2.3", type:"term", q:"Sampling without replacement", a:"From a small population, events become dependent, and using conditional vs. unconditional probabilities makes a real difference in joint-probability calculations. From a very large population, the difference becomes negligible."},
+      {section:"2.3", type:"term", q:"General Addition Rule", a:"P(A or B) = P(A) + P(B) − P(A∩B), i.e. P(A∪B) = P(A) + P(B) − P(A∩B)."},
+      {section:"2.3", type:"term", q:"Mutually exclusive (disjoint) events", a:"P(A∩B) = 0. Special case: P(A∪B) = P(A) + P(B). Mutually exclusive events must be dependent, since one occurring drops the other's probability to 0."},
+
+      {section:"2.3", type:"apply", q:"P(A) = 0.4, P(B) = 0.5, P(A and B) = 0.2. Find P(A or B).", a:"0.4 + 0.5 − 0.2 = 0.7 (General Addition Rule)"},
+      {section:"2.3", type:"apply", q:"P(B) = 0.6, P(A and B) = 0.3. Find P(A|B).", a:"0.3 / 0.6 = 0.5 (conditional probability rule)"},
+      {section:"2.3", type:"apply", q:"P(A) = 0.25, P(B|A) = 0.8. Find P(A and B).", a:"0.25 × 0.8 = 0.20 (General Multiplication Rule)"},
+      {section:"2.3", type:"apply", q:"A and B are mutually exclusive: P(A) = 0.3, P(B) = 0.4. Find P(A or B).", a:"0.3 + 0.4 = 0.7 (disjoint ⟹ P(A∩B) = 0)"},
+      {section:"2.3", type:"apply", q:"A box has 5 red and 5 blue marbles. Drawing two without replacement, find P(both red).", a:"(5/10) × (4/9) = 20/90 = 2/9 (dependent — sampling without replacement)"}
     ];
 
     // Password gate ---------------------------------------------------------
