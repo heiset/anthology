@@ -26,11 +26,11 @@ my-site-template/
 | My Library | — | `library.html` |
 | Blog | — | `blog.html` |
 | Photography | `articles/photo-*.html` | none yet |
-| Algebra 2 | — | `algebra-warmups.html` (daily warm-ups) |
+| Calculus | — | `calculus-warmups.html` (daily warm-ups) |
 | GPS Tracks | — | `gps-tracks.html` |
 | Stats | `articles/stats-*.html` | `stats-ch1-flashcards.html` (password-protected flashcards, single page, growing section by section — see below) |
 
-The nav structure actually in use is a left `site-sidebar` with top-level `<a>` links and `sidebar-group`/`sidebar-sub` dropdowns for multi-page projects (Algebra, Algebra 2) — not the `project-card` layout this doc used to describe. Single-page projects (Library, GPS Tracks, Stats, Contact) are a single top-level `<a>`, no dropdown, no `section-nav` block on the page itself. Body font is Arial (not Times New Roman, despite the note below — verify against `styles.css` `:root`/`body` rules if in doubt, this doc can drift).
+The nav structure actually in use is a left `site-sidebar` with top-level `<a>` links and `sidebar-group`/`sidebar-sub` dropdowns for multi-page projects (Algebra, Calculus) — not the `project-card` layout this doc used to describe. Single-page projects (Library, GPS Tracks, Stats, Contact) are a single top-level `<a>`, no dropdown, no `section-nav` block on the page itself. Body font is Arial (not Times New Roman, despite the note below — verify against `styles.css` `:root`/`body` rules if in doubt, this doc can drift).
 
 ## Password-protected pages
 
