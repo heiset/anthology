@@ -59,18 +59,7 @@
 
       <div class="article-content">
 
-        <div id="pwGate" class="pw-gate">
-          <div class="pw-gate-box">
-            <p class="pw-gate-label">This section is locked.</p>
-            <form id="pwForm" autocomplete="off">
-              <input id="pwInput" type="password" placeholder="password" aria-label="Password" autocapitalize="off" autocorrect="off" spellcheck="false">
-              <button type="submit">Unlock</button>
-            </form>
-            <p id="pwError" class="pw-gate-error" hidden>Incorrect — try again.</p>
-          </div>
-        </div>
-
-        <div id="fcApp" hidden>
+        <div id="fcApp">
           <p class="lead">Every bolded term from the notes, section by section, plus quick-compute drills using very simple numbers. Pick a section below, then click the card to flip it.</p>
 
           <div class="fc-section-row">
@@ -81,6 +70,7 @@
               <button type="button" data-section="2.1">2.1 Review</button>
               <button type="button" data-section="2.2">2.2 Review</button>
               <button type="button" data-section="2.3">2.3 Review</button>
+              <button type="button" data-section="2.4">2.4 Review</button>
             </div>
           </div>
 
@@ -296,44 +286,25 @@
       {section:"2.3", type:"apply", q:"P(B) = 0.6, P(A and B) = 0.3. Find P(A|B).", a:"0.3 / 0.6 = 0.5 (conditional probability rule)"},
       {section:"2.3", type:"apply", q:"P(A) = 0.25, P(B|A) = 0.8. Find P(A and B).", a:"0.25 × 0.8 = 0.20 (General Multiplication Rule)"},
       {section:"2.3", type:"apply", q:"A and B are mutually exclusive: P(A) = 0.3, P(B) = 0.4. Find P(A or B).", a:"0.3 + 0.4 = 0.7 (disjoint ⟹ P(A∩B) = 0)"},
-      {section:"2.3", type:"apply", q:"A box has 5 red and 5 blue marbles. Drawing two without replacement, find P(both red).", a:"(5/10) × (4/9) = 20/90 = 2/9 (dependent — sampling without replacement)"}
+      {section:"2.3", type:"apply", q:"A box has 5 red and 5 blue marbles. Drawing two without replacement, find P(both red).", a:"(5/10) × (4/9) = 20/90 = 2/9 (dependent — sampling without replacement)"},
+
+      // 2.4 Discrete random variables: probability distributions, parameters,
+      // mean (expected value) and standard deviation of a random variable
+      {section:"2.4", type:"term", q:"Random variable", a:"A variable whose values have numerical outcomes that result from a random phenomenon."},
+      {section:"2.4", type:"term", q:"Probability distribution", a:"For a discrete random variable, shows the probability associated with every possible value; the probabilities sum to 1."},
+      {section:"2.4", type:"term", q:"Discrete probability distribution (finding it)", a:"Can be determined using the rules of probability, or estimated with a simulation."},
+      {section:"2.4", type:"term", q:"Cumulative probability distribution", a:"Shows the probability of being less than or equal to each value of a discrete random variable; can be given as a table or a function."},
+      {section:"2.4", type:"term", q:"Parameter (of a distribution)", a:"A numerical value measuring a characteristic of a probability distribution or a population; its value is a single, fixed value. Mean and standard deviation are parameters of a probability distribution."},
+      {section:"2.4", type:"term", q:"Mean (expected value) of a random variable", a:"E(X) = μX = Σ xᵢ·P(xᵢ) — each value weighted by its probability, then summed."},
+      {section:"2.4", type:"term", q:"Variance of a random variable", a:"Var(X) = σX² = Σ (xᵢ − μX)²·P(xᵢ) — each squared deviation from the mean, weighted by its probability."},
+      {section:"2.4", type:"term", q:"Standard deviation of a random variable", a:"SD(X) = σX = √Var(X) = √[Σ (xᵢ − μX)²·P(xᵢ)]."},
+      {section:"2.4", type:"term", q:"Mean/expected value, interpreted", a:"The long-run average outcome of the random variable after many, many repetitions of the random process. It does not need to be a value in the distribution."},
+      {section:"2.4", type:"term", q:"Standard deviation (of a random variable), interpreted", a:"The typical deviation of the variable's values from its mean, over the long run — after many, many repetitions of the random process."},
+
+      {section:"2.4", type:"apply", q:"X takes values 1, 2 with P(1) = 0.3 and P(2) = 0.7. Find E(X).", a:"1(0.3) + 2(0.7) = 0.3 + 1.4 = 1.7"},
+      {section:"2.4", type:"apply", q:"X takes values 2, 4 with P(2) = 0.5 and P(4) = 0.5. Find Var(X) and SD(X).", a:"μX = 3; deviations −1, 1 → squared 1, 1; Var(X) = 1(0.5) + 1(0.5) = 1; SD(X) = √1 = 1"},
+      {section:"2.4", type:"apply", q:"A discrete random variable's three values have probabilities 0.1, 0.4, 0.5. Is this a valid probability distribution?", a:"0.1 + 0.4 + 0.5 = 1, so yes — the probabilities sum to 1"}
     ];
-
-    // Password gate ---------------------------------------------------------
-    (function () {
-      var PASSWORD = "1.618"; // the golden ratio, phi -- change this to change the password
-      var ALT = "phi";        // also accepted, case-insensitive
-      var KEY = "stats-ch1-unlocked";
-
-      var gate = document.getElementById("pwGate");
-      var app = document.getElementById("fcApp");
-      var form = document.getElementById("pwForm");
-      var input = document.getElementById("pwInput");
-      var error = document.getElementById("pwError");
-
-      function unlock() {
-        gate.hidden = true;
-        app.hidden = false;
-        initDeck();
-      }
-
-      if (window.localStorage && localStorage.getItem(KEY) === "true") {
-        unlock();
-      }
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        var val = input.value.trim().toLowerCase();
-        if (val === PASSWORD || val === ALT) {
-          if (window.localStorage) localStorage.setItem(KEY, "true");
-          unlock();
-        } else {
-          error.hidden = false;
-          input.value = "";
-          input.focus();
-        }
-      });
-    })();
 
     // Flashcard deck ---------------------------------------------------------
     function initDeck() {
@@ -446,8 +417,6 @@
       });
 
       document.addEventListener("keydown", function (e) {
-        if (document.getElementById("fcApp").hidden) return;
-        if (document.activeElement === document.getElementById("pwInput")) return;
         if (e.key === "ArrowRight") next();
         else if (e.key === "ArrowLeft") prev();
       });
@@ -455,6 +424,8 @@
       setSectionFilter("all");
       setTypeFilter("all");
     }
+
+    initDeck();
   </script>
 </body>
 </html>
