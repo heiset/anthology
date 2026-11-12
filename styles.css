@@ -1171,29 +1171,41 @@ body:not(.page-home).show-main-menu .sidebar-group {
 .fc-section-row {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 0.7em;
+  max-width: 100%;
 }
 
 .fc-section-label {
   color: var(--muted);
   font-size: 0.88em;
   white-space: nowrap;
+  flex: 0 0 auto;
 }
 
 .fc-controls {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 1.2em;
+  max-width: 100%;
 }
 
 .fc-filter {
   display: flex;
   gap: 6px;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding-bottom: 6px;
+}
+
+.fc-filter button {
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 .fc-filter button.active {

@@ -66,11 +66,20 @@
             <span class="fc-section-label">Section</span>
             <div class="fc-filter" id="fcSectionFilter">
               <button type="button" data-section="all" class="active">All</button>
-              <button type="button" data-section="ch1">Chapter 1 Review</button>
+              <button type="button" data-section="1.1">1.1 Review</button>
+              <button type="button" data-section="1.2">1.2 Review</button>
+              <button type="button" data-section="1.3">1.3 Review</button>
+              <button type="button" data-section="1.4">1.4 Review</button>
+              <button type="button" data-section="1.5">1.5 Review</button>
+              <button type="button" data-section="1.6">1.6 Review</button>
+              <button type="button" data-section="1.7">1.7 Review</button>
               <button type="button" data-section="2.1">2.1 Review</button>
               <button type="button" data-section="2.2">2.2 Review</button>
               <button type="button" data-section="2.3">2.3 Review</button>
               <button type="button" data-section="2.4">2.4 Review</button>
+              <button type="button" data-section="2.5">2.5 Review</button>
+              <button type="button" data-section="2.6">2.6 Review</button>
+              <button type="button" data-section="2.7">2.7 Review</button>
             </div>
           </div>
 
@@ -119,118 +128,118 @@
     // The deck ------------------------------------------------------------
     var CARDS = [
       // 1.1 Why we collect data; populations and samples; units, variables, parameters, statistics
-      {section:"ch1", type:"term", q:"Statistics", a:"The investigative process: identify a statistical question, collect data, analyze it, and form a conclusion."},
-      {section:"ch1", type:"term", q:"Statistical question", a:"A question that can actually be answered by collecting and analyzing data."},
-      {section:"ch1", type:"term", q:"Population", a:"The entire group (size N) that a research question is about."},
-      {section:"ch1", type:"term", q:"Sample", a:"The subset (size n) of the population on which data is actually collected."},
-      {section:"ch1", type:"term", q:"Statistical study", a:"Using a sample to answer a question about a larger population."},
-      {section:"ch1", type:"term", q:"Observational unit (case)", a:"A single individual or object from which data is collected."},
-      {section:"ch1", type:"term", q:"Variable", a:"A characteristic measured or recorded for each observational unit that can vary unit to unit."},
-      {section:"ch1", type:"term", q:"Parameter", a:"A fixed numerical summary of the population — almost always unknown in practice."},
-      {section:"ch1", type:"term", q:"Statistic", a:"A numerical summary computed from a sample, used to estimate an unknown parameter."},
-      {section:"ch1", type:"term", q:"Data matrix", a:"The standard way to organize a data set: rows are observational units, columns are variables."},
-      {section:"ch1", type:"term", q:"Numerical (quantitative) variable", a:"A variable whose values support meaningful arithmetic (averages, differences)."},
-      {section:"ch1", type:"term", q:"Categorical variable", a:"A variable whose values are labels or categories, called its levels."},
-      {section:"ch1", type:"term", q:"Continuous variable", a:"A numerical variable that can take any value in a range (e.g. interest rate)."},
-      {section:"ch1", type:"term", q:"Discrete variable", a:"A numerical variable limited to certain, usually whole-number, values (e.g. loan term)."},
-      {section:"ch1", type:"term", q:"Nominal variable", a:"A categorical variable with no natural order among its levels (e.g. state)."},
-      {section:"ch1", type:"term", q:"Ordinal variable", a:"A categorical variable whose levels have a natural order (e.g. letter grade)."},
+      {section:"1.1", type:"term", q:"Statistics", a:"The investigative process: identify a statistical question, collect data, analyze it, and form a conclusion."},
+      {section:"1.1", type:"term", q:"Statistical question", a:"A question that can actually be answered by collecting and analyzing data."},
+      {section:"1.1", type:"term", q:"Population", a:"The entire group (size N) that a research question is about."},
+      {section:"1.1", type:"term", q:"Sample", a:"The subset (size n) of the population on which data is actually collected."},
+      {section:"1.1", type:"term", q:"Statistical study", a:"Using a sample to answer a question about a larger population."},
+      {section:"1.1", type:"term", q:"Observational unit (case)", a:"A single individual or object from which data is collected."},
+      {section:"1.1", type:"term", q:"Variable", a:"A characteristic measured or recorded for each observational unit that can vary unit to unit."},
+      {section:"1.1", type:"term", q:"Parameter", a:"A fixed numerical summary of the population — almost always unknown in practice."},
+      {section:"1.1", type:"term", q:"Statistic", a:"A numerical summary computed from a sample, used to estimate an unknown parameter."},
+      {section:"1.1", type:"term", q:"Data matrix", a:"The standard way to organize a data set: rows are observational units, columns are variables."},
+      {section:"1.1", type:"term", q:"Numerical (quantitative) variable", a:"A variable whose values support meaningful arithmetic (averages, differences)."},
+      {section:"1.1", type:"term", q:"Categorical variable", a:"A variable whose values are labels or categories, called its levels."},
+      {section:"1.1", type:"term", q:"Continuous variable", a:"A numerical variable that can take any value in a range (e.g. interest rate)."},
+      {section:"1.1", type:"term", q:"Discrete variable", a:"A numerical variable limited to certain, usually whole-number, values (e.g. loan term)."},
+      {section:"1.1", type:"term", q:"Nominal variable", a:"A categorical variable with no natural order among its levels (e.g. state)."},
+      {section:"1.1", type:"term", q:"Ordinal variable", a:"A categorical variable whose levels have a natural order (e.g. letter grade)."},
 
       // 1.2 Representing categorical data
-      {section:"ch1", type:"term", q:"Frequency table", a:"Lists each level of a categorical variable together with its count."},
-      {section:"ch1", type:"term", q:"Relative frequency table", a:"Lists the proportion (or percent) of observations at each level; the values sum to 1."},
-      {section:"ch1", type:"term", q:"Bar chart", a:"Displays a categorical variable with one bar per level; bar height equals frequency."},
-      {section:"ch1", type:"term", q:"Pie chart", a:"A circle divided into slices, where each slice's area equals that level's relative frequency."},
+      {section:"1.2", type:"term", q:"Frequency table", a:"Lists each level of a categorical variable together with its count."},
+      {section:"1.2", type:"term", q:"Relative frequency table", a:"Lists the proportion (or percent) of observations at each level; the values sum to 1."},
+      {section:"1.2", type:"term", q:"Bar chart", a:"Displays a categorical variable with one bar per level; bar height equals frequency."},
+      {section:"1.2", type:"term", q:"Pie chart", a:"A circle divided into slices, where each slice's area equals that level's relative frequency."},
 
       // 1.3 Representing numerical data with graphs
-      {section:"ch1", type:"term", q:"Distribution", a:"The values a variable takes and how often each occurs."},
-      {section:"ch1", type:"term", q:"Stem-and-leaf plot", a:"Splits each value into a stem (leading digits) and a leaf (final digit)."},
-      {section:"ch1", type:"term", q:"Dot plot", a:"Places one dot per observation along a number line, stacking dots for repeated values."},
-      {section:"ch1", type:"term", q:"Outlier", a:"An observation that is unusually far from the rest of the data."},
-      {section:"ch1", type:"term", q:"Histogram", a:"Groups numerical data into equal-width bins and draws a bar whose height is each bin's frequency."},
-      {section:"ch1", type:"term", q:"Skewed distribution", a:"Right skewed has a long right tail; left skewed has a long left tail."},
-      {section:"ch1", type:"term", q:"Modality", a:"A mode is a prominent peak; a distribution is unimodal, bimodal, or multimodal by its peak count."},
-      {section:"ch1", type:"term", q:"Uniform distribution", a:"No prominent peak — roughly the same frequency at every value."},
-      {section:"ch1", type:"term", q:"Descriptive statistics", a:"Describes the data that was actually collected."},
-      {section:"ch1", type:"term", q:"Inferential statistics", a:"Uses a sample to generalize or infer something about the larger population."},
+      {section:"1.3", type:"term", q:"Distribution", a:"The values a variable takes and how often each occurs."},
+      {section:"1.3", type:"term", q:"Stem-and-leaf plot", a:"Splits each value into a stem (leading digits) and a leaf (final digit)."},
+      {section:"1.3", type:"term", q:"Dot plot", a:"Places one dot per observation along a number line, stacking dots for repeated values."},
+      {section:"1.3", type:"term", q:"Outlier", a:"An observation that is unusually far from the rest of the data."},
+      {section:"1.3", type:"term", q:"Histogram", a:"Groups numerical data into equal-width bins and draws a bar whose height is each bin's frequency."},
+      {section:"1.3", type:"term", q:"Skewed distribution", a:"Right skewed has a long right tail; left skewed has a long left tail."},
+      {section:"1.3", type:"term", q:"Modality", a:"A mode is a prominent peak; a distribution is unimodal, bimodal, or multimodal by its peak count."},
+      {section:"1.3", type:"term", q:"Uniform distribution", a:"No prominent peak — roughly the same frequency at every value."},
+      {section:"1.3", type:"term", q:"Descriptive statistics", a:"Describes the data that was actually collected."},
+      {section:"1.3", type:"term", q:"Inferential statistics", a:"Uses a sample to generalize or infer something about the larger population."},
 
       // 1.4 Numerical summaries, box plots, Z-scores
-      {section:"ch1", type:"term", q:"Mean", a:"The balancing point (average) of a distribution, written x̄ for a sample or μ for a population."},
-      {section:"ch1", type:"term", q:"Median", a:"The middle value of ordered data; resistant to outliers and skew."},
-      {section:"ch1", type:"term", q:"Resistant (robust) statistic", a:"A statistic not greatly affected by outliers or skew, e.g. the median or IQR."},
-      {section:"ch1", type:"term", q:"Range", a:"Maximum minus minimum — the simplest measure of spread."},
-      {section:"ch1", type:"term", q:"Deviation", a:"An observation's distance from the mean: xᵢ − x̄."},
-      {section:"ch1", type:"term", q:"Variance", a:"The average of the squared deviations from the mean."},
-      {section:"ch1", type:"term", q:"Standard deviation", a:"The square root of the variance — the “typical” distance of an observation from the mean."},
-      {section:"ch1", type:"term", q:"Quartiles (Q1, Q3)", a:"Q1 (25th percentile) and Q3 (75th percentile) mark the boundaries of the middle 50% of the data."},
-      {section:"ch1", type:"term", q:"Interquartile range (IQR)", a:"Q3 − Q1 — the spread of the middle 50% of the data; resistant to outliers."},
-      {section:"ch1", type:"term", q:"Empirical (68-95-99.7) rule", a:"For bell-shaped data, about 68/95/99.7% of values fall within 1/2/3 standard deviations of the mean."},
-      {section:"ch1", type:"term", q:"Linear transformation", a:"Rescaling every value as x′ = a + bx for constants a, b."},
-      {section:"ch1", type:"term", q:"Five-number summary", a:"Minimum, Q1, median, Q3, maximum."},
-      {section:"ch1", type:"term", q:"Box plot", a:"Plots a data set's five-number summary, marking unusual observations individually."},
-      {section:"ch1", type:"term", q:"Whiskers", a:"Lines from the box out to the most extreme data point that is not an outlier."},
-      {section:"ch1", type:"term", q:"Back-to-back stem-and-leaf plot", a:"Shares one column of stems; one group's leaves extend left, the other's extend right."},
-      {section:"ch1", type:"term", q:"Parallel box plots", a:"Side-by-side box plots used to compare groups' five-number summaries."},
-      {section:"ch1", type:"term", q:"Z-score", a:"The number of standard deviations an observation falls above or below the mean."},
-      {section:"ch1", type:"term", q:"Standard units", a:"Another name for Z-scores, since they carry no units."},
+      {section:"1.4", type:"term", q:"Mean", a:"The balancing point (average) of a distribution, written x̄ for a sample or μ for a population."},
+      {section:"1.4", type:"term", q:"Median", a:"The middle value of ordered data; resistant to outliers and skew."},
+      {section:"1.4", type:"term", q:"Resistant (robust) statistic", a:"A statistic not greatly affected by outliers or skew, e.g. the median or IQR."},
+      {section:"1.4", type:"term", q:"Range", a:"Maximum minus minimum — the simplest measure of spread."},
+      {section:"1.4", type:"term", q:"Deviation", a:"An observation's distance from the mean: xᵢ − x̄."},
+      {section:"1.4", type:"term", q:"Variance", a:"The average of the squared deviations from the mean."},
+      {section:"1.4", type:"term", q:"Standard deviation", a:"The square root of the variance — the “typical” distance of an observation from the mean."},
+      {section:"1.4", type:"term", q:"Quartiles (Q1, Q3)", a:"Q1 (25th percentile) and Q3 (75th percentile) mark the boundaries of the middle 50% of the data."},
+      {section:"1.4", type:"term", q:"Interquartile range (IQR)", a:"Q3 − Q1 — the spread of the middle 50% of the data; resistant to outliers."},
+      {section:"1.4", type:"term", q:"Empirical (68-95-99.7) rule", a:"For bell-shaped data, about 68/95/99.7% of values fall within 1/2/3 standard deviations of the mean."},
+      {section:"1.4", type:"term", q:"Linear transformation", a:"Rescaling every value as x′ = a + bx for constants a, b."},
+      {section:"1.4", type:"term", q:"Five-number summary", a:"Minimum, Q1, median, Q3, maximum."},
+      {section:"1.4", type:"term", q:"Box plot", a:"Plots a data set's five-number summary, marking unusual observations individually."},
+      {section:"1.4", type:"term", q:"Whiskers", a:"Lines from the box out to the most extreme data point that is not an outlier."},
+      {section:"1.4", type:"term", q:"Back-to-back stem-and-leaf plot", a:"Shares one column of stems; one group's leaves extend left, the other's extend right."},
+      {section:"1.4", type:"term", q:"Parallel box plots", a:"Side-by-side box plots used to compare groups' five-number summaries."},
+      {section:"1.4", type:"term", q:"Z-score", a:"The number of standard deviations an observation falls above or below the mean."},
+      {section:"1.4", type:"term", q:"Standard units", a:"Another name for Z-scores, since they carry no units."},
 
       // 1.5 Data collection principles
-      {section:"ch1", type:"term", q:"Causal conclusion", a:"A conclusion about the effect of a treatment — requires an experiment."},
-      {section:"ch1", type:"term", q:"Generalization", a:"Inferring from a sample to a larger population — requires random sampling."},
-      {section:"ch1", type:"term", q:"Experiment", a:"Imposes a treatment on units to investigate a causal connection."},
-      {section:"ch1", type:"term", q:"Observational study", a:"Collects data without imposing a treatment or otherwise interfering."},
-      {section:"ch1", type:"term", q:"Census", a:"Recording data from every individual in the population."},
-      {section:"ch1", type:"term", q:"Anecdotal evidence", a:"Data collected haphazardly, often from just one or two memorable cases."},
-      {section:"ch1", type:"term", q:"Explanatory variable", a:"The variable suspected to cause a change in another variable."},
-      {section:"ch1", type:"term", q:"Response variable", a:"The variable suspected to be affected by the explanatory variable."},
-      {section:"ch1", type:"term", q:"Experimental units", a:"The subjects or objects a treatment is imposed on."},
-      {section:"ch1", type:"term", q:"Randomized experiment", a:"An experiment in which units are randomly assigned to a treatment."},
-      {section:"ch1", type:"term", q:"Factor and level", a:"A factor is an explanatory variable in an experiment; a level is one of its possible values."},
-      {section:"ch1", type:"term", q:"Treatment", a:"One combination of factor levels (one chosen from each factor) applied to a unit."},
-      {section:"ch1", type:"term", q:"Cohort", a:"A group of individuals followed over time in an observational study."},
-      {section:"ch1", type:"term", q:"Prospective vs. retrospective study", a:"Prospective collects data as events unfold going forward; retrospective uses records of events that already happened."},
-      {section:"ch1", type:"term", q:"Confounding variable", a:"Associated with both the explanatory and response variables — may be the true explanation for an observed association."},
+      {section:"1.5", type:"term", q:"Causal conclusion", a:"A conclusion about the effect of a treatment — requires an experiment."},
+      {section:"1.5", type:"term", q:"Generalization", a:"Inferring from a sample to a larger population — requires random sampling."},
+      {section:"1.5", type:"term", q:"Experiment", a:"Imposes a treatment on units to investigate a causal connection."},
+      {section:"1.5", type:"term", q:"Observational study", a:"Collects data without imposing a treatment or otherwise interfering."},
+      {section:"1.5", type:"term", q:"Census", a:"Recording data from every individual in the population."},
+      {section:"1.5", type:"term", q:"Anecdotal evidence", a:"Data collected haphazardly, often from just one or two memorable cases."},
+      {section:"1.5", type:"term", q:"Explanatory variable", a:"The variable suspected to cause a change in another variable."},
+      {section:"1.5", type:"term", q:"Response variable", a:"The variable suspected to be affected by the explanatory variable."},
+      {section:"1.5", type:"term", q:"Experimental units", a:"The subjects or objects a treatment is imposed on."},
+      {section:"1.5", type:"term", q:"Randomized experiment", a:"An experiment in which units are randomly assigned to a treatment."},
+      {section:"1.5", type:"term", q:"Factor and level", a:"A factor is an explanatory variable in an experiment; a level is one of its possible values."},
+      {section:"1.5", type:"term", q:"Treatment", a:"One combination of factor levels (one chosen from each factor) applied to a unit."},
+      {section:"1.5", type:"term", q:"Cohort", a:"A group of individuals followed over time in an observational study."},
+      {section:"1.5", type:"term", q:"Prospective vs. retrospective study", a:"Prospective collects data as events unfold going forward; retrospective uses records of events that already happened."},
+      {section:"1.5", type:"term", q:"Confounding variable", a:"Associated with both the explanatory and response variables — may be the true explanation for an observed association."},
 
       // 1.6 Sampling methods and bias
-      {section:"ch1", type:"term", q:"Bias (sampling)", a:"A systematic error that makes a statistic consistently larger or smaller than the parameter it estimates."},
-      {section:"ch1", type:"term", q:"Undercoverage bias", a:"Some individuals in the population are inherently less likely to be included in the sample."},
-      {section:"ch1", type:"term", q:"Convenience sample", a:"Selects whichever individuals are easiest to access."},
-      {section:"ch1", type:"term", q:"Voluntary response bias", a:"Arises when individuals choose for themselves whether to respond."},
-      {section:"ch1", type:"term", q:"Non-response bias", a:"Arises when only some of a randomly selected sample actually responds."},
-      {section:"ch1", type:"term", q:"Response bias", a:"Anything that influences how a person answers — wording, order, interviewer effects."},
-      {section:"ch1", type:"term", q:"Simple random sample (SRS)", a:"Every individual, and every group of n individuals, has an equal chance of being selected."},
-      {section:"ch1", type:"term", q:"Systematic sampling", a:"Pick one random starting point, then select every kth individual from an ordered list."},
-      {section:"ch1", type:"term", q:"Stratified sampling", a:"Divide the population into homogeneous strata, then take an SRS within each."},
-      {section:"ch1", type:"term", q:"Cluster sampling", a:"Divide the population into heterogeneous clusters, then randomly select a few whole clusters."},
+      {section:"1.6", type:"term", q:"Bias (sampling)", a:"A systematic error that makes a statistic consistently larger or smaller than the parameter it estimates."},
+      {section:"1.6", type:"term", q:"Undercoverage bias", a:"Some individuals in the population are inherently less likely to be included in the sample."},
+      {section:"1.6", type:"term", q:"Convenience sample", a:"Selects whichever individuals are easiest to access."},
+      {section:"1.6", type:"term", q:"Voluntary response bias", a:"Arises when individuals choose for themselves whether to respond."},
+      {section:"1.6", type:"term", q:"Non-response bias", a:"Arises when only some of a randomly selected sample actually responds."},
+      {section:"1.6", type:"term", q:"Response bias", a:"Anything that influences how a person answers — wording, order, interviewer effects."},
+      {section:"1.6", type:"term", q:"Simple random sample (SRS)", a:"Every individual, and every group of n individuals, has an equal chance of being selected."},
+      {section:"1.6", type:"term", q:"Systematic sampling", a:"Pick one random starting point, then select every kth individual from an ordered list."},
+      {section:"1.6", type:"term", q:"Stratified sampling", a:"Divide the population into homogeneous strata, then take an SRS within each."},
+      {section:"1.6", type:"term", q:"Cluster sampling", a:"Divide the population into heterogeneous clusters, then randomly select a few whole clusters."},
 
       // 1.7 Experiment design
-      {section:"ch1", type:"term", q:"Treatment group / control group", a:"The group receiving the treatment under study, vs. the baseline group (no treatment or a placebo)."},
-      {section:"ch1", type:"term", q:"Statistically significant", a:"A result unlikely to be due to chance alone."},
-      {section:"ch1", type:"term", q:"Random assignment", a:"Randomly assigning subjects to treatment groups — supports a causal conclusion by reducing confounding."},
-      {section:"ch1", type:"term", q:"Blind (single-blind) study", a:"Subjects don't know which treatment they're receiving."},
-      {section:"ch1", type:"term", q:"Placebo / placebo effect", a:"A placebo is a fake treatment for the control group; the placebo effect is a real improvement from just believing you were treated."},
-      {section:"ch1", type:"term", q:"Double-blind study", a:"Neither the subjects nor the researchers who interact with them know who received which treatment."},
-      {section:"ch1", type:"term", q:"Extraneous variable", a:"Any variable other than the treatment that could affect the response."},
-      {section:"ch1", type:"term", q:"Replication", a:"Assigning multiple subjects to each treatment, so a chance imbalance is unlikely to dominate one group."},
-      {section:"ch1", type:"term", q:"Direct control", a:"Holding an extraneous variable fixed across every subject."},
-      {section:"ch1", type:"term", q:"Completely randomized experiment", a:"Subjects are assigned to treatment groups purely by a random number generator."},
-      {section:"ch1", type:"term", q:"Blocking", a:"Grouping subjects into blocks based on a variable, then randomizing within each block."},
-      {section:"ch1", type:"term", q:"Matched pairs design", a:"A special case of blocking with blocks of size two."},
+      {section:"1.7", type:"term", q:"Treatment group / control group", a:"The group receiving the treatment under study, vs. the baseline group (no treatment or a placebo)."},
+      {section:"1.7", type:"term", q:"Statistically significant", a:"A result unlikely to be due to chance alone."},
+      {section:"1.7", type:"term", q:"Random assignment", a:"Randomly assigning subjects to treatment groups — supports a causal conclusion by reducing confounding."},
+      {section:"1.7", type:"term", q:"Blind (single-blind) study", a:"Subjects don't know which treatment they're receiving."},
+      {section:"1.7", type:"term", q:"Placebo / placebo effect", a:"A placebo is a fake treatment for the control group; the placebo effect is a real improvement from just believing you were treated."},
+      {section:"1.7", type:"term", q:"Double-blind study", a:"Neither the subjects nor the researchers who interact with them know who received which treatment."},
+      {section:"1.7", type:"term", q:"Extraneous variable", a:"Any variable other than the treatment that could affect the response."},
+      {section:"1.7", type:"term", q:"Replication", a:"Assigning multiple subjects to each treatment, so a chance imbalance is unlikely to dominate one group."},
+      {section:"1.7", type:"term", q:"Direct control", a:"Holding an extraneous variable fixed across every subject."},
+      {section:"1.7", type:"term", q:"Completely randomized experiment", a:"Subjects are assigned to treatment groups purely by a random number generator."},
+      {section:"1.7", type:"term", q:"Blocking", a:"Grouping subjects into blocks based on a variable, then randomizing within each block."},
+      {section:"1.7", type:"term", q:"Matched pairs design", a:"A special case of blocking with blocks of size two."},
 
-      // Quick-compute / sharp-knowledge drills
-      {section:"ch1", type:"apply", q:"Find the mean of 2, 4, 6, 8, 10.", a:"x̄ = 30 / 5 = 6"},
-      {section:"ch1", type:"apply", q:"Data: 10, 12, 14. Find the sample standard deviation s.", a:"x̄ = 12; deviations −2, 0, 2 → squared 4, 0, 4, sum 8; s² = 8/(3−1) = 4, so s = 2"},
-      {section:"ch1", type:"apply", q:"μ = 50, σ = 5. Find the Z-score of x = 60.", a:"Z = (60 − 50)/5 = 2"},
-      {section:"ch1", type:"apply", q:"μ = 80, σ = 4, and Z = −1.5. Find x.", a:"x = μ + Zσ = 80 + (−1.5)(4) = 74"},
-      {section:"ch1", type:"apply", q:"Ordered data (n = 7): 2, 4, 5, 7, 9, 10, 12. Find the median.", a:"median = 7 (the 4th value)"},
-      {section:"ch1", type:"apply", q:"Same data — lower half {2, 4, 5}, upper half {9, 10, 12}. Find Q1 and Q3.", a:"Q1 = 4 (median of the lower half); Q3 = 10 (median of the upper half)"},
-      {section:"ch1", type:"apply", q:"Q1 = 4, Q3 = 10. Find the IQR and the high-end outlier boundary (Q3 + 1.5·IQR).", a:"IQR = 10 − 4 = 6; boundary = 10 + 1.5(6) = 19"},
-      {section:"ch1", type:"apply", q:"Test scores: mean 75, SD 8. About what percent fall between 59 and 91? (empirical rule)", a:"59 and 91 are each exactly 2 SD from 75, so about 95%"},
-      {section:"ch1", type:"apply", q:"Temps in °C: mean 20, SD 4. Convert to °F via x′ = 32 + 1.8x. Find the new mean and SD.", a:"mean′ = 32 + 1.8(20) = 68°F; SD′ = 1.8(4) = 7.2°F — shifting never changes spread, only scaling does"},
-      {section:"ch1", type:"apply", q:"Neither the subjects nor the researchers measuring them know who got the real treatment. Name this design.", a:"A double-blind study"},
-      {section:"ch1", type:"apply", q:"A population is split into groups that each resemble the whole population, then a few whole groups are randomly chosen and fully sampled. Name this method.", a:"Cluster sampling"},
-      {section:"ch1", type:"apply", q:"A population is split into internally similar groups, and an SRS is drawn from each group. Name this method.", a:"Stratified sampling"},
-      {section:"ch1", type:"apply", q:"Ice cream sales and shark attacks rise together, but both are really driven by hot weather. What is hot weather called here, statistically speaking?", a:"A confounding variable"},
+      // Quick-compute / sharp-knowledge drills (1.4, 1.5, 1.6, 1.7)
+      {section:"1.4", type:"apply", q:"Find the mean of 2, 4, 6, 8, 10.", a:"x̄ = 30 / 5 = 6"},
+      {section:"1.4", type:"apply", q:"Data: 10, 12, 14. Find the sample standard deviation s.", a:"x̄ = 12; deviations −2, 0, 2 → squared 4, 0, 4, sum 8; s² = 8/(3−1) = 4, so s = 2"},
+      {section:"1.4", type:"apply", q:"μ = 50, σ = 5. Find the Z-score of x = 60.", a:"Z = (60 − 50)/5 = 2"},
+      {section:"1.4", type:"apply", q:"μ = 80, σ = 4, and Z = −1.5. Find x.", a:"x = μ + Zσ = 80 + (−1.5)(4) = 74"},
+      {section:"1.4", type:"apply", q:"Ordered data (n = 7): 2, 4, 5, 7, 9, 10, 12. Find the median.", a:"median = 7 (the 4th value)"},
+      {section:"1.4", type:"apply", q:"Same data — lower half {2, 4, 5}, upper half {9, 10, 12}. Find Q1 and Q3.", a:"Q1 = 4 (median of the lower half); Q3 = 10 (median of the upper half)"},
+      {section:"1.4", type:"apply", q:"Q1 = 4, Q3 = 10. Find the IQR and the high-end outlier boundary (Q3 + 1.5·IQR).", a:"IQR = 10 − 4 = 6; boundary = 10 + 1.5(6) = 19"},
+      {section:"1.4", type:"apply", q:"Test scores: mean 75, SD 8. About what percent fall between 59 and 91? (empirical rule)", a:"59 and 91 are each exactly 2 SD from 75, so about 95%"},
+      {section:"1.4", type:"apply", q:"Temps in °C: mean 20, SD 4. Convert to °F via x′ = 32 + 1.8x. Find the new mean and SD.", a:"mean′ = 32 + 1.8(20) = 68°F; SD′ = 1.8(4) = 7.2°F — shifting never changes spread, only scaling does"},
+      {section:"1.5", type:"apply", q:"Ice cream sales and shark attacks rise together, but both are really driven by hot weather. What is hot weather called here, statistically speaking?", a:"A confounding variable"},
+      {section:"1.6", type:"apply", q:"A population is split into groups that each resemble the whole population, then a few whole groups are randomly chosen and fully sampled. Name this method.", a:"Cluster sampling"},
+      {section:"1.6", type:"apply", q:"A population is split into internally similar groups, and an SRS is drawn from each group. Name this method.", a:"Stratified sampling"},
+      {section:"1.7", type:"apply", q:"Neither the subjects nor the researchers measuring them know who got the real treatment. Name this design.", a:"A double-blind study"},
 
       // 2.1 Relationships between two categorical variables: two-way tables,
       // graphical representations, conditional relative frequencies
@@ -303,7 +312,48 @@
 
       {section:"2.4", type:"apply", q:"X takes values 1, 2 with P(1) = 0.3 and P(2) = 0.7. Find E(X).", a:"1(0.3) + 2(0.7) = 0.3 + 1.4 = 1.7"},
       {section:"2.4", type:"apply", q:"X takes values 2, 4 with P(2) = 0.5 and P(4) = 0.5. Find Var(X) and SD(X).", a:"μX = 3; deviations −1, 1 → squared 1, 1; Var(X) = 1(0.5) + 1(0.5) = 1; SD(X) = √1 = 1"},
-      {section:"2.4", type:"apply", q:"A discrete random variable's three values have probabilities 0.1, 0.4, 0.5. Is this a valid probability distribution?", a:"0.1 + 0.4 + 0.5 = 1, so yes — the probabilities sum to 1"}
+      {section:"2.4", type:"apply", q:"A discrete random variable's three values have probabilities 0.1, 0.4, 0.5. Is this a valid probability distribution?", a:"0.1 + 0.4 + 0.5 = 1, so yes — the probabilities sum to 1"},
+
+      // 2.5 Binomial distributions: binary variables, the binomial formula,
+      // BINS conditions, mean/SD shortcut, interval probabilities, technology
+      {section:"2.5", type:"term", q:"Binary (Bernoulli) variable", a:"A trial with exactly two outcomes, success and failure; labeling of “success” is arbitrary but must stay consistent."},
+      {section:"2.5", type:"term", q:"Sample proportion (p̂)", a:"p̂ = (# of successes) / (# of trials) — just the sample mean of the 0/1-coded values."},
+      {section:"2.5", type:"term", q:"Binomial coefficient", a:"C(n,x) = n! / (x!(n−x)!), read “n choose x” — counts the number of arrangements of x successes among n trials."},
+      {section:"2.5", type:"term", q:"Binomial formula", a:"P(X=x) = C(n,x)·pˣ·(1−p)ⁿ⁻ˣ — [# of arrangements] × [probability of one arrangement]."},
+      {section:"2.5", type:"term", q:"BINS conditions", a:"Binary outcomes, Independent trials, fixed Number of trials n, Same probability p each trial — all four must hold to use the binomial model."},
+      {section:"2.5", type:"term", q:"10% condition", a:"Sampling without replacement technically breaks independence, but BINS still applies reasonably well as long as the sample is less than 10% of the population."},
+      {section:"2.5", type:"term", q:"Binomial distribution", a:"The entire set of probabilities for every possible count of successes, x = 0, 1, …, n — not just one value of x."},
+      {section:"2.5", type:"term", q:"Mean of a binomial distribution", a:"μX = np."},
+      {section:"2.5", type:"term", q:"Standard deviation of a binomial distribution", a:"σX = √(np(1−p))."},
+      {section:"2.5", type:"term", q:"Binomial interval probability", a:"P(a ≤ X ≤ b) = sum of the individual binomial probabilities from x = a to x = b (disjoint events ⟹ Addition Rule)."},
+
+      {section:"2.5", type:"apply", q:"n = 4 trials, p = 0.5. Find P(X = 2).", a:"C(4,2)(0.5)²(0.5)² = 6(0.25)(0.25) = 0.375"},
+      {section:"2.5", type:"apply", q:"n = 10, p = 0.5, trials independent. Find μX.", a:"BINS holds; μX = np = 10(0.5) = 5"},
+      {section:"2.5", type:"apply", q:"n = 25, p = 0.2. Find σX.", a:"σX = √(25·0.2·0.8) = √4 = 2"},
+      {section:"2.5", type:"apply", q:"Given P(X=0) = 0.0156 and P(X=1) = 0.0938, find P(X ≤ 1).", a:"0.0156 + 0.0938 = 0.1094 (sum over the interval)"},
+
+      // 2.6 Normal distributions: the normal model, approximating empirical
+      // distributions, probability examples, technology, 68-95-99.7 rule
+      {section:"2.6", type:"term", q:"Normal (Gaussian) distribution", a:"The symmetric, unimodal, bell-shaped model ubiquitous in statistics; fully described by its mean μ and standard deviation σ."},
+      {section:"2.6", type:"term", q:"Standard normal distribution", a:"The normal model with μ = 0, σ = 1."},
+      {section:"2.6", type:"term", q:"Normal approximation (3 steps)", a:"(1) Verify the distribution is reasonably normal. (2) Convert the value(s) of interest to Z-scores. (3) Find the corresponding area under the standard normal curve."},
+      {section:"2.6", type:"term", q:"Percentile", a:"The proportion of a distribution at or below a given value, P(X ≤ x) — the shaded left-tail area."},
+      {section:"2.6", type:"term", q:"Boundary value (inverse normal)", a:"Solving the Z-score formula for x: x = μ + Zσ — used to work backward from a percentile to a value."},
+
+      {section:"2.6", type:"apply", q:"X ~ N(μ=100, σ=15). Find the Z-score for x = 130.", a:"Z = (130 − 100)/15 = 2"},
+      {section:"2.6", type:"apply", q:"X ~ N(μ=50, σ=10) and Z = −1. Find x.", a:"x = μ + Zσ = 50 + (−1)(10) = 40"},
+      {section:"2.6", type:"apply", q:"SAT ~ N(1100, 200). Using the empirical rule, about what percent of scores fall between 900 and 1300?", a:"900 and 1300 are each exactly 1 SD from 1100, so about 68%"},
+      {section:"2.6", type:"apply", q:"ACT ~ N(21, 6): student scores 27. SAT ~ N(1100, 200): student scores 1300. Who did relatively better?", a:"Z_ACT = (27−21)/6 = 1; Z_SAT = (1300−1100)/200 = 1 — tied, same Z-score"},
+
+      // 2.7 Sampling distributions and the Central Limit Theorem: sampling
+      // distributions via simulation, randomization distributions, the CLT
+      {section:"2.7", type:"term", q:"Sampling distribution", a:"The distribution of a sample statistic's values across all possible random samples of a fixed size from a population."},
+      {section:"2.7", type:"term", q:"Randomization distribution", a:"The distribution of a statistic generated by repeatedly reshuffling (reassigning) observed response values to treatment groups at random, assuming no treatment effect — the experimental analog of a sampling distribution."},
+      {section:"2.7", type:"term", q:"Central Limit Theorem (CLT)", a:"For any population with a fixed mean and SD, the sampling distribution of a sample proportion or sample mean becomes more normal in shape as the sample size n grows."},
+
+      {section:"2.7", type:"apply", q:"A simulated sampling distribution of p̂ (n=1000) is bell-shaped, with the middle 68% spanning [0.87, 0.89]. Estimate σp̂.", a:"Half the width: (0.89 − 0.87)/2 = 0.01"},
+      {section:"2.7", type:"apply", q:"1,000 randomization-distribution simulations (assuming no treatment effect) include only 2 results as extreme as the one observed. Estimate the chance of a result this extreme if there's really no effect.", a:"2/1000 = 0.002, about 0.2%"},
+      {section:"2.7", type:"apply", q:"As the sample size n grows, what happens to the shape of the sampling distribution of x̄, regardless of the population's own shape?", a:"It becomes more approximately Normal — the Central Limit Theorem"}
     ];
 
     // Flashcard deck ---------------------------------------------------------
