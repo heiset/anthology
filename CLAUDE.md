@@ -36,7 +36,18 @@ The nav structure actually in use is a left `site-sidebar` with top-level `<a>` 
 
 `articles/stats-ch1-flashcards.html` no longer has a password gate (removed 2026-11-01 at Trevor's request) — the flashcard app is visible immediately. If a locked page is wanted again in the future, the old pattern was: a `#pwGate` div (visible by default) and a content div with the `hidden` attribute, gated by a small inline script that checks a plaintext password against `localStorage` (key `stats-<name>-unlocked`) and un-hides the content on match — a soft, client-side-only gate (visible in page source), not real security. Shared CSS for the gate and flashcard UI still lives in `styles.css` under `/* Stats Flashcards page */` (the gate rules are just unused now).
 
-Despite its filename, this one page now holds the whole stats deck, not just Chapter 1 — every card in `CARDS` carries a `section` field (`"ch1"`, `"2.2"`, `"2.4"`, …), and a `#fcSectionFilter` button row (alongside the existing `#fcTypeFilter` term/quick-compute row) filters on it; both filters combine via AND in `applyFilters()`. To add the next section (e.g. 2.5): append `{section:"2.5", type:"term"/"apply", q:..., a:...}` entries to `CARDS` (term cards from that section's bolded textbook vocab, a handful of `apply` quick-compute drills with simple numbers to match), and add one more `<button data-section="2.5">2.5 Review</button>` to `#fcSectionFilter`. No new page, no nav change needed.
+Despite its filename, this one page now holds the whole stats deck, through section 2.7 — every card in `CARDS` carries a `section` field, one per book section (`"1.1"`, `"1.2"`, … `"1.7"`, `"2.1"`, … `"2.7"` — never a sub-subsection like `"1.4.2"`, and never tied to a specific class day), and a `#fcSectionFilter` button row (alongside the existing `#fcTypeFilter` term/quick-compute row) filters on it; both filters combine via AND in `applyFilters()`. Both filter rows scroll horizontally (`.fc-filter` in `styles.css`) rather than wrapping, since there are now 14 section buttons plus "All". To add the next section (e.g. 3.1): append `{section:"3.1", type:"term"/"apply", q:..., a:...}` entries to `CARDS` (term cards from that section's bolded textbook vocab, a handful of `apply` quick-compute drills with simple numbers to match), and add one more `<button data-section="3.1">3.1 Review</button>` to `#fcSectionFilter`. No new page, no nav change needed.
+
+### Usage logging
+
+The page logs every visit (session length, which cards were seen, time per
+card, whether each was flipped) and sends it via `navigator.sendBeacon` on
+`pagehide` to a Google Sheet, since a static GitHub Pages site can't write
+to this repo directly from a visitor's browser. The backend (Apps Script
+code, a `pull-logs.sh` to download the Sheet into local CSVs, deployment
+steps) lives in `flashcard-logging/`. The `LOG_ENDPOINT` constant near the
+top of the page's `<script>` block is empty until that backend is deployed
+— logging is a silent no-op until then, so this is safe to leave as-is.
 
 ## How to add a new sub-page to a project
 

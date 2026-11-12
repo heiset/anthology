@@ -356,6 +356,83 @@
       {section:"2.7", type:"apply", q:"As the sample size n grows, what happens to the shape of the sampling distribution of x̄, regardless of the population's own shape?", a:"It becomes more approximately Normal — the Central Limit Theorem"}
     ];
 
+    // Usage logging ------------------------------------------------------------
+    // Sends one beacon when a visitor leaves the page: how long they were on
+    // it, and for each card they saw — which one, how long, whether they
+    // flipped it. The page is static (GitHub Pages), so this can't write to
+    // a local file directly; it POSTs to a small backend you deploy once
+    // (a Google Sheet behind a free Apps Script Web App). See
+    // flashcard-logging/README.md for the ~5 minute setup. Until
+    // LOG_ENDPOINT below is filled in, this quietly does nothing.
+    var LOG_ENDPOINT = "https://script.google.com/macros/s/AKfycbxn8vDJWwAzRHceMrgcYWNzhEI49gDpDOB3h3b_cTrSu9JGd2o_p5fpalsHydtqMvA6/exec";
+
+    var FCLog = (function () {
+      function uid() {
+        try {
+          var v = localStorage.getItem("stats-fc-uid");
+          if (!v) {
+            v = Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
+            localStorage.setItem("stats-fc-uid", v);
+          }
+          return v;
+        } catch (e) {
+          return "anon";
+        }
+      }
+
+      var sessionId = Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
+      var sessionStart = Date.now();
+      var cardLog = [];
+      var currentCard = null;
+      var cardShownAt = null;
+      var flippedThisView = false;
+      var sent = false;
+
+      function cardShown(card) {
+        currentCard = card;
+        cardShownAt = Date.now();
+        flippedThisView = false;
+      }
+
+      function cardFlipped() {
+        flippedThisView = true;
+      }
+
+      function cardLeft() {
+        if (!currentCard || cardShownAt === null) return;
+        cardLog.push({
+          section: currentCard.section,
+          type: currentCard.type,
+          q: currentCard.q,
+          seconds: Math.round((Date.now() - cardShownAt) / 100) / 10,
+          flipped: flippedThisView
+        });
+        currentCard = null;
+        cardShownAt = null;
+      }
+
+      function send() {
+        if (sent || !LOG_ENDPOINT) return;
+        cardLeft();
+        var payload = {
+          sessionId: sessionId,
+          uid: uid(),
+          startedAt: new Date(sessionStart).toISOString(),
+          durationSeconds: Math.round((Date.now() - sessionStart) / 1000),
+          cards: cardLog
+        };
+        try {
+          var blob = new Blob([JSON.stringify(payload)], { type: "text/plain;charset=UTF-8" });
+          navigator.sendBeacon(LOG_ENDPOINT, blob);
+        } catch (e) { /* logging must never break the page */ }
+        sent = true;
+      }
+
+      window.addEventListener("pagehide", send);
+
+      return { cardShown: cardShown, cardFlipped: cardFlipped, cardLeft: cardLeft };
+    })();
+
     // Flashcard deck ---------------------------------------------------------
     function initDeck() {
       var all = CARDS.slice();
@@ -387,6 +464,7 @@
           return;
         }
         var c = deck[idx];
+        FCLog.cardShown(c);
         front.textContent = c.q;
         back.textContent = c.a;
         typeFront.textContent = label(c.type);
@@ -398,11 +476,13 @@
       function flip() {
         if (deck.length === 0) return;
         flipped = !flipped;
+        FCLog.cardFlipped();
         cardEl.classList.toggle("flipped", flipped);
       }
 
       function next() {
         if (deck.length === 0) return;
+        FCLog.cardLeft();
         idx = (idx + 1) % deck.length;
         flipped = false;
         render();
@@ -410,12 +490,14 @@
 
       function prev() {
         if (deck.length === 0) return;
+        FCLog.cardLeft();
         idx = (idx - 1 + deck.length) % deck.length;
         flipped = false;
         render();
       }
 
       function shuffle() {
+        FCLog.cardLeft();
         for (var i = deck.length - 1; i > 0; i--) {
           var j = Math.floor(Math.random() * (i + 1));
           var tmp = deck[i]; deck[i] = deck[j]; deck[j] = tmp;
@@ -426,6 +508,7 @@
       }
 
       function applyFilters() {
+        FCLog.cardLeft();
         deck = all.filter(function (c) {
           var sectionOk = currentSection === "all" || c.section === currentSection;
           var typeOk = currentType === "all" || c.type === currentType;
