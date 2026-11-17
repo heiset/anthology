@@ -21,16 +21,18 @@ my-site-template/
 
 | Project | Folder prefix | Current pages |
 |---|---|---|
-| Algebra | `articles/algebra-*.html` | see nav for full list |
+| Algebra | `articles/algebra-*.html` | see nav for full list — **hidden from nav 2026-11-17, see below** |
 | Latin | external link only | — |
 | My Library | — | `library.html` |
 | Blog | — | `blog.html` |
 | Photography | `articles/photo-*.html` | none yet |
-| Calculus | — | `calculus-warmups.html` (daily warm-ups) |
+| Calculus | — | `calculus-warmups.html` (daily warm-ups) — **hidden from nav 2026-11-17, see below** |
 | GPS Tracks | — | `gps-tracks.html` |
 | Stats | `articles/stats-*.html` | `stats-ch1-flashcards.html` (flashcards, single page, growing section by section — see below; password gate removed 2026-11-01) |
 
 The nav structure actually in use is a left `site-sidebar` with top-level `<a>` links and `sidebar-group`/`sidebar-sub` dropdowns for multi-page projects (Algebra, Calculus) — not the `project-card` layout this doc used to describe. Single-page projects (Library, GPS Tracks, Stats, Contact) are a single top-level `<a>`, no dropdown, no `section-nav` block on the page itself. Body font is Arial (not Times New Roman, despite the note below — verify against `styles.css` `:root`/`body` rules if in doubt, this doc can drift).
+
+**Algebra and Calculus are temporarily hidden (2026-11-17):** their `sidebar-group` blocks are commented out (`<!-- -->`) in the sidebar nav on every single `.html` file at the repo root and in `articles/`, plus their `project-item` cards on `index.html`'s homepage grid — same technique already used for the commented-out Blog nav link. The page files themselves (`algebra-*.html`, `calculus-warmups.html`) are untouched and still live at their URLs, just not linked from anywhere. To restore: uncomment both blocks in all ~20 files (`grep -rl "sidebar-group" --include="*.html" .` finds them) plus the two `project-item` blocks in `index.html`.
 
 ## Password-protected pages
 
